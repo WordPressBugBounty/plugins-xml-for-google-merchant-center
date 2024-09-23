@@ -1,0 +1,1 @@
+# plugins-xml-for-google-merchant-center
