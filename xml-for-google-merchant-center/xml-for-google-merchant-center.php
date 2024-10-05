@@ -1,11 +1,12 @@
 <?php
 /**
  * Plugin Name: XML for Google Merchant Center
+ * Requires Plugins: woocommerce
  * Plugin URI: https://icopydoc.ru/category/documentation/xml-for-google-merchant-center/ 
  * Description: Connect your store to Google Merchant Center and unload products, getting new customers!
- * Version: 3.0.8
+ * Version: 3.0.9
  * Requires at least: 4.5
- * Requires PHP: 7.0.0
+ * Requires PHP: 7.4.0
  * Author: Maxim Glazunov
  * Author URI: https://icopydoc.ru
  * License: GPL v2 or later
@@ -14,7 +15,7 @@
  * Domain Path: /languages
  * Tags: xml, google, Google Merchant Center, export, woocommerce
  * WC requires at least: 3.0.0
- * WC tested up to: 8.3.1
+ * WC tested up to: 9.3.3
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
  * General Public License version 2, as published by the Free Software Foundation. You may NOT assume
@@ -23,17 +24,17 @@
  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
  * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * 
- * Copyright 2018-2023 (Author emails: djdiplomat@yandex.ru, support@icopydoc.ru)
+ * Copyright 2018-2024 (Author emails: djdiplomat@yandex.ru, support@icopydoc.ru)
  */
 defined( 'ABSPATH' ) || exit;
 
 $nr = false;
 // Check php version
-if ( version_compare( phpversion(), '7.0.0', '<' ) ) { // не совпали версии
+if ( version_compare( phpversion(), '7.4.0', '<' ) ) { // не совпали версии
 	add_action( 'admin_notices', function () {
 		warning_notice( 'notice notice-error',
 			sprintf(
-				'<strong style="font-weight: 700;">%1$s</strong> %2$s 7.0.0 %3$s %4$s',
+				'<strong style="font-weight: 700;">%1$s</strong> %2$s 7.4.0 %3$s %4$s',
 				'XML for Google Merchant Center',
 				__( 'plugin requires a php version of at least', 'xml-for-google-merchant-center' ),
 				__( 'You have the version installed', 'xml-for-google-merchant-center' ),
@@ -73,20 +74,20 @@ if ( ! function_exists( 'warning_notice' ) ) {
 	/**
 	 * Display a notice in the admin Plugins page. Usually used in a @hook 'admin_notices'
 	 * 
-	 * @since	0.1.0
+	 * @since 0.1.0
 	 * 
-	 * @param	string			$class (not require)
-	 * @param	string 			$message (not require)
+	 * @param string $class - Optional
+	 * @param string $message - Optional
 	 * 
-	 * @return	string|void
+	 * @return void
 	 */
 	function warning_notice( $class = 'notice', $message = '' ) {
-		printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $message );
+		printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 	}
 }
 
 // Define constants
-define( 'XFGMC_PLUGIN_VERSION', '3.0.8' );
+define( 'XFGMC_PLUGIN_VERSION', '3.0.9' );
 
 $upload_dir = wp_get_upload_dir();
 // http://site.ru/wp-content/uploads

@@ -753,9 +753,12 @@ trait XFGMC_Trait_Variable_Get_Gtin {
 				$gtin_post_meta_id = xfgmc_optionGET( 'xfgmc_gtin_post_meta', $this->get_feed_id(), 'set_arr' );
 				$gtin_post_meta_id = trim( $gtin_post_meta_id );
 
-				if ( get_post_meta( $this->get_product()->get_id(), $gtin_post_meta_id, true ) !== '' ) {
-					$gtin_xml = get_post_meta( $this->get_product()->get_id(), $gtin_post_meta_id, true );
+				if ( get_post_meta( $this->get_offer()->get_id(), $gtin_post_meta_id, true ) !== '' ) {
+					$gtin_xml = get_post_meta( $this->get_offer()->get_id(), $gtin_post_meta_id, true );
 					$result_xml .= "<g:gtin>" . $gtin_xml . "</g:gtin>" . PHP_EOL;
+				} else if ( get_post_meta( $this->get_product()->get_id(), $gtin_post_meta_id, true ) !== '' ) {
+					$gtin_xml = get_post_meta( $this->get_product()->get_id(), $gtin_post_meta_id, true );
+					$result_xml .= "<g:gtin>" . $gtin_xml . "</g:gtin>" . PHP_EOL;					
 				}
 				break;
 			case "germanized":
@@ -814,7 +817,10 @@ trait XFGMC_Trait_Variable_Get_Mpn {
 			case "post_meta":
 				$mpn_post_meta_id = xfgmc_optionGET( 'xfgmc_mpn_post_meta', $this->get_feed_id(), 'set_arr' );
 				$mpn_post_meta_id = trim( $mpn_post_meta_id );
-				if ( get_post_meta( $this->get_product()->get_id(), $mpn_post_meta_id, true ) !== '' ) {
+				if ( get_post_meta( $this->get_offer()->get_id(), $mpn_post_meta_id, true ) !== '' ) {
+					$mpn_xml = get_post_meta( $this->get_offer()->get_id(), $mpn_post_meta_id, true );
+					$result_xml .= "<g:mpn>" . htmlspecialchars( $mpn_xml ) . "</g:mpn>" . PHP_EOL;
+				} else if ( get_post_meta( $this->get_product()->get_id(), $mpn_post_meta_id, true ) !== '' ) {
 					$mpn_xml = get_post_meta( $this->get_product()->get_id(), $mpn_post_meta_id, true );
 					$result_xml .= "<g:mpn>" . htmlspecialchars( $mpn_xml ) . "</g:mpn>" . PHP_EOL;
 				}
@@ -926,7 +932,10 @@ trait XFGMC_Trait_Variable_Get_Brand {
 			} else if ( $brand === 'post_meta' ) {
 				$brand_post_meta_id = xfgmc_optionGET( 'xfgmc_brand_post_meta', $this->get_feed_id(), 'set_arr' );
 				$brand_post_meta_id = trim( $brand_post_meta_id );
-				if ( get_post_meta( $this->get_product()->get_id(), $brand_post_meta_id, true ) !== '' ) {
+				if ( get_post_meta( $this->get_offer()->get_id(), $brand_post_meta_id, true ) !== '' ) {
+					$brand_xml = get_post_meta( $this->get_offer()->get_id(), $brand_post_meta_id, true );
+					$result_xml .= "<g:brand>" . $brand_xml . "</g:brand>" . PHP_EOL;
+				} else if ( get_post_meta( $this->get_product()->get_id(), $brand_post_meta_id, true ) !== '' ) {
 					$brand_xml = get_post_meta( $this->get_product()->get_id(), $brand_post_meta_id, true );
 					$result_xml .= "<g:brand>" . $brand_xml . "</g:brand>" . PHP_EOL;
 				}

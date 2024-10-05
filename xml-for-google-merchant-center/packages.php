@@ -3,7 +3,7 @@ require_once XFGMC_PLUGIN_DIR_PATH . '/common-libs/old-php-add-functions-1-0-0.p
 require_once XFGMC_PLUGIN_DIR_PATH . '/common-libs/icopydoc-useful-functions-1-1-4.php';
 require_once XFGMC_PLUGIN_DIR_PATH . '/common-libs/wc-add-functions-1-0-1.php';
 require_once XFGMC_PLUGIN_DIR_PATH . '/common-libs/class-icpd-feedback-1-0-1.php';
-require_once XFGMC_PLUGIN_DIR_PATH . '/common-libs/class-icpd-promo-1-0-0.php';
+require_once XFGMC_PLUGIN_DIR_PATH . '/common-libs/class-icpd-promo-1-1-0.php';
 require_once XFGMC_PLUGIN_DIR_PATH . '/functions.php'; // Подключаем файл функций
 require_once XFGMC_PLUGIN_DIR_PATH . '/common-libs/backward-compatibility.php';
 
