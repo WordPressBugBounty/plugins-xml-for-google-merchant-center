@@ -1082,12 +1082,12 @@ trait XFGMC_Trait_Simple_Get_Shipping_Xml {
 			}
 			$xfgmc_def_shipping_weight_unit = apply_filters( 'xfgmc_simple_def_shipping_weight_unit_filter', $xfgmc_def_shipping_weight_unit, $this->get_product(), $this->get_feed_id() ); /* с версии 2.4.0 */
 			$weight_xml = round( wc_get_weight( $weight_xml, $xfgmc_def_shipping_weight_unit ), 3 );
-			$result_xml .= "<g:shipping_weight>" . $weight_xml . " " . $xfgmc_def_shipping_weight_unit . "</g:shipping_weight>" . PHP_EOL;
+			$result_xml .= "<g:weight>" . $weight_xml . " " . $xfgmc_def_shipping_weight_unit . "</g:weight>" . PHP_EOL;
 		}
 
 		/*$dimensions = $this->get_product()->get_dimensions();
 								if (!empty($dimensions)) {*/
-		$dimensions = wc_format_dimensions( $this->get_product()->get_dimensions( false ) );
+		$dimensions = wc_format_dimensions(  $this->get_product()->get_dimensions( false ) );
 		if ( $this->get_product()->has_dimensions() ) {
 			$length_xml = $this->get_product()->get_length();
 			if ( ! empty( $length_xml ) ) {
