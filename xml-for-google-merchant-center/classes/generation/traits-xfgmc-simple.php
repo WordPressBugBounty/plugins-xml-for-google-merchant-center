@@ -222,7 +222,7 @@ trait XFGMC_Trait_Simple_Get_Image_Link {
 	public function get_image_link() {
 		// убираем default.png из фида
 		$no_default_png_products = xfgmc_optionGET( 'xfgmc_no_default_png_products', $this->get_feed_id(), 'set_arr' );
-		if ( ( $no_default_png_products === 'on' ) && ( ! has_post_thumbnail( $this->get_product()->get_id() ) ) ) {
+		if ( ( $no_default_png_products === 'on' || $no_default_png_products === 'enabled' ) && ( ! has_post_thumbnail( $this->get_product()->get_id() ) ) ) {
 			$picture_xml = '';
 		} else {
 			$thumb_id = get_post_thumbnail_id( $this->get_product()->get_id() );
@@ -314,7 +314,7 @@ trait XFGMC_Trait_Simple_Get_Availability {
 
 		$result_xml_available = new XFGMC_Get_Paired_Tag( 'g:availability', $available );
 
-		if (($xfgmc_adapt_facebook !== 'yes') && ($available == 'preorder')) {
+		if ( ( $xfgmc_adapt_facebook !== 'yes' ) && ( $available == 'preorder' ) ) {
 			$result_xml_available .= $this->get_availability_date();
 		}
 
@@ -1002,6 +1002,7 @@ trait XFGMC_Trait_Simple_Get_Size_System {
 
 trait XFGMC_Trait_Simple_Get_Shipping_Xml {
 	public function get_shipping_xml() {
+
 		$result_xml = '';
 
 		$xfgmc_default_currency = xfgmc_optionGET( 'xfgmc_default_currency', $this->get_feed_id(), 'set_arr' );
@@ -1086,30 +1087,41 @@ trait XFGMC_Trait_Simple_Get_Shipping_Xml {
 		}
 
 		/*$dimensions = $this->get_product()->get_dimensions();
-								if (!empty($dimensions)) {*/
-		$dimensions = wc_format_dimensions(  $this->get_product()->get_dimensions( false ) );
+												  if (!empty($dimensions)) {*/
+		$dimensions = wc_format_dimensions( $this->get_product()->get_dimensions( false ) );
 		if ( $this->get_product()->has_dimensions() ) {
 			$length_xml = $this->get_product()->get_length();
-			if ( ! empty( $length_xml ) ) {
+			if ( ! empty( $length_xml ) && gettype( $length_xml ) === 'double' ) {
 				$length_xml = round( wc_get_dimension( $length_xml, 'cm' ), 3 );
-				$result_xml .= "<g:shipping_length>" . $length_xml . " cm</g:shipping_length>" . PHP_EOL;
+				$result_xml .= new XFGMC_Get_Paired_Tag(
+					'g:shipping_length',
+					sprintf( '%s cm', $length_xml )
+				);
 			}
 
 			$width_xml = $this->get_product()->get_width();
-			if ( ! empty( $width_xml ) ) {
+			if ( ! empty( $width_xml ) && gettype( $width_xml ) === 'double' ) {
 				$width_xml = round( wc_get_dimension( $width_xml, 'cm' ), 3 );
-				$result_xml .= "<g:shipping_width>" . $width_xml . " cm</g:shipping_width>" . PHP_EOL;
+				$result_xml .= new XFGMC_Get_Paired_Tag(
+					'g:shipping_width',
+					sprintf( '%s cm', $width_xml )
+				);
 			}
 
 			$height_xml = $this->get_product()->get_height();
-			if ( ! empty( $length_xml ) ) {
+			if ( ! empty( $height_xml ) && gettype( $height_xml ) === 'double' ) {
 				$height_xml = round( wc_get_dimension( $height_xml, 'cm' ), 3 );
-				$result_xml .= "<g:shipping_height>" . $height_xml . " cm</g:shipping_height>" . PHP_EOL;
+				$result_xml .= new XFGMC_Get_Paired_Tag(
+					'g:shipping_height',
+					sprintf( '%s cm', $height_xml )
+				);
 			}
 		}
 
 		return $result_xml;
+
 	}
+
 }
 
 trait XFGMC_Trait_Get_Cat_Id {

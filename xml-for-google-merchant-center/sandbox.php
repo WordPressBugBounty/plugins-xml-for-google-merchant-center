@@ -1,16 +1,17 @@
 <?php defined( 'ABSPATH' ) || exit;
 /**
- * Sandbox function
+ * Sandbox function.
  * 
  * @since 0.1.0
- * @version 3.0.9 (05-10-2023)
+ * @version 3.0.11 (28-12-2024)
  *
  * @return void
  */
 function xfgmc_run_sandbox() {
+
 	$x = false; // установите true, чтобы использовать песочницу
 	if ( true === $x ) {
-		printf( '%s<br/>',
+		printf( '%s:<br/>',
 			esc_html__( 'The sandbox is working. The result will appear below', 'xml-for-google-merchant-center' )
 		);
 		$time_start = microtime( true );
@@ -33,4 +34,5 @@ function xfgmc_run_sandbox() {
 			esc_html__( 'The sandbox is not active. To activate, edit the file', 'xml-for-google-merchant-center' )
 		);
 	}
+
 }

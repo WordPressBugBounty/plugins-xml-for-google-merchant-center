@@ -102,7 +102,7 @@ class XFGMC_Get_Unit {
 				if ( true === $r ) {
 					$this->ids_in_xml .= $product->get_id() . ';' . $offer->get_id() . ';' . $offer_variable_obj->get_feed_price() . ';' . $offer_variable_obj->get_feed_category_id() . PHP_EOL; /* с версии 3.1.0 */
 					$one_variable = xfgmc_optionGET( 'xfgmc_one_variable', $this->feed_id, 'set_arr' );
-					if ( $one_variable == 'on' ) {
+					if ( $one_variable == 'on' || $one_variable == 'enabled' ) {
 						break;
 					}
 				}

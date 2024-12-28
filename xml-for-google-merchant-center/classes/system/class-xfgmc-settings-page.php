@@ -6,7 +6,7 @@
  * @subpackage              XML for Google Merchant Center
  * @since                   0.1.0
  * 
- * @version                 3.0.8 (28-11-2023)
+ * @version                 3.0.11 (28-12-2024)
  * @author                  Maxim Glazunov
  * @link                    https://icopydoc.ru/
  * @see                     
@@ -983,8 +983,10 @@ class XFGMC_Settings_Page {
 									<?php _e( 'Remove default.png from XML', 'xml-for-google-merchant-center' ); ?>
 								</label></th>
 							<td class="overalldesc">
-								<input type="checkbox" name="xfgmc_no_default_png_products" id="xfgmc_no_default_png_products"
-									<?php checked( $xfgmc_no_default_png_products, 'on' ); ?> />
+								<select name="xfgmc_no_default_png_products" id="xfgmc_no_default_png_products">
+									<option value="disabled" <?php selected( $xfgmc_no_default_png_products, 'disabled' ); ?>><?php _e( 'Disabled', 'xml-for-google-merchant-center' ); ?></option>
+									<option value="enabled" <?php selected( $xfgmc_no_default_png_products, 'enabled' ); ?>><?php _e( 'Enabled', 'xml-for-google-merchant-center' ); ?></option>
+								</select>
 							</td>
 						</tr>
 						<tr>
@@ -992,7 +994,10 @@ class XFGMC_Settings_Page {
 									<?php _e( 'Upload only the first variation', 'xml-for-google-merchant-center' ); ?>
 								</label></th>
 							<td class="overalldesc">
-								<input type="checkbox" name="xfgmc_one_variable" id="xfgmc_one_variable" <?php checked( $xfgmc_one_variable, 'on' ); ?> />
+								<select name="xfgmc_one_variable" id="xfgmc_one_variable">
+									<option value="disabled" <?php selected( $xfgmc_one_variable, 'disabled' ); ?>><?php _e( 'Disabled', 'xml-for-google-merchant-center' ); ?></option>
+									<option value="enabled" <?php selected( $xfgmc_one_variable, 'enabled' ); ?>><?php _e( 'Enabled', 'xml-for-google-merchant-center' ); ?></option>
+								</select>
 							</td>
 						</tr>
 

@@ -251,15 +251,15 @@ trait XFGMC_Trait_Variable_Get_Link {
 	public function get_link() {
 
 		$result_url = htmlspecialchars( get_permalink( $this->get_offer()->get_id() ) );
-		$result_url = apply_filters( 
-			'xfgmc_url_filter_var', 
-			$result_url, 
+		$result_url = apply_filters(
+			'xfgmc_url_filter_var',
+			$result_url,
 			$this->get_product(),
-			$this->get_offer(), 
-			$this->get_cat_id(), 
-			$this->get_feed_id() 
+			$this->get_offer(),
+			$this->get_cat_id(),
+			$this->get_feed_id()
 		);
-		$result_url = urldecode($result_url); // ? насколько это избавляет от двойного кодирования 
+		$result_url = urldecode( $result_url ); // ? насколько это избавляет от двойного кодирования 
 		// ? @see https://wordpress.org/support/topic/работает-отлично-после-небольшой-дор/
 		$result_xml_url = new XFGMC_Get_Paired_Tag( 'g:link', $result_url );
 
@@ -272,7 +272,7 @@ trait XFGMC_Trait_Variable_Get_Image_Link {
 		$thumb_xml = get_the_post_thumbnail_url( $this->get_offer()->get_id(), 'full' );
 		if ( empty( $thumb_xml ) ) {
 			$no_default_png_products = xfgmc_optionGET( 'xfgmc_no_default_png_products', $this->get_feed_id(), 'set_arr' );
-			if ( ( $no_default_png_products === 'on' ) && ( ! has_post_thumbnail( $this->get_product()->get_id() ) ) ) {
+			if ( ( $no_default_png_products === 'on' || $no_default_png_products === 'enabled') && ( ! has_post_thumbnail( $this->get_product()->get_id() ) ) ) {
 				$picture_xml = '';
 			} else {
 				$thumb_id = get_post_thumbnail_id( $this->get_product()->get_id() );
@@ -372,10 +372,10 @@ trait XFGMC_Trait_Variable_Get_Availability {
 
 		$result_xml_available = new XFGMC_Get_Paired_Tag( 'g:availability', $available );
 
-		if (($xfgmc_adapt_facebook !== 'yes') && ($available == 'preorder')) {
+		if ( ( $xfgmc_adapt_facebook !== 'yes' ) && ( $available == 'preorder' ) ) {
 			$result_xml_available .= $this->get_availability_date();
 		}
-		
+
 		return $result_xml_available;
 	}
 }
@@ -758,7 +758,7 @@ trait XFGMC_Trait_Variable_Get_Gtin {
 					$result_xml .= "<g:gtin>" . $gtin_xml . "</g:gtin>" . PHP_EOL;
 				} else if ( get_post_meta( $this->get_product()->get_id(), $gtin_post_meta_id, true ) !== '' ) {
 					$gtin_xml = get_post_meta( $this->get_product()->get_id(), $gtin_post_meta_id, true );
-					$result_xml .= "<g:gtin>" . $gtin_xml . "</g:gtin>" . PHP_EOL;					
+					$result_xml .= "<g:gtin>" . $gtin_xml . "</g:gtin>" . PHP_EOL;
 				}
 				break;
 			case "germanized":
@@ -1178,6 +1178,7 @@ trait XFGMC_Trait_Variable_Get_Size_System {
 
 trait XFGMC_Trait_Variable_Get_Shipping_Xml {
 	public function get_shipping_xml() {
+
 		$result_xml = '';
 
 		$xfgmc_default_currency = xfgmc_optionGET( 'xfgmc_default_currency', $this->get_feed_id(), 'set_arr' );
@@ -1262,24 +1263,35 @@ trait XFGMC_Trait_Variable_Get_Shipping_Xml {
 
 		if ( $this->get_offer()->has_dimensions() ) {
 			$length_xml = $this->get_offer()->get_length();
-			if ( ! empty( $length_xml ) ) {
+			if ( ! empty( $length_xml ) && gettype( $length_xml ) === 'double' ) {
 				$length_xml = round( wc_get_dimension( $length_xml, 'cm' ), 3 );
-				$result_xml .= "<g:shipping_length>" . $length_xml . " cm</g:shipping_length>" . PHP_EOL;
+				$result_xml .= new XFGMC_Get_Paired_Tag(
+					'g:shipping_length',
+					sprintf( '%s cm', $length_xml )
+				);
 			}
 
 			$width_xml = $this->get_offer()->get_width();
-			if ( ! empty( $width_xml ) ) {
+			if ( ! empty( $width_xml ) && gettype( $width_xml ) === 'double' ) {
 				$width_xml = round( wc_get_dimension( $width_xml, 'cm' ), 3 );
-				$result_xml .= "<g:shipping_width>" . $width_xml . " cm</g:shipping_width>" . PHP_EOL;
+				$result_xml .= new XFGMC_Get_Paired_Tag(
+					'g:shipping_width',
+					sprintf( '%s cm', $width_xml )
+				);
 			}
 
 			$height_xml = $this->get_offer()->get_height();
-			if ( ! empty( $length_xml ) ) {
+			if ( ! empty( $height_xml ) && gettype( $height_xml ) === 'double' ) {
 				$height_xml = round( wc_get_dimension( $height_xml, 'cm' ), 3 );
-				$result_xml .= "<g:shipping_height>" . $height_xml . " cm</g:shipping_height>" . PHP_EOL;
+				$result_xml .= new XFGMC_Get_Paired_Tag(
+					'g:shipping_height',
+					sprintf( '%s cm', $height_xml )
+				);
 			}
 		}
 
 		return $result_xml;
+
 	}
+
 }
