@@ -4,7 +4,7 @@ Donate link: https://pay.cloudtips.ru/p/45d8ff3f
 Tags: xml, google, Google Merchant Center, export, woocommerce
 Requires at least: 4.5
 Tested up to: 6.7.1
-Stable tag: 3.0.11
+Stable tag: 3.0.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,11 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 1. screenshot-2.png
 
 == Changelog ==
+
+= 3.0.12 =
+*Release Date 21-01-2024*
+
+* Fixed bugs.
 
 = 3.0.11 =
 * Fixed bugs
@@ -356,5 +361,7 @@ What's new:
 
 == Upgrade Notice ==
 
-= 3.0.11 =
-* Fixed bugs
+= 3.0.12 =
+*Release Date 21-01-2024*
+
+* Fixed bugs.

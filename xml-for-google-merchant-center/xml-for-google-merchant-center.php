@@ -17,7 +17,7 @@
  * Requires Plugins:        woocommerce
  * Plugin URI:              https://icopydoc.ru/category/documentation/xml-for-google-merchant-center/ 
  * Description:             Connect your store to Google Merchant Center and unload products, getting new customers
- * Version:                 3.0.11
+ * Version:                 3.0.12
  * Requires at least:       4.5
  * Requires PHP:            7.4.0
  * Author:                  Maxim Glazunov
@@ -28,7 +28,7 @@
  * Domain Path:             /languages
  * Tags:                    xml, google, Google Merchant Center, export, woocommerce
  * WC requires at least:    3.0.0
- * WC tested up to:         9.5.1
+ * WC tested up to:         9.6.0
  */
 
 // If this file is called directly, abort.
@@ -96,7 +96,7 @@ if ( ! function_exists( 'warning_notice' ) ) {
 }
 
 // Define constants
-define( 'XFGMC_PLUGIN_VERSION', '3.0.11' );
+define( 'XFGMC_PLUGIN_VERSION', '3.0.12' );
 
 $upload_dir = wp_get_upload_dir();
 // http://site.ru/wp-content/uploads
@@ -187,7 +187,7 @@ if ( false === $not_run ) {
 	 * Start at version 1.0.0 and use SemVer - https://semver.org
 	 * Rename this for your plugin and update it as you release new versions.
 	 */
-	define( 'X4GMC_PLUGIN_VERSION', '3.0.11' );
+	define( 'X4GMC_PLUGIN_VERSION', '3.0.12' );
 
 	require_once XFGMC_PLUGIN_DIR_PATH . '/packages.php';
 	register_activation_hook( __FILE__, [ 'XmlforGoogleMerchantCenter', 'on_activation' ] );

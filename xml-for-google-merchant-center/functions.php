@@ -56,6 +56,7 @@ function xfgmc_write_file( $result_xml, $cc, $numFeed = '1' ) {
 			new XFGMC_Error_Log( $err );
 		} else {
 			xfgmc_optionUPD( 'xfgmc_file_file', urlencode( $upload['file'] ), $numFeed, 'yes', 'set_arr' );
+			xfgmc_optionUPD( 'xfgmc_feed_path', urlencode( $upload['file'] ), $numFeed, 'yes', 'set_arr' );
 			new XFGMC_Error_Log( 'FEED № ' . $numFeed . '; Запись удалась! Путь файла: ' . $upload['file'] . '; УРЛ файла: ' . $upload['url'] );
 		}
 	}
@@ -104,6 +105,7 @@ function xfgmc_rename_file( $numFeed = '1' ) {
 		return false;
 	} else {
 		xfgmc_optionUPD( 'xfgmc_file_url', urlencode( $filenamenewurl ), $numFeed, 'yes', 'set_arr' );
+		xfgmc_optionUPD( 'xfgmc_feed_url', urlencode( $filenamenewurl ), $numFeed, 'yes', 'set_arr' );
 		new XFGMC_Error_Log( 'FEED № ' . $numFeed . '; Файл переименован! Файл: functions.php; Строка: ' . __LINE__ );
 		return true;
 	}

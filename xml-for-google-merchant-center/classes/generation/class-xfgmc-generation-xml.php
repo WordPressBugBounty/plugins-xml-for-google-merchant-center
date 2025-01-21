@@ -77,6 +77,7 @@ class XFGMC_Generation_XML {
 				new XFGMC_Error_Log( 'FEED № ' . $this->get_feed_id() . '; Запись вызвала ошибку: ' . $upload['error'] . '; Файл: class-generation-xml.php; Строка: ' . __LINE__ );
 			} else {
 				xfgmc_optionUPD( 'xfgmc_file_file', urlencode( $upload['file'] ), $this->get_feed_id(), 'yes', 'set_arr' );
+				xfgmc_optionUPD( 'xfgmc_feed_path', urlencode( $upload['file'] ), $this->get_feed_id(), 'yes', 'set_arr' );
 				new XFGMC_Error_Log( 'FEED № ' . $this->get_feed_id() . '; Запись удалась! Путь файла: ' . $upload['file'] . '; УРЛ файла: ' . $upload['url'] );
 				return true;
 			}

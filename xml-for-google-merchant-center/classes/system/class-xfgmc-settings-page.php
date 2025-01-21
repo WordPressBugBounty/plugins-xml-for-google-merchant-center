@@ -65,7 +65,7 @@ class XFGMC_Settings_Page {
 		$this->feedback = new XFGMC_Feedback();
 
 		if ( isset( $_GET['feed_id'] ) ) {
-			$this->feed_id = sanitize_text_field( $_GET['feed_id'] );
+			$this->feed_id = sanitize_key( $_GET['feed_id'] );
 		} else {
 			if ( empty( xfgmc_get_first_feed_id() ) ) {
 				$this->feed_id = '1';
@@ -74,7 +74,7 @@ class XFGMC_Settings_Page {
 			}
 		}
 		if ( isset( $_GET['tab'] ) ) {
-			$this->cur_tab = sanitize_text_field( $_GET['tab'] );
+			$this->cur_tab = sanitize_key( $_GET['tab'] );
 		}
 
 		$this->init_classes();
@@ -348,7 +348,7 @@ class XFGMC_Settings_Page {
 				$class = '';
 			}
 			if ( isset( $_GET['feed_id'] ) ) {
-				$nf = '&feed_id=' . sanitize_text_field( $_GET['feed_id'] );
+				$nf = '&feed_id=' . sanitize_key( $_GET['feed_id'] );
 			} else {
 				$nf = '';
 			}
@@ -1169,10 +1169,10 @@ class XFGMC_Settings_Page {
 				$action = sanitize_text_field( $_GET['action'] );
 				switch ( $action ) {
 					case 'edit':
-						$feed_id = sanitize_text_field( $_GET['feed_id'] );
+						$feed_id = sanitize_key( $_GET['feed_id'] );
 						break;
 					case 'delete':
-						$feed_id = sanitize_text_field( $_GET['feed_id'] );
+						$feed_id = sanitize_key( $_GET['feed_id'] );
 						$xfgmc_settings_arr = xfgmc_optionGET( 'xfgmc_settings_arr' );
 						unset( $xfgmc_settings_arr[ $feed_id ] );
 						wp_clear_scheduled_hook( 'xfgmc_cron_period', array( $feed_id ) ); // отключаем крон
@@ -1199,7 +1199,7 @@ class XFGMC_Settings_Page {
 						$feed_id = xfgmc_get_first_feed_id();
 				}
 			} else {
-				$feed_id = sanitize_text_field( $_GET['feed_id'] );
+				$feed_id = sanitize_key( $_GET['feed_id'] );
 			}
 		} else {
 			$feed_id = xfgmc_get_first_feed_id();
