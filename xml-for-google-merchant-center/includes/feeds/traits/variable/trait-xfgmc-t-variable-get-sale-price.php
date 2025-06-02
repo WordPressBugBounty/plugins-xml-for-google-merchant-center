@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.0.1 (10-05-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -51,7 +51,7 @@ trait XFGMC_T_Variable_Get_Sale_Price {
 		}
 		$sale_price_value = (float) $this->get_offer()->get_sale_price();
 		if ( $sale_price_value > 0 ) {
-			$sale_price_value = $this->get_offer()->get_regular_price();
+			$sale_price_value = $this->get_offer()->get_price();
 			$sale_price_value = apply_filters(
 				'xfgmc_f_variable_price',
 				$sale_price_value,

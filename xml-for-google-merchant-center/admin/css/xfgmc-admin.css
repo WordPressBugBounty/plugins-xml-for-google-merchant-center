@@ -118,3 +118,7 @@
 input.pw {
     -webkit-text-security: disc;
 }
+
+.xfgmc_banner {
+    max-width: 100%;
+}

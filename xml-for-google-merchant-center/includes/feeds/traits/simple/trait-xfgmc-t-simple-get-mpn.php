@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.0.1 (10-05-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -51,6 +51,7 @@ trait XFGMC_T_Simple_Get_Mpn {
 		switch ( $mpn ) {
 			case "no":
 
+				$tag_value = '';
 				$identifier_exists = get_post_meta(
 					$this->get_product()->get_id(),
 					'_xfgmc_identifier_exists',

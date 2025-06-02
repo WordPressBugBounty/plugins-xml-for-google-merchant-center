@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.0.1 (10-05-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -54,7 +54,7 @@ trait XFGMC_T_Variable_Get_Price {
 		 * $offer->get_regular_price() - обычная цена
 		 * $offer->get_sale_price() - цена скидки
 		 */
-		$tag_value = $this->get_offer()->get_price(); // цена вариации
+		$tag_value = $this->get_offer()->get_regular_price(); // цена вариации
 		$tag_value = apply_filters(
 			'xfgmc_f_variable_price',
 			$tag_value,

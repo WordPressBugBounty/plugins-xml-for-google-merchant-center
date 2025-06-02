@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.0.1 (10-05-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -53,7 +53,7 @@ trait XFGMC_T_Simple_Get_Price {
 		 * $product->get_regular_price() - обычная цена
 		 * $product->get_sale_price() - цена скидки
 		 */
-		$tag_value = $this->get_product()->get_price();
+		$tag_value = $this->get_product()->get_regular_price();
 		$tag_value = apply_filters(
 			'xfgmc_f_simple_price',
 			$tag_value,

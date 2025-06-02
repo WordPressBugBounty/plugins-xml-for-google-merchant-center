@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.1 (10-05-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -55,6 +55,8 @@ trait XFGMC_T_Variable_Get_Google_Product_Category {
 			if ( get_term_meta( $this->get_feed_category_id(), 'xfgmc_google_product_category', true ) !== '' ) {
 				$tag_value = get_term_meta( $this->get_feed_category_id(), 'xfgmc_google_product_category', true );
 				$tag_value = htmlspecialchars( $tag_value );
+			} else {
+				$tag_value = '';
 			}
 		} else {
 			$tag_value = get_post_meta( $this->get_product()->get_id(), 'xfgmc_google_product_category', true );
