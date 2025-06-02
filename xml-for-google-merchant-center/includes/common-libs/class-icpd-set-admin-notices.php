@@ -17,8 +17,8 @@ if ( ! class_exists( 'ICPD_Set_Admin_Notices' ) ) {
 	 *
 	 * Usage example: `new ICPD_Set_Admin_Notices('Logs were cleared', 'success', true);`
 	 *
-	 * @package    Y4YM
-	 * @subpackage Y4YM/includes/common-libs
+	 * @package    XFGMC
+	 * @subpackage XFGMC/includes/common-libs
 	 * @author     Maxim Glazunov <icopydoc@gmail.com>
 	 */
 	class ICPD_Set_Admin_Notices {

@@ -2,7 +2,7 @@
 // 1.1.0 (15-03-2024)
 // Maxim Glazunov (https://icopydoc.ru)
 // This code adds several useful functions to the WooCommerce.
-// 'xml-for-google-merchant-center' - slug for translation (be sure to make an autocorrect)
+// 'xml-for-google-merchatnt-center' - slug for translation (be sure to make an autocorrect)
 
 if ( ! function_exists( 'get_woo_version_number' ) ) {
 	/**
@@ -104,7 +104,7 @@ if ( ! function_exists( 'the_cat_tree' ) ) {
 				'<option title="%1$s; ID: %2$s; %3$s: %4$s" class="hover" value="%2$s" %5$s>%6$s%7$s</option>',
 				$term->name,
 				$term->term_id,
-				__( 'products', 'xml-for-google-merchant-center' ),
+				__( 'products', 'xml-for-google-merchatnt-center' ),
 				$term->count,
 				$selected,
 				$separator,
@@ -130,7 +130,7 @@ if ( ! function_exists( 'the_cat_tree' ) ) {
 					'<option title="%1$s; ID: %2$s; %3$s: %4$s" class="hover" value="%2$s" %5$s>%6$s%7$s</option>',
 					$term->name,
 					$term->term_id,
-					__( 'products', 'xml-for-google-merchant-center' ),
+					__( 'products', 'xml-for-google-merchatnt-center' ),
 					$term->count,
 					$selected,
 					$separator,
