@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    5.0.3 (03-04-2025)
+ * @version    4.0.2 (08-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -95,7 +95,7 @@ class XFGMC_Get_Unit {
 				$date_save_set,
 				__( 'Requesting data from the cache', 'xml-for-google-merchatnt-center' ),
 				__( 'File', 'xml-for-google-merchatnt-center' ),
-				'class-xfgmc-generation-xml.php',
+				'class-xfgmc-get-unit.php',
 				__( 'Line', 'xml-for-google-merchatnt-center' ),
 				__LINE__
 			) );
@@ -113,7 +113,7 @@ class XFGMC_Get_Unit {
 				$post_id,
 				__( 'the data is taken from the file', 'xml-for-google-merchatnt-center' ),
 				__( 'File', 'xml-for-google-merchatnt-center' ),
-				'class-xfgmc-generation-xml.php',
+				'class-xfgmc-get-unit.php',
 				__( 'Line', 'xml-for-google-merchatnt-center' ),
 				__LINE__
 			) );
@@ -253,7 +253,7 @@ class XFGMC_Get_Unit {
 				$this->get_feed_id(),
 				__( 'The data could not be received. The cache usage ban is enabled', 'xml-for-google-merchatnt-center' ),
 				__( 'File', 'xml-for-google-merchatnt-center' ),
-				'class-xfgmc-generation-xml.php',
+				'class-xfgmc-get-unit.php',
 				__( 'Line', 'xml-for-google-merchatnt-center' ),
 				__LINE__
 			) );
@@ -273,13 +273,20 @@ class XFGMC_Get_Unit {
 				__( 'Error when receiving data from the CACHE file', 'xml-for-google-merchatnt-center' ),
 				$tmp_file_path,
 				__( 'File', 'xml-for-google-merchatnt-center' ),
-				'class-xfgmc-generation-xml.php',
+				'class-xfgmc-get-unit.php',
 				__( 'Line', 'xml-for-google-merchatnt-center' ),
 				__LINE__
 			) );
 			return 'no';
 		} else {
 			$this->result_xml = $file_content;
+			$this->ids_in_xml = sprintf( '%s;%s;%s;%s%s',
+				$this->get_product()->get_id(),
+				'', // $offer->get_id()
+				'', // $offer_variable_obj->get_feed_price(),
+				'', // $offer_variable_obj->get_feed_category_id(),
+				PHP_EOL // ! когда мы тянем товары из кэша, то теряется часть данных... но используем ли мы их?
+			);
 			return 'yes';
 		}
 

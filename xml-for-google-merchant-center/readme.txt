@@ -4,7 +4,7 @@ Donate link: https://pay.cloudtips.ru/p/45d8ff3f
 Tags: xml, yandex, market, export, woocommerce
 Requires at least: 5.0
 Tested up to: 6.8.1
-Stable tag: 4.0.1
+Stable tag: 4.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,11 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 
 == Changelog ==
 
+= 4.0.2 =
+*Release Date 08-06-2025*
+
+* Fixed minor bugs.
+
 = 4.0.1 =
 *Release Date 02-06-2025*
 
@@ -74,8 +79,7 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 
 == Upgrade Notice ==
 
-= 4.0.1 =
-*Release Date 02-06-2025*
+= 4.0.2 =
+*Release Date 08-06-2025*
 
-* Fixed bugs with `sale_price` tag.
-* Fixed bugs in the interface.
+* Fixed minor bugs.

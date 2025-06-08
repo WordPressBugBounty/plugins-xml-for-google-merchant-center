@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    5.0.6 (15-04-2025)
+ * @version    4.0.2 (08-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds

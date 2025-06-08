@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.2 (08-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -245,7 +245,7 @@ class XFGMC_Admin {
 	public function add_plugin_admin_menu() {
 
 		add_menu_page(
-			null,
+			'XML for Google Merchant Center',
 			__( 'XFGMC', 'xml-for-google-merchatnt-center' ),
 			'manage_woocommerce',
 			$this->plugin_name,

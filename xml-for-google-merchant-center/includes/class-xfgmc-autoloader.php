@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.2 (08-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -87,6 +87,9 @@ class XFGMC_Autoloader {
 			$this->prefix = $prefix;
 		}
 		$this->map_file = __DIR__ . '/classmap.php';
+		if ( ! file_exists( __DIR__ . '/classmap.php' ) ) {
+			file_put_contents( $this->map_file, '<?php return [];' );
+		}
 		$this->map = @include $this->map_file;
 		$this->map = is_array( $this->map ) ? $this->map : [];
 		spl_autoload_register( [ $this, 'autoload' ] );

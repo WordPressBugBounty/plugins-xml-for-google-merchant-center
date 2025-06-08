@@ -2,7 +2,7 @@
 /**
  * The Another page tab
  * 
- * @version    5.0.5 (07-04-2025)
+ * @version    4.0.2 (08-06-2025)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/settings_page/
  * 

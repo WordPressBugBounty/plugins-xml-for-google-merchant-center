@@ -17,7 +17,7 @@
  * Requires Plugins:        woocommerce
  * Plugin URI:              https://wordpress.org/plugins/xml-for-google-merchatnt-center/
  * Description:             Creates a XML-feed to upload to Google Merchant Center and not only
- * Version:                 4.0.1
+ * Version:                 4.0.2
  * Requires at least:       5.9
  * Requires PHP:            7.4.0
  * Author:                  Maxim Glazunov
@@ -482,7 +482,7 @@ if ( false === $not_run ) {
 	 * Start at version 0.1.0 and use SemVer - https://semver.org
 	 * Rename this for your plugin and update it as you release new versions.
 	 */
-	define( 'XFGMC_PLUGIN_VERSION', '4.0.1' );
+	define( 'XFGMC_PLUGIN_VERSION', '4.0.2' );
 
 	$upload_dir = wp_get_upload_dir();
 	// http://site.ru/wp-content/uploads
@@ -573,7 +573,7 @@ if ( false === $not_run ) {
 	} else {
 		$xfgmc_v = get_option( 'xfgmc_version', '0.1.0' );
 	}
-	if ( version_compare( $xfgmc_v, '4.0.1', '<' ) ) {
+	if ( version_compare( $xfgmc_v, '4.0.2', '<' ) ) {
 		xfgmc_plugin_database_upd( $xfgmc_v );
 	}
 

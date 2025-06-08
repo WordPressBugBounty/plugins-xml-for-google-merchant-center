@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    5.0.8 (16-04-2025)
+ * @version    4.0.2 (08-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -329,6 +329,44 @@ class XFGMC_Generation_XML {
 				new XFGMC_Error_Log( $args );
 				new XFGMC_Error_Log( json_encode( $args ) );
 				$products_query = new \WP_Query( $args );
+				$query_time = (int) time() - $time_start;
+				new XFGMC_Error_Log( sprintf(
+					'FEED #%1$s; %2$s: %3$s; %4$s: %5$s; %6$s: %7$s',
+					$this->get_feed_id(),
+					__( 'The query time to the database was', 'xml-for-google-merchatnt-center' ),
+					$query_time,
+					__( 'File', 'xml-for-google-merchatnt-center' ),
+					'class-xfgmc-generation-xml.php',
+					__( 'Line', 'xml-for-google-merchatnt-center' ),
+					__LINE__
+				) );
+				$script_execution_time = (int) common_option_get(
+					'xfgmc_script_execution_time',
+					'26',
+					$this->get_feed_id(),
+					'xfgmc'
+				);
+				if ( $query_time > $script_execution_time ) {
+					new XFGMC_Error_Log( sprintf(
+						'FEED #%1$s; WARNING: %2$s: %3$s > %4$s. %5$s "%6$s" %7$s %8$s %9$s; %10$s: %11$s; %12$s: %13$s',
+						$this->get_feed_id(),
+						__( 'The query time to the database was', 'xml-for-google-merchatnt-center' ),
+						$query_time,
+						$script_execution_time,
+						__(
+							'If you experience freezes when creating the feed, try increasing the',
+							'xml-for-google-merchatnt-center'
+						),
+						__( 'The maximum script execution time', 'xml-for-google-merchatnt-center' ),
+						__( 'parameter to', 'xml-for-google-merchatnt-center' ),
+						$query_time + 5,
+						__( 'points', 'xml-for-google-merchatnt-center' ),
+						__( 'File', 'xml-for-google-merchatnt-center' ),
+						'class-xfgmc-generation-xml.php',
+						__( 'Line', 'xml-for-google-merchatnt-center' ),
+						__LINE__
+					) );
+				}
 				if ( $products_query->have_posts() ) {
 					new XFGMC_Error_Log( sprintf(
 						'FEED #%1$s; %2$s: %3$s; %4$s: %5$s; %6$s: %7$s',
@@ -343,13 +381,13 @@ class XFGMC_Generation_XML {
 					$date_successful_feed_update = common_option_get(
 						'xfgmc_date_successful_feed_update',
 						50,
-						20,
+						$this->get_feed_id(),
 						'xfgmc'
 					);
 					$date_save_set = common_option_get(
 						'xfgmc_date_save_set',
 						50,
-						20,
+						$this->get_feed_id(),
 						'xfgmc'
 					);
 					for ( $i = 0; $i < count( $products_query->posts ); $i++ ) {
@@ -360,7 +398,7 @@ class XFGMC_Generation_XML {
 							__( 'Getting started with the product', 'xml-for-google-merchant-center' ),
 							$product_id,
 							__( 'File', 'xml-for-google-merchant-center' ),
-							'class-y4ym-generation-xml.php',
+							'class-xfgmc-generation-xml.php',
 							__( 'Line', 'xml-for-google-merchant-center' ),
 							__LINE__
 						) );
@@ -389,7 +427,7 @@ class XFGMC_Generation_XML {
 
 						$time_end = time();
 						$time = $time_end - $time_start;
-						if ( $time > 25 ) {
+						if ( $time > $script_execution_time ) {
 							break;
 						} else {
 							$last_element_feed++;

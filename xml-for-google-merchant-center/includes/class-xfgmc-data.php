@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.2 (08-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -372,6 +372,30 @@ class XFGMC_Data {
 							[ 'value' => '1500', 'text' => '1500' ]
 						],
 						'tr_class' => 'xfgmc_tr'
+					]
+				],
+				[ 
+					'opt_name' => 'xfgmc_script_execution_time',
+					'def_val' => '26',
+					'mark' => 'public',
+					'type' => 'text',
+					'tab' => 'main_tab',
+					'data' => [ 
+						'label' => __( 'The maximum script execution time', 'xml-for-google-merchatnt-center' ),
+						'desc' => sprintf( '%s. <strong>%s:</strong> 26. %s 10-30 %s',
+							__(
+								'The maximum script execution time in seconds',
+								'xml-for-google-merchatnt-center'
+							),
+							__( 'Default value', 'xml-for-google-merchatnt-center' ),
+							__(
+								'If you experience freezes when creating the feed, try increasing this parameter by',
+								'xml-for-google-merchatnt-center'
+							),
+							__( 'points', 'xml-for-google-merchatnt-center' ),
+						),
+						'placeholder' => '26',
+						'tr_class' => ''
 					]
 				],
 				[ 
