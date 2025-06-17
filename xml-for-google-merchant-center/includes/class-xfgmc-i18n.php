@@ -7,7 +7,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -35,7 +35,7 @@ class XFGMC_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'xml-for-google-merchatnt-center',
+			'xml-for-google-merchant-center',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

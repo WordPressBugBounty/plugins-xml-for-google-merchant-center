@@ -2,7 +2,7 @@
 /**
  * Display tabs.
  * 
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/settings_page/
  * 
@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit; ?>
 		printf(
 			'<a class="nav-tab%1$s" href="?page=%2$s&action=edit&feed_id=%3$s&current_display=settings_feed&tab=%4$s">%5$s</a>',
 			esc_attr( $class ),
-			'xml-for-google-merchatnt-center',
+			'xml-for-google-merchant-center',
 			esc_attr( sanitize_key( $view_arr['feed_id'] ) ),
 			esc_attr( $tab ),
 			esc_html( $name )

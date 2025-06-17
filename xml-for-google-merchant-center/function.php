@@ -46,7 +46,7 @@ if ( ! function_exists( 'xfgmc_get_html_options' ) ) {
 		// 			esc_attr( self::SUPPORTED_PLUGINS_ARR[ $i ]['plugins'] ),
 		// 			selected( $opt_value, self::SUPPORTED_PLUGINS_ARR[ $i ]['value'], false ),
 		// 			sprintf( '%s "%s"',
-		// 				__( 'Substitute from', 'xml-for-google-merchatnt-center' ),
+		// 				__( 'Substitute from', 'xml-for-google-merchant-center' ),
 		// 				self::SUPPORTED_PLUGINS_ARR[ $i ]['text']
 		// 			),
 		// 			PHP_EOL
@@ -87,7 +87,7 @@ if ( ! function_exists( 'xfgmc_get_html_options' ) ) {
 			// категории
 			$terms = get_terms( [ 'taxonomy' => [ 'product_cat' ], 'hide_empty' => 0, 'parent' => 0 ] );
 			if ( $terms && ! is_wp_error( $terms ) ) {
-				$result .= sprintf( '<optgroup label="%s">', __( 'Categories', 'xml-for-google-merchatnt-center' ) );
+				$result .= sprintf( '<optgroup label="%s">', __( 'Categories', 'xml-for-google-merchant-center' ) );
 				foreach ( $terms as $term ) {
 					$result .= the_cat_tree( $term->taxonomy, $term->term_id, $opt_value );
 				}
@@ -99,7 +99,7 @@ if ( ! function_exists( 'xfgmc_get_html_options' ) ) {
 			// теги
 			$terms = get_terms( [ 'taxonomy' => [ 'product_tag' ], 'hide_empty' => 0, 'parent' => 0 ] );
 			if ( $terms && ! is_wp_error( $terms ) ) {
-				$result .= sprintf( '<optgroup label="%s">', __( 'Tags', 'xml-for-google-merchatnt-center' ) );
+				$result .= sprintf( '<optgroup label="%s">', __( 'Tags', 'xml-for-google-merchant-center' ) );
 				foreach ( $terms as $term ) {
 					$result .= the_cat_tree( $term->taxonomy, $term->term_id, $opt_value );
 				}

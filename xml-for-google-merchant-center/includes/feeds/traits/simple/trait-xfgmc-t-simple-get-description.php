@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -186,7 +186,7 @@ trait XFGMC_T_Simple_Get_Description {
 			);
 			if ( ( $skip_products_without_desc === 'enabled' ) && ( $tag_value == '' ) ) {
 				$this->add_skip_reason( [ 
-					'reason' => __( 'Product has no description', 'xml-for-google-merchatnt-center' ),
+					'reason' => __( 'Product has no description', 'xml-for-google-merchant-center' ),
 					'post_id' => $this->get_product()->get_id(),
 					'file' => 'trait-xfgmc-t-simple-get-description.php',
 					'line' => __LINE__ ]

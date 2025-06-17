@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.2 (08-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -110,38 +110,38 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'th-td',
-						'label' => __( 'Creating this feed', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Creating this feed', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s. %s "%s" %s "%s"',
-							__( 'The refresh interval on your feed', 'xml-for-google-merchatnt-center' ),
-							__( 'If you select the option', 'xml-for-google-merchatnt-center' ),
-							__( 'Create a feed once and DO NOT update', 'xml-for-google-merchatnt-center' ),
+							__( 'The refresh interval on your feed', 'xml-for-google-merchant-center' ),
+							__( 'If you select the option', 'xml-for-google-merchant-center' ),
+							__( 'Create a feed once and DO NOT update', 'xml-for-google-merchant-center' ),
 							__(
 								'after generating the feed, the parameter value will change to',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							),
-							__( 'Disable the creation and updating of this feed', 'xml-for-google-merchatnt-center' )
+							__( 'Disable the creation and updating of this feed', 'xml-for-google-merchant-center' )
 						),
 						'woo_attr' => false,
 						'key_value_arr' => [ 
 							[ 
 								'value' => 'disabled',
-								'text' => __( 'Disable the creation and updating of this feed', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Disable the creation and updating of this feed', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'once',
 								'text' => sprintf( '%s',
-									__( "Create a feed once and DO NOT update", "xml-for-google-merchatnt-center" )
+									__( "Create a feed once and DO NOT update", "xml-for-google-merchant-center" )
 								)
 							],
 							[ 
 								'value' => 'hourly',
-								'text' => __( 'Create a feed once an hour', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'three_hours', 'text' => __( 'Create a feed every three hours', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'six_hours', 'text' => __( 'Create a feed every six hours', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'twicedaily', 'text' => __( 'Create a feed twice a day', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'daily', 'text' => __( 'Create a feed once a day', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'every_two_days', 'text' => __( 'Create a feed every two days', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'weekly', 'text' => __( 'Create a feed once a week', 'xml-for-google-merchatnt-center' ) ]
+								'text' => __( 'Create a feed once an hour', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'three_hours', 'text' => __( 'Create a feed every three hours', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'six_hours', 'text' => __( 'Create a feed every six hours', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'twicedaily', 'text' => __( 'Create a feed twice a day', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'daily', 'text' => __( 'Create a feed once a day', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'every_two_days', 'text' => __( 'Create a feed every two days', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'weekly', 'text' => __( 'Create a feed once a week', 'xml-for-google-merchant-center' ) ]
 						]
 					]
 				],
@@ -154,13 +154,13 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'td-td',
-						'label' => __( 'Starting at the specified time', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Starting at the specified time', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s',
-							__( 'The time at which the feed generation should start', 'xml-for-google-merchatnt-center' )
+							__( 'The time at which the feed generation should start', 'xml-for-google-merchant-center' )
 						),
 						'woo_attr' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'now', 'text' => __( 'Now', 'xml-for-google-merchatnt-center' ) ],
+							[ 'value' => 'now', 'text' => __( 'Now', 'xml-for-google-merchant-center' ) ],
 							[ 'value' => '1am', 'text' => '01-00' ],
 							[ 'value' => '2am', 'text' => '02-00' ],
 							[ 'value' => '3am', 'text' => '03-00' ],
@@ -197,16 +197,16 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'td-td',
-						'label' => __( 'Update feed when updating products', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Update feed when updating products', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s "%s" %s',
-							__( 'This option does not work if selected', 'xml-for-google-merchatnt-center' ),
-							__( 'Disable the creation and updating of this feed', 'xml-for-google-merchatnt-center' ),
-							__( 'in the field above', 'xml-for-google-merchatnt-center' )
+							__( 'This option does not work if selected', 'xml-for-google-merchant-center' ),
+							__( 'Disable the creation and updating of this feed', 'xml-for-google-merchant-center' ),
+							__( 'in the field above', 'xml-for-google-merchant-center' )
 						),
 						'woo_attr' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						]
 					]
 				],
@@ -217,37 +217,37 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'main_tab',
 					'data' => [ 
-						'label' => __( 'To follow the rules', 'xml-for-google-merchatnt-center' ),
-						'desc' => sprintf( '%s <i>(%s)</i>. %s. %s. <a target="_blank" href="%s/?utm_source=xml-for-google-merchatnt-center&utm_medium=organic&utm_campaign=in-plugin-xml-for-google-merchatnt-center&utm_content=settings&utm_term=about-rules">%s</a>',
-							__( 'Exclude products that do not meet the requirements', 'xml-for-google-merchatnt-center' ),
-							__( 'missing required elements/data', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'To follow the rules', 'xml-for-google-merchant-center' ),
+						'desc' => sprintf( '%s <i>(%s)</i>. %s. %s. <a target="_blank" href="%s/?utm_source=xml-for-google-merchant-center&utm_medium=organic&utm_campaign=in-plugin-xml-for-google-merchant-center&utm_content=settings&utm_term=about-rules">%s</a>',
+							__( 'Exclude products that do not meet the requirements', 'xml-for-google-merchant-center' ),
+							__( 'missing required elements/data', 'xml-for-google-merchant-center' ),
 							__(
 								'The plugin will try to automatically remove products from the XML-feed for which the required fields for the feed are not filled',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							),
-							__( 'Also, this item affects the structure of the file', 'xml-for-google-merchatnt-center' ),
+							__( 'Also, this item affects the structure of the file', 'xml-for-google-merchant-center' ),
 							'//icopydoc.ru/na-chto-vliyaet-priderzhivatsya-pravil-v-plagine-xfgmc',
-							__( 'Learn more about how it works', 'xml-for-google-merchatnt-center' )
+							__( 'Learn more about how it works', 'xml-for-google-merchant-center' )
 						),
 						'woo_attr' => false,
 						'key_value_arr' => [ 
 							[ 
 								'value' => 'merchant_center',
 								'text' => sprintf( '%s',
-									__( 'Google Merchant Center', 'xml-for-google-merchatnt-center' )
+									__( 'Google Merchant Center', 'xml-for-google-merchant-center' )
 								)
 							],
 							[ 
 								'value' => 'facebook',
 								'text' => sprintf( '%s',
-									__( 'Facebook', 'xml-for-google-merchatnt-center' )
+									__( 'Facebook', 'xml-for-google-merchant-center' )
 								)
 							],
 							[ 
 								'value' => 'all_elements',
 								'text' => sprintf( '%s (%s)',
-									__( 'No rules', 'xml-for-google-merchatnt-center' ),
-									__( 'For experienced users', 'xml-for-google-merchatnt-center' )
+									__( 'No rules', 'xml-for-google-merchant-center' ),
+									__( 'For experienced users', 'xml-for-google-merchant-center' )
 								)
 							]
 						],
@@ -261,9 +261,9 @@ class XFGMC_Data {
 					'type' => 'text',
 					'tab' => 'main_tab',
 					'data' => [ 
-						'label' => __( 'Feed assignment', 'xml-for-google-merchatnt-center' ),
-						'desc' => __( 'Not used in feed. Inner note for your convenience', 'xml-for-google-merchatnt-center' ),
-						'placeholder' => __( 'For Google Merchant Center', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Feed assignment', 'xml-for-google-merchant-center' ),
+						'desc' => __( 'Not used in feed. Inner note for your convenience', 'xml-for-google-merchant-center' ),
+						'placeholder' => __( 'For Google Merchant Center', 'xml-for-google-merchant-center' ),
 						'tr_class' => 'xfgmc_tr'
 					]
 				],
@@ -276,16 +276,16 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'th-td',
-						'label' => __( 'Name of the feed file', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Name of the feed file', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s. <strong>%s:</strong> %s',
 							__(
 								'If you leave the field empty, the default value will be used',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							),
-							__( 'Important', 'xml-for-google-merchatnt-center' ),
+							__( 'Important', 'xml-for-google-merchant-center' ),
 							__(
 								'Spaces cannot be used',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							)
 						),
 						'placeholder' => 'feed-xml-0',
@@ -301,13 +301,13 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'td-td',
-						'label' => __( 'Feed file extension', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Feed file extension', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s: XML',
-							__( 'Default', 'xml-for-google-merchatnt-center' )
+							__( 'Default', 'xml-for-google-merchant-center' )
 						),
 						'woo_attr' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'xml', 'text' => 'XML (' . __( 'recommend', 'xml-for-google-merchatnt-center' ) . ')' ]
+							[ 'value' => 'xml', 'text' => 'XML (' . __( 'recommend', 'xml-for-google-merchant-center' ) . ')' ]
 						]
 					]
 				],
@@ -318,15 +318,15 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'main_tab',
 					'data' => [ 
-						'label' => __( 'Archive to ZIP', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Archive to ZIP', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s: %s',
-							__( 'Default', 'xml-for-google-merchatnt-center' ),
-							__( 'Disabled', 'xml-for-google-merchatnt-center' )
+							__( 'Default', 'xml-for-google-merchant-center' ),
+							__( 'Disabled', 'xml-for-google-merchant-center' )
 						),
 						'woo_attr' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						]
 					]
 				],
@@ -337,15 +337,15 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'main_tab',
 					'data' => [ 
-						'label' => __( 'Step export', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Step export', 'xml-for-google-merchant-center' ),
 						'desc' =>
 							sprintf( '%s. %s. %s',
-								__( 'The value affects the speed of file creation', 'xml-for-google-merchatnt-center' ),
+								__( 'The value affects the speed of file creation', 'xml-for-google-merchant-center' ),
 								__(
 									'If you have any problems with the generation of the file - try to reduce the value in this field',
-									'xml-for-google-merchatnt-center'
+									'xml-for-google-merchant-center'
 								),
-								__( 'More than 500 can only be installed on powerful servers', 'xml-for-google-merchatnt-center' )
+								__( 'More than 500 can only be installed on powerful servers', 'xml-for-google-merchant-center' )
 							),
 						'woo_attr' => false,
 						'key_value_arr' => [ 
@@ -357,7 +357,7 @@ class XFGMC_Data {
 							[ 
 								'value' => '500',
 								'text' => sprintf(
-									'500 (%s)', __( 'Default value', 'xml-for-google-merchatnt-center' )
+									'500 (%s)', __( 'Default value', 'xml-for-google-merchant-center' )
 								)
 							],
 							[ 'value' => '600', 'text' => '600' ],
@@ -381,18 +381,18 @@ class XFGMC_Data {
 					'type' => 'text',
 					'tab' => 'main_tab',
 					'data' => [ 
-						'label' => __( 'The maximum script execution time', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'The maximum script execution time', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s. <strong>%s:</strong> 26. %s 10-30 %s',
 							__(
 								'The maximum script execution time in seconds',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							),
-							__( 'Default value', 'xml-for-google-merchatnt-center' ),
+							__( 'Default value', 'xml-for-google-merchant-center' ),
 							__(
 								'If you experience freezes when creating the feed, try increasing this parameter by',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							),
-							__( 'points', 'xml-for-google-merchatnt-center' ),
+							__( 'points', 'xml-for-google-merchant-center' ),
 						),
 						'placeholder' => '26',
 						'tr_class' => ''
@@ -405,20 +405,20 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'main_tab',
 					'data' => [ 
-						'label' => __( 'Ignore plugin cache', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Ignore plugin cache', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s: <a 
 						href="https://icopydoc.ru/pochemu-ne-obnovilis-tseny-v-fide-para-slov-o-tihih-pravkah/%s">%s</a>',
 							__(
 								"Changing this option can be useful if your feed prices don't change after syncing",
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							),
-							'?utm_source=xml-for-google-merchatnt-center&utm_medium=organic&utm_campaign=in-plugin-xml-for-google-merchatnt-center&utm_content=settings&utm_term=about-cache',
-							__( 'Learn More', 'xml-for-google-merchatnt-center' )
+							'?utm_source=xml-for-google-merchant-center&utm_medium=organic&utm_campaign=in-plugin-xml-for-google-merchant-center&utm_content=settings&utm_term=about-cache',
+							__( 'Learn More', 'xml-for-google-merchant-center' )
 						),
 						'woo_attr' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tr_class' => 'xfgmc_tr'
 					]
@@ -432,22 +432,22 @@ class XFGMC_Data {
 					'data' => [ 
 						'label' => __(
 							'Сreate cache files when saving products',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						'desc' => sprintf( '%s. %s',
 							__(
 								'This option allows you to reduce the load on the site at the time of saving the product card',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							),
 							__(
 								'However, disabling this option leads to a significant increase in the feed creation time',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							)
 						),
 						'woo_attr' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tr_class' => ''
 					]
@@ -461,10 +461,10 @@ class XFGMC_Data {
 					'type' => 'text',
 					'tab' => 'shop_data_tab',
 					'data' => [ 
-						'label' => __( 'Shop name', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Shop name', 'xml-for-google-merchant-center' ),
 						'desc' => __(
 							'The short name of the store should not exceed 20 characters',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						'default_value' => false,
 						'placeholder' => 'Super Shop',
@@ -479,8 +479,8 @@ class XFGMC_Data {
 					'type' => 'text',
 					'tab' => 'shop_data_tab',
 					'data' => [ 
-						'label' => __( 'Shop description', 'xml-for-google-merchatnt-center' ),
-						'desc' => __( 'Shop description', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Shop description', 'xml-for-google-merchant-center' ),
+						'desc' => __( 'Shop description', 'xml-for-google-merchant-center' ),
 						'default_value' => false,
 						'placeholder' => '',
 						'tag_name' => 'always',
@@ -497,17 +497,17 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'th-td',
-						'label' => __( 'Source ID of the product', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Source ID of the product', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => true,
 						'default_value' => true,
 						'key_value_arr' => [ 
-							[ 'value' => 'default', 'text' => __( 'Product ID / Variation ID', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'sku', 'text' => __( 'Substitute from SKU', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'post_meta', 'text' => __( 'Substitute from post meta', 'xml-for-google-merchatnt-center' ) ],
+							[ 'value' => 'default', 'text' => __( 'Product ID / Variation ID', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'sku', 'text' => __( 'Substitute from SKU', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'post_meta', 'text' => __( 'Substitute from post meta', 'xml-for-google-merchant-center' ) ],
 							[ 
 								'value' => 'germanized',
-								'text' => __( 'Substitute from', 'xml-for-google-merchatnt-center' ) . 'WooCommerce Germanized'
+								'text' => __( 'Substitute from', 'xml-for-google-merchant-center' ) . 'WooCommerce Germanized'
 							]
 						],
 						'tag_name' => 'id',
@@ -523,9 +523,9 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'td-td',
-						'label' => __( 'Name post_meta', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Name post_meta', 'xml-for-google-merchant-center' ),
 						'desc' => '',
-						'placeholder' => __( 'Name post_meta', 'xml-for-google-merchatnt-center' ),
+						'placeholder' => __( 'Name post_meta', 'xml-for-google-merchant-center' ),
 						'tag_name' => 'id',
 						'tag_name_for_desc' => 'g:id'
 					]
@@ -537,13 +537,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Product name', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Product name', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'title',
 						'tag_name_for_desc' => 'g:title'
@@ -558,39 +558,39 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'th-td',
-						'label' => __( 'Description of the product', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Description of the product', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s',
-							__( 'The source of the description', 'xml-for-google-merchatnt-center' )
+							__( 'The source of the description', 'xml-for-google-merchant-center' )
 						),
 						'woo_attr' => false,
 						'key_value_arr' => [ 
 							[ 
 								'value' => 'excerpt',
-								'text' => __( 'Only Excerpt description', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Only Excerpt description', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'full',
-								'text' => __( 'Only Full description', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Only Full description', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'excerptfull',
-								'text' => __( 'Excerpt or Full description', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Excerpt or Full description', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'fullexcerpt',
-								'text' => __( 'Full or Excerpt description', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Full or Excerpt description', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'excerptplusfull',
-								'text' => __( 'Excerpt plus Full description', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Excerpt plus Full description', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'fullplusexcerpt',
-								'text' => __( 'Full plus Excerpt description', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Full plus Excerpt description', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'post_meta',
-								'text' => __( 'Substitute from post meta', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Substitute from post meta', 'xml-for-google-merchant-center' )
 							]
 						],
 						'tr_class' => 'xfgmc_tr',
@@ -607,9 +607,9 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'td-td',
-						'label' => __( 'Name post_meta', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Name post_meta', 'xml-for-google-merchant-center' ),
 						'desc' => '',
-						'placeholder' => __( 'Name post_meta', 'xml-for-google-merchatnt-center' ),
+						'placeholder' => __( 'Name post_meta', 'xml-for-google-merchant-center' ),
 						'tag_name' => 'description',
 						'tag_name_for_desc' => 'g:description'
 					]
@@ -623,13 +623,13 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'td-td',
-						'label' => __( 'List of allowed tags', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'List of allowed tags', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'default', 'text' => __( 'Default', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'custom', 'text' => __( 'From the field below', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'default', 'text' => __( 'Default', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'custom', 'text' => __( 'From the field below', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'description',
 						'tag_name_for_desc' => 'g:description'
@@ -645,9 +645,9 @@ class XFGMC_Data {
 						'has_next' => false,
 						'table_location' => 'td-td',
 						'default_value' => false,
-						'label' => __( 'Allowed tags', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Allowed tags', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s <code>p,br,h3</code>',
-							__( 'For example', 'xml-for-google-merchatnt-center' )
+							__( 'For example', 'xml-for-google-merchant-center' )
 						),
 						'placeholder' => 'p,br,h3',
 						'tag_name' => 'description',
@@ -665,17 +665,17 @@ class XFGMC_Data {
 						'table_location' => 'th-td',
 						'label' => __(
 							'The varition description takes precedence over others',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						'desc' => sprintf( '%s: %s',
-							__( 'Default', 'xml-for-google-merchatnt-center' ),
-							__( 'Enabled', 'xml-for-google-merchatnt-center' )
+							__( 'Default', 'xml-for-google-merchant-center' ),
+							__( 'Enabled', 'xml-for-google-merchant-center' )
 						),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'description',
 						'tag_name_for_desc' => 'g:description'
@@ -690,17 +690,17 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'th-td',
-						'label' => __( 'Use the filter', 'xml-for-google-merchatnt-center' ) . ' the_content',
+						'label' => __( 'Use the filter', 'xml-for-google-merchant-center' ) . ' the_content',
 						'desc' => sprintf( '%s: %s. <a href="https://developer.wordpress.org/reference/hooks/the_content/">%s</a>',
-							__( 'Default', 'xml-for-google-merchatnt-center' ),
-							__( 'Enabled', 'xml-for-google-merchatnt-center' ),
-							__( 'Learn More', 'xml-for-google-merchatnt-center' )
+							__( 'Default', 'xml-for-google-merchant-center' ),
+							__( 'Enabled', 'xml-for-google-merchant-center' ),
+							__( 'Learn More', 'xml-for-google-merchant-center' )
 						),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'description',
 						'tag_name_for_desc' => 'g:description'
@@ -714,14 +714,14 @@ class XFGMC_Data {
 					'tab' => 'offer_data_tab',
 					'data' => [ 
 						'label' => sprintf( '%s (URL)',
-							__( 'Product link', 'xml-for-google-merchatnt-center' )
+							__( 'Product link', 'xml-for-google-merchant-center' )
 						),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'link',
 						'tag_name_for_desc' => 'g:link'
@@ -735,17 +735,17 @@ class XFGMC_Data {
 					'tab' => 'offer_data_tab',
 					'data' => [ 
 						'label' => sprintf( '%s (URL)',
-							__( 'Product mobile link', 'xml-for-google-merchatnt-center' )
+							__( 'Product mobile link', 'xml-for-google-merchant-center' )
 						),
 						'desc' => __(
 							'The mobile link attribute lets you include a URL to a mobile-optimized version of your landing page',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'mobile_link',
 						'tag_name_for_desc' => 'g:mobile_link'
@@ -758,9 +758,9 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Picture', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Picture', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s',
-							__( 'Specify the size of the image to be used in the feed', 'xml-for-google-merchatnt-center' )
+							__( 'Specify the size of the image to be used in the feed', 'xml-for-google-merchant-center' )
 						),
 						'woo_attr' => false,
 						'default_value' => false,
@@ -776,16 +776,16 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Quantity of products', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Quantity of products', 'xml-for-google-merchant-center' ),
 						'desc' => __(
 							'To make it work you must enable "Manage stock" and indicate "Stock quantity"',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'availability',
 						'tag_name_for_desc' => 'g:availability'
@@ -800,12 +800,12 @@ class XFGMC_Data {
 					'data' => [ 
 						'label' => __(
 							'For pre-order products, establish availability equal to',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						'desc' => sprintf( '%s in_stock/out_of_stock/preorder',
 							__(
 								'For pre-order products, establish availability equal to',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							)
 						),
 						'woo_attr' => false,
@@ -828,12 +828,12 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'th-td',
-						'label' => __( 'Availability date', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Availability date', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf(
 							'%s "preorder"',
 							__(
 								'This parameter applies only to products whose status is equal to',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							)
 						),
 						'placeholder' => '2025-05-29T13:00-0800',
@@ -848,13 +848,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Product price', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Product price', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'price',
 						'tag_name_for_desc' => 'g:price'
@@ -867,7 +867,7 @@ class XFGMC_Data {
 					'type' => 'text',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Shop currency', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Shop currency', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s! %s: <strong>USD</strong>. <a href="//support.google.com/merchants/answer/160637" target="_blank">%s</a>',
 							__( 'Uppercase letter', 'xml-for-google-merchant-center' ),
 							__( 'For example', 'xml-for-google-merchant-center' ),
@@ -877,7 +877,7 @@ class XFGMC_Data {
 						'default_value' => false,
 						'placeholder' => 'USD',
 						'tag_name' => 'price',
-						'tag_name_for_desc' => __( 'Shop currency', 'xml-for-google-merchatnt-center' )
+						'tag_name_for_desc' => __( 'Shop currency', 'xml-for-google-merchant-center' )
 					]
 				],
 				[ 
@@ -887,16 +887,16 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Sale price', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Sale price', 'xml-for-google-merchant-center' ),
 						'desc' => __(
 							'In sale price indicates the old price of the goods, which must necessarily be higher than the new price (price)',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'sale_price',
 						'tag_name_for_desc' => 'g:sale_price'
@@ -909,13 +909,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Shop SKU', 'xml-for-google-merchatnt-center' ),
-						'desc' => __( 'Shop SKU', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Shop SKU', 'xml-for-google-merchant-center' ),
+						'desc' => __( 'Shop SKU', 'xml-for-google-merchant-center' ),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'unit_pricing_measure',
 						'tag_name_for_desc' => 'g:unit_pricing_measure'
@@ -928,13 +928,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Shop SKU', 'xml-for-google-merchatnt-center' ),
-						'desc' => __( 'Shop SKU', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Shop SKU', 'xml-for-google-merchant-center' ),
+						'desc' => __( 'Shop SKU', 'xml-for-google-merchant-center' ),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'unit_pricing_base_measure',
 						'tag_name_for_desc' => 'g:unit_pricing_base_measure'
@@ -947,13 +947,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Google product category', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Google product category', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'google_product_category',
 						'tag_name_for_desc' => 'g:google_product_category'
@@ -968,13 +968,13 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'th-td',
-						'label' => __( 'Google product type', 'xml-for-google-merchatnt-center' ),
-						'desc' => __( 'Google product type', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Google product type', 'xml-for-google-merchant-center' ),
+						'desc' => __( 'Google product type', 'xml-for-google-merchant-center' ),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'product_type',
 						'tag_name_for_desc' => 'g:product_type'
@@ -989,9 +989,9 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'td-td',
-						'label' => __( 'Add root element', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Add root element', 'xml-for-google-merchant-center' ),
 						'desc' => '',
-						'placeholder' => __( 'Main', 'xml-for-google-merchatnt-center' ),
+						'placeholder' => __( 'Main', 'xml-for-google-merchant-center' ),
 						'tag_name' => 'product_type',
 						'tag_name_for_desc' => 'g:product_type'
 					]
@@ -1005,28 +1005,28 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'th-td',
-						'label' => __( 'Brand', 'xml-for-google-merchatnt-center' ),
-						'desc' => __( 'Brand', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Brand', 'xml-for-google-merchant-center' ),
+						'desc' => __( 'Brand', 'xml-for-google-merchant-center' ),
 						'woo_attr' => true,
 						'default_value' => true,
 						'key_value_arr' => [ 
 							[ 
 								'value' => 'disabled',
-								'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Disabled', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'woocommerce_brands',
-								'text' => __( 'WooCommerce brands', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'WooCommerce brands', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'post_meta',
-								'text' => __( 'Substitute from post meta', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Substitute from post meta', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'default_value',
 								'text' => sprintf( '%s "%s"',
-									__( 'Default value from field', 'xml-for-google-merchatnt-center' ),
-									__( 'Default value', 'xml-for-google-merchatnt-center' )
+									__( 'Default value from field', 'xml-for-google-merchant-center' ),
+									__( 'Default value', 'xml-for-google-merchant-center' )
 								)
 							]
 						],
@@ -1044,13 +1044,13 @@ class XFGMC_Data {
 						'has_next' => false,
 						'table_location' => 'td-td',
 						'label' => sprintf( '%s / %s',
-							__( 'Default value', 'xml-for-google-merchatnt-center' ),
-							__( 'Name post_meta', 'xml-for-google-merchatnt-center' )
+							__( 'Default value', 'xml-for-google-merchant-center' ),
+							__( 'Name post_meta', 'xml-for-google-merchant-center' )
 						),
 						'desc' => '',
 						'placeholder' => sprintf( '%s / %s',
-							__( 'Default value', 'xml-for-google-merchatnt-center' ),
-							__( 'Name post_meta', 'xml-for-google-merchatnt-center' )
+							__( 'Default value', 'xml-for-google-merchant-center' ),
+							__( 'Name post_meta', 'xml-for-google-merchant-center' )
 						),
 						'tag_name' => 'brand',
 						'tag_name_for_desc' => 'g:brand'
@@ -1065,31 +1065,31 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'th-td',
-						'label' => __( 'GTIN', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'GTIN', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => true,
 						'default_value' => true,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'no', 'text' => __( 'No', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'sku', 'text' => __( 'Substitute from SKU', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'post_meta', 'text' => __( 'Substitute from post meta', 'xml-for-google-merchatnt-center' ) ],
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'no', 'text' => __( 'No', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'sku', 'text' => __( 'Substitute from SKU', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'post_meta', 'text' => __( 'Substitute from post meta', 'xml-for-google-merchant-center' ) ],
 							[ 
 								'value' => 'upc-ean-generator',
 								'text' => sprintf( '%s UPC/EAN/GTIN Code Generator',
-									__( 'Substitute from the plugin', 'xml-for-google-merchatnt-center' )
+									__( 'Substitute from the plugin', 'xml-for-google-merchant-center' )
 								)
 							],
 							[ 
 								'value' => 'ean-for-woocommerce',
 								'text' => sprintf( '%s EAN for WooCommerce',
-									__( 'Substitute from the plugin', 'xml-for-google-merchatnt-center' )
+									__( 'Substitute from the plugin', 'xml-for-google-merchant-center' )
 								)
 							],
 							[ 
 								'value' => 'germanized',
 								'text' => sprintf( '%s WooCommerce Germanized',
-									__( 'Substitute from the plugin', 'xml-for-google-merchatnt-center' )
+									__( 'Substitute from the plugin', 'xml-for-google-merchant-center' )
 								)
 							]
 						],
@@ -1106,9 +1106,9 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'td-td',
-						'label' => __( 'Name post_meta', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Name post_meta', 'xml-for-google-merchant-center' ),
 						'desc' => '',
-						'placeholder' => __( 'Name post_meta', 'xml-for-google-merchatnt-center' ),
+						'placeholder' => __( 'Name post_meta', 'xml-for-google-merchant-center' ),
 						'tag_name' => 'gtin',
 						'tag_name_for_desc' => 'g:gtin'
 					]
@@ -1122,31 +1122,31 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'th-td',
-						'label' => __( 'MPN', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'MPN', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => true,
 						'default_value' => true,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'no', 'text' => __( 'No', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'sku', 'text' => __( 'Substitute from SKU', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'post_meta', 'text' => __( 'Substitute from post meta', 'xml-for-google-merchatnt-center' ) ],
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'no', 'text' => __( 'No', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'sku', 'text' => __( 'Substitute from SKU', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'post_meta', 'text' => __( 'Substitute from post meta', 'xml-for-google-merchant-center' ) ],
 							[ 
 								'value' => 'upc-ean-generator',
 								'text' => sprintf( '%s UPC/EAN/GTIN Code Generator',
-									__( 'Substitute from the plugin', 'xml-for-google-merchatnt-center' )
+									__( 'Substitute from the plugin', 'xml-for-google-merchant-center' )
 								)
 							],
 							[ 
 								'value' => 'ean-for-woocommerce',
 								'text' => sprintf( '%s EAN for WooCommerce',
-									__( 'Substitute from the plugin', 'xml-for-google-merchatnt-center' )
+									__( 'Substitute from the plugin', 'xml-for-google-merchant-center' )
 								)
 							],
 							[ 
 								'value' => 'germanized',
 								'text' => sprintf( '%s WooCommerce Germanized',
-									__( 'Substitute from the plugin', 'xml-for-google-merchatnt-center' )
+									__( 'Substitute from the plugin', 'xml-for-google-merchant-center' )
 								)
 							]
 						],
@@ -1163,9 +1163,9 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'td-td',
-						'label' => __( 'Name post_meta', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Name post_meta', 'xml-for-google-merchant-center' ),
 						'desc' => '',
-						'placeholder' => __( 'Name post_meta', 'xml-for-google-merchatnt-center' ),
+						'placeholder' => __( 'Name post_meta', 'xml-for-google-merchant-center' ),
 						'tag_name' => 'mpn',
 						'tag_name_for_desc' => 'g:mpn'
 					]
@@ -1177,13 +1177,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Identifier exists', 'xml-for-google-merchatnt-center' ),
-						'desc' => __( 'Identifier exists', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Identifier exists', 'xml-for-google-merchant-center' ),
+						'desc' => __( 'Identifier exists', 'xml-for-google-merchant-center' ),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'identifier_exists',
 						'tag_name_for_desc' => 'g:identifier_exists'
@@ -1198,15 +1198,15 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'th-td',
-						'label' => __( 'Condition', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Condition', 'xml-for-google-merchant-center' ),
 						'desc' => __(
 							'The default value, unless otherwise specified in the product settings',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
 							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'condition',
@@ -1222,12 +1222,12 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'td-td',
-						'label' => __( 'Default value', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Default value', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => true,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
 							[ 'value' => 'new', 'text' => __( 'New', 'xml-for-google-merchant-center' ) ],
 							[ 'value' => 'refurbished', 'text' => __( 'Refurbished', 'xml-for-google-merchant-center' ) ],
 							[ 'value' => 'used', 'text' => __( 'Used', 'xml-for-google-merchant-center' ) ]
@@ -1243,12 +1243,12 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Adult', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Adult', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
 							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'adult',
@@ -1264,14 +1264,14 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'td-td',
-						'label' => __( 'Default value', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Default value', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => true,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'alltrue', 'text' => __( 'Add to all', 'xml-for-google-merchatnt-center' ) . ' true' ],
-							[ 'value' => 'allfalse', 'text' => __( 'Add to all', 'xml-for-google-merchatnt-center' ) . ' false' ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'alltrue', 'text' => __( 'Add to all', 'xml-for-google-merchant-center' ) . ' true' ],
+							[ 'value' => 'allfalse', 'text' => __( 'Add to all', 'xml-for-google-merchant-center' ) . ' false' ]
 						],
 						'tag_name' => 'adult',
 						'tag_name_for_desc' => 'g:adult'
@@ -1284,13 +1284,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Multipack', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Multipack', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'multipack',
 						'tag_name_for_desc' => 'g:multipack'
@@ -1303,13 +1303,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Is bundle', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Is bundle', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'is_bundle',
 						'tag_name_for_desc' => 'g:is_bundle'
@@ -1324,14 +1324,14 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'td-td',
-						'label' => __( 'Default value', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Default value', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => true,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'alltrue', 'text' => __( 'Add to all', 'xml-for-google-merchatnt-center' ) . ' true' ],
-							[ 'value' => 'allfalse', 'text' => __( 'Add to all', 'xml-for-google-merchatnt-center' ) . ' false' ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'alltrue', 'text' => __( 'Add to all', 'xml-for-google-merchant-center' ) . ' true' ],
+							[ 'value' => 'allfalse', 'text' => __( 'Add to all', 'xml-for-google-merchant-center' ) . ' false' ]
 						],
 						'tag_name' => 'is_bundle',
 						'tag_name_for_desc' => 'g:is_bundle'
@@ -1346,24 +1346,24 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'th-td',
-						'label' => __( 'Age group', 'xml-for-google-merchatnt-center' ),
-						'desc' => __( 'Age group', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Age group', 'xml-for-google-merchant-center' ),
+						'desc' => __( 'Age group', 'xml-for-google-merchant-center' ),
 						'woo_attr' => true,
 						'default_value' => true,
 						'key_value_arr' => [ 
 							[ 
 								'value' => 'disabled',
-								'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Disabled', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'post_meta',
-								'text' => __( 'Substitute from post meta', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Substitute from post meta', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'default_value',
 								'text' => sprintf( '%s "%s"',
-									__( 'Default value from field', 'xml-for-google-merchatnt-center' ),
-									__( 'Default value', 'xml-for-google-merchatnt-center' )
+									__( 'Default value from field', 'xml-for-google-merchant-center' ),
+									__( 'Default value', 'xml-for-google-merchant-center' )
 								)
 							]
 						],
@@ -1381,15 +1381,15 @@ class XFGMC_Data {
 						'has_next' => false,
 						'table_location' => 'td-td',
 						'label' => sprintf( '%s / %s',
-							__( 'Default value', 'xml-for-google-merchatnt-center' ),
-							__( 'Name post_meta', 'xml-for-google-merchatnt-center' )
+							__( 'Default value', 'xml-for-google-merchant-center' ),
+							__( 'Name post_meta', 'xml-for-google-merchant-center' )
 						),
 						'desc' => sprintf( '%s: newborn, infant, toddler, kids, adult',
-							__( 'Acceptable values', 'xml-for-google-merchatnt-center' )
+							__( 'Acceptable values', 'xml-for-google-merchant-center' )
 						),
 						'placeholder' => sprintf( '%s / %s',
-							__( 'Default value', 'xml-for-google-merchatnt-center' ),
-							__( 'Name post_meta', 'xml-for-google-merchatnt-center' )
+							__( 'Default value', 'xml-for-google-merchant-center' ),
+							__( 'Name post_meta', 'xml-for-google-merchant-center' )
 						),
 						'tag_name' => 'age_group',
 						'tag_name_for_desc' => 'g:age_group'
@@ -1402,12 +1402,12 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Color', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Color', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => true,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'color',
 						'tag_name_for_desc' => 'g:color'
@@ -1422,12 +1422,12 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'th-td',
-						'label' => __( 'Gender', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Gender', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => true,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'gender',
 						'tag_name_for_desc' => 'g:gender'
@@ -1442,12 +1442,12 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'td-td',
-						'label' => __( 'Default value', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Default value', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => true,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
 							[ 'value' => 'male', 'text' => 'Male' ],
 							[ 'value' => 'female', 'text' => 'Female' ],
 							[ 'value' => 'unisex', 'text' => 'Unisex' ]
@@ -1463,13 +1463,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Material', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Material', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => true,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'material',
 						'tag_name_for_desc' => 'g:material'
@@ -1482,12 +1482,12 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Pattern', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Pattern', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => true,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'pattern',
 						'tag_name_for_desc' => 'g:pattern'
@@ -1500,12 +1500,12 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Size', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Size', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => true,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'size',
 						'tag_name_for_desc' => 'g:size'
@@ -1520,12 +1520,12 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'th-td',
-						'label' => __( 'Size type', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Size type', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => true,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'size_type',
 						'tag_name_for_desc' => 'g:size_type'
@@ -1540,12 +1540,12 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'td-td',
-						'label' => __( 'Default value', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Default value', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => true,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
 							[ 'value' => 'regular', 'text' => 'Regular' ],
 							[ 'value' => 'petite', 'text' => 'petite' ],
 							[ 'value' => 'plus', 'text' => 'plus' ],
@@ -1565,12 +1565,12 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => true,
 						'table_location' => 'th-td',
-						'label' => __( 'Size system', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Size system', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => true,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'size_system',
 						'tag_name_for_desc' => 'g:size_system'
@@ -1585,12 +1585,12 @@ class XFGMC_Data {
 					'data' => [ 
 						'has_next' => false,
 						'table_location' => 'td-td',
-						'label' => __( 'Default value', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Default value', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => true,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
 							[ 'value' => 'AU', 'text' => 'AU' ],
 							[ 'value' => 'BR', 'text' => 'BR' ],
 							[ 'value' => 'CN', 'text' => 'CN' ],
@@ -1614,16 +1614,16 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Item group ID', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Item group ID', 'xml-for-google-merchant-center' ),
 						'desc' => __(
 							'Use the item group ID attribute to group product variants in your product data',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'item_group_id',
 						'tag_name_for_desc' => 'g:item_group_id'
@@ -1636,10 +1636,10 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Length', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Length', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf(
 							'%s: %s',
-							__( 'Length', 'xml-for-google-merchatnt-center' ),
+							__( 'Length', 'xml-for-google-merchant-center' ),
 							'&lt;product_length>X sm</product_length&gt;'
 						),
 						'woo_attr' => true,
@@ -1647,12 +1647,12 @@ class XFGMC_Data {
 						'key_value_arr' => [ 
 							[ 
 								'value' => 'woo_shippings',
-								'text' => __( 'Substitute from WooCommerce Shippings tab', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Substitute from WooCommerce Shippings tab', 'xml-for-google-merchant-center' )
 							]
 						],
 						'tag_name' => 'dimensions',
 						'tag_name_for_desc' => esc_attr( 'g:product_[lenght, width, height, weight]' ),
-						'div_header' => __( 'Dimensions', 'xml-for-google-merchatnt-center' )
+						'div_header' => __( 'Dimensions', 'xml-for-google-merchant-center' )
 					]
 				],
 				[ 
@@ -1662,10 +1662,10 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Width', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Width', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf(
 							'%s: %s',
-							__( 'Width', 'xml-for-google-merchatnt-center' ),
+							__( 'Width', 'xml-for-google-merchant-center' ),
 							'&lt;product_width>X sm</product_width&gt;'
 						),
 						'woo_attr' => true,
@@ -1673,7 +1673,7 @@ class XFGMC_Data {
 						'key_value_arr' => [ 
 							[ 
 								'value' => 'woo_shippings',
-								'text' => __( 'Substitute from WooCommerce Shippings tab', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Substitute from WooCommerce Shippings tab', 'xml-for-google-merchant-center' )
 							]
 						],
 						'tag_name' => 'dimensions',
@@ -1687,10 +1687,10 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Height', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Height', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf(
 							'%s: %s',
-							__( 'Height', 'xml-for-google-merchatnt-center' ),
+							__( 'Height', 'xml-for-google-merchant-center' ),
 							'&lt;product_height>X sm</product_height&gt;'
 						),
 						'woo_attr' => true,
@@ -1698,7 +1698,7 @@ class XFGMC_Data {
 						'key_value_arr' => [ 
 							[ 
 								'value' => 'woo_shippings',
-								'text' => __( 'Substitute from WooCommerce Shippings tab', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Substitute from WooCommerce Shippings tab', 'xml-for-google-merchant-center' )
 							]
 						],
 						'tag_name' => 'dimensions',
@@ -1712,10 +1712,10 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Weight', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Weight', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf(
 							'%s: %s',
-							__( 'Weight', 'xml-for-google-merchatnt-center' ),
+							__( 'Weight', 'xml-for-google-merchant-center' ),
 							'&lt;product_weight>X kg</product_weight&gt;'
 						),
 						'woo_attr' => true,
@@ -1723,7 +1723,7 @@ class XFGMC_Data {
 						'key_value_arr' => [ 
 							[ 
 								'value' => 'woo_shippings',
-								'text' => __( 'Substitute from WooCommerce Shippings tab', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Substitute from WooCommerce Shippings tab', 'xml-for-google-merchant-center' )
 							]
 						],
 						'tag_name' => 'dimensions',
@@ -1737,18 +1737,18 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Custom elements', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Custom elements', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s. %s <a target="_blank" href="%s">%s</a>',
-							__( 'To set a value, edit your products', 'xml-for-google-merchatnt-center' ),
-							__( 'About this tag', 'xml-for-google-merchatnt-center' ),
+							__( 'To set a value, edit your products', 'xml-for-google-merchant-center' ),
+							__( 'About this tag', 'xml-for-google-merchant-center' ),
 							'//yandex.ru/support/direct/feeds/requirements-xml.html',
-							__( 'see the Yandex help', 'xml-for-google-merchatnt-center' )
+							__( 'see the Yandex help', 'xml-for-google-merchant-center' )
 						),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'custom_label',
 						'tag_name_for_desc' => 'g:custom_label_[0 - 4]'
@@ -1761,11 +1761,11 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Shipping', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Shipping', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%1$s. <a href="%2$s" target="_blank">%3$s</a>.<br/>%4$s "country" %5$s "%6$s". <a href="%7$s" target="_blank">%3$s</a>',
 							__(
 								'Google recommend that you set up shipping costs through Merchant Center settings instead of submitting the shipping attribute in the feed',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							),
 							'//support.google.com/merchants/answer/6069284',
 							__( 'Read more', 'xml-for-google-merchant-center' ),
@@ -1780,8 +1780,8 @@ class XFGMC_Data {
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'shipping',
 						'tag_name_for_desc' => 'g:shipping'
@@ -1794,7 +1794,7 @@ class XFGMC_Data {
 					'type' => 'text',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Shipping country', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Shipping country', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'placeholder' => '',
 						'tag_name' => 'shipping',
@@ -1808,7 +1808,7 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Delivery area', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Delivery area', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
@@ -1843,7 +1843,7 @@ class XFGMC_Data {
 					'type' => 'text',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Shipping price', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Shipping price', 'xml-for-google-merchant-center' ),
 						'desc' => '[g:price]',
 						'placeholder' => '',
 						'tag_name' => 'shipping',
@@ -1857,7 +1857,7 @@ class XFGMC_Data {
 					'type' => 'text',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Shipping service', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Shipping service', 'xml-for-google-merchant-center' ),
 						'desc' => '[g:service]',
 						'placeholder' => '',
 						'tag_name' => 'shipping',
@@ -1871,16 +1871,16 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Tax', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Tax', 'xml-for-google-merchant-center' ),
 						'desc' => __(
 							"Required for the United States when you need to override the account tax settings that you created in Merchant Center. This attribute exclusively covers US sales tax. Don't use it for other taxes, such as value-added tax (VAT) or import tax",
-							"xml-for-google-merchatnt-center"
+							"xml-for-google-merchant-center"
 						),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'tax',
 						'tag_name_for_desc' => 'g:tax'
@@ -1893,7 +1893,7 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Region', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Region', 'xml-for-google-merchant-center' ),
 						'desc' => '[g:region]',
 						'woo_attr' => false,
 						'default_value' => false,
@@ -1960,7 +1960,7 @@ class XFGMC_Data {
 					'type' => 'text',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Tax rate', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Tax rate', 'xml-for-google-merchant-center' ),
 						'desc' => '[g:rate]',
 						'placeholder' => '',
 						'tag_name' => 'tax',
@@ -1974,13 +1974,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Shipping tax', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Shipping tax', 'xml-for-google-merchant-center' ),
 						'desc' => '[g:tax_ship]',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'no', 'text' => __( 'No', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'yes', 'text' => __( 'Yes', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'no', 'text' => __( 'No', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'yes', 'text' => __( 'Yes', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'tax',
 						'tag_name_for_desc' => 'g:tax'
@@ -1993,13 +1993,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Tax category', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Tax category', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'tax_category',
 						'tag_name_for_desc' => 'g:tax_category'
@@ -2012,16 +2012,16 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Quantity of products', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Quantity of products', 'xml-for-google-merchant-center' ),
 						'desc' => __(
 							'To make it work you must enable "Manage stock" and indicate "Stock quantity"',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tag_name' => 'quantity',
 						'tag_name_for_desc' => 'g:quantity'
@@ -2034,20 +2034,20 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'offer_data_tab',
 					'data' => [ 
-						'label' => __( 'Store code', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Store code', 'xml-for-google-merchant-center' ),
 						'desc' => sprintf( '%s. <a href="%s" target="_blank">%s</a>',
 							__(
 								'Required for products in local inventory ads, free local listings, and vehicle ads',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							),
 							'//support.google.com/merchants/answer/13869896',
-							__( 'Read more', 'xml-for-google-merchatnt-center' )
+							__( 'Read more', 'xml-for-google-merchant-center' )
 						),
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ],
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ],
 						],
 						'tag_name' => 'store_code',
 						'tag_name_for_desc' => 'g:store_code'
@@ -2061,9 +2061,9 @@ class XFGMC_Data {
 					'tab' => 'offer_data_tab',
 					'data' => [ 
 						'has_next' => false,
-						'label' => __( 'Default value', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Default value', 'xml-for-google-merchant-center' ),
 						'desc' => '',
-						'placeholder' => __( 'Default value', 'xml-for-google-merchatnt-center' ),
+						'placeholder' => __( 'Default value', 'xml-for-google-merchant-center' ),
 						'tag_name' => 'store_code',
 						'tag_name_for_desc' => 'g:store_code'
 					]
@@ -2076,21 +2076,21 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'filtration_tab',
 					'data' => [ 
-						'label' => __( 'Whot export', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Whot export', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'key_value_arr' => [ 
 							[ 
 								'value' => 'all',
-								'text' => __( 'Simple & Variable products', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Simple & Variable products', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'simple',
-								'text' => __( 'Only simple products', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Only simple products', 'xml-for-google-merchant-center' )
 							],
 							[ 
 								'value' => 'variable',
-								'text' => __( 'Only variable products', 'xml-for-google-merchatnt-center' )
+								'text' => __( 'Only variable products', 'xml-for-google-merchant-center' )
 							]
 						]
 					]
@@ -2103,10 +2103,10 @@ class XFGMC_Data {
 					'tab' => 'filtration_tab',
 					'data' => [ 
 						'default_value' => false,
-						'label' => __( 'Change the domain to', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Change the domain to', 'xml-for-google-merchant-center' ),
 						'desc' => __(
 							'The option allows you to change the domain of your site in the feed to any other',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						'placeholder' => 'https://site.ru',
 						'tr_class' => 'xfgmc_tr'
@@ -2121,14 +2121,14 @@ class XFGMC_Data {
 					'data' => [ 
 						'label' => __(
 							'Clear URL from GET-paramrs',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						]
 					]
 				],
@@ -2139,13 +2139,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'filtration_tab',
 					'data' => [ 
-						'label' => __( 'Remove default.png from XML', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Remove default.png from XML', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						]
 					]
 				],
@@ -2158,22 +2158,22 @@ class XFGMC_Data {
 					'data' => [ 
 						'label' => __(
 							'Take steps to remove products with the same ID from the feed',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						'desc' => sprintf( '%s. %s',
 							__(
 								'This is an experimental feature',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							),
 							__(
 								'It should only be used if you have an error related to the presence of products with the same identifier in the product feed',
-								'xml-for-google-merchatnt-center'
+								'xml-for-google-merchant-center'
 							)
 						),
 						'woo_attr' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tr_class' => ''
 					]
@@ -2185,13 +2185,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'filtration_tab',
 					'data' => [ 
-						'label' => __( 'Skip products without pictures', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Skip products without pictures', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						],
 						'tr_class' => 'xfgmc_tr'
 					]
@@ -2203,13 +2203,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'filtration_tab',
 					'data' => [ 
-						'label' => __( 'Skip products without description', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Skip products without description', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						]
 					]
 				],
@@ -2221,15 +2221,15 @@ class XFGMC_Data {
 					'tab' => 'filtration_tab',
 					'data' => [ 
 						'label' => sprintf( '%s (%s)',
-							__( 'Skip missing products', 'xml-for-google-merchatnt-center' ),
-							__( 'except for products for which a pre-order is permitted', 'xml-for-google-merchatnt-center' )
+							__( 'Skip missing products', 'xml-for-google-merchant-center' ),
+							__( 'except for products for which a pre-order is permitted', 'xml-for-google-merchant-center' )
 						),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						]
 					]
 				],
@@ -2240,13 +2240,13 @@ class XFGMC_Data {
 					'type' => 'select',
 					'tab' => 'filtration_tab',
 					'data' => [ 
-						'label' => __( 'Skip backorders products', 'xml-for-google-merchatnt-center' ),
+						'label' => __( 'Skip backorders products', 'xml-for-google-merchant-center' ),
 						'desc' => '',
 						'woo_attr' => false,
 						'default_value' => false,
 						'key_value_arr' => [ 
-							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchatnt-center' ) ]
+							[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+							[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
 						]
 					]
 				]
@@ -2275,15 +2275,15 @@ class XFGMC_Data {
 				'type' => 'select',
 				'tab' => 'shop_data_tab',
 				'data' => [ 
-					'label' => __( 'Feed currency', 'xml-for-google-merchatnt-center' ),
+					'label' => __( 'Feed currency', 'xml-for-google-merchant-center' ),
 					'desc' => sprintf( '%s %s. %s.<br/><strong>%s:</strong> %s %s %s',
-						__( 'You have plugin installed', 'xml-for-google-merchatnt-center' ),
+						__( 'You have plugin installed', 'xml-for-google-merchant-center' ),
 						'WooCommerce Currency Switcher by PluginUs.NET. Woo Multi Currency and Woo Multi Pay',
-						__( 'Indicate in what currency the prices should be', 'xml-for-google-merchatnt-center' ),
-						__( 'Please note', 'xml-for-google-merchatnt-center' ),
-						__( 'Google Merchant Center only supports the following currencies', 'xml-for-google-merchatnt-center' ),
+						__( 'Indicate in what currency the prices should be', 'xml-for-google-merchant-center' ),
+						__( 'Please note', 'xml-for-google-merchant-center' ),
+						__( 'Google Merchant Center only supports the following currencies', 'xml-for-google-merchant-center' ),
 						'RUR, RUB, UAH, BYN, KZT, UZS, USD, EUR',
-						__( 'Choosing a different currency can lead to errors', 'xml-for-google-merchatnt-center' )
+						__( 'Choosing a different currency can lead to errors', 'xml-for-google-merchant-center' )
 					),
 					'woo_attr' => false,
 					'default_value' => false,
@@ -2473,8 +2473,8 @@ class XFGMC_Data {
 	private function get_registered_image_sizes() {
 
 		$res_arr = [ 
-			[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchatnt-center' ) ],
-			[ 'value' => 'full', 'text' => __( 'Full size (default)', 'xml-for-google-merchatnt-center' ) ]
+			[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+			[ 'value' => 'full', 'text' => __( 'Full size (default)', 'xml-for-google-merchant-center' ) ]
 		];
 		$sizes = wp_get_registered_image_subsizes();
 		foreach ( $sizes as $key => $val ) {
@@ -2482,7 +2482,7 @@ class XFGMC_Data {
 				$crop = '';
 			} else {
 				$crop = sprintf( ' - %s',
-					__( 'сrop thumbnail to exact dimensions', 'xml-for-google-merchatnt-center' )
+					__( 'сrop thumbnail to exact dimensions', 'xml-for-google-merchant-center' )
 				);
 			}
 			$cur_size_arr = [ 

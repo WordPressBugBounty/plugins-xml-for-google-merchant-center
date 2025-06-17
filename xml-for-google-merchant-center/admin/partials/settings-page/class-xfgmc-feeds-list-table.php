@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  * @see        https://2web-master.ru/wp_list_table-%E2%80%93-poshagovoe-rukovodstvo.html 
  *             https://wp-kama.ru/function/wp_list_table
  *
@@ -78,15 +78,15 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 			'cb' => '<input type="checkbox" />',
 			'html_feed_url' => __(
 				'Feed URL',
-				'xml-for-google-merchatnt-center'
+				'xml-for-google-merchant-center'
 			),
 			'html_feed_generation_status' => __(
 				'Automatic file creation',
-				'xml-for-google-merchatnt-center'
+				'xml-for-google-merchant-center'
 			),
 			'html_feed_summary' => __(
 				'Summary',
-				'xml-for-google-merchatnt-center'
+				'xml-for-google-merchant-center'
 			)
 		];
 		return $columns;
@@ -130,7 +130,15 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 					}
 
 					if ( empty( $feed_url ) ) {
-						$text_column_feed_url = __( 'Not created yet', 'xml-for-google-merchatnt-center' );
+						if ( empty( $feed_assignment ) ) {
+							$text_column_feed_url = __( 'Not created yet', 'xml-for-google-merchant-center' );
+						} else {
+							$text_column_feed_url = sprintf(
+								'%1$s<br/>(%2$s)',
+								__( 'Not created yet', 'xml-for-google-merchant-center' ),
+								$feed_assignment
+							);
+						}
 					} else {
 						if ( empty( $feed_assignment ) ) {
 							$text_column_feed_url = sprintf(
@@ -152,37 +160,37 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 						$status_cron = $settings_arr[ $feed_id_str ]['xfgmc_run_cron'];
 						switch ( $status_cron ) {
 							case 'disabled':
-								$text_status_cron = __( 'Disabled', 'xml-for-google-merchatnt-center' );
+								$text_status_cron = __( 'Disabled', 'xml-for-google-merchant-center' );
 								break;
 							case 'once':
 								$text_status_cron = sprintf( '%s (%s)',
-									__( 'Create a feed once', 'xml-for-google-merchatnt-center' ),
-									__( 'launch now', 'xml-for-google-merchatnt-center' )
+									__( 'Create a feed once', 'xml-for-google-merchant-center' ),
+									__( 'launch now', 'xml-for-google-merchant-center' )
 								);
 								break;
 							case 'hourly':
-								$text_status_cron = __( 'Hourly', 'xml-for-google-merchatnt-center' );
+								$text_status_cron = __( 'Hourly', 'xml-for-google-merchant-center' );
 								break;
 							case 'three_hours':
-								$text_status_cron = __( 'Every three hours', 'xml-for-google-merchatnt-center' );
+								$text_status_cron = __( 'Every three hours', 'xml-for-google-merchant-center' );
 								break;
 							case 'six_hours':
-								$text_status_cron = __( 'Every six hours', 'xml-for-google-merchatnt-center' );
+								$text_status_cron = __( 'Every six hours', 'xml-for-google-merchant-center' );
 								break;
 							case 'twicedaily':
-								$text_status_cron = __( 'Twice a day', 'xml-for-google-merchatnt-center' );
+								$text_status_cron = __( 'Twice a day', 'xml-for-google-merchant-center' );
 								break;
 							case 'daily':
-								$text_status_cron = __( 'Daily', 'xml-for-google-merchatnt-center' );
+								$text_status_cron = __( 'Daily', 'xml-for-google-merchant-center' );
 								break;
 							case 'every_two_days':
-								$text_status_cron = __( 'Every two days', 'xml-for-google-merchatnt-center' );
+								$text_status_cron = __( 'Every two days', 'xml-for-google-merchant-center' );
 								break;
 							case 'weekly':
-								$text_status_cron = __( 'Once a week', 'xml-for-google-merchatnt-center' );
+								$text_status_cron = __( 'Once a week', 'xml-for-google-merchant-center' );
 								break;
 							default:
-								$text_status_cron = __( "Don't start", "xml-for-google-merchatnt-center" );
+								$text_status_cron = __( "Don't start", "xml-for-google-merchant-center" );
 						}
 
 						$cron_info = wp_get_scheduled_event( 'xfgmc_cron_sborki', [ $feed_id_str ] );
@@ -192,13 +200,13 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 								$text_column_feed_generation_status = sprintf(
 									'%s<br/><small>%s</small>',
 									$text_status_cron,
-									__( 'There are no CRON scheduled feed builds', 'xml-for-google-merchatnt-center' )
+									__( 'There are no CRON scheduled feed builds', 'xml-for-google-merchant-center' )
 								);
 							} else {
 								$text_column_feed_generation_status = sprintf(
 									'%s<br/><small>%s:<br/>%s</small>',
 									$text_status_cron,
-									__( 'The next feed build is scheduled for', 'xml-for-google-merchatnt-center' ),
+									__( 'The next feed build is scheduled for', 'xml-for-google-merchant-center' ),
 									wp_date( 'Y-m-d H:i:s', $cron_info->timestamp )
 								);
 							}
@@ -210,12 +218,12 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 							$text_column_feed_generation_status = sprintf(
 								'%s<br/><small>%s...<br/>%s:<br/>%s (%s %s %s)</small>',
 								$text_status_cron,
-								__( 'The feed is being created', 'xml-for-google-merchatnt-center' ),
-								__( 'The next step is scheduled for', 'xml-for-google-merchatnt-center' ),
+								__( 'The feed is being created', 'xml-for-google-merchant-center' ),
+								__( 'The next step is scheduled for', 'xml-for-google-merchant-center' ),
 								wp_date( 'Y-m-d H:i:s', $cron_info->timestamp ),
-								__( 'after', 'xml-for-google-merchatnt-center' ),
+								__( 'after', 'xml-for-google-merchant-center' ),
 								$after_time,
-								__( 'sec', 'xml-for-google-merchatnt-center' )
+								__( 'sec', 'xml-for-google-merchant-center' )
 							);
 						}
 
@@ -234,7 +242,7 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 						}
 						$text_column_feed_summary .= sprintf(
 							'<strong>%s:</strong> %s<br/>',
-							esc_html__( 'Quantity of offer tags', 'xml-for-google-merchatnt-center' ),
+							esc_html__( 'Quantity of offer tags', 'xml-for-google-merchant-center' ),
 							$offes_total
 						);
 					}
@@ -242,7 +250,7 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 					if ( isset( $settings_arr[ $feed_id_str ]['xfgmc_date_sborki_start'] ) ) {
 						$text_column_feed_summary .= sprintf(
 							'<strong>%s:</strong> %s<br/>',
-							esc_html__( 'Start of last generation', 'xml-for-google-merchatnt-center' ),
+							esc_html__( 'Start of last generation', 'xml-for-google-merchant-center' ),
 							$settings_arr[ $feed_id_str ]['xfgmc_date_sborki_start']
 						);
 					}
@@ -250,7 +258,7 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 					if ( isset( $settings_arr[ $feed_id_str ]['xfgmc_date_sborki_end'] ) ) {
 						$text_column_feed_summary .= sprintf(
 							'<strong>%s:</strong> %s<br/>',
-							esc_html__( 'End of last generation', 'xml-for-google-merchatnt-center' ),
+							esc_html__( 'End of last generation', 'xml-for-google-merchant-center' ),
 							$settings_arr[ $feed_id_str ]['xfgmc_date_sborki_end']
 						);
 					}
@@ -261,7 +269,7 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 					// ) {
 					// 	$text_column_feed_summary .= sprintf(
 					// 		'<strong>%s:</strong> %s',
-					// 		esc_html__( 'Errors', 'xml-for-google-merchatnt-center' ),
+					// 		esc_html__( 'Errors', 'xml-for-google-merchant-center' ),
 					// 		$settings_arr[ $feed_id_str ]['xfgmc_critical_errors']
 					// 	);
 					// }
@@ -390,7 +398,7 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 				'edit',
 				$item['feed_id'],
 				'settings_feed',
-				esc_html__( 'Edit', 'xml-for-google-merchatnt-center' )
+				esc_html__( 'Edit', 'xml-for-google-merchant-center' )
 			),
 			'duplicate' => sprintf(
 				'<a href="?page=%s&action=%s&feed_id=%s&_wpnonce=%s">%s</a>',
@@ -398,17 +406,17 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 				'duplicate',
 				$item['feed_id'],
 				wp_create_nonce( 'nonce_duplicate' . $item['feed_id'] ),
-				esc_html__( 'Duplicate', 'xml-for-google-merchatnt-center' )
+				esc_html__( 'Duplicate', 'xml-for-google-merchant-center' )
 			),
 			'view' => sprintf(
 				'<a href="%s" target="_blank">%s</a>',
 				esc_attr( urldecode( $item['feed_url'] ) ),
-				esc_html__( 'View', 'xml-for-google-merchatnt-center' )
+				esc_html__( 'View', 'xml-for-google-merchant-center' )
 			),
 			'save' => sprintf(
 				'<a href="%s" download>%s</a>',
 				esc_attr( urldecode( $item['feed_url'] ) ),
-				esc_html__( 'Download', 'xml-for-google-merchatnt-center' )
+				esc_html__( 'Download', 'xml-for-google-merchant-center' )
 			)
 		];
 
@@ -454,7 +462,7 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 	public function get_bulk_actions() {
 
 		$actions = [ 
-			'delete' => __( 'Delete', 'xml-for-google-merchatnt-center' )
+			'delete' => __( 'Delete', 'xml-for-google-merchant-center' )
 		];
 		return $actions;
 
@@ -485,17 +493,17 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 
 		$utm = sprintf(
 			'?utm_source=%1$s&utm_medium=organic&utm_campaign=in-plugin-%1$s&utm_content=settings&utm_term=%2$s',
-			'xml-for-google-merchatnt-center',
+			'xml-for-google-merchant-center',
 			'main-instruction-in-feeds-list'
 		);
 		printf( '%1$s "%2$s" %3$s. %4$s <a href="%5$s%6$s">%7$s</a>.',
-			esc_html__( 'To create your first feed, click on the', 'xml-for-google-merchatnt-center' ),
-			esc_html__( 'Add New Feed', 'xml-for-google-merchatnt-center' ),
-			esc_html__( 'button above', 'xml-for-google-merchatnt-center' ),
-			esc_html__( 'For more information about creating a feed, see', 'xml-for-google-merchatnt-center' ),
+			esc_html__( 'To create your first feed, click on the', 'xml-for-google-merchant-center' ),
+			esc_html__( 'Add New Feed', 'xml-for-google-merchant-center' ),
+			esc_html__( 'button above', 'xml-for-google-merchant-center' ),
+			esc_html__( 'For more information about creating a feed, see', 'xml-for-google-merchant-center' ),
 			'https://icopydoc.ru/kak-sozdat-woocommerce-xml-instruktsiya/',
 			esc_url( $utm ),
-			esc_html__( 'this guide', 'xml-for-google-merchatnt-center' )
+			esc_html__( 'this guide', 'xml-for-google-merchant-center' )
 		);
 
 	}

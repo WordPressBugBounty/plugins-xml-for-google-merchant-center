@@ -2,7 +2,7 @@
 /**
  * Debug page.
  * 
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/debug_page/
  * 
@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit; ?>
 	<div id="icon-options-general" class="icon32"></div>
 	<h1><?php printf( '%s - %s (v. %s)',
 		'XML for Google Merchant Center',
-		esc_html__( 'Debug page', 'xml-for-google-merchatnt-center' ),
+		esc_html__( 'Debug page', 'xml-for-google-merchant-center' ),
 		esc_html( univ_option_get( 'xfgmc_version' ) )
 	); ?></h1>
 

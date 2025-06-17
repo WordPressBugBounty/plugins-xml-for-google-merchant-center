@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/common
@@ -43,7 +43,7 @@ trait XFGMC_T_Common_Skips {
 
 		if ( null == $this->get_product() ) {
 			$this->add_skip_reason( [ 
-				'reason' => __( 'There is no product with this ID', 'xml-for-google-merchatnt-center' ),
+				'reason' => __( 'There is no product with this ID', 'xml-for-google-merchant-center' ),
 				'post_id' => $this->get_product()->get_id(),
 				'file' => 'trait-xfgmc-t-common-skips.php',
 				'line' => __LINE__
@@ -53,7 +53,7 @@ trait XFGMC_T_Common_Skips {
 
 		if ( $this->get_product()->is_type( 'grouped' ) ) {
 			$this->add_skip_reason( [ 
-				'reason' => __( 'Product is grouped', 'xml-for-google-merchatnt-center' ),
+				'reason' => __( 'Product is grouped', 'xml-for-google-merchant-center' ),
 				'post_id' => $this->get_product()->get_id(),
 				'file' => 'trait-xfgmc-t-common-skips.php',
 				'line' => __LINE__
@@ -63,7 +63,7 @@ trait XFGMC_T_Common_Skips {
 
 		if ( $this->get_product()->is_type( 'external' ) ) {
 			$this->add_skip_reason( [ 
-				'reason' => __( 'Product is External/Affiliate product', 'xml-for-google-merchatnt-center' ),
+				'reason' => __( 'Product is External/Affiliate product', 'xml-for-google-merchant-center' ),
 				'post_id' => $this->get_product()->get_id(),
 				'file' => 'trait-xfgmc-t-common-skips.php',
 				'line' => __LINE__
@@ -74,7 +74,7 @@ trait XFGMC_T_Common_Skips {
 		if ( $this->get_product()->get_status() !== 'publish' ) {
 			$this->add_skip_reason( [ 
 				'reason' => sprintf( '%s "%s"',
-					__( 'The product status/visibility is', 'xml-for-google-merchatnt-center' ),
+					__( 'The product status/visibility is', 'xml-for-google-merchant-center' ),
 					$this->get_product()->get_status()
 				),
 				'post_id' => $this->get_product()->get_id(),
@@ -94,7 +94,7 @@ trait XFGMC_T_Common_Skips {
 		if ( $this->get_product()->is_type( 'variable' ) ) {
 			if ( $whot_export === 'simple' ) {
 				$this->add_skip_reason( [ 
-					'reason' => __( 'Product is variable', 'xml-for-google-merchatnt-center' ),
+					'reason' => __( 'Product is variable', 'xml-for-google-merchant-center' ),
 					'post_id' => $this->get_product()->get_id(),
 					'file' => 'trait-xfgmc-t-common-skips.php',
 					'line' => __LINE__
@@ -105,7 +105,7 @@ trait XFGMC_T_Common_Skips {
 		if ( $this->get_product()->is_type( 'simple' ) ) {
 			if ( $whot_export === 'variable' ) {
 				$this->add_skip_reason( [ 
-					'reason' => __( 'Product is simple', 'xml-for-google-merchatnt-center' ),
+					'reason' => __( 'Product is simple', 'xml-for-google-merchant-center' ),
 					'post_id' => $this->get_product()->get_id(),
 					'file' => 'trait-xfgmc-t-common-skips.php',
 					'line' => __LINE__
@@ -143,7 +143,7 @@ trait XFGMC_T_Common_Skips {
 		if ( $skip_missing_products === 'enabled' ) {
 			if ( false == $this->get_product()->is_in_stock() ) {
 				$this->add_skip_reason( [ 
-					'reason' => __( 'Skip missing products', 'xml-for-google-merchatnt-center' ),
+					'reason' => __( 'Skip missing products', 'xml-for-google-merchant-center' ),
 					'post_id' => $this->get_product()->get_id(),
 					'file' => 'trait-xfgmc-t-common-skips.php',
 					'line' => __LINE__
@@ -165,7 +165,7 @@ trait XFGMC_T_Common_Skips {
 				if ( ( $this->get_product()->get_stock_quantity() < 1 )
 					&& ( $this->get_product()->get_backorders() !== 'no' ) ) {
 					$this->add_skip_reason( [ 
-						'reason' => __( 'Skip backorders products', 'xml-for-google-merchatnt-center' ),
+						'reason' => __( 'Skip backorders products', 'xml-for-google-merchant-center' ),
 						'post_id' => $this->get_product()->get_id(),
 						'file' => 'trait-xfgmc-t-common-skips.php',
 						'line' => __LINE__
@@ -175,7 +175,7 @@ trait XFGMC_T_Common_Skips {
 			} else {
 				if ( $this->get_product()->get_stock_status() !== 'instock' ) {
 					$this->add_skip_reason( [ 
-						'reason' => __( 'Skip backorders products', 'xml-for-google-merchatnt-center' ),
+						'reason' => __( 'Skip backorders products', 'xml-for-google-merchant-center' ),
 						'post_id' => $this->get_product()->get_id(),
 						'file' => 'trait-xfgmc-t-common-skips.php',
 						'line' => __LINE__
@@ -191,7 +191,7 @@ trait XFGMC_T_Common_Skips {
 				if ( false == $this->get_offer()->is_in_stock() ) {
 					$this->add_skip_reason( [ 
 						'offer_id' => $this->get_offer()->get_id(),
-						'reason' => __( 'Skip missing products', 'xml-for-google-merchatnt-center' ),
+						'reason' => __( 'Skip missing products', 'xml-for-google-merchant-center' ),
 						'post_id' => $this->get_product()->get_id(),
 						'file' => 'traits-xfgmc-variable.php',
 						'line' => __LINE__
@@ -208,7 +208,7 @@ trait XFGMC_T_Common_Skips {
 						&& ( $this->get_offer()->get_backorders() !== 'no' ) ) {
 						$this->add_skip_reason( [ 
 							'offer_id' => $this->get_offer()->get_id(),
-							'reason' => __( 'Skip backorders products', 'xml-for-google-merchatnt-center' ),
+							'reason' => __( 'Skip backorders products', 'xml-for-google-merchant-center' ),
 							'post_id' => $this->get_product()->get_id(),
 							'file' => 'traits-xfgmc-variable.php',
 							'line' => __LINE__

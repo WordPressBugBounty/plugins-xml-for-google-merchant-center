@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -135,7 +135,7 @@ final class XFGMC_Plugin_Form_Activate {
 				<h2 class="hndle">
 					<?php
 					printf( '%s %s',
-						esc_html__( 'License data', 'xml-for-google-merchatnt-center' ),
+						esc_html__( 'License data', 'xml-for-google-merchant-center' ),
 						esc_html( $this->list_plugin_names[ $this->get_pref()]['name'] )
 					); ?>
 				</h2>
@@ -143,7 +143,7 @@ final class XFGMC_Plugin_Form_Activate {
 					<tbody>
 						<tr>
 							<th scope="row">
-								<?php esc_attr_e( 'Order ID', 'xml-for-google-merchatnt-center' ); ?>
+								<?php esc_attr_e( 'Order ID', 'xml-for-google-merchant-center' ); ?>
 							</th>
 							<td class="overalldesc">
 								<input class="pw" type="text" name="<?php echo esc_attr( $this->get_opt_name_order_id() ); ?>"
@@ -154,13 +154,13 @@ final class XFGMC_Plugin_Form_Activate {
 										esc_attr( self::INSTRUCTION_URL ),
 										esc_attr( $this->slug ),
 										'&utm_content=settings&utm_term=how-to-activate-order-id'
-									); ?>"><?php esc_attr_e( 'Read more', 'xml-for-google-merchatnt-center' ); ?></a>
+									); ?>"><?php esc_attr_e( 'Read more', 'xml-for-google-merchant-center' ); ?></a>
 								</span>
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">
-								<?php esc_attr_e( 'Order Email', 'xml-for-google-merchatnt-center' ); ?>
+								<?php esc_attr_e( 'Order Email', 'xml-for-google-merchant-center' ); ?>
 							</th>
 							<td class="overalldesc">
 								<input name="<?php echo esc_attr( $this->get_opt_name_order_email() ); ?>"
@@ -171,14 +171,14 @@ final class XFGMC_Plugin_Form_Activate {
 										esc_attr( self::INSTRUCTION_URL ),
 										esc_attr( $this->slug ),
 										'&utm_content=settings&utm_term=how-to-activate-order-email'
-									); ?>"><?php esc_attr_e( 'Read more', 'xml-for-google-merchatnt-center' ); ?></a></span>
+									); ?>"><?php esc_attr_e( 'Read more', 'xml-for-google-merchant-center' ); ?></a></span>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<input class="button-primary" name="<?php echo esc_attr( $this->get_submit_name() ); ?>"
-				value="<?php esc_attr_e( 'Update License Data', 'xml-for-google-merchatnt-center' ); ?>" type="submit" />
+				value="<?php esc_attr_e( 'Update License Data', 'xml-for-google-merchant-center' ); ?>" type="submit" />
 		</form>
 		<div style="padding: 0 0 40px 0; "></div>
 		<?php
@@ -264,8 +264,8 @@ final class XFGMC_Plugin_Form_Activate {
 			wp_update_plugins();
 			remove_filter( 'pre_site_transient_update_plugins', '__return_null' );
 			$message = sprintf( '%1$s. %2$s.',
-				__( 'License data has been updated', 'xml-for-google-merchatnt-center' ),
-				__( 'Refresh this page', 'xml-for-google-merchatnt-center' )
+				__( 'License data has been updated', 'xml-for-google-merchant-center' ),
+				__( 'Refresh this page', 'xml-for-google-merchant-center' )
 			);
 			$class = 'success';
 			new ICPD_Set_Admin_Notices( $message, $class );

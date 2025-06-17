@@ -2,7 +2,7 @@
 /**
  * Display tabs.
  * 
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/debug_page/
  * 
@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit; ?>
 		printf(
 			'<a class="nav-tab%1$s" href="?page=%2$s&action=edit&current_display=debug_page&tab=%3$s">%4$s</a>',
 			esc_attr( $class ),
-			'xml-for-google-merchatnt-center-debug',
+			'xml-for-google-merchant-center-debug',
 			esc_attr( $tab ),
 			esc_html( $name )
 		);

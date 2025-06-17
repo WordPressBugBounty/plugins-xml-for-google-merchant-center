@@ -2,7 +2,7 @@
 /**
  * Print the Save button
  * 
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/settings_page/
  * 
@@ -19,13 +19,13 @@ if ( $view_arr['tab_name'] === 'no_submit_tab' ) {
 <input id="button-primary" class="button-primary" name="xfgmc_submit_action" type="submit" value="<?php
 if ( $view_arr['tab_name'] === 'main_tab' ) {
 	printf( '%s & %s (ID: %s)',
-		esc_html__( 'Save', 'xml-for-google-merchatnt-center' ),
-		esc_html__( 'Create feed', 'xml-for-google-merchatnt-center' ),
+		esc_html__( 'Save', 'xml-for-google-merchant-center' ),
+		esc_html__( 'Create feed', 'xml-for-google-merchant-center' ),
 		esc_attr( $view_arr['feed_id'] )
 	);
 } else {
 	printf( '%s (ID: %s)',
-		esc_html__( 'Save', 'xml-for-google-merchatnt-center' ),
+		esc_html__( 'Save', 'xml-for-google-merchant-center' ),
 		esc_attr( $view_arr['feed_id'] )
 	);
 }

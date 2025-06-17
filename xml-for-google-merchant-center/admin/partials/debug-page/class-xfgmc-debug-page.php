@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -84,7 +84,7 @@ class XFGMC_Debug_Page {
 				$this->simulation_feed_id = $simulated_feed_id;
 				$this->simulation_result = $simulated_unit_obj->get_result();
 				if ( empty( $simulated_unit_obj->get_skip_reasons_arr() ) ) {
-					$this->simulation_report .= __( 'Everything is normal', 'xml-for-google-merchatnt-center' );
+					$this->simulation_report .= __( 'Everything is normal', 'xml-for-google-merchant-center' );
 				} else {
 					foreach ( $simulated_unit_obj->get_skip_reasons_arr() as $value ) {
 						$this->simulation_report .= $value . PHP_EOL;
@@ -139,19 +139,19 @@ class XFGMC_Debug_Page {
 
 		$tabs_arr = [ 
 			'debug_options' => sprintf( '%s',
-				__( 'Debug settings', 'xml-for-google-merchatnt-center' )
+				__( 'Debug settings', 'xml-for-google-merchant-center' )
 			),
 			'simulation' => sprintf( '%s',
-				__( 'Request simulation', 'xml-for-google-merchatnt-center' )
+				__( 'Request simulation', 'xml-for-google-merchant-center' )
 			),
 			'sandbox' => sprintf( '%s',
-				__( 'Sandbox', 'xml-for-google-merchatnt-center' )
+				__( 'Sandbox', 'xml-for-google-merchant-center' )
 			),
 			'premium' => sprintf( '%s',
-				__( 'Premium', 'xml-for-google-merchatnt-center' )
+				__( 'Premium', 'xml-for-google-merchant-center' )
 			) // ,
 			// 'status' => sprintf( '%s',
-			//			__( 'Status', 'xml-for-google-merchatnt-center' )
+			//			__( 'Status', 'xml-for-google-merchant-center' )
 			// )
 		];
 		$tabs_arr = apply_filters(

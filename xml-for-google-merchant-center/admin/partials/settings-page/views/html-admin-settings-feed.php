@@ -2,7 +2,7 @@
 /**
  * Settings page.
  * 
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/settings_page/
  * 
@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit; ?>
 	<div id="icon-options-general" class="icon32"></div>
 	<h1><?php printf( '%s - %s: %s',
 		'XML for Google Merchant Center',
-		esc_html__( 'Feed', 'xml-for-google-merchatnt-center' ),
+		esc_html__( 'Feed', 'xml-for-google-merchant-center' ),
 		esc_html( $view_arr['feed_id'] )
 	);
 	$feed_assignment = common_option_get(

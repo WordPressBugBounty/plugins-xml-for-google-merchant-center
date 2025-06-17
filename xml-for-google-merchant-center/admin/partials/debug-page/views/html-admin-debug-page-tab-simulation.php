@@ -2,7 +2,7 @@
 /**
  * Display the Simulation tab.
  * 
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/debug_page/
  * 
@@ -51,7 +51,7 @@ defined( 'ABSPATH' ) || exit; ?>
 							printf( '<option value="%s" %s>%s %s: feed-xml-%s.xml%s</option>',
 								esc_attr( $feed_id ),
 								selected( $cur_feed_id, $feed_id, false ),
-								esc_html__( 'Feed', 'xml-for-google-merchatnt-center' ),
+								esc_html__( 'Feed', 'xml-for-google-merchant-center' ),
 								esc_html( $feed_id ),
 								esc_html( $cur_blog_id ),
 								esc_html( $feed_assignment )

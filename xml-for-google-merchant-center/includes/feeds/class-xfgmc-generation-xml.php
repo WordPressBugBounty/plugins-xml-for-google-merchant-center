@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.2 (08-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -78,6 +78,14 @@ class XFGMC_Generation_XML {
 	 */
 	public function quick_generation() {
 
+		$date_sborki_start = current_time( 'Y-m-d H:i' );
+		common_option_upd(
+			'xfgmc_date_sborki_start',
+			$date_sborki_start,
+			'no',
+			$this->get_feed_id(),
+			'xfgmc'
+		);
 		$result_xml = $this->get_feed_header();
 		new XFGMC_Write_File( $result_xml, '-1.tmp', $this->get_feed_id() );
 		$result_xml = $this->get_feed_footer( 'quick_generation(); line ' . __LINE__ );
@@ -97,11 +105,11 @@ class XFGMC_Generation_XML {
 		if ( false === $result ) {
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s. (%3$s); %4$s: %5$s; %6$s: %7$s',
 				$this->get_feed_id(),
-				__( 'An error occurred when writing the temporary feed file', 'xml-for-google-merchatnt-center' ),
+				__( 'An error occurred when writing the temporary feed file', 'xml-for-google-merchant-center' ),
 				$feed_tmp_full_file_name,
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-generation-xml.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 		} else {
@@ -142,10 +150,10 @@ class XFGMC_Generation_XML {
 				// сборка завершена
 				new XFGMC_Error_Log( sprintf( 'FEED #%1$s; `status_sborki` = -1. %2$s; %3$s: %4$s; %5$s: %6$s',
 					$this->get_feed_id(),
-					__( 'Just in case, we disable the CRON task', 'xml-for-google-merchatnt-center' ),
-					__( 'File', 'xml-for-google-merchatnt-center' ),
+					__( 'Just in case, we disable the CRON task', 'xml-for-google-merchant-center' ),
+					__( 'File', 'xml-for-google-merchant-center' ),
 					'class-xfgmc-generation-xml.php',
-					__( 'Line', 'xml-for-google-merchatnt-center' ),
+					__( 'Line', 'xml-for-google-merchant-center' ),
 					__LINE__
 				) );
 				wp_clear_scheduled_hook( 'xfgmc_cron_sborki', [ $this->get_feed_id() ] );
@@ -173,8 +181,8 @@ class XFGMC_Generation_XML {
 				common_option_upd(
 					'xfgmc_date_sborki_end',
 					sprintf( '%s (%s: %s)',
-						__( 'Not completed', 'xml-for-google-merchatnt-center' ),
-						__( 'The version used is from', 'xml-for-google-merchatnt-center' ),
+						__( 'Not completed', 'xml-for-google-merchant-center' ),
+						__( 'The version used is from', 'xml-for-google-merchant-center' ),
 						common_option_get(
 							'xfgmc_date_sborki_end',
 							$date_sborki_start,
@@ -188,11 +196,11 @@ class XFGMC_Generation_XML {
 				);
 				new XFGMC_Error_Log( sprintf( 'FEED #%1$s; INFO: `status_sborki` = 1. %2$s (%3$s); %4$s: %5$s; %6$s: %7$s',
 					$this->get_feed_id(),
-					__( 'We started creating a feed', 'xml-for-google-merchatnt-center' ),
+					__( 'We started creating a feed', 'xml-for-google-merchant-center' ),
 					$date_sborki_start,
-					__( 'File', 'xml-for-google-merchatnt-center' ),
+					__( 'File', 'xml-for-google-merchant-center' ),
 					'class-xfgmc-generation-xml.php',
-					__( 'Line', 'xml-for-google-merchatnt-center' ),
+					__( 'Line', 'xml-for-google-merchant-center' ),
 					__LINE__
 				) );
 
@@ -219,12 +227,12 @@ class XFGMC_Generation_XML {
 				if ( false === $result ) {
 					new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s `%3$s`. %4$s; %5$s: %6$s; %7$s: %8$s',
 						$this->get_feed_id(),
-						__( 'An error occurred while creating an empty temporary feed file', 'xml-for-google-merchatnt-center' ),
+						__( 'An error occurred while creating an empty temporary feed file', 'xml-for-google-merchant-center' ),
 						$feed_tmp_full_file_name,
-						__( 'The creation of the feed has been stopped', 'xml-for-google-merchatnt-center' ),
-						__( 'File', 'xml-for-google-merchatnt-center' ),
+						__( 'The creation of the feed has been stopped', 'xml-for-google-merchant-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
 						'class-xfgmc-generation-xml.php',
-						__( 'Line', 'xml-for-google-merchatnt-center' ),
+						__( 'Line', 'xml-for-google-merchant-center' ),
 						__LINE__
 					) );
 					$this->stop();
@@ -254,11 +262,11 @@ class XFGMC_Generation_XML {
 					new XFGMC_Error_Log( sprintf(
 						'FEED #%1$s; ERROR: %2$s `xfgmc_cron_sborki` %3$s 1; %4$s: %5$s; %6$s: %7$s',
 						$this->get_feed_id(),
-						__( 'Failed to schedule a CRON task', 'xml-for-google-merchatnt-center' ),
-						__( 'on step', 'xml-for-google-merchatnt-center' ),
-						__( 'File', 'xml-for-google-merchatnt-center' ),
+						__( 'Failed to schedule a CRON task', 'xml-for-google-merchant-center' ),
+						__( 'on step', 'xml-for-google-merchant-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
 						'class-xfgmc-generation-xml.php',
-						__( 'Line', 'xml-for-google-merchatnt-center' ),
+						__( 'Line', 'xml-for-google-merchant-center' ),
 						__LINE__
 					) );
 				} else {
@@ -276,12 +284,12 @@ class XFGMC_Generation_XML {
 				new XFGMC_Error_Log(
 					sprintf( 'FEED #%1$s; INFO: %2$s (status_sborki = %3$s, last_element_feed = %4$s); %5$s: %6$s; %7$s: %8$s',
 						$this->get_feed_id(),
-						__( 'We continue to create the feed', 'xml-for-google-merchatnt-center' ),
+						__( 'We continue to create the feed', 'xml-for-google-merchant-center' ),
 						$this->get_status_sborki(),
 						$last_element_feed,
-						__( 'File', 'xml-for-google-merchatnt-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
 						'class-xfgmc-generation-xml.php',
-						__( 'Line', 'xml-for-google-merchatnt-center' ),
+						__( 'Line', 'xml-for-google-merchant-center' ),
 						__LINE__
 					)
 				);
@@ -292,11 +300,11 @@ class XFGMC_Generation_XML {
 					new XFGMC_Error_Log( sprintf(
 						'FEED #%1$s; ERROR: %2$s `xfgmc_cron_sborki` %3$s 2; %4$s: %5$s; %6$s: %7$s',
 						$this->get_feed_id(),
-						__( 'Failed to schedule a CRON task', 'xml-for-google-merchatnt-center' ),
-						__( 'on step', 'xml-for-google-merchatnt-center' ),
-						__( 'File', 'xml-for-google-merchatnt-center' ),
+						__( 'Failed to schedule a CRON task', 'xml-for-google-merchant-center' ),
+						__( 'on step', 'xml-for-google-merchant-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
 						'class-xfgmc-generation-xml.php',
-						__( 'Line', 'xml-for-google-merchatnt-center' ),
+						__( 'Line', 'xml-for-google-merchant-center' ),
 						__LINE__
 					) );
 				}
@@ -324,7 +332,7 @@ class XFGMC_Generation_XML {
 				new XFGMC_Error_Log( sprintf(
 					'FEED #%1$s; %2$s =>',
 					$this->get_feed_id(),
-					__( 'Sending a request to the database', 'xml-for-google-merchatnt-center' )
+					__( 'Sending a request to the database', 'xml-for-google-merchant-center' )
 				) );
 				new XFGMC_Error_Log( $args );
 				new XFGMC_Error_Log( json_encode( $args ) );
@@ -333,11 +341,11 @@ class XFGMC_Generation_XML {
 				new XFGMC_Error_Log( sprintf(
 					'FEED #%1$s; %2$s: %3$s; %4$s: %5$s; %6$s: %7$s',
 					$this->get_feed_id(),
-					__( 'The query time to the database was', 'xml-for-google-merchatnt-center' ),
+					__( 'The query time to the database was', 'xml-for-google-merchant-center' ),
 					$query_time,
-					__( 'File', 'xml-for-google-merchatnt-center' ),
+					__( 'File', 'xml-for-google-merchant-center' ),
 					'class-xfgmc-generation-xml.php',
-					__( 'Line', 'xml-for-google-merchatnt-center' ),
+					__( 'Line', 'xml-for-google-merchant-center' ),
 					__LINE__
 				) );
 				$script_execution_time = (int) common_option_get(
@@ -350,20 +358,20 @@ class XFGMC_Generation_XML {
 					new XFGMC_Error_Log( sprintf(
 						'FEED #%1$s; WARNING: %2$s: %3$s > %4$s. %5$s "%6$s" %7$s %8$s %9$s; %10$s: %11$s; %12$s: %13$s',
 						$this->get_feed_id(),
-						__( 'The query time to the database was', 'xml-for-google-merchatnt-center' ),
+						__( 'The query time to the database was', 'xml-for-google-merchant-center' ),
 						$query_time,
 						$script_execution_time,
 						__(
 							'If you experience freezes when creating the feed, try increasing the',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
-						__( 'The maximum script execution time', 'xml-for-google-merchatnt-center' ),
-						__( 'parameter to', 'xml-for-google-merchatnt-center' ),
+						__( 'The maximum script execution time', 'xml-for-google-merchant-center' ),
+						__( 'parameter to', 'xml-for-google-merchant-center' ),
 						$query_time + 5,
-						__( 'points', 'xml-for-google-merchatnt-center' ),
-						__( 'File', 'xml-for-google-merchatnt-center' ),
+						__( 'points', 'xml-for-google-merchant-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
 						'class-xfgmc-generation-xml.php',
-						__( 'Line', 'xml-for-google-merchatnt-center' ),
+						__( 'Line', 'xml-for-google-merchant-center' ),
 						__LINE__
 					) );
 				}
@@ -371,11 +379,11 @@ class XFGMC_Generation_XML {
 					new XFGMC_Error_Log( sprintf(
 						'FEED #%1$s; %2$s: %3$s; %4$s: %5$s; %6$s: %7$s',
 						$this->get_feed_id(),
-						__( 'The number of records returned by the server', 'xml-for-google-merchatnt-center' ),
+						__( 'The number of records returned by the server', 'xml-for-google-merchant-center' ),
 						count( $products_query->posts ),
-						__( 'File', 'xml-for-google-merchatnt-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
 						'class-xfgmc-generation-xml.php',
-						__( 'Line', 'xml-for-google-merchatnt-center' ),
+						__( 'Line', 'xml-for-google-merchant-center' ),
 						__LINE__
 					) );
 					$date_successful_feed_update = common_option_get(
@@ -446,10 +454,10 @@ class XFGMC_Generation_XML {
 					new XFGMC_Error_Log( sprintf(
 						'FEED #%1$s; %2$s: 0; %3$s: %4$s; %5$s: %6$s',
 						$this->get_feed_id(),
-						__( 'The number of records returned by the server', 'xml-for-google-merchatnt-center' ),
-						__( 'File', 'xml-for-google-merchatnt-center' ),
+						__( 'The number of records returned by the server', 'xml-for-google-merchant-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
 						'class-xfgmc-generation-xml.php',
-						__( 'Line', 'xml-for-google-merchatnt-center' ),
+						__( 'Line', 'xml-for-google-merchant-center' ),
 						__LINE__
 					) );
 					$this->set_status_sborki( 3 );
@@ -469,12 +477,12 @@ class XFGMC_Generation_XML {
 				new XFGMC_Error_Log(
 					sprintf( 'FEED #%1$s; INFO: %2$s (status_sborki = %3$s, last_element_feed = %4$s); %5$s: %6$s; %7$s: %8$s',
 						$this->get_feed_id(),
-						__( 'We continue to create the feed', 'xml-for-google-merchatnt-center' ),
+						__( 'We continue to create the feed', 'xml-for-google-merchant-center' ),
 						$this->get_status_sborki(),
 						$last_element_feed,
-						__( 'File', 'xml-for-google-merchatnt-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
 						'class-xfgmc-generation-xml.php',
-						__( 'Line', 'xml-for-google-merchatnt-center' ),
+						__( 'Line', 'xml-for-google-merchant-center' ),
 						__LINE__
 					)
 				);
@@ -495,11 +503,11 @@ class XFGMC_Generation_XML {
 				if ( false === $result ) {
 					new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s. %3$s; %4$s: %5$s; %6$s: %7$s',
 						$this->get_feed_id(),
-						__( 'In this step, an error occurred while creating a temporary feed file', 'xml-for-google-merchatnt-center' ),
-						__( 'The creation of the feed has been stopped', 'xml-for-google-merchatnt-center' ),
-						__( 'File', 'xml-for-google-merchatnt-center' ),
+						__( 'In this step, an error occurred while creating a temporary feed file', 'xml-for-google-merchant-center' ),
+						__( 'The creation of the feed has been stopped', 'xml-for-google-merchant-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
 						'class-xfgmc-generation-xml.php',
-						__( 'Line', 'xml-for-google-merchatnt-center' ),
+						__( 'Line', 'xml-for-google-merchant-center' ),
 						__LINE__
 					) );
 					$this->stop();
@@ -518,11 +526,11 @@ class XFGMC_Generation_XML {
 				new XFGMC_Error_Log(
 					sprintf( 'FEED #%1$s; INFO: %2$s (status_sborki = %3$s); %4$s: %5$s; %6$s: %7$s',
 						$this->get_feed_id(),
-						__( 'Checking whether the feed needs to be archived', 'xml-for-google-merchatnt-center' ),
+						__( 'Checking whether the feed needs to be archived', 'xml-for-google-merchant-center' ),
 						$this->get_status_sborki(),
-						__( 'File', 'xml-for-google-merchatnt-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
 						'class-xfgmc-generation-xml.php',
-						__( 'Line', 'xml-for-google-merchatnt-center' ),
+						__( 'Line', 'xml-for-google-merchant-center' ),
 						__LINE__
 					)
 				);
@@ -619,11 +627,11 @@ class XFGMC_Generation_XML {
 		if ( false === $file_content || $file_content == '' ) {
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s (path = %3$s); %4$s: %5$s; %6$s: %7$s',
 				$this->get_feed_id(),
-				__( 'The list of product IDs in the feed is empty or the temporary file has been deleted', 'xml-for-google-merchatnt-center' ),
+				__( 'The list of product IDs in the feed is empty or the temporary file has been deleted', 'xml-for-google-merchant-center' ),
 				$ids_in_xml_path,
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-generation-xml.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 			return $result_xml;
@@ -664,11 +672,11 @@ class XFGMC_Generation_XML {
 		if ( empty( $result_xml ) ) {
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s (%3$s); %4$s: %5$s; %6$s: %7$s',
 				$this->get_feed_id(),
-				__( 'Data loss when writing a feed file', 'xml-for-google-merchatnt-center' ),
+				__( 'Data loss when writing a feed file', 'xml-for-google-merchant-center' ),
 				$tracing,
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-generation-xml.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 			return $result_xml;
@@ -836,13 +844,13 @@ class XFGMC_Generation_XML {
 		if ( false === rename( $feed_tmp_full_file_name, $feed_new_path ) ) {
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s %3$s %4$s %5$s; %6$s: %7$s; %8$s: %9$s',
 				$this->get_feed_id(),
-				__( "I can't rename the feed file from", "xml-for-google-merchatnt-center" ),
+				__( "I can't rename the feed file from", "xml-for-google-merchant-center" ),
 				$feed_tmp_full_file_name,
-				__( "to", "xml-for-google-merchatnt-center" ),
+				__( "to", "xml-for-google-merchant-center" ),
 				$feed_new_path,
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-generation-xml.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 			return false;
@@ -863,12 +871,12 @@ class XFGMC_Generation_XML {
 			);
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; SUCCESS: %2$s (path = %3$s; url = %4$s); %5$s: %6$s; %7$s: %8$s',
 				$this->get_feed_id(),
-				__( "The temporary feed file has been successfully renamed to the main one", "xml-for-google-merchatnt-center" ),
+				__( "The temporary feed file has been successfully renamed to the main one", "xml-for-google-merchant-center" ),
 				$feed_tmp_full_file_name,
 				$feed_new_url,
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-generation-xml.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 			return true;
@@ -892,10 +900,10 @@ class XFGMC_Generation_XML {
 		if ( $archive_to_zip === 'enabled' ) {
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; %2$s; %3$s: %4$s; %5$s: %6$s',
 				$this->get_feed_id(),
-				__( 'Starting archiving the feed', 'xml-for-google-merchatnt-center' ),
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'Starting archiving the feed', 'xml-for-google-merchant-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-generation-xml.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 
@@ -916,10 +924,10 @@ class XFGMC_Generation_XML {
 			$zip->close();
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; SUCCESS: %2$s; %3$s: %4$s; %5$s: %6$s',
 				$this->get_feed_id(),
-				__( 'The archiving was successful', 'xml-for-google-merchatnt-center' ),
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'The archiving was successful', 'xml-for-google-merchant-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-generation-xml.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 		}

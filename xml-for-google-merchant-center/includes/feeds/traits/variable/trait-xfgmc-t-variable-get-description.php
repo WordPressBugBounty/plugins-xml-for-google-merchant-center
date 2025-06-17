@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -232,7 +232,7 @@ trait XFGMC_T_Variable_Get_Description {
 			if ( ( $skip_products_without_desc === 'enabled' ) && ( $tag_value == '' ) ) {
 				$this->add_skip_reason( [ 
 					'offer_id' => $this->get_offer()->get_id(),
-					'reason' => __( 'Variation product has no description', 'xml-for-google-merchatnt-center' ),
+					'reason' => __( 'Variation product has no description', 'xml-for-google-merchant-center' ),
 					'post_id' => $this->get_offer()->get_id(),
 					'file' => 'trait-xfgmc-t-variable-get-description.php',
 					'line' => __LINE__

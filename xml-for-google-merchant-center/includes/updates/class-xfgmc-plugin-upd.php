@@ -165,26 +165,26 @@ final class XFGMC_Plugin_Upd {
 		}
 		switch ( $i ) {
 			case "202":
-				$message = __( 'License is active', 'xml-for-google-merchatnt-center' );
+				$message = __( 'License is active', 'xml-for-google-merchant-center' );
 				$color = 'green';
 				break;
 			case "402":
-				$message = __( 'License expired', 'xml-for-google-merchatnt-center' );
+				$message = __( 'License expired', 'xml-for-google-merchant-center' );
 				$color = '#dc3232';
 				break;
 			case "412":
-				$message = __( 'License data is invalid', 'xml-for-google-merchatnt-center' );
+				$message = __( 'License data is invalid', 'xml-for-google-merchant-center' );
 				$color = '#dc3232';
 				break;
 			case "418":
 				$message = __(
 					'This license cannot be used on this site. The package limit has been exceeded',
-					'xml-for-google-merchatnt-center'
+					'xml-for-google-merchant-center'
 				);
 				$color = '#dc3232';
 				break;
 			default: // или ошибка 520
-				$message = __( 'License data is invalid', 'xml-for-google-merchatnt-center' );
+				$message = __( 'License data is invalid', 'xml-for-google-merchant-center' );
 				$color = '#dc3232';
 				break;
 		}
@@ -216,28 +216,28 @@ final class XFGMC_Plugin_Upd {
 				$message = sprintf(
 					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s! %3$s, <a href="https://icopydoc.ru/product/%4$s/?utm_source=%4$s&utm_medium=organic&utm_campaign=in-plugin&utm_content=notice&utm_term=license-expired" target="_blank">%5$s</a> (%6$s: <span style="font-weight: 700;">%7$s</span>). %8$s <a href="/wp-admin/admin.php?page=%9$s">%10$s</a>.',
 					$this->list_plugin_names[ $this->get_pref()]['name'],
-					__( 'License expired', 'xml-for-google-merchatnt-center' ),
-					__( 'Please', 'xml-for-google-merchatnt-center' ),
+					__( 'License expired', 'xml-for-google-merchant-center' ),
+					__( 'Please', 'xml-for-google-merchant-center' ),
 					$this->get_slug(),
-					__( 'purchase a new license', 'xml-for-google-merchatnt-center' ),
-					__( 'to get a discount, use this promo code', 'xml-for-google-merchatnt-center' ),
+					__( 'purchase a new license', 'xml-for-google-merchant-center' ),
+					__( 'to get a discount, use this promo code', 'xml-for-google-merchant-center' ),
 					$this->list_plugin_names[ $this->get_pref()]['code'],
-					__( 'If you have already done this', 'xml-for-google-merchatnt-center' ),
-					'xml-for-google-merchatnt-center-debug&action=edit&current_display=debug_page&tab=premium',
-					__( 'enter the new license information here', 'xml-for-google-merchatnt-center' )
+					__( 'If you have already done this', 'xml-for-google-merchant-center' ),
+					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium',
+					__( 'enter the new license information here', 'xml-for-google-merchant-center' )
 				);
 				break;
 			case "412":
 				$message = sprintf(
 					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s! %1$s %3$s. <a href="/wp-admin/admin.php?page=%8$s">%4$s</a> %5$s <a href="https://icopydoc.ru/product/%6$s/?utm_source=%6$s&utm_medium=organic&utm_campaign=in-plugin&utm_content=license-err&utm_term=notice" target="_blank">%7$s</a>.',
 					$this->list_plugin_names[ $this->get_pref()]['name'],
-					__( 'License data is invalid', 'xml-for-google-merchatnt-center' ),
-					__( 'version features do not work and you can not install updates', 'xml-for-google-merchatnt-center' ),
-					__( 'Enter your license information', 'xml-for-google-merchatnt-center' ),
-					__( 'or', 'xml-for-google-merchatnt-center' ),
+					__( 'License data is invalid', 'xml-for-google-merchant-center' ),
+					__( 'version features do not work and you can not install updates', 'xml-for-google-merchant-center' ),
+					__( 'Enter your license information', 'xml-for-google-merchant-center' ),
+					__( 'or', 'xml-for-google-merchant-center' ),
 					$this->get_slug(),
-					__( 'purchase a new one', 'xml-for-google-merchatnt-center' ),
-					'xml-for-google-merchatnt-center-debug&action=edit&current_display=debug_page&tab=premium'
+					__( 'purchase a new one', 'xml-for-google-merchant-center' ),
+					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium'
 				);
 				break;
 			case "418":
@@ -246,26 +246,26 @@ final class XFGMC_Plugin_Upd {
 					$this->list_plugin_names[ $this->get_pref()]['name'],
 					__(
 						'This license cannot be used on this site. The package limit has been exceeded',
-						'xml-for-google-merchatnt-center'
+						'xml-for-google-merchant-center'
 					),
-					__( 'Enter your license information', 'xml-for-google-merchatnt-center' ),
-					__( 'or', 'xml-for-google-merchatnt-center' ),
+					__( 'Enter your license information', 'xml-for-google-merchant-center' ),
+					__( 'or', 'xml-for-google-merchant-center' ),
 					$this->get_slug(),
-					__( 'purchase a new one', 'xml-for-google-merchatnt-center' ),
-					'xml-for-google-merchatnt-center-debug&action=edit&current_display=debug_page&tab=premium'
+					__( 'purchase a new one', 'xml-for-google-merchant-center' ),
+					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium'
 				);
 				break;
 			default: // или ошибка 520
 				$message = sprintf(
 					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s! %1$s %3$s. <a href="/wp-admin/admin.php?page=%8$s">%4$s</a> %5$s <a href="https://icopydoc.ru/product/%6$s/?utm_source=%6$s&utm_medium=organic&utm_campaign=in-plugin&utm_content=license-err&utm_term=notice" target="_blank">%7$s</a>.',
 					$this->list_plugin_names[ $this->get_pref()]['name'],
-					__( 'License data is invalid', 'xml-for-google-merchatnt-center' ),
-					__( 'version features do not work and you can not install updates', 'xml-for-google-merchatnt-center' ),
-					__( 'Enter your license information', 'xml-for-google-merchatnt-center' ),
-					__( 'or', 'xml-for-google-merchatnt-center' ),
+					__( 'License data is invalid', 'xml-for-google-merchant-center' ),
+					__( 'version features do not work and you can not install updates', 'xml-for-google-merchant-center' ),
+					__( 'Enter your license information', 'xml-for-google-merchant-center' ),
+					__( 'or', 'xml-for-google-merchant-center' ),
 					$this->get_slug(),
-					__( 'purchase a new one', 'xml-for-google-merchatnt-center' ),
-					'xml-for-google-merchatnt-center-debug&action=edit&current_display=debug_page&tab=premium'
+					__( 'purchase a new one', 'xml-for-google-merchant-center' ),
+					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium'
 				);
 				break;
 		}
@@ -282,21 +282,21 @@ final class XFGMC_Plugin_Upd {
 				$message = sprintf(
 					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s <span style="font-weight: 700; color: red;">%3$s</span>. %4$s, <a href="https://icopydoc.ru/product/%5$s/?utm_source=link&utm_medium=organic&utm_campaign=in-plugin&utm_content=notice&utm_term=license-remaining" target="_blank">%6$s</a> (%7$s: <span style="font-weight: 700;">%8$s</span>). %9$s <a href="/wp-admin/admin.php?page=%10$s">%11$s</a>.',
 					$this->list_plugin_names[ $this->get_pref()]['name'],
-					__( 'License expires in', 'xml-for-google-merchatnt-center' ),
+					__( 'License expires in', 'xml-for-google-merchant-center' ),
 					$this->num_decline( $remaining_days, [ 
-						__( 'day', 'xml-for-google-merchatnt-center' ),
-						_x( 'days', '2 days', 'xml-for-google-merchatnt-center' ),
-						_x( 'days', '5 days', 'xml-for-google-merchatnt-center' )
+						__( 'day', 'xml-for-google-merchant-center' ),
+						_x( 'days', '2 days', 'xml-for-google-merchant-center' ),
+						_x( 'days', '5 days', 'xml-for-google-merchant-center' )
 					]
 					),
-					__( 'Please', 'xml-for-google-merchatnt-center' ),
+					__( 'Please', 'xml-for-google-merchant-center' ),
 					$this->get_slug(),
-					__( 'purchase a new license', 'xml-for-google-merchatnt-center' ),
-					__( 'to get a discount, use this promo code', 'xml-for-google-merchatnt-center' ),
+					__( 'purchase a new license', 'xml-for-google-merchant-center' ),
+					__( 'to get a discount, use this promo code', 'xml-for-google-merchant-center' ),
 					$this->list_plugin_names[ $this->get_pref()]['code'],
-					__( 'If you have already done this', 'xml-for-google-merchatnt-center' ),
-					__( 'enter the new license information here', 'xml-for-google-merchatnt-center' ),
-					'xml-for-google-merchatnt-center-debug&action=edit&current_display=debug_page&tab=premium'
+					__( 'If you have already done this', 'xml-for-google-merchant-center' ),
+					__( 'enter the new license information here', 'xml-for-google-merchant-center' ),
+					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium'
 				);
 				if ( ! empty( $message ) ) {
 					$class = 'error';
@@ -535,11 +535,11 @@ final class XFGMC_Plugin_Upd {
 		} else {
 			new XFGMC_Error_Log( sprintf( 'ERROR (#%1$s): %2$s. %3$s; %4$s: %5$s; %6$s: %7$s',
 				$response_code,
-				__( 'Error checking for updates', 'xml-for-google-merchatnt-center' ),
+				__( 'Error checking for updates', 'xml-for-google-merchant-center' ),
 				$response_message,
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-plugin-upd.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 		}
@@ -574,11 +574,11 @@ final class XFGMC_Plugin_Upd {
 			} else {
 				new XFGMC_Error_Log( sprintf( 'ERROR (#%1$s): %2$s. %3$s; %4$s: %5$s; %6$s: %7$s',
 					$response_code,
-					__( 'Error when requesting information about the plugin', 'xml-for-google-merchatnt-center' ),
+					__( 'Error when requesting information about the plugin', 'xml-for-google-merchant-center' ),
 					$response_message,
-					__( 'File', 'xml-for-google-merchatnt-center' ),
+					__( 'File', 'xml-for-google-merchant-center' ),
 					'class-xfgmc-plugin-upd.php',
-					__( 'Line', 'xml-for-google-merchatnt-center' ),
+					__( 'Line', 'xml-for-google-merchant-center' ),
 					__LINE__
 				) );
 				return $result;

@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -76,12 +76,12 @@ trait XFGMC_T_Simple_Get_Product_Type {
 		if ( is_wp_error( $term ) ) {
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s $category_id = %3$s %4$s wp_error; %5$s: %6$s; %7$s: %8$s',
 				$this->get_feed_id(),
-				__( 'The function get_term() for', 'xml-for-google-merchatnt-center' ),
+				__( 'The function get_term() for', 'xml-for-google-merchant-center' ),
 				$category_id,
-				__( 'returned', 'xml-for-google-merchatnt-center' ),
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'returned', 'xml-for-google-merchant-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'trait-xfgmc-t-simple-get-product-type.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 			new XFGMC_Error_Log( sprintf( 'error_key: %1$s; error_message: %2$s; error_data: %3$s;',
@@ -92,12 +92,12 @@ trait XFGMC_T_Simple_Get_Product_Type {
 		} else if ( null === $term ) {
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s $category_id = %3$s %4$s null; %5$s: %6$s; %7$s: %8$s',
 				$this->get_feed_id(),
-				__( 'The function get_term() for', 'xml-for-google-merchatnt-center' ),
+				__( 'The function get_term() for', 'xml-for-google-merchant-center' ),
 				$category_id,
-				__( 'returned', 'xml-for-google-merchatnt-center' ),
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'returned', 'xml-for-google-merchant-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'trait-xfgmc-t-simple-get-product-type.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 		} else {

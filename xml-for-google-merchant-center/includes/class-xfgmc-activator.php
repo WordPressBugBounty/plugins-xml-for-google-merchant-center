@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -39,11 +39,11 @@ class XFGMC_Activator {
 			if ( ! mkdir( XFGMC_PLUGIN_UPLOADS_DIR_PATH ) ) {
 				error_log(
 					sprintf( 'ERROR: %1$s "%2$s" %3$s; %4$s: class-xfgmc-activator.php; %5$s: %6$s',
-						__( 'Folder creation error', 'xml-for-google-merchatnt-center' ),
+						__( 'Folder creation error', 'xml-for-google-merchant-center' ),
 						XFGMC_PLUGIN_UPLOADS_DIR_PATH,
-						__( 'at the time of plugin activation', 'xml-for-google-merchatnt-center' ),
-						__( 'Line', 'xml-for-google-merchatnt-center' ),
-						__( 'File', 'xml-for-google-merchatnt-center' ),
+						__( 'at the time of plugin activation', 'xml-for-google-merchant-center' ),
+						__( 'Line', 'xml-for-google-merchant-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
 						__LINE__
 					),
 					0
@@ -56,11 +56,11 @@ class XFGMC_Activator {
 			if ( ! mkdir( $name_dir ) ) {
 				error_log(
 					sprintf( 'ERROR: %1$s "%2$s" %3$s; %4$s: class-xfgmc-activator.php; %5$s: %6$s',
-						__( 'Folder creation error', 'xml-for-google-merchatnt-center' ),
+						__( 'Folder creation error', 'xml-for-google-merchant-center' ),
 						$name_dir,
-						__( 'at the time of plugin activation', 'xml-for-google-merchatnt-center' ),
-						__( 'Line', 'xml-for-google-merchatnt-center' ),
-						__( 'File', 'xml-for-google-merchatnt-center' ),
+						__( 'at the time of plugin activation', 'xml-for-google-merchant-center' ),
+						__( 'Line', 'xml-for-google-merchant-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
 						__LINE__
 					),
 					0

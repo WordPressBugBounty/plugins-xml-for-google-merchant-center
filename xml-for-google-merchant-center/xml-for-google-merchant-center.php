@@ -15,20 +15,20 @@
  * @wordpress-plugin
  * Plugin Name:             XML for Google Merchant Center
  * Requires Plugins:        woocommerce
- * Plugin URI:              https://wordpress.org/plugins/xml-for-google-merchatnt-center/
- * Description:             Creates a XML-feed to upload to Google Merchant Center and not only
- * Version:                 4.0.2
+ * Plugin URI:              https://wordpress.org/plugins/xml-for-google-merchant-center/
+ * Description:             Creates a XML feed that allows merchants to easily display their products across Google’s network.
+ * Version:                 4.0.3
  * Requires at least:       5.9
  * Requires PHP:            7.4.0
  * Author:                  Maxim Glazunov
  * Author URI:              https://icopydoc.ru/
  * License:                 GPL-2.0+
  * License URI:             http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:             xml-for-google-merchatnt-center
+ * Text Domain:             xml-for-google-merchant-center
  * Domain Path:             /languages
  * Tags:                    xml, yandex, market, export, woocommerce
  * WC requires at least:    3.0.0
- * WC tested up to:         9.8.5
+ * WC tested up to:         9.9.4
  */
 
 // If this file is called directly, abort.
@@ -154,8 +154,8 @@ if ( version_compare( phpversion(), '7.4.0', '<' ) ) { // не совпали в
 			sprintf(
 				'<strong style="font-weight: 700;">%1$s</strong> %2$s 7.4.0 %3$s %4$s',
 				'XML for Google Merchant Center',
-				__( 'plugin requires a php version of at least', 'xml-for-google-merchatnt-center' ),
-				__( 'You have the version installed', 'xml-for-google-merchatnt-center' ),
+				__( 'plugin requires a php version of at least', 'xml-for-google-merchant-center' ),
+				__( 'You have the version installed', 'xml-for-google-merchant-center' ),
 				phpversion()
 			)
 		);
@@ -174,7 +174,7 @@ if ( ! in_array( $plugin, apply_filters( 'active_plugins', get_option( 'active_p
 			'notice notice-error',
 			sprintf(
 				'<strong style="font-weight: 700;">XML for Google Merchant Center</strong> %1$s',
-				__( 'requires WooCommerce installed and activated', 'xml-for-google-merchatnt-center' )
+				__( 'requires WooCommerce installed and activated', 'xml-for-google-merchant-center' )
 			)
 		);
 	} );
@@ -482,7 +482,7 @@ if ( false === $not_run ) {
 	 * Start at version 0.1.0 and use SemVer - https://semver.org
 	 * Rename this for your plugin and update it as you release new versions.
 	 */
-	define( 'XFGMC_PLUGIN_VERSION', '4.0.2' );
+	define( 'XFGMC_PLUGIN_VERSION', '4.0.3' );
 
 	$upload_dir = wp_get_upload_dir();
 	// http://site.ru/wp-content/uploads
@@ -498,7 +498,7 @@ if ( false === $not_run ) {
 	define( 'XFGMC_PLUGIN_UPLOADS_DIR_PATH', $upload_dir['basedir'] . '/xfgmc' );
 	unset( $upload_dir );
 
-	// /home/p135/www/site.ru/wp-content/plugins/xml-for-google-merchatnt-center/
+	// /home/p135/www/site.ru/wp-content/plugins/xml-for-google-merchant-center/
 	define( 'XFGMC_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ) );
 
 	/**
@@ -573,7 +573,7 @@ if ( false === $not_run ) {
 	} else {
 		$xfgmc_v = get_option( 'xfgmc_version', '0.1.0' );
 	}
-	if ( version_compare( $xfgmc_v, '4.0.2', '<' ) ) {
+	if ( version_compare( $xfgmc_v, '4.0.3', '<' ) ) {
 		xfgmc_plugin_database_upd( $xfgmc_v );
 	}
 
@@ -583,11 +583,11 @@ if ( false === $not_run ) {
 			'XML for Google Merchant Center PRO',
 			__(
 				'plugin DOES NOT WORK',
-				'xml-for-google-merchatnt-center'
+				'xml-for-google-merchant-center'
 			),
 			__(
 				'To restore its functionality, urgently update the plugin to a version not lower than',
-				'xml-for-google-merchatnt-center'
+				'xml-for-google-merchant-center'
 			)
 		);
 		new ICPD_Set_Admin_Notices( $msg, 'error', true );
@@ -632,11 +632,11 @@ if ( false === $not_run ) {
 			'XML for Google Merchant Center SETS',
 			__(
 				'plugin DOES NOT WORK',
-				'xml-for-google-merchatnt-center'
+				'xml-for-google-merchant-center'
 			),
 			__(
 				'To restore its functionality, urgently update the plugin to a version not lower than',
-				'xml-for-google-merchatnt-center'
+				'xml-for-google-merchant-center'
 			)
 		);
 		new ICPD_Set_Admin_Notices( $msg, 'error', true );

@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -136,16 +136,16 @@ class XFGMC_Settings_Page {
 
 		$tabs_arr = [ 
 			'main_tab' => sprintf( '%s',
-				__( 'Main settings', 'xml-for-google-merchatnt-center' )
+				__( 'Main settings', 'xml-for-google-merchant-center' )
 			),
 			'shop_data_tab' => sprintf( '<channel>...%s...<item>',
-				__( 'elements between', 'xml-for-google-merchatnt-center' )
+				__( 'elements between', 'xml-for-google-merchant-center' )
 			),
 			'offer_data_tab' => sprintf( '<item>...%s...</item>',
-				__( 'elements between', 'xml-for-google-merchatnt-center' )
+				__( 'elements between', 'xml-for-google-merchant-center' )
 			),
 			'filtration_tab' => sprintf( '%s',
-				__( 'Filtration', 'xml-for-google-merchatnt-center' )
+				__( 'Filtration', 'xml-for-google-merchant-center' )
 			)
 		];
 		$tabs_arr = apply_filters(

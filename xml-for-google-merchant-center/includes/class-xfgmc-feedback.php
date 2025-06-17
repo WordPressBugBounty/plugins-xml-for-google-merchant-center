@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    iCopyDoc Plugins (ICPD)
  * @subpackage 
@@ -31,14 +31,14 @@ final class XFGMC_Feedback {
 
 	/**
 	 * URL of the log file.
-	 * Example: `https://site.ru/wp-content/uploads/xfgmc/xml-for-google-merchatnt-center.log`
+	 * Example: `https://site.ru/wp-content/uploads/xfgmc/xml-for-google-merchant-center.log`
 	 * @var string
 	 */
 	private $logs_url = '';
 
 	/**
 	 * Path of the log file.
-	 * Example: `/home/site.ru/public_html/wp-content/uploads/xfgmc/xml-for-google-merchatnt-center.log`
+	 * Example: `/home/site.ru/public_html/wp-content/uploads/xfgmc/xml-for-google-merchant-center.log`
 	 * @var string
 	 */
 	private $logs_path = '';
@@ -89,7 +89,7 @@ final class XFGMC_Feedback {
 			// ! внутри фукцнии send_data не будет работать
 			add_action( 'admin_init', [ $this, 'send_data' ], 10 );
 			new ICPD_Set_Admin_Notices(
-				__( 'The data has been sent. Thank you', 'xml-for-google-merchatnt-center' ),
+				__( 'The data has been sent. Thank you', 'xml-for-google-merchant-center' ),
 				'success',
 				true
 			);
@@ -119,51 +119,51 @@ final class XFGMC_Feedback {
 	public function print_view_html_feedback_block() { ?>
 		<div class="postbox">
 			<h2 class="hndle">
-				<?php esc_html_e( 'Communication with the developer', 'xml-for-google-merchatnt-center' ); ?>
+				<?php esc_html_e( 'Communication with the developer', 'xml-for-google-merchant-center' ); ?>
 			</h2>
 			<div class="inside">
 				<p><?php esc_html_e(
 					'Using this form, you can send statistics about the work of the plugin, as well as ask a question to the plugin support service',
-					'xml-for-google-merchatnt-center'
+					'xml-for-google-merchant-center'
 				); ?>:</p>
 				<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ); ?>" method="post" enctype="multipart/form-data">
 					<?php
 					printf( '<p><strong>%s %s %s?</strong></p>',
-						esc_html__( 'The plugin', 'xml-for-google-merchatnt-center' ),
+						esc_html__( 'The plugin', 'xml-for-google-merchant-center' ),
 						esc_html__( $this->get_plugin_name() ),
-						esc_html__( 'help you', 'xml-for-google-merchatnt-center' ),
+						esc_html__( 'help you', 'xml-for-google-merchant-center' ),
 					);
 					?>
 
 					<?php
 					printf( '<p class="icpd_radio"><input id="icpd_radio_1" type="radio" value="yes" name="xfgmc_its_ok"><label for="icpd_radio_1">%s.</label></p>',
-						esc_html__( 'The plugin helped me', 'xml-for-google-merchatnt-center' )
+						esc_html__( 'The plugin helped me', 'xml-for-google-merchant-center' )
 					);
 
 					printf( '<p class="icpd_radio"><input id="icpd_radio_2" type="radio" value="partially" name="xfgmc_its_ok"><label for="icpd_radio_2">%s.</label></p>',
-						esc_html__( "The plugin partially helped me", "xml-for-google-merchatnt-center" )
+						esc_html__( "The plugin partially helped me", "xml-for-google-merchant-center" )
 					);
 
 					printf( '<p class="icpd_radio"><input id="icpd_radio_3" type="radio" value="no" name="xfgmc_its_ok"><label for="icpd_radio_3">%s.</label></p>',
-						esc_html__( "The plugin didn't help me", "xml-for-google-merchatnt-center" )
+						esc_html__( "The plugin didn't help me", "xml-for-google-merchant-center" )
 					);
 					?>
 
 					<p><strong><?php
 					esc_html_e( 'If you want to receive a response, be sure to provide an email address',
-						'xml-for-google-merchatnt-center'
+						'xml-for-google-merchant-center'
 					); ?>:</strong></p>
 					<p><input class="icpd_input" type="email" name="xfgmc_email" placeholder="your@email.com"></p>
-					<p><strong><?php esc_html_e( 'Your message', 'xml-for-google-merchatnt-center' ); ?>:</strong></p>
+					<p><strong><?php esc_html_e( 'Your message', 'xml-for-google-merchant-center' ); ?>:</strong></p>
 					<p><textarea class="icpd_textarea" rows="7" cols="32" name="xfgmc_message" placeholder="<?php
 					printf( '%1$s (%2$s). %3$s',
-						esc_attr__( 'Enter your text to send me a message', 'xml-for-google-merchatnt-center' ),
-						esc_attr__( 'You can write me in Russian or English', 'xml-for-google-merchatnt-center' ),
-						esc_attr__( 'I check my email several times a day', 'xml-for-google-merchatnt-center' )
+						esc_attr__( 'Enter your text to send me a message', 'xml-for-google-merchant-center' ),
+						esc_attr__( 'You can write me in Russian or English', 'xml-for-google-merchant-center' ),
+						esc_attr__( 'I check my email several times a day', 'xml-for-google-merchant-center' )
 					); ?>"></textarea></p>
 					<?php wp_nonce_field( 'xfgmc_nonce_action_send_stat', 'xfgmc_nonce_field_send_stat' ); ?>
 					<input class="button-primary" type="submit" name="xfgmc_submit_send_stat"
-						value="<?php esc_html_e( 'Send data', 'xml-for-google-merchatnt-center' ); ?>" />
+						value="<?php esc_html_e( 'Send data', 'xml-for-google-merchant-center' ); ?>" />
 				</form>
 			</div>
 		</div>
@@ -312,7 +312,7 @@ final class XFGMC_Feedback {
 	/**
 	 * Get file logs url.
 	 * 
-	 * Example: `https://site.ru/wp-content/uploads/xfgmc/xml-for-google-merchatnt-center.log`
+	 * Example: `https://site.ru/wp-content/uploads/xfgmc/xml-for-google-merchant-center.log`
 	 * 
 	 * @return string
 	 */
@@ -323,7 +323,7 @@ final class XFGMC_Feedback {
 	/**
 	 * Get file logs path.
 	 * 
-	 * Example: `/home/site.ru/public_html/wp-content/uploads/xfgmc/xml-for-google-merchatnt-center.log`
+	 * Example: `/home/site.ru/public_html/wp-content/uploads/xfgmc/xml-for-google-merchant-center.log`
 	 * 
 	 * @return string
 	 */

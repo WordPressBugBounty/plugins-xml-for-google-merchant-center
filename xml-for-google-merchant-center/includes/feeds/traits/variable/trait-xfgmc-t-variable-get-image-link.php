@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -97,7 +97,7 @@ trait XFGMC_T_Variable_Get_Image_Link {
 		if ( ( $skip_products_without_pic === 'enabled' ) && ( empty( $result_xml ) ) ) {
 			$this->add_skip_reason( [ 
 				'offer_id' => $this->get_offer()->get_id(),
-				'reason' => __( 'Product has no images', 'xml-for-google-merchatnt-center' ),
+				'reason' => __( 'Product has no images', 'xml-for-google-merchant-center' ),
 				'post_id' => $this->get_offer()->get_id(),
 				'file' => 'trait-xfgmc-t-variable-get-image-link.php',
 				'line' => __LINE__

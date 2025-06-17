@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.2 (08-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -34,7 +34,7 @@ class XFGMC_Autoloader {
 	/**
 	 * The path to the classmap file.
 	 *  
-	 * Example: `/home/p135/www/site.ru/wp-content/plugins/xml-for-google-merchatnt-center/classmap.php`.
+	 * Example: `/home/p135/www/site.ru/wp-content/plugins/xml-for-google-merchant-center/classmap.php`.
 	 * 
 	 * @var string
 	 */
@@ -50,7 +50,7 @@ class XFGMC_Autoloader {
 	/**
 	 * The plugin dir path.
 	 * 
-	 * Example: `/home/p135/www/site.ru/wp-content/plugins/xml-for-google-merchatnt-center/`.
+	 * Example: `/home/p135/www/site.ru/wp-content/plugins/xml-for-google-merchant-center/`.
 	 * 
 	 * @var string
 	 */
@@ -212,7 +212,7 @@ class XFGMC_Autoloader {
 	/**
 	 * Get the plugin dir path.
 	 * 
-	 * @return string Example: `/home/p135/www/site.ru/wp-content/plugins/xml-for-google-merchatnt-center/`.
+	 * @return string Example: `/home/p135/www/site.ru/wp-content/plugins/xml-for-google-merchant-center/`.
 	 */
 	private function get_plugin_dir_path() {
 		return $this->plugin_dir_path;

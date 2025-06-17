@@ -2,7 +2,7 @@
 /**
  * Print Extensions page.
  * 
- * @version 4.0.2 (08-06-2025)
+ * @version 4.0.3 (17-06-2025)
  * @see     
  * @package 
  */
@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
 </style>
 <div id="xfgmc_extensions" class="wrap">
 	<h1 style="font-size: 32px; text-align: center; color: #5b2942;">
-		<?php esc_html_e( 'Extensions for', 'xml-for-google-merchatnt-center' ); ?> XML for Google Merchant Center
+		<?php esc_html_e( 'Extensions for', 'xml-for-google-merchant-center' ); ?> XML for Google Merchant Center
 	</h1>
 	<div id="dashboard-widgets-wrap">
 		<div id="dashboard-widgets" class="metabox-holder">
@@ -43,7 +43,7 @@ defined( 'ABSPATH' ) || exit;
 									<tr>
 										<td class="overalldesc" style="font-size: 18px;">
 											<h1 style="font-size: 24px; text-align: center; color: #5b2942;">XML for
-												Google Merchant Center Pro</h1>
+												Google Merchant Center PRO</h1>
 											<ul style="text-align: center;">
 												<li>&#10004;
 													<?php esc_html_e( 'The ability to exclude products from certain categories', 'xml-for-google-merchant-center' ); ?>;

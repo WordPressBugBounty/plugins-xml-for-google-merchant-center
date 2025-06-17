@@ -11,7 +11,7 @@
  * @subpackage 
  */
 
-// 'xml-for-google-merchatnt-center' - slug for translation (be sure to make an autocorrect)
+// 'xml-for-google-merchant-center' - slug for translation (be sure to make an autocorrect)
 if ( ! class_exists( 'ICPD_Promo' ) ) {
 
 	/**
@@ -48,27 +48,27 @@ if ( ! class_exists( 'ICPD_Promo' ) ) {
 			$plugins_arr = [ 
 				[ 
 					'name' => 'XML for Google Merchant Center',
-					'desc' => __( 'Сreates a XML-feed to upload to Google Merchant Center', 'xml-for-google-merchatnt-center' ),
+					'desc' => __( 'Сreates a XML-feed to upload to Google Merchant Center', 'xml-for-google-merchant-center' ),
 					'url' => 'https://wordpress.org/plugins/xml-for-google-merchant-center/'
 				],
 				[ 
 					'name' => 'XML for Google Merchant Center',
 					'desc' => __(
 						'Сreates a XML-feed for importing your products to Google Merchant Center',
-						'xml-for-google-merchatnt-center'
+						'xml-for-google-merchant-center'
 					),
-					'url' => 'https://wordpress.org/plugins/xml-for-google-merchatnt-center/'
+					'url' => 'https://wordpress.org/plugins/xml-for-google-merchant-center/'
 				],
 				[ 
 					'name' => 'Import from XML',
-					'desc' => __( 'Imports products from XML to your shop', 'xml-for-google-merchatnt-center' ),
+					'desc' => __( 'Imports products from XML to your shop', 'xml-for-google-merchant-center' ),
 					'url' => 'https://wordpress.org/plugins/import-from-xml/'
 				],
 				[ 
 					'name' => 'Import Products to Yandex',
 					'desc' => __(
 						'Imports products to Google Merchant Center from your online store on Woocommerce using the API',
-						'xml-for-google-merchatnt-center'
+						'xml-for-google-merchant-center'
 					),
 					'url' => 'https://wordpress.org/plugins/wc-import-yandex/'
 				],
@@ -76,20 +76,20 @@ if ( ! class_exists( 'ICPD_Promo' ) ) {
 					'name' => 'Integrate myTarget for WooCommerce',
 					'desc' => __(
 						'This plugin helps setting up myTarget counter for dynamic remarketing for WooCommerce',
-						'xml-for-google-merchatnt-center'
+						'xml-for-google-merchant-center'
 					),
 					'url' => 'https://wordpress.org/plugins/wc-mytarget/'
 				],
 				[ 
 					'name' => 'XML for Hotline',
-					'desc' => __( 'Сreates a XML-feed for importing your products to Hotline', 'xml-for-google-merchatnt-center' ),
+					'desc' => __( 'Сreates a XML-feed for importing your products to Hotline', 'xml-for-google-merchant-center' ),
 					'url' => 'https://wordpress.org/plugins/xml-for-hotline/'
 				],
 				[ 
 					'name' => 'Gift upon purchase for WooCommerce',
 					'desc' => __(
 						'This plugin will add a marketing tool that will allow you to give gifts to the buyer upon purchase',
-						'xml-for-google-merchatnt-center'
+						'xml-for-google-merchant-center'
 					),
 					'url' => 'https://wordpress.org/plugins/gift-upon-purchase-for-woocommerce/'
 				],
@@ -97,7 +97,7 @@ if ( ! class_exists( 'ICPD_Promo' ) ) {
 					'name' => 'Import Products to OK.ru',
 					'desc' => __(
 						'With this plugin, you can import products to your group on ok.ru',
-						'xml-for-google-merchatnt-center'
+						'xml-for-google-merchant-center'
 					),
 					'url' => 'https://wordpress.org/plugins/import-products-to-ok-ru/'
 				],
@@ -105,26 +105,26 @@ if ( ! class_exists( 'ICPD_Promo' ) ) {
 					'name' => 'Import Products to OZON',
 					'desc' => __(
 						'With this plugin, you can import products to OZON',
-						'xml-for-google-merchatnt-center'
+						'xml-for-google-merchant-center'
 					),
-					'url' => 'https://wordpress.org/plugins/xml-for-google-merchatnt-center/'
+					'url' => 'https://wordpress.org/plugins/xml-for-google-merchant-center/'
 				],
 				[ 
 					'name' => 'Import Products to VK.com',
 					'desc' => __(
 						'With this plugin, you can import products to your group on VK.com',
-						'xml-for-google-merchatnt-center'
+						'xml-for-google-merchant-center'
 					),
-					'url' => 'https://wordpress.org/plugins/xml-for-google-merchatnt-center/'
+					'url' => 'https://wordpress.org/plugins/xml-for-google-merchant-center/'
 				],
 				[ 
 					'name' => 'XML for Avito',
-					'desc' => __( 'Сreates a XML-feed for importing your products to', 'xml-for-google-merchatnt-center' ),
+					'desc' => __( 'Сreates a XML-feed for importing your products to', 'xml-for-google-merchant-center' ),
 					'url' => 'https://wordpress.org/plugins/xml-for-avito/'
 				],
 				[ 
 					'name' => 'XML for O.Yandex (Яндекс Объявления)',
-					'desc' => __( 'Сreates a XML-feed for importing your products to', 'xml-for-google-merchatnt-center' ),
+					'desc' => __( 'Сreates a XML-feed for importing your products to', 'xml-for-google-merchant-center' ),
 					'url' => 'https://wordpress.org/plugins/xml-for-o-yandex/'
 				]
 			];
@@ -171,7 +171,7 @@ if ( ! class_exists( 'ICPD_Promo' ) ) {
 			<div class="metabox-holder">
 				<div class="postbox">
 					<h2 class="hndle">
-						<?php esc_html_e( 'My plugins that may interest you', 'xml-for-google-merchatnt-center' ); ?>
+						<?php esc_html_e( 'My plugins that may interest you', 'xml-for-google-merchant-center' ); ?>
 					</h2>
 					<div class="inside">
 						<?php
@@ -197,7 +197,7 @@ if ( ! class_exists( 'ICPD_Promo' ) ) {
 				esc_html( $data_arr['name'] ),
 				esc_html( $data_arr['desc'] ),
 				esc_attr( $data_arr['url'] ),
-				esc_html__( 'Read more', 'xml-for-google-merchatnt-center' ),
+				esc_html__( 'Read more', 'xml-for-google-merchant-center' ),
 				PHP_EOL
 			);
 		}

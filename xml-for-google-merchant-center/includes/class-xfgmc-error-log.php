@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -33,7 +33,7 @@ final class XFGMC_Error_Log {
 	 * Path to the log file.
 	 * @var string
 	 */
-	protected $log_file_path; // /home/site.ru/public_html/wp-content/uploads/xfgmc/xml-for-google-merchatnt-center.log
+	protected $log_file_path; // /home/site.ru/public_html/wp-content/uploads/xfgmc/xml-for-google-merchant-center.log
 
 	/**
 	 * Writes plugin logs.
@@ -47,10 +47,10 @@ final class XFGMC_Error_Log {
 
 		$this->text_to_log = $text_to_log;
 		if ( is_dir( $log_dir_name ) ) {
-			$this->log_file_path = $log_dir_name . '/xml-for-google-merchatnt-center.log';
+			$this->log_file_path = $log_dir_name . '/xml-for-google-merchant-center.log';
 		} else {
 			if ( mkdir( $log_dir_name ) ) {
-				$this->log_file_path = $log_dir_name . '/xml-for-google-merchatnt-center.log';
+				$this->log_file_path = $log_dir_name . '/xml-for-google-merchant-center.log';
 			} else {
 				$this->log_file_path = false;
 				error_log( sprintf( 'ERROR: XFGMC_Error_Log: %1$s: %2$s. %3$s.',
@@ -113,7 +113,7 @@ final class XFGMC_Error_Log {
 	/**
 	 * Returns the path to the log file.
 	 * 
-	 * @return string Example: `/home/site.ru/public_html/wp-content/uploads/xfgmc/xml-for-google-merchatnt-center.log`
+	 * @return string Example: `/home/site.ru/public_html/wp-content/uploads/xfgmc/xml-for-google-merchant-center.log`
 	 */
 	protected function get_file_path() {
 		return $this->log_file_path;

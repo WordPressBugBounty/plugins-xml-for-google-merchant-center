@@ -8,7 +8,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -73,7 +73,7 @@ class XFGMC {
 		} else {
 			$this->version = '0.1.0';
 		}
-		$this->plugin_name = 'xml-for-google-merchatnt-center';
+		$this->plugin_name = 'xml-for-google-merchant-center';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -114,7 +114,7 @@ class XFGMC {
 		/**
 		 * Adding third-party libraries.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/common-libs/functions-icpd-useful-2-0-0.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/common-libs/functions-icpd-useful-2-0-1.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/common-libs/functions-icpd-woocommerce-1-1-0.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/common-libs/class-icpd-set-admin-notices.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/common-libs/class-icpd-promo.php';
@@ -328,7 +328,7 @@ class XFGMC {
 	 *
 	 * @since 0.1.0
 	 * 
-	 * @return string The name of the plugin. For example: `xml-for-google-merchatnt-center`.
+	 * @return string The name of the plugin. For example: `xml-for-google-merchant-center`.
 	 */
 	public function get_plugin_name() {
 		return $this->plugin_name;

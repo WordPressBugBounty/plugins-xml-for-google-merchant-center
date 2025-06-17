@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.2 (08-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -66,7 +66,7 @@ class XFGMC_Get_Unit {
 			$this->result_xml = '';
 			array_push(
 				$this->skip_reasons_arr,
-				__( 'There is no product with this ID', 'xml-for-google-merchatnt-center' )
+				__( 'There is no product with this ID', 'xml-for-google-merchant-center' )
 			);
 			return;
 		} else {
@@ -88,15 +88,15 @@ class XFGMC_Get_Unit {
 			// и дата обновления фида ПОЗЖЕ даты обновления настроек фида пробуем взять данные из КЭШа
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; %2$s (ID: %3$s, %4$s > %5$s, %4$s > %6$s). %7$s; %8$s: %9$s; %10$s: %11$s',
 				$this->get_feed_id(),
-				__( 'The product was updated earlier than the XML feed', 'xml-for-google-merchatnt-center' ),
+				__( 'The product was updated earlier than the XML feed', 'xml-for-google-merchant-center' ),
 				$this->get_product()->get_id(),
 				$date_successful_feed_update,
 				$date_product_modified,
 				$date_save_set,
-				__( 'Requesting data from the cache', 'xml-for-google-merchatnt-center' ),
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'Requesting data from the cache', 'xml-for-google-merchant-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-get-unit.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 			$data_from_cache = $this->get_result_from_tmp(); // если данные в кэше есть, тут будет `yes`
@@ -109,12 +109,12 @@ class XFGMC_Get_Unit {
 		} else {
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; NOTICE: %2$s ID = %3$s %4$s %3$s.tmp; %5$s: %6$s; %7$s: %8$s',
 				$this->get_feed_id(),
-				__( 'For the product with', 'xml-for-google-merchatnt-center' ),
+				__( 'For the product with', 'xml-for-google-merchant-center' ),
 				$post_id,
-				__( 'the data is taken from the file', 'xml-for-google-merchatnt-center' ),
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'the data is taken from the file', 'xml-for-google-merchant-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-get-unit.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 		}
@@ -152,7 +152,7 @@ class XFGMC_Get_Unit {
 			$this->result_xml = '';
 			array_push(
 				$this->skip_reasons_arr,
-				__( 'There is no product with this ID', 'xml-for-google-merchatnt-center' )
+				__( 'There is no product with this ID', 'xml-for-google-merchant-center' )
 			);
 			return $this->get_result();
 		}
@@ -251,10 +251,10 @@ class XFGMC_Get_Unit {
 			// если `enabled` - игнорируем кэш-файлы плагина
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; %2$s; %3$s: %4$s; %5$s: %6$s',
 				$this->get_feed_id(),
-				__( 'The data could not be received. The cache usage ban is enabled', 'xml-for-google-merchatnt-center' ),
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'The data could not be received. The cache usage ban is enabled', 'xml-for-google-merchant-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-get-unit.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 			return 'no';
@@ -270,11 +270,11 @@ class XFGMC_Get_Unit {
 		if ( false === $file_content ) {
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; WARNING: %2$s (%3$s); %4$s: %5$s; %6$s: %7$s',
 				$this->get_feed_id(),
-				__( 'Error when receiving data from the CACHE file', 'xml-for-google-merchatnt-center' ),
+				__( 'Error when receiving data from the CACHE file', 'xml-for-google-merchant-center' ),
 				$tmp_file_path,
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-get-unit.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 			return 'no';

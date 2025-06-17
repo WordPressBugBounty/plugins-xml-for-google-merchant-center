@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/common
@@ -119,8 +119,8 @@ trait XFGMC_T_Common_Get_CatId {
 		if ( empty( $site_category_id ) ) {
 			$this->add_skip_reason( [ 
 				'reason' => sprintf( '%s %s',
-					__( 'The product has no categories', 'xml-for-google-merchatnt-center' ),
-					__( 'or filtering by category is enabled', 'xml-for-google-merchatnt-center' )
+					__( 'The product has no categories', 'xml-for-google-merchant-center' ),
+					__( 'or filtering by category is enabled', 'xml-for-google-merchant-center' )
 				),
 				'post_id' => $this->get_product()->get_id(),
 				'file' => 'trait-xfgmc-t-common-get-catid.php',
@@ -194,12 +194,12 @@ trait XFGMC_T_Common_Get_CatId {
 		new XFGMC_Error_Log( sprintf(
 			'FEED #%1$s; WARNING: %2$s ID = %3$s get_the_terms = false. %4$s wp_get_post_terms; %5$s: %6$s; %7$s: %8$s',
 			$this->get_feed_id(),
-			__( 'For the product', 'xml-for-google-merchatnt-center' ),
+			__( 'For the product', 'xml-for-google-merchant-center' ),
 			$this->get_product()->get_id(),
-			__( "Site database may be corrupted. Let's try to use", "xml-for-google-merchatnt-center" ),
-			__( 'File', 'xml-for-google-merchatnt-center' ),
+			__( "Site database may be corrupted. Let's try to use", "xml-for-google-merchant-center" ),
+			__( 'File', 'xml-for-google-merchant-center' ),
 			'trait-xfgmc-t-common-get-catid.php',
-			__( 'Line', 'xml-for-google-merchatnt-center' ),
+			__( 'Line', 'xml-for-google-merchant-center' ),
 			__LINE__
 		) );
 		$product_cats = wp_get_post_terms( $this->get_product()->get_id(), 'product_cat', [ 'fields' => 'ids' ] );
@@ -210,14 +210,14 @@ trait XFGMC_T_Common_Get_CatId {
 			new XFGMC_Error_Log( sprintf(
 				'FEED #%1$s; %2$s ID = %3$s. %4$s. wp_get_post_terms %5$s. $site_category_id = %6$s; %7$s: %8$s; %9$s: %10$s',
 				$this->get_feed_id(),
-				__( 'For the product', 'xml-for-google-merchatnt-center' ),
+				__( 'For the product', 'xml-for-google-merchant-center' ),
 				$this->get_product()->get_id(),
-				__( 'Site database may be corrupted', 'xml-for-google-merchatnt-center' ),
-				__( 'returned an array', 'xml-for-google-merchatnt-center' ),
+				__( 'Site database may be corrupted', 'xml-for-google-merchant-center' ),
+				__( 'returned an array', 'xml-for-google-merchant-center' ),
 				$site_category_id,
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'trait-xfgmc-t-common-get-catid.php',
-				__( 'line', 'xml-for-google-merchatnt-center' ),
+				__( 'line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 		}

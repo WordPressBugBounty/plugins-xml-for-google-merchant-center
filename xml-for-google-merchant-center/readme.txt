@@ -1,20 +1,20 @@
 === XML for Google Merchant Center ===
 Contributors: icopydoc
 Donate link: https://pay.cloudtips.ru/p/45d8ff3f
-Tags: xml, yandex, market, export, woocommerce
+Tags: xml, google, product feed, export, woocommerce
 Requires at least: 5.0
 Tested up to: 6.8.1
-Stable tag: 4.0.2
+Stable tag: 4.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Creates a XML-feed to upload to for Google Merchant Center.
+Creates a XML feed that allows merchants to easily display their products across Google’s network.
 
 == Description ==
 
-Сreates a XML-feed to upload to Google Merchant Center. The plug-in Woocommerce is required!
+This plugin allows you to create XML feeds for Google Merchant Center and Facebook.
 
-In addition to Google Merchant Center, the plugin is also used for Facebook!
+IMPORTANT: The plugin Woocommerce is required!
 
 PRO version: [https://icopydoc.ru/product/plagin-xml-for-google-merchant-center-pro/](https://icopydoc.ru/product/plagin-xml-for-google-merchant-center-pro/?utm_source=wp-repository&utm_medium=organic&utm_campaign=xml-for-google-merchant-center&utm_content=readme&utm_term=pro-version)
 
@@ -22,14 +22,6 @@ PRO version: [https://icopydoc.ru/product/plagin-xml-for-google-merchant-center-
 
 For a better understanding of the principles of XML feed - read this:
 [https://support.google.com/merchants/answer/7052112](https://support.google.com/merchants/answer/7052112)  
-
-== Installation ==
-
-This section describes how to install the plugin and get it working.
-
-1. Upload the entire `xml-for-google-merchatnt-center` folder to the `/wp-content/plugins/` directory.
-1. Activate the plugin through the 'Plugins' screen in WordPress.
-1. Use the Export Google Merchant Center-->Settings screen to configure the plugin.
 
 == Frequently Asked Questions ==
 
@@ -56,6 +48,13 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 
 == Changelog ==
 
+= 4.0.3 =
+*Release Date 17-06-2025*
+
+* Fixed interface bugs.
+* Updated plugin libraries.
+* Fixed translation bugs.
+
 = 4.0.2 =
 *Release Date 08-06-2025*
 
@@ -79,7 +78,9 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 
 == Upgrade Notice ==
 
-= 4.0.2 =
-*Release Date 08-06-2025*
+= 4.0.3 =
+*Release Date 17-06-2025*
 
-* Fixed minor bugs.
+* Fixed interface bugs.
+* Updated plugin libraries.
+* Fixed translation bugs.

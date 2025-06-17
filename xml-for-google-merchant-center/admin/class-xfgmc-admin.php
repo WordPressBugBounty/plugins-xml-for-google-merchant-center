@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.2 (08-06-2025)
+ * @version    4.0.3 (17-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -154,8 +154,8 @@ class XFGMC_Admin {
 
 		new XFGMC_Feedback( [ 
 			'plugin_version' => XFGMC_PLUGIN_VERSION,
-			'logs_url' => XFGMC_PLUGIN_UPLOADS_DIR_URL . '/xml-for-google-merchatnt-center.log',
-			'logs_path' => XFGMC_PLUGIN_UPLOADS_DIR_PATH . '/xml-for-google-merchatnt-center.log'
+			'logs_url' => XFGMC_PLUGIN_UPLOADS_DIR_URL . '/xml-for-google-merchant-center.log',
+			'logs_path' => XFGMC_PLUGIN_UPLOADS_DIR_PATH . '/xml-for-google-merchant-center.log'
 		] );
 		new ICPD_Promo( 'xfgmc' );
 
@@ -246,7 +246,7 @@ class XFGMC_Admin {
 
 		add_menu_page(
 			'XML for Google Merchant Center',
-			__( 'XFGMC', 'xml-for-google-merchatnt-center' ),
+			__( 'XFGMC', 'xml-for-google-merchant-center' ),
 			'manage_woocommerce',
 			$this->plugin_name,
 			[ $this, 'display_plugin_settings_page' ],
@@ -256,8 +256,8 @@ class XFGMC_Admin {
 
 		add_submenu_page(
 			$this->plugin_name,
-			__( 'Debug page', 'xml-for-google-merchatnt-center' ),
-			__( 'Debug page', 'xml-for-google-merchatnt-center' ),
+			__( 'Debug page', 'xml-for-google-merchant-center' ),
+			__( 'Debug page', 'xml-for-google-merchant-center' ),
 			'manage_woocommerce',
 			$this->plugin_name . '-debug',
 			[ $this, 'display_plugin_debug_page' ]
@@ -265,8 +265,8 @@ class XFGMC_Admin {
 
 		add_submenu_page(
 			$this->plugin_name,
-			__( 'Extensions', 'xml-for-google-merchatnt-center' ),
-			__( 'Extensions', 'xml-for-google-merchatnt-center' ),
+			__( 'Extensions', 'xml-for-google-merchant-center' ),
+			__( 'Extensions', 'xml-for-google-merchant-center' ),
 			'manage_woocommerce',
 			$this->plugin_name . '-extensions',
 			[ $this, 'display_plugin_extensions_page' ]
@@ -422,7 +422,7 @@ class XFGMC_Admin {
 								new ICPD_Set_Admin_Notices(
 									sprintf( '<span class="xfgmc_bold">XFGMC:</span> Feed #%s. %s.',
 										$feed_id_str,
-										__( 'Creating feed headers', 'xml-for-google-merchatnt-center' )
+										__( 'Creating feed headers', 'xml-for-google-merchant-center' )
 									),
 									'success'
 								);
@@ -435,8 +435,8 @@ class XFGMC_Admin {
 								new ICPD_Set_Admin_Notices(
 									sprintf( '<span class="xfgmc_bold">XFGMC:</span> Feed #%s. %s. %s: %s',
 										$feed_id_str,
-										__( 'Creating temporary feed files', 'xml-for-google-merchatnt-center' ),
-										__( 'The number of processed products', 'xml-for-google-merchatnt-center' ),
+										__( 'Creating temporary feed files', 'xml-for-google-merchant-center' ),
+										__( 'The number of processed products', 'xml-for-google-merchant-center' ),
 										$last_element_feed
 									),
 									'success'
@@ -446,7 +446,7 @@ class XFGMC_Admin {
 								new ICPD_Set_Admin_Notices(
 									sprintf( '<span class="xfgmc_bold">XFGMC:</span> Feed #%s. %s.',
 										$feed_id_str,
-										__( 'Gluing the feed', 'xml-for-google-merchatnt-center' )
+										__( 'Gluing the feed', 'xml-for-google-merchant-center' )
 									),
 									'success'
 								);
@@ -455,7 +455,7 @@ class XFGMC_Admin {
 								new ICPD_Set_Admin_Notices(
 									sprintf( '<span class="xfgmc_bold">XFGMC:</span> Feed #%s. %s...',
 										$feed_id_str,
-										__( 'Completing the assembly', 'xml-for-google-merchatnt-center' )
+										__( 'Completing the assembly', 'xml-for-google-merchant-center' )
 									),
 									'success'
 								);
@@ -498,7 +498,7 @@ class XFGMC_Admin {
 			);
 			$this->save_plugin_set( $option_name, $feed_id, $save_if_empty );
 		}
-		new ICPD_Set_Admin_Notices( __( 'Updated', 'xml-for-google-merchatnt-center' ), 'success' );
+		new ICPD_Set_Admin_Notices( __( 'Updated', 'xml-for-google-merchant-center' ), 'success' );
 
 		$planning_result = self::cron_starting_feed_creation_task_planning( $feed_id );
 		if ( true === $planning_result ) {
@@ -506,9 +506,9 @@ class XFGMC_Admin {
 				sprintf( '%s. %s: %s',
 					__(
 						'The task of creating the feed has been queued for completion',
-						'xml-for-google-merchatnt-center'
+						'xml-for-google-merchant-center'
 					),
-					__( 'Feed ID', 'xml-for-google-merchatnt-center' ),
+					__( 'Feed ID', 'xml-for-google-merchant-center' ),
 					$feed_id
 				),
 				'success'
@@ -580,11 +580,11 @@ class XFGMC_Admin {
 		if ( ! is_dir( XFGMC_PLUGIN_UPLOADS_DIR_PATH ) ) {
 			if ( ! mkdir( XFGMC_PLUGIN_UPLOADS_DIR_PATH ) ) {
 				$errors = sprintf( 'ERROR: %1$s "%2$s" %3$s; %4$s: class-xfgmc-admin.php; %5$s: %6$s',
-					__( 'Folder creation error', 'xml-for-google-merchatnt-center' ),
+					__( 'Folder creation error', 'xml-for-google-merchant-center' ),
 					XFGMC_PLUGIN_UPLOADS_DIR_PATH,
-					__( 'during the creation of a new feed', 'xml-for-google-merchatnt-center' ),
-					__( 'Line', 'xml-for-google-merchatnt-center' ),
-					__( 'File', 'xml-for-google-merchatnt-center' ),
+					__( 'during the creation of a new feed', 'xml-for-google-merchant-center' ),
+					__( 'Line', 'xml-for-google-merchant-center' ),
+					__( 'File', 'xml-for-google-merchant-center' ),
 					__LINE__
 				);
 				error_log( $errors, 0 );
@@ -595,11 +595,11 @@ class XFGMC_Admin {
 		if ( ! is_dir( $name_dir ) ) {
 			if ( ! mkdir( $name_dir ) ) {
 				$errors = sprintf( 'ERROR: %1$s "%2$s" %3$s; %4$s: class-xfgmc-admin.php; %5$s: %6$s',
-					__( 'Folder creation error', 'xml-for-google-merchatnt-center' ),
+					__( 'Folder creation error', 'xml-for-google-merchant-center' ),
 					$name_dir,
-					__( 'during the creation of a new feed', 'xml-for-google-merchatnt-center' ),
-					__( 'Line', 'xml-for-google-merchatnt-center' ),
-					__( 'File', 'xml-for-google-merchatnt-center' ),
+					__( 'during the creation of a new feed', 'xml-for-google-merchant-center' ),
+					__( 'Line', 'xml-for-google-merchant-center' ),
+					__( 'File', 'xml-for-google-merchant-center' ),
 					__LINE__
 				);
 				error_log( $errors, 0 );
@@ -631,7 +631,7 @@ class XFGMC_Admin {
 				sprintf( '%s. ID = %s',
 					__(
 						'Feed creation error. Failed to create a folder for temporary files',
-						'xml-for-google-merchatnt-center'
+						'xml-for-google-merchant-center'
 					),
 					esc_html( $new_feed_id_str )
 				),
@@ -682,9 +682,9 @@ class XFGMC_Admin {
 
 			new ICPD_Set_Admin_Notices(
 				sprintf( '%s ID = %s %s',
-					__( 'Feed with', 'xml-for-google-merchatnt-center' ),
+					__( 'Feed with', 'xml-for-google-merchant-center' ),
 					esc_html( $feed_id_str ),
-					__( 'has been successfully deleted', 'xml-for-google-merchatnt-center' )
+					__( 'has been successfully deleted', 'xml-for-google-merchant-center' )
 				),
 				'success'
 			);
@@ -726,11 +726,11 @@ class XFGMC_Admin {
 		if ( ! is_dir( XFGMC_PLUGIN_UPLOADS_DIR_PATH ) ) {
 			if ( ! mkdir( XFGMC_PLUGIN_UPLOADS_DIR_PATH ) ) {
 				$errors = sprintf( 'ERROR: %1$s "%2$s" %3$s; %4$s: class-xfgmc-admin.php; %5$s: %6$s',
-					__( 'Folder creation error', 'xml-for-google-merchatnt-center' ),
+					__( 'Folder creation error', 'xml-for-google-merchant-center' ),
 					XFGMC_PLUGIN_UPLOADS_DIR_PATH,
-					__( 'during the duplicate of a new feed', 'xml-for-google-merchatnt-center' ),
-					__( 'Line', 'xml-for-google-merchatnt-center' ),
-					__( 'File', 'xml-for-google-merchatnt-center' ),
+					__( 'during the duplicate of a new feed', 'xml-for-google-merchant-center' ),
+					__( 'Line', 'xml-for-google-merchant-center' ),
+					__( 'File', 'xml-for-google-merchant-center' ),
 					__LINE__
 				);
 				error_log( $errors, 0 );
@@ -741,11 +741,11 @@ class XFGMC_Admin {
 		if ( ! is_dir( $name_dir ) ) {
 			if ( ! mkdir( $name_dir ) ) {
 				$errors = sprintf( 'ERROR: %1$s "%2$s" %3$s; %4$s: class-xfgmc-admin.php; %5$s: %6$s',
-					__( 'Folder creation error', 'xml-for-google-merchatnt-center' ),
+					__( 'Folder creation error', 'xml-for-google-merchant-center' ),
 					$name_dir,
-					__( 'during the duplicate of a new feed', 'xml-for-google-merchatnt-center' ),
-					__( 'Line', 'xml-for-google-merchatnt-center' ),
-					__( 'File', 'xml-for-google-merchatnt-center' ),
+					__( 'during the duplicate of a new feed', 'xml-for-google-merchant-center' ),
+					__( 'Line', 'xml-for-google-merchant-center' ),
+					__( 'File', 'xml-for-google-merchant-center' ),
 					__LINE__
 				);
 				error_log( $errors, 0 );
@@ -785,7 +785,7 @@ class XFGMC_Admin {
 				sprintf( '%s. ID = %s',
 					__(
 						'Feed duplicate error. Failed to create a folder for temporary files',
-						'xml-for-google-merchatnt-center'
+						'xml-for-google-merchant-center'
 					),
 					esc_html( $new_feed_id_str )
 				),
@@ -823,7 +823,7 @@ class XFGMC_Admin {
 			update_option( 'xfgmc_keeplogs', $keeplogs );
 			update_option( 'xfgmc_plugin_notifications', $plugin_notifications );
 		}
-		new ICPD_Set_Admin_Notices( __( 'Updated', 'xml-for-google-merchatnt-center' ), 'success' );
+		new ICPD_Set_Admin_Notices( __( 'Updated', 'xml-for-google-merchant-center' ), 'success' );
 
 	}
 
@@ -836,19 +836,19 @@ class XFGMC_Admin {
 	 */
 	private function clear_logs() {
 
-		$logs_file_name = XFGMC_PLUGIN_UPLOADS_DIR_PATH . '/xml-for-google-merchatnt-center.log';
+		$logs_file_name = XFGMC_PLUGIN_UPLOADS_DIR_PATH . '/xml-for-google-merchant-center.log';
 		if ( file_exists( $logs_file_name ) ) {
 			$res = unlink( $logs_file_name );
 		} else {
 			$res = false;
 		}
 		if ( true === $res ) {
-			$message = __( 'Logs were cleared', 'xml-for-google-merchatnt-center' );
+			$message = __( 'Logs were cleared', 'xml-for-google-merchant-center' );
 			$class = 'success';
 		} else {
 			$message = __(
 				'Error accessing log file. The log file may have been deleted previously',
-				'xml-for-google-merchatnt-center'
+				'xml-for-google-merchant-center'
 			);
 			$class = 'warning';
 		}
@@ -946,19 +946,19 @@ class XFGMC_Admin {
 
 		$schedules['every_minute'] = [ 
 			'interval' => 60,
-			'display' => __( 'Every minute', 'xml-for-google-merchatnt-center' )
+			'display' => __( 'Every minute', 'xml-for-google-merchant-center' )
 		];
 		$schedules['three_hours'] = [ 
 			'interval' => 10800,
-			'display' => __( 'Every three hours', 'xml-for-google-merchatnt-center' )
+			'display' => __( 'Every three hours', 'xml-for-google-merchant-center' )
 		];
 		$schedules['six_hours'] = [ 
 			'interval' => 21600,
-			'display' => __( 'Every six hours', 'xml-for-google-merchatnt-center' )
+			'display' => __( 'Every six hours', 'xml-for-google-merchant-center' )
 		];
 		$schedules['every_two_days'] = [ 
 			'interval' => 172800,
-			'display' => __( 'Every two days', 'xml-for-google-merchatnt-center' )
+			'display' => __( 'Every two days', 'xml-for-google-merchant-center' )
 		];
 		return $schedules;
 
@@ -976,10 +976,10 @@ class XFGMC_Admin {
 
 		new XFGMC_Error_Log( sprintf( 'FEED #%1$s; %2$s; %3$s: %4$s; %5$s: %6$s',
 			$feed_id,
-			__( 'The CRON task for creating a feed has started', 'xml-for-google-merchatnt-center' ),
-			__( 'File', 'xml-for-google-merchatnt-center' ),
+			__( 'The CRON task for creating a feed has started', 'xml-for-google-merchant-center' ),
+			__( 'File', 'xml-for-google-merchant-center' ),
 			'class-xfgmc-admin.php',
-			__( 'Line', 'xml-for-google-merchatnt-center' ),
+			__( 'Line', 'xml-for-google-merchant-center' ),
 			__LINE__
 		) );
 
@@ -997,20 +997,20 @@ class XFGMC_Admin {
 			new XFGMC_Error_Log( sprintf(
 				'FEED #%1$s; ERROR: %2$s `xfgmc_cron_sborki`; %3$s: %4$s; %5$s: %6$s',
 				$feed_id,
-				__( 'Failed to schedule a CRON task', 'xml-for-google-merchatnt-center' ),
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'Failed to schedule a CRON task', 'xml-for-google-merchant-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-admin.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 		} else {
 			new XFGMC_Error_Log( sprintf(
 				'FEED #%1$s; %2$s `xfgmc_cron_sborki`; %3$s: %4$s; %5$s: %6$s',
 				$feed_id,
-				__( 'Successful CRON task planning', 'xml-for-google-merchatnt-center' ),
-				__( 'File', 'xml-for-google-merchatnt-center' ),
+				__( 'Successful CRON task planning', 'xml-for-google-merchant-center' ),
+				__( 'File', 'xml-for-google-merchant-center' ),
 				'class-xfgmc-admin.php',
-				__( 'Line', 'xml-for-google-merchatnt-center' ),
+				__( 'Line', 'xml-for-google-merchant-center' ),
 				__LINE__
 			) );
 			// сборку начали
@@ -1050,10 +1050,10 @@ class XFGMC_Admin {
 
 		new XFGMC_Error_Log( sprintf( 'FEED #%1$s; %2$s `xfgmc_cron_sborki`; %3$s: %4$s; %5$s: %6$s',
 			$feed_id,
-			__( 'The CRON task started', 'xml-for-google-merchatnt-center' ),
-			__( 'File', 'xml-for-google-merchatnt-center' ),
+			__( 'The CRON task started', 'xml-for-google-merchant-center' ),
+			__( 'File', 'xml-for-google-merchant-center' ),
 			'class-xfgmc-admin.php',
-			__( 'Line', 'xml-for-google-merchatnt-center' ),
+			__( 'Line', 'xml-for-google-merchant-center' ),
 			__LINE__
 		) );
 
@@ -1172,12 +1172,12 @@ class XFGMC_Admin {
 		?>
 		<div class="form-field term-cat_meta-wrap">
 			<label>
-				<?php esc_html_e( 'Google product category', 'xml-for-google-merchatnt-center' ); ?>
+				<?php esc_html_e( 'Google product category', 'xml-for-google-merchant-center' ); ?>
 			</label>
 			<input id="xfgmc_google_product_category" type="text" name="xfgmc_cat_meta[xfgmc_google_product_category]"
 				value="" />
 			<p>
-				<?php esc_html_e( 'Optional element', 'xml-for-google-merchatnt-center' ); ?>.
+				<?php esc_html_e( 'Optional element', 'xml-for-google-merchant-center' ); ?>.
 				<strong>google_product_category</strong>.
 				<a href="//support.google.com/merchants/answer/6324436" target="_blank">
 					<?php esc_html_e( 'Read more', 'xml-for-google-merchant-center' ); ?>
@@ -1186,7 +1186,7 @@ class XFGMC_Admin {
 		</div>
 		<div class="form-field term-cat_meta-wrap">
 			<label>
-				<?php esc_html_e( 'Tax category', 'xml-for-google-merchatnt-center' ); ?>
+				<?php esc_html_e( 'Tax category', 'xml-for-google-merchant-center' ); ?>
 			</label>
 			<input id="xfgmc_tax_category" type="text" name="xfgmc_cat_meta[xfgmc_tax_category]" value="" />
 			<p>
@@ -1198,7 +1198,7 @@ class XFGMC_Admin {
 		</div>
 		<div class="form-field term-cat_meta-wrap">
 			<label>
-				<?php esc_html_e( 'Size', 'xml-for-google-merchatnt-center' ); ?>
+				<?php esc_html_e( 'Size', 'xml-for-google-merchant-center' ); ?>
 			</label>
 			<select name="xfgmc_cat_meta[xfgmc_size]" id="xfgmc_size">
 				<option value="default" selected>
@@ -1268,11 +1268,11 @@ class XFGMC_Admin {
 		</div>
 		<div class="form-field term-cat_meta-wrap">
 			<label>
-				<?php esc_html_e( 'Facebook product category', 'xml-for-google-merchatnt-center' ); ?>
+				<?php esc_html_e( 'Facebook product category', 'xml-for-google-merchant-center' ); ?>
 			</label>
 			<input id="xfgmc_fb_product_category" type="text" name="xfgmc_cat_meta[xfgmc_fb_product_category]" value="" />
 			<p>
-				<?php esc_html_e( 'Optional element', 'xml-for-google-merchatnt-center' ); ?>.
+				<?php esc_html_e( 'Optional element', 'xml-for-google-merchant-center' ); ?>.
 				<strong>fb_product_category</strong>.
 				<a href="//www.facebook.com/business/help/120325381656392?id=725943027795860&recommended_by=2041876302542944"
 					target="_blank">
@@ -1299,14 +1299,14 @@ class XFGMC_Admin {
 		<tr class="form-field term-parent-wrap">
 			<th scope="row" valign="top">
 				<label>
-					<?php esc_html_e( 'Google product category', 'xml-for-google-merchatnt-center' ); ?>
+					<?php esc_html_e( 'Google product category', 'xml-for-google-merchant-center' ); ?>
 				</label>
 			</th>
 			<td>
 				<input id="xfgmc_google_product_category" type="text" name="xfgmc_cat_meta[xfgmc_google_product_category]"
 					value="<?php echo esc_attr( get_term_meta( $term->term_id, 'xfgmc_google_product_category', true ) ) ?>" />
 				<p class="description">
-					<?php esc_html_e( 'Optional element', 'xml-for-google-merchatnt-center' ); ?>.
+					<?php esc_html_e( 'Optional element', 'xml-for-google-merchant-center' ); ?>.
 					<strong>google_product_category</strong>.
 					<a href="//support.google.com/merchants/answer/6324436" target="_blank">
 						<?php esc_html_e( 'Read more', 'xml-for-google-merchant-center' ); ?>
@@ -1317,7 +1317,7 @@ class XFGMC_Admin {
 		<tr class="form-field term-parent-wrap">
 			<th scope="row" valign="top">
 				<label>
-					<?php esc_html_e( 'Tax category', 'xml-for-google-merchatnt-center' ); ?>
+					<?php esc_html_e( 'Tax category', 'xml-for-google-merchant-center' ); ?>
 				</label>
 			</th>
 			<td>
@@ -1334,7 +1334,7 @@ class XFGMC_Admin {
 		<tr class="form-field term-parent-wrap">
 			<th scope="row" valign="top">
 				<label>
-					<?php esc_html_e( 'Size', 'xml-for-google-merchatnt-center' ); ?>
+					<?php esc_html_e( 'Size', 'xml-for-google-merchant-center' ); ?>
 				</label>
 			</th>
 			<td>
@@ -1418,14 +1418,14 @@ class XFGMC_Admin {
 		<tr class="form-field term-parent-wrap">
 			<th scope="row" valign="top">
 				<label>
-					<?php esc_html_e( 'Facebook product category', 'xml-for-google-merchatnt-center' ); ?>
+					<?php esc_html_e( 'Facebook product category', 'xml-for-google-merchant-center' ); ?>
 				</label>
 			</th>
 			<td>
 				<input id="xfgmc_fb_product_category" type="text" name="xfgmc_cat_meta[xfgmc_fb_product_category]"
 					value="<?php echo esc_attr( get_term_meta( $term->term_id, 'xfgmc_fb_product_category', true ) ) ?>" />
 				<p class="description">
-					<?php esc_html_e( 'Optional element', 'xml-for-google-merchatnt-center' ); ?>.
+					<?php esc_html_e( 'Optional element', 'xml-for-google-merchant-center' ); ?>.
 					<strong>fb_product_category</strong>.
 					<a href="//www.facebook.com/business/help/120325381656392?id=725943027795860&recommended_by=2041876302542944"
 						target="_blank">
@@ -1474,7 +1474,7 @@ class XFGMC_Admin {
 	public static function add_woocommerce_product_data_tab( $tabs ) {
 
 		$tabs['xfgmc_individual_settings_tab'] = [ 
-			'label' => __( 'XML for Google Merchant Center', 'xml-for-google-merchatnt-center' ), // название вкладки
+			'label' => __( 'XML for Google Merchant Center', 'xml-for-google-merchant-center' ), // название вкладки
 			'target' => 'xfgmc_individual_settings_tab', // идентификатор вкладки
 			'class' => [ 'hide_if_grouped' ], // классы управления видимостью вкладки в зависимости от типа товара
 			'priority' => 70 // приоритет вывода
@@ -1516,7 +1516,7 @@ class XFGMC_Admin {
 				<h2>
 					<strong class="xfgmc_uppercase"><?php esc_html_e(
 						'Individual product settings for XML-feed',
-						'xml-for-google-merchatnt-center' ); ?></strong>
+						'xml-for-google-merchant-center' ); ?></strong>
 				</h2>
 			</div>
 			<?php do_action( 'xfgmc_prepend_individual_settings_tab', $post ); ?>
@@ -1524,13 +1524,13 @@ class XFGMC_Admin {
 				<h2>
 					<strong><?php esc_html_e(
 						'Individual product settings for Google Merchatnt Center',
-						'xml-for-google-merchatnt-center' ); ?></strong>
+						'xml-for-google-merchant-center' ); ?></strong>
 				</h2>
 				<div class="xfgmc_notice inline notice woocommerce-message">
 					<p>
-						<?php esc_html_e( 'Here you can set up individual settings for Google Merchatnt Center', 'xml-for-google-merchatnt-center' ); ?>.
+						<?php esc_html_e( 'Here you can set up individual settings for Google Merchatnt Center', 'xml-for-google-merchant-center' ); ?>.
 						<a target="_blank" href="//support.google.com/merchants/answer/7052112">
-							<?php esc_html_e( 'Read more on Google', 'xml-for-google-merchatnt-center' ); ?>
+							<?php esc_html_e( 'Read more on Google', 'xml-for-google-merchant-center' ); ?>
 						</a>.
 					</p>
 				</div>
@@ -1539,7 +1539,7 @@ class XFGMC_Admin {
 					'id' => '_xfgmc_google_product_category',
 					'label' => sprintf(
 						'%s <i>[google_product_category]</i>',
-						__( 'Google product category', 'xml-for-google-merchatnt-center' )
+						__( 'Google product category', 'xml-for-google-merchant-center' )
 					),
 					'description' => '',
 					'desc_tip' => 'true',
@@ -1550,7 +1550,7 @@ class XFGMC_Admin {
 					'id' => '_xfgmc_tax_category',
 					'label' => sprintf(
 						'%s <i>[tax_category]</i>',
-						__( 'Tax category', 'xml-for-google-merchatnt-center' )
+						__( 'Tax category', 'xml-for-google-merchant-center' )
 					),
 					'description' => '',
 					'desc_tip' => 'true',
@@ -1638,7 +1638,7 @@ class XFGMC_Admin {
 					'id' => '_xfgmc_multipack',
 					'label' => sprintf(
 						'%s <i>[multipack]</i>',
-						__( 'Multipack', 'xml-for-google-merchatnt-center' )
+						__( 'Multipack', 'xml-for-google-merchant-center' )
 					),
 					'description' => '',
 					'desc_tip' => 'true',
@@ -1653,7 +1653,7 @@ class XFGMC_Admin {
 					'id' => '_xfgmc_unit_pricing_measure',
 					'label' => sprintf(
 						'%s <i>[unit_pricing_measure]</i>',
-						__( 'Unit pricing measure', 'xml-for-google-merchatnt-center' )
+						__( 'Unit pricing measure', 'xml-for-google-merchant-center' )
 					),
 					'description' => '',
 					'desc_tip' => 'true',
@@ -1664,7 +1664,7 @@ class XFGMC_Admin {
 					'id' => '_xfgmc_unit_pricing_base_measure',
 					'label' => sprintf(
 						'%s <i>[unit_pricing_base_measure]</i>',
-						__( 'Unit pricing base measure', 'xml-for-google-merchatnt-center' )
+						__( 'Unit pricing base measure', 'xml-for-google-merchant-center' )
 					),
 					'description' => '',
 					'desc_tip' => 'true',
@@ -1676,7 +1676,7 @@ class XFGMC_Admin {
 					'id' => '_xfgmc_shipping_label',
 					'label' => sprintf(
 						'%s <i>[shipping_label]</i>',
-						__( 'Definition', 'xml-for-google-merchatnt-center' )
+						__( 'Definition', 'xml-for-google-merchant-center' )
 					),
 					'description' => '',
 					'desc_tip' => 'true',
@@ -1687,7 +1687,7 @@ class XFGMC_Admin {
 					'id' => '_xfgmc_store_code',
 					'label' => sprintf(
 						'%s <i>[store_code]</i>',
-						__( 'Definition', 'xml-for-google-merchatnt-center' )
+						__( 'Definition', 'xml-for-google-merchant-center' )
 					),
 					'description' => '',
 					'desc_tip' => 'true',
@@ -1698,7 +1698,7 @@ class XFGMC_Admin {
 					'id' => '_xfgmc_min_handling_time',
 					'label' => sprintf(
 						'%s <i>[min_handling_time]</i>',
-						__( 'Definition', 'xml-for-google-merchatnt-center' )
+						__( 'Definition', 'xml-for-google-merchant-center' )
 					),
 					'description' => '',
 					'desc_tip' => 'true',
@@ -1709,7 +1709,7 @@ class XFGMC_Admin {
 					'id' => '_xfgmc_max_handling_time',
 					'label' => sprintf(
 						'%s <i>[max_handling_time]</i>',
-						__( 'Definition', 'xml-for-google-merchatnt-center' )
+						__( 'Definition', 'xml-for-google-merchant-center' )
 					),
 					'description' => '',
 					'desc_tip' => 'true',
@@ -1719,13 +1719,13 @@ class XFGMC_Admin {
 			</div>
 			<div class="options_group">
 				<h2>
-					<strong><?php esc_html_e( 'Custom labels', 'xml-for-google-merchatnt-center' ); ?></strong>
+					<strong><?php esc_html_e( 'Custom labels', 'xml-for-google-merchant-center' ); ?></strong>
 				</h2>
 				<div class="xfgmc_notice inline notice woocommerce-message">
 					<p>
-						<?php esc_html_e( 'Here you can set up individual "Custom Labels" for the product', 'xml-for-google-merchatnt-center' ); ?>.
+						<?php esc_html_e( 'Here you can set up individual "Custom Labels" for the product', 'xml-for-google-merchant-center' ); ?>.
 						<a target="_blank" href="//support.google.com/merchants/answer/6324473">
-							<?php esc_html_e( 'Read more on Google', 'xml-for-google-merchatnt-center' ); ?>
+							<?php esc_html_e( 'Read more on Google', 'xml-for-google-merchant-center' ); ?>
 						</a>.
 					</p>
 				</div>
@@ -1736,11 +1736,11 @@ class XFGMC_Admin {
 						'id' => $post_meta_name,
 						'label' => sprintf(
 							'%s <i>[custom_label_%s]</i>',
-							__( 'Definition', 'xml-for-google-merchatnt-center' ),
+							__( 'Definition', 'xml-for-google-merchant-center' ),
 							(string) $i
 						),
 						'description' => sprintf( '%s custom_label_%s.',
-							__( 'Definition', 'xml-for-google-merchatnt-center' ),
+							__( 'Definition', 'xml-for-google-merchant-center' ),
 							(string) $i
 						),
 						'desc_tip' => 'true',
@@ -1752,14 +1752,14 @@ class XFGMC_Admin {
 
 			<div class="options_group">
 				<h2>
-					<strong><?php esc_html_e( 'Individual product settings for Facebook', 'xml-for-google-merchatnt-center' ); ?></strong>
+					<strong><?php esc_html_e( 'Individual product settings for Facebook', 'xml-for-google-merchant-center' ); ?></strong>
 				</h2>
 				<div class="xfgmc_notice inline notice woocommerce-message">
 					<p>
-						<?php esc_html_e( 'Here you can set up individual settings for Facebook', 'xml-for-google-merchatnt-center' ); ?>.
+						<?php esc_html_e( 'Here you can set up individual settings for Facebook', 'xml-for-google-merchant-center' ); ?>.
 						<a target="_blank"
 							href="//www.facebook.com/business/help/120325381656392?id=725943027795860&recommended_by=2041876302542944">
-							<?php esc_html_e( 'Read more on Facebook', 'xml-for-google-merchatnt-center' ); ?>
+							<?php esc_html_e( 'Read more on Facebook', 'xml-for-google-merchant-center' ); ?>
 						</a>.
 					</p>
 				</div>
@@ -1768,7 +1768,7 @@ class XFGMC_Admin {
 					'id' => '_xfgmc_fb_product_category',
 					'label' => __( 'Facebook product category', 'xml-for-google-merchant-center' ),
 					'description' => sprintf( '%s fb_product_category',
-						__( 'Optional element', 'xml-for-google-merchatnt-center' )
+						__( 'Optional element', 'xml-for-google-merchant-center' )
 					),
 					'desc_tip' => 'true',
 					'type' => 'text'
@@ -1791,12 +1791,12 @@ class XFGMC_Admin {
 
 		woocommerce_wp_text_input( [ 
 			'id' => '_xfgmc_barcode',
-			'label' => __( 'Barcode for XML', 'xml-for-google-merchatnt-center' ),
-			'placeholder' => sprintf( '%s: 978020137962', __( 'For example', 'xml-for-google-merchatnt-center' ) ),
+			'label' => __( 'Barcode for XML', 'xml-for-google-merchant-center' ),
+			'placeholder' => sprintf( '%s: 978020137962', __( 'For example', 'xml-for-google-merchant-center' ) ),
 			'description' => sprintf( '%s "_xfgmc_barcode" %s. %s get_post_meta',
-				__( 'The data of this field is stored in the', 'xml-for-google-merchatnt-center' ),
-				__( 'meta field', 'xml-for-google-merchatnt-center' ),
-				__( 'You can always display them in your website template using', 'xml-for-google-merchatnt-center' )
+				__( 'The data of this field is stored in the', 'xml-for-google-merchant-center' ),
+				__( 'meta field', 'xml-for-google-merchant-center' ),
+				__( 'You can always display them in your website template using', 'xml-for-google-merchant-center' )
 			),
 			'type' => 'text',
 			'desc_tip' => true
@@ -1903,12 +1903,12 @@ class XFGMC_Admin {
 		echo '<div>';
 		woocommerce_wp_text_input( [ 
 			'id' => '_xfgmc_barcode[' . $variation->ID . ']',
-			'label' => __( 'Barcode for XML', 'xml-for-google-merchatnt-center' ),
-			'placeholder' => sprintf( '%s: 978020137962', __( 'For example', 'xml-for-google-merchatnt-center' ) ),
+			'label' => __( 'Barcode for XML', 'xml-for-google-merchant-center' ),
+			'placeholder' => sprintf( '%s: 978020137962', __( 'For example', 'xml-for-google-merchant-center' ) ),
 			'description' => sprintf( '%s "_xfgmc_barcode" %s. %s get_post_meta',
-				__( 'The data of this field is stored in the', 'xml-for-google-merchatnt-center' ),
-				__( 'meta field', 'xml-for-google-merchatnt-center' ),
-				__( 'You can always display them in your website template using', 'xml-for-google-merchatnt-center' )
+				__( 'The data of this field is stored in the', 'xml-for-google-merchant-center' ),
+				__( 'meta field', 'xml-for-google-merchant-center' ),
+				__( 'You can always display them in your website template using', 'xml-for-google-merchant-center' )
 			),
 			'type' => 'text',
 			'desc_tip' => 'true',
@@ -1982,13 +1982,13 @@ class XFGMC_Admin {
 					$feed_id,
 					__(
 						'Creating a cache file is not required for this type',
-						'xml-for-google-merchatnt-center'
+						'xml-for-google-merchant-center'
 					),
 					$run_cron,
 					$ufup,
-					__( 'File', 'xml-for-google-merchatnt-center' ),
+					__( 'File', 'xml-for-google-merchant-center' ),
 					'class-xfgmc-admin.php',
-					__( 'Line', 'xml-for-google-merchatnt-center' ),
+					__( 'Line', 'xml-for-google-merchant-center' ),
 					__LINE__
 				) );
 				continue;
@@ -2027,13 +2027,13 @@ class XFGMC_Admin {
 						$feed_id,
 						__(
 							'Starting a quick feed build',
-							'xml-for-google-merchatnt-center'
+							'xml-for-google-merchant-center'
 						),
 						$i,
 						$ufup,
-						__( 'File', 'xml-for-google-merchatnt-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
 						'class-xfgmc-admin.php',
-						__( 'Line', 'xml-for-google-merchatnt-center' ),
+						__( 'Line', 'xml-for-google-merchant-center' ),
 						__LINE__
 					) );
 					clearstatcache(); // очищаем кэш дат файлов
