@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.2 (08-06-2025)
+ * @version    4.0.4 (20-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -34,6 +34,7 @@ class XFGMC_Rules_List {
 	 * @param array $rules_arr
 	 */
 	public function __construct( $rules_arr = [] ) {
+
 		if ( empty( $rules_arr ) ) {
 			$this->rules_arr = [ 
 				'merchant_center' => [ 
@@ -52,13 +53,15 @@ class XFGMC_Rules_List {
 					'condition', 'adult', 'multipack', 'is_bundle', // TODO: 'certification', 'energy_efficiency_class',
 					// TODO: 'min_energy_efficiency_class', 'max_energy_efficiency_class',
 					'age_group', 'color', 'gender', 'material', 'pattern',
-					'size', 'size_type', 'size_system', 'item_group_id', 'dimensions',
+					'size', 'size_type', 'size_system', 'item_group_id',
+					'dimensions', // включает g:product_length, g:product_width, g:product_height, g:product_weight
 					// TODO: 'product_detail', 'product_highlight',
 					// TODO: 'ads_redirect',
 					'custom_label', // TODO: 'promotion_id', 'lifestyle_image_link', 
 					// TODO: 'external_seller_id', 'excluded_destination', 'included_destination', 'shopping_ads_excluded_country',
 					// TODO: 'pause',
 					'shipping', // включает g:min_handling_time, g:max_handling_time, g:shipping_label
+					'shipping_dimensions', // включает g:shipping_length, g:shipping_width, g:shipping_height, g:shipping_weight
 					'tax', 'tax_category',
 					'quantity', 'store_code'
 				],
@@ -72,7 +75,8 @@ class XFGMC_Rules_List {
 					'gtin', 'mpn', 'google_product_category', 'fb_product_category',
 					'color', 'gender', 'size', 'age_group', 'material', 'pattern',
 					// TODO 'rich_text_description', 'video[0-19].url',
-					'shipping', // 'shipping_weight',
+					'shipping',
+					'shipping_dimensions', // включает g:shipping_length, g:shipping_width, g:shipping_height, g:shipping_weight
 					// TODO 'internal_label',
 					'custom_label', // TODO 'custom_number'
 				],
@@ -92,13 +96,15 @@ class XFGMC_Rules_List {
 					'condition', 'adult', 'multipack', 'is_bundle', // TODO: 'certification', 'energy_efficiency_class',
 					// TODO: 'min_energy_efficiency_class', 'max_energy_efficiency_class',
 					'age_group', 'color', 'gender', 'material', 'pattern',
-					'size', 'size_type', 'size_system', 'item_group_id', 'dimensions',
+					'size', 'size_type', 'size_system', 'item_group_id',
+					'dimensions', // включает g:product_length, g:product_width, g:product_height, g:product_weight
 					// TODO: 'product_detail', 'product_highlight',
 					// TODO: 'ads_redirect',
 					'custom_label', // TODO: 'promotion_id', 'lifestyle_image_link', 
 					// TODO: 'external_seller_id', 'excluded_destination', 'included_destination', 'shopping_ads_excluded_country',
 					// TODO: 'pause',
 					'shipping', // включает g:min_handling_time, g:max_handling_time, g:shipping_label
+					'shipping_dimensions', // включает g:shipping_length, g:shipping_width, g:shipping_height, g:shipping_weight
 					'tax', 'tax_category',
 					'quantity', 'store_code'
 				]
@@ -108,6 +114,7 @@ class XFGMC_Rules_List {
 		}
 
 		$this->rules_arr = apply_filters( 'xfgmc_f_set_rules_arr', $this->get_rules_arr() );
+
 	}
 
 	/**

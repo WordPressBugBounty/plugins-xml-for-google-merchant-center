@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.2 (08-06-2025)
+ * @version    4.0.4 (20-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -57,6 +57,7 @@ class XFGMC_Get_Unit_Offer_Simple extends XFGMC_Get_Unit_Offer {
 	use XFGMC_T_Simple_Get_Quantity;
 	use XFGMC_T_Simple_Get_Sale_Price;
 	use XFGMC_T_Simple_Get_Shipping;
+	use XFGMC_T_Simple_Get_Shipping_Dimensions;
 	use XFGMC_T_Simple_Get_Size_System;
 	use XFGMC_T_Simple_Get_Size;
 	use XFGMC_T_Simple_Get_Size_Type;

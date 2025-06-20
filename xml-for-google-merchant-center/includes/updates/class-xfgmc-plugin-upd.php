@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.4 (20-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -32,10 +32,7 @@ final class XFGMC_Plugin_Upd {
 	 * @var array
 	 */
 	private $list_plugin_names = [ 
-		'xfgmcp' => [ 'name' => 'PRO', 'code' => 'renewlicense20yp' ], // TODO: удалить в след.версиях
-		'xfgmcp' => [ 'name' => 'PRO', 'code' => 'renewlicense20yp' ],
-		'xfgmcae' => [ 'name' => 'Aliexpress Export', 'code' => 'renewlicense20ali' ],
-		'xfgmcs' => [ 'name' => 'SETS', 'code' => 'renewlicense23sets' ]
+		'xfgmcp' => [ 'name' => 'PRO', 'code' => 'renewlicense20gp' ]
 	];
 
 	/**

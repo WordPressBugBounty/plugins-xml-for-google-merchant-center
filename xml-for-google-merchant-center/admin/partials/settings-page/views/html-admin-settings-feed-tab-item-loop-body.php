@@ -2,7 +2,7 @@
 /**
  * The tab items loop body.
  * 
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.4 (20-06-2025)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/settings_page/
  * 
@@ -276,6 +276,71 @@ if ( $attr_arr[ $i ]['type'] === 'textarea' ) {
 			);
 
 	}
+}
+
+// file 
+if ( $attr_arr[ $i ]['type'] === 'text_and_file_btn' ) {
+
+	$tag_attributes_arr = [ 
+		'id' => esc_attr( $attr_arr[ $i ]['opt_name'] ),
+		'name' => esc_attr( $attr_arr[ $i ]['opt_name'] ),
+		'class' => esc_attr( 'xfgmc_input' ),
+		'value' => esc_attr( $opt_value ),
+		'placeholder' => esc_attr( $attr_arr[ $i ]['data']['placeholder'] )
+	];
+
+	switch ( $table_location ) {
+
+		case 'th-td':
+			$html_th .= sprintf( '%1$s',
+				$tag_label
+			);
+			$html_td .= sprintf( '%1$s <p>%2$s</p>%3$s',
+				new XFGMC_Get_Open_Tag(
+					'input',
+					$tag_attributes_arr,
+					true
+				),
+				$description,
+				new XFGMC_Get_Open_Tag(
+					'input',
+					[ 
+						'type' => 'file',
+						'name' => 'xfgmc_image_upload',
+						'id' => 'xfgmc_image_upload',
+						'multiple' => 'false',
+						'accept' => esc_attr( $attr_arr[ $i ]['data']['accept'] )
+					],
+					true
+				)
+			);
+			break;
+
+		default:
+
+			$html_td .= sprintf( '<label class="xfgmc_label">%1$s:</label>%2$s<p>%3$s</p>%4$s',
+				$tag_label,
+				new XFGMC_Get_Open_Tag(
+					'input',
+					$tag_attributes_arr,
+					true
+				),
+				$description,
+				new XFGMC_Get_Open_Tag(
+					'input',
+					[ 
+						'type' => 'file',
+						'name' => 'xfgmc_image_upload',
+						'id' => 'xfgmc_image_upload',
+						'multiple' => 'false',
+						'accept' => esc_attr( $attr_arr[ $i ]['data']['accept'] )
+					],
+					true
+				)
+			);
+
+	}
+
 }
 
 if ( false === $has_next ) {

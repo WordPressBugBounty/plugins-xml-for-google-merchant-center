@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.3 (17-06-2025)
+ * @version    4.0.4 (20-06-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -1640,7 +1640,7 @@ class XFGMC_Data {
 						'desc' => sprintf(
 							'%s: %s',
 							__( 'Length', 'xml-for-google-merchant-center' ),
-							'&lt;product_length>X sm</product_length&gt;'
+							'&lt;g:product_length>X sm</g:product_length&gt;'
 						),
 						'woo_attr' => true,
 						'default_value' => false,
@@ -1666,7 +1666,7 @@ class XFGMC_Data {
 						'desc' => sprintf(
 							'%s: %s',
 							__( 'Width', 'xml-for-google-merchant-center' ),
-							'&lt;product_width>X sm</product_width&gt;'
+							'&lt;g:product_width>X sm</g:product_width&gt;'
 						),
 						'woo_attr' => true,
 						'default_value' => false,
@@ -1691,7 +1691,7 @@ class XFGMC_Data {
 						'desc' => sprintf(
 							'%s: %s',
 							__( 'Height', 'xml-for-google-merchant-center' ),
-							'&lt;product_height>X sm</product_height&gt;'
+							'&lt;g:product_height>X sm</g:product_height&gt;'
 						),
 						'woo_attr' => true,
 						'default_value' => false,
@@ -1716,7 +1716,7 @@ class XFGMC_Data {
 						'desc' => sprintf(
 							'%s: %s',
 							__( 'Weight', 'xml-for-google-merchant-center' ),
-							'&lt;product_weight>X kg</product_weight&gt;'
+							'&lt;g:product_weight>X kg</g:product_weight&gt;'
 						),
 						'woo_attr' => true,
 						'default_value' => false,
@@ -1862,6 +1862,107 @@ class XFGMC_Data {
 						'placeholder' => '',
 						'tag_name' => 'shipping',
 						'tag_name_for_desc' => 'g:shipping'
+					]
+				],
+				[ 
+					'opt_name' => 'xfgmc_shipping_length',
+					'def_val' => 'woo_shippings',
+					'mark' => 'public',
+					'type' => 'select',
+					'tab' => 'offer_data_tab',
+					'data' => [ 
+						'label' => __( 'Shipping length', 'xml-for-google-merchant-center' ),
+						'desc' => sprintf(
+							'%s: %s',
+							__( 'Length', 'xml-for-google-merchant-center' ),
+							'&lt;g:shipping_length>X sm</g:shipping_length&gt;'
+						),
+						'woo_attr' => true,
+						'default_value' => false,
+						'key_value_arr' => [ 
+							[ 
+								'value' => 'woo_shippings',
+								'text' => __( 'Substitute from WooCommerce Shippings tab', 'xml-for-google-merchant-center' )
+							]
+						],
+						'tag_name' => 'shipping_dimensions',
+						'tag_name_for_desc' => esc_attr( 'g:shipping_[lenght, width, height, weight]' ),
+						'div_header' => __( 'Shipping dimensions', 'xml-for-google-merchant-center' )
+					]
+				],
+				[ 
+					'opt_name' => 'xfgmc_shipping_width',
+					'def_val' => 'woo_shippings',
+					'mark' => 'public',
+					'type' => 'select',
+					'tab' => 'offer_data_tab',
+					'data' => [ 
+						'label' => __( 'Shipping width', 'xml-for-google-merchant-center' ),
+						'desc' => sprintf(
+							'%s: %s',
+							__( 'Width', 'xml-for-google-merchant-center' ),
+							'&lt;g:shipping_width>X sm</g:shipping_width&gt;'
+						),
+						'woo_attr' => true,
+						'default_value' => false,
+						'key_value_arr' => [ 
+							[ 
+								'value' => 'woo_shippings',
+								'text' => __( 'Substitute from WooCommerce Shippings tab', 'xml-for-google-merchant-center' )
+							]
+						],
+						'tag_name' => 'shipping_dimensions',
+						'tag_name_for_desc' => esc_attr( 'g:shipping_[lenght, width, height, weight]' )
+					]
+				],
+				[ 
+					'opt_name' => 'xfgmc_shipping_height',
+					'def_val' => 'woo_shippings',
+					'mark' => 'public',
+					'type' => 'select',
+					'tab' => 'offer_data_tab',
+					'data' => [ 
+						'label' => __( 'Shipping height', 'xml-for-google-merchant-center' ),
+						'desc' => sprintf(
+							'%s: %s',
+							__( 'Height', 'xml-for-google-merchant-center' ),
+							'&lt;g:shipping_height>X sm</g:shipping_height&gt;'
+						),
+						'woo_attr' => true,
+						'default_value' => false,
+						'key_value_arr' => [ 
+							[ 
+								'value' => 'woo_shippings',
+								'text' => __( 'Substitute from WooCommerce Shippings tab', 'xml-for-google-merchant-center' )
+							]
+						],
+						'tag_name' => 'shipping_dimensions',
+						'tag_name_for_desc' => esc_attr( 'g:shipping_[lenght, width, height, weight]' )
+					]
+				],
+				[ 
+					'opt_name' => 'xfgmc_shipping_weight',
+					'def_val' => 'woo_shippings',
+					'mark' => 'public',
+					'type' => 'select',
+					'tab' => 'offer_data_tab',
+					'data' => [ 
+						'label' => __( 'Shipping weight', 'xml-for-google-merchant-center' ),
+						'desc' => sprintf(
+							'%s: %s',
+							__( 'Weight', 'xml-for-google-merchant-center' ),
+							'&lt;g:shipping_weight>X kg</g:shipping_weight&gt;'
+						),
+						'woo_attr' => true,
+						'default_value' => false,
+						'key_value_arr' => [ 
+							[ 
+								'value' => 'woo_shippings',
+								'text' => __( 'Substitute from WooCommerce Shippings tab', 'xml-for-google-merchant-center' )
+							]
+						],
+						'tag_name' => 'shipping_dimensions',
+						'tag_name_for_desc' => esc_attr( 'g:shipping_[lenght, width, height, weight]' )
 					]
 				],
 				[ 

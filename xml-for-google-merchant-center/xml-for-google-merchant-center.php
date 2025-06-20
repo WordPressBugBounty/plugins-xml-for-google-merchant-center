@@ -17,7 +17,7 @@
  * Requires Plugins:        woocommerce
  * Plugin URI:              https://wordpress.org/plugins/xml-for-google-merchant-center/
  * Description:             Creates a XML feed that allows merchants to easily display their products across Google’s network.
- * Version:                 4.0.3
+ * Version:                 4.0.4
  * Requires at least:       5.9
  * Requires PHP:            7.4.0
  * Author:                  Maxim Glazunov
@@ -26,7 +26,7 @@
  * License URI:             http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:             xml-for-google-merchant-center
  * Domain Path:             /languages
- * Tags:                    xml, yandex, market, export, woocommerce
+ * Tags:                    xml, google, product feed, export, woocommerce
  * WC requires at least:    3.0.0
  * WC tested up to:         9.9.4
  */
@@ -482,7 +482,7 @@ if ( false === $not_run ) {
 	 * Start at version 0.1.0 and use SemVer - https://semver.org
 	 * Rename this for your plugin and update it as you release new versions.
 	 */
-	define( 'XFGMC_PLUGIN_VERSION', '4.0.3' );
+	define( 'XFGMC_PLUGIN_VERSION', '4.0.4' );
 
 	$upload_dir = wp_get_upload_dir();
 	// http://site.ru/wp-content/uploads
@@ -573,11 +573,11 @@ if ( false === $not_run ) {
 	} else {
 		$xfgmc_v = get_option( 'xfgmc_version', '0.1.0' );
 	}
-	if ( version_compare( $xfgmc_v, '4.0.3', '<' ) ) {
+	if ( version_compare( $xfgmc_v, '4.0.4', '<' ) ) {
 		xfgmc_plugin_database_upd( $xfgmc_v );
 	}
 
-	if ( class_exists( 'YmlforYandexMarketPro' ) ) {
+	if ( class_exists( 'XMLforGoogleMerchantCenterPro' ) ) {
 		$msg = sprintf(
 			'<h1><strong style="font-weight: 700;">%1$s</strong> %2$s! %3$s 6.0.0.</h1>',
 			'XML for Google Merchant Center PRO',

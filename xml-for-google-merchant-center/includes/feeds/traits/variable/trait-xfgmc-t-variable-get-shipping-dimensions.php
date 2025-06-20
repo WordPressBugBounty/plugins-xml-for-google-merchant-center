@@ -4,7 +4,7 @@
  * Trait for variable products.
  *
  * @link       https://icopydoc.ru
- * @since      0.1.0
+ * @since      4.0.4
  * @version    4.0.4 (20-06-2025)
  *
  * @package    XFGMC
@@ -12,9 +12,9 @@
  */
 
 /**
- * The trait adds `get_dimensions` method.
+ * The trait adds `get_shipping_dimensions` method.
  * 
- * This method allows you to return the `dimensions` tag.
+ * This method allows you to return the `shipping_dimensions` tag.
  *
  * @since      0.1.0
  * @package    XFGMC
@@ -26,29 +26,30 @@
  *                          get_feed_id
  *             functions:   common_option_get
  */
-trait XFGMC_T_Variable_Get_Dimensions {
+trait XFGMC_T_Variable_Get_Shipping_Dimensions {
 
 	/**
-	 * Get `dimensions` tag or `<g:product_length>20 in</g:product_length>`, `<g:product_width>40 in</g:product_width>`,
-	 * `<g:product_height>10 in</g:product_height>`, `<g:product_weight>3.5 lb</g:product_weight>`.
+	 * Get `dimensions` tag or `<g:shipping_length>20 in</g:shipping_length>`, `<g:shipping_width>40 in</g:shipping_width>`,
+	 * `<g:shipping_height>10 in</g:shipping_height>`, `<g:shipping_weight>3.5 lb</g:shipping_weight>`.
 	 * 
-	 * @see https://support.google.com/merchants/answer/11018531
+	 * @see https://support.google.com/merchants/answer/6324498
+	 *      https://support.google.com/merchants/answer/6324503
 	 * 
 	 * @param string $tag_name
 	 * @param string $result_xml
 	 * 
-	 * @return string Example: `<g:product_length>20 in</g:product_length>`
+	 * @return string Example: `<g:shipping_length>20 in</g:shipping_length>`
 	 */
-	public function get_dimensions( $tag_name = 'dimensions', $result_xml = '' ) {
+	public function get_shipping_dimensions( $tag_name = 'shipping_dimensions', $result_xml = '' ) {
 
 		// * к сожалению wc_get_dimension не всегда возвращает float и юзер может передать в размер что-то типа '13-18'
 		// * потому юзаем gettype() === 'double'
 		$length_xml = 0;
 		$width_xml = 0;
 		$height_xml = 0;
-		$product_weight_xml = 0;
+		$shipping_weight_xml = 0;
 		$length = common_option_get(
-			'xfgmc_length',
+			'xfgmc_shipping_length',
 			'woo_shippings',
 			$this->get_feed_id(),
 			'xfgmc'
@@ -71,7 +72,7 @@ trait XFGMC_T_Variable_Get_Dimensions {
 		}
 
 		$width = common_option_get(
-			'xfgmc_width',
+			'xfgmc_shipping_width',
 			'woo_shippings',
 			$this->get_feed_id(),
 			'xfgmc'
@@ -93,7 +94,7 @@ trait XFGMC_T_Variable_Get_Dimensions {
 		}
 
 		$height = common_option_get(
-			'xfgmc_height',
+			'xfgmc_shipping_height',
 			'woo_shippings',
 			$this->get_feed_id(),
 			'xfgmc'
@@ -114,38 +115,38 @@ trait XFGMC_T_Variable_Get_Dimensions {
 			$height_xml = round( wc_get_dimension( (float) $tag_value, 'cm' ), 3 );
 		}
 
-		$product_weight = common_option_get(
-			'xfgmc_product_weight',
+		$shipping_weight = common_option_get(
+			'xfgmc_shipping_weight',
 			'woo_shippings',
 			$this->get_feed_id(),
 			'xfgmc'
 		);
 
-		if ( empty( $product_weight ) || $product_weight === 'woo_shippings' ) {
-			$product_weight_xml = $this->get_offer()->get_height();
-			if ( ! empty( $product_weight_xml ) && gettype( $product_weight_xml ) === 'double' ) {
-				$product_weight_xml = round( wc_get_weight( $product_weight_xml, 'kg' ), 3 );
+		if ( empty( $shipping_weight ) || $shipping_weight === 'woo_shippings' ) {
+			$shipping_weight_xml = $this->get_offer()->get_height();
+			if ( ! empty( $shipping_weight_xml ) && gettype( $shipping_weight_xml ) === 'double' ) {
+				$shipping_weight_xml = round( wc_get_weight( $shipping_weight_xml, 'kg' ), 3 );
 			}
 		} else {
-			$product_weight = (int) $product_weight;
-			$tag_value = $this->get_offer()->get_attribute( wc_attribute_taxonomy_name_by_id( $product_weight ) );
+			$shipping_weight = (int) $shipping_weight;
+			$tag_value = $this->get_offer()->get_attribute( wc_attribute_taxonomy_name_by_id( $shipping_weight ) );
 			if ( empty( $tag_value ) ) {
-				$tag_value = $this->get_product()->get_attribute( wc_attribute_taxonomy_name_by_id( $product_weight ) );
+				$tag_value = $this->get_product()->get_attribute( wc_attribute_taxonomy_name_by_id( $shipping_weight ) );
 			}
-			$product_weight_xml = round( wc_get_weight( (float) $tag_value, 'kg' ), 3 );
+			$shipping_weight_xml = round( wc_get_weight( (float) $tag_value, 'kg' ), 3 );
 		}
 
 		if ( $length_xml > 0 ) {
-			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:product_length', sprintf( '%s cm', $length_xml ) );
+			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:shipping_length', sprintf( '%s cm', $length_xml ) );
 		}
 		if ( $width_xml > 0 ) {
-			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:product_width', sprintf( '%s cm', $width_xml ) );
+			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:shipping_width', sprintf( '%s cm', $width_xml ) );
 		}
 		if ( $height_xml > 0 ) {
-			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:product_height', sprintf( '%s cm', $height_xml ) );
+			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:shipping_height', sprintf( '%s cm', $height_xml ) );
 		}
-		if ( $product_weight_xml > 0 ) {
-			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:product_weight', sprintf( '%s kg', $product_weight_xml ) );
+		if ( $shipping_weight_xml > 0 ) {
+			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:shipping_weight', sprintf( '%s kg', $shipping_weight_xml ) );
 		}
 
 		$result_xml = apply_filters(
