@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.4 (20-06-2025)
+ * @version    4.0.5 (04-07-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -448,6 +448,32 @@ final class XFGMC_Plugin_Upd {
 		];
 		$api_url = apply_filters( 'xfgmc_f_api_url', self::API_URL );
 		$response = wp_remote_post( esc_url_raw( $api_url ), $request_arr );
+		if ( is_wp_error( $response ) ) {
+			$response = $this->response_to_reserved_servers( $request_arr );
+		}
+		return $response;
+
+	}
+
+	/**
+	 * Reserved response to an API request.
+	 * 
+	 * @param array $request_arr
+	 * 
+	 * @return WP_Error|array
+	 */
+	private function response_to_reserved_servers( $request_arr ) {
+
+		$backup_servers_arr = [ 
+			'https://icpd-server.ru/api/v2',
+			'https://icopydoc.com/api/v2'
+		];
+		for ( $i = 0; $i < count( $backup_servers_arr ); $i++ ) {
+			$response = wp_remote_post( esc_url_raw( $backup_servers_arr[ $i ] ), $request_arr );
+			if ( false === is_wp_error( $response ) ) {
+				break;
+			}
+		}
 		return $response;
 
 	}

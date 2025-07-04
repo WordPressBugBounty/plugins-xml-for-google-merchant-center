@@ -52,12 +52,12 @@ if ( ! class_exists( 'ICPD_Promo' ) ) {
 					'url' => 'https://wordpress.org/plugins/xml-for-google-merchant-center/'
 				],
 				[ 
-					'name' => 'XML for Google Merchant Center',
+					'name' => 'YML for Yandex Market',
 					'desc' => __(
-						'Сreates a XML-feed for importing your products to Google Merchant Center',
+						'Сreates a YML-feed for importing your products to Yandex Market',
 						'xml-for-google-merchant-center'
 					),
-					'url' => 'https://wordpress.org/plugins/xml-for-google-merchant-center/'
+					'url' => 'https://wordpress.org/plugins/yml-for-yandex-market/'
 				],
 				[ 
 					'name' => 'Import from XML',

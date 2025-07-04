@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2025-06-20 22:12+0300\n"
-"PO-Revision-Date: 2025-06-20 22:12+0300\n"
+"POT-Creation-Date: 2025-07-04 12:34+0300\n"
+"PO-Revision-Date: 2025-07-04 12:35+0300\n"
 "Last-Translator: \n"
 "Language-Team: Maxim Glazunov <djdiplomat477@gmail.com>\n"
 "Language: ru\n"
@@ -115,8 +115,8 @@ msgstr "во время создания нового фида"
 #: includes/feeds/traits/simple/trait-xfgmc-t-simple-get-product-type.php:100
 #: includes/feeds/traits/variable/trait-xfgmc-t-variable-get-product-type.php:85
 #: includes/feeds/traits/variable/trait-xfgmc-t-variable-get-product-type.php:101
-#: includes/updates/class-xfgmc-plugin-upd.php:542
-#: includes/updates/class-xfgmc-plugin-upd.php:581
+#: includes/updates/class-xfgmc-plugin-upd.php:565
+#: includes/updates/class-xfgmc-plugin-upd.php:604
 msgid "Line"
 msgstr "Строка"
 
@@ -157,8 +157,8 @@ msgstr "Строка"
 #: includes/feeds/traits/simple/trait-xfgmc-t-simple-get-product-type.php:98
 #: includes/feeds/traits/variable/trait-xfgmc-t-variable-get-product-type.php:83
 #: includes/feeds/traits/variable/trait-xfgmc-t-variable-get-product-type.php:99
-#: includes/updates/class-xfgmc-plugin-upd.php:540
-#: includes/updates/class-xfgmc-plugin-upd.php:579
+#: includes/updates/class-xfgmc-plugin-upd.php:563
+#: includes/updates/class-xfgmc-plugin-upd.php:602
 msgid "File"
 msgstr "Файл"
 
@@ -1795,9 +1795,8 @@ msgid "Сreates a XML-feed to upload to Google Merchant Center"
 msgstr "Создает XML-фид для загрузки в Google Merchant Center"
 
 #: includes/common-libs/class-icpd-promo.php:57
-msgid ""
-"Сreates a XML-feed for importing your products to Google Merchant Center"
-msgstr "Создает XML-фид для импорта ваших товаров в Google Merchant Center"
+msgid "Сreates a YML-feed for importing your products to Yandex Market"
+msgstr "Создает YML-фид для импорта ваших товаров на Яндекс Маркет"
 
 #: includes/common-libs/class-icpd-promo.php:64
 msgid "Imports products from XML to your shop"
@@ -2083,112 +2082,112 @@ msgstr "вернула"
 msgid "Variation product has no description"
 msgstr "У вариативного товара нет описания"
 
-#: includes/updates/class-xfgmc-plugin-form-activate.php:138
+#: includes/updates/class-xfgmc-plugin-form-activate.php:135
 msgid "License data"
 msgstr "Данные лицензии"
 
-#: includes/updates/class-xfgmc-plugin-form-activate.php:267
+#: includes/updates/class-xfgmc-plugin-form-activate.php:264
 msgid "License data has been updated"
 msgstr "Лицензионные данные были обновлены"
 
-#: includes/updates/class-xfgmc-plugin-form-activate.php:268
+#: includes/updates/class-xfgmc-plugin-form-activate.php:265
 msgid "Refresh this page"
 msgstr "Обновите эту страницу"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:168
+#: includes/updates/class-xfgmc-plugin-upd.php:165
 msgid "License is active"
 msgstr "Лицензия активна"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:172
-#: includes/updates/class-xfgmc-plugin-upd.php:219
+#: includes/updates/class-xfgmc-plugin-upd.php:169
+#: includes/updates/class-xfgmc-plugin-upd.php:216
 msgid "License expired"
 msgstr "Лицензия истекла"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:176
-#: includes/updates/class-xfgmc-plugin-upd.php:187
-#: includes/updates/class-xfgmc-plugin-upd.php:234
-#: includes/updates/class-xfgmc-plugin-upd.php:262
+#: includes/updates/class-xfgmc-plugin-upd.php:173
+#: includes/updates/class-xfgmc-plugin-upd.php:184
+#: includes/updates/class-xfgmc-plugin-upd.php:231
+#: includes/updates/class-xfgmc-plugin-upd.php:259
 msgid "License data is invalid"
 msgstr "Данные лицензии недействительны"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:181
-#: includes/updates/class-xfgmc-plugin-upd.php:248
+#: includes/updates/class-xfgmc-plugin-upd.php:178
+#: includes/updates/class-xfgmc-plugin-upd.php:245
 msgid ""
 "This license cannot be used on this site. The package limit has been exceeded"
 msgstr ""
 "Эта лицензия не может быть использована на этом сайте. Превышен лимит пакета"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:220
-#: includes/updates/class-xfgmc-plugin-upd.php:292
+#: includes/updates/class-xfgmc-plugin-upd.php:217
+#: includes/updates/class-xfgmc-plugin-upd.php:289
 msgid "Please"
 msgstr "Пожалуйста"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:222
-#: includes/updates/class-xfgmc-plugin-upd.php:294
+#: includes/updates/class-xfgmc-plugin-upd.php:219
+#: includes/updates/class-xfgmc-plugin-upd.php:291
 msgid "purchase a new license"
 msgstr "приобретите новую лицензию"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:223
-#: includes/updates/class-xfgmc-plugin-upd.php:295
+#: includes/updates/class-xfgmc-plugin-upd.php:220
+#: includes/updates/class-xfgmc-plugin-upd.php:292
 msgid "to get a discount, use this promo code"
 msgstr "чтобы получить скидку, используйте этот промо-код"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:225
-#: includes/updates/class-xfgmc-plugin-upd.php:297
+#: includes/updates/class-xfgmc-plugin-upd.php:222
+#: includes/updates/class-xfgmc-plugin-upd.php:294
 msgid "If you have already done this"
 msgstr "Если вы уже сделали это"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:227
-#: includes/updates/class-xfgmc-plugin-upd.php:298
+#: includes/updates/class-xfgmc-plugin-upd.php:224
+#: includes/updates/class-xfgmc-plugin-upd.php:295
 msgid "enter the new license information here"
 msgstr "введите здесь информацию о новой лицензии"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:235
-#: includes/updates/class-xfgmc-plugin-upd.php:263
+#: includes/updates/class-xfgmc-plugin-upd.php:232
+#: includes/updates/class-xfgmc-plugin-upd.php:260
 msgid "version features do not work and you can not install updates"
 msgstr "версии не работают, и вы не можете устанавливать обновления"
+
+#: includes/updates/class-xfgmc-plugin-upd.php:233
+#: includes/updates/class-xfgmc-plugin-upd.php:248
+#: includes/updates/class-xfgmc-plugin-upd.php:261
+msgid "Enter your license information"
+msgstr "Введите информацию о лицензии"
+
+#: includes/updates/class-xfgmc-plugin-upd.php:234
+#: includes/updates/class-xfgmc-plugin-upd.php:249
+#: includes/updates/class-xfgmc-plugin-upd.php:262
+msgid "or"
+msgstr "или"
 
 #: includes/updates/class-xfgmc-plugin-upd.php:236
 #: includes/updates/class-xfgmc-plugin-upd.php:251
 #: includes/updates/class-xfgmc-plugin-upd.php:264
-msgid "Enter your license information"
-msgstr "Введите информацию о лицензии"
-
-#: includes/updates/class-xfgmc-plugin-upd.php:237
-#: includes/updates/class-xfgmc-plugin-upd.php:252
-#: includes/updates/class-xfgmc-plugin-upd.php:265
-msgid "or"
-msgstr "или"
-
-#: includes/updates/class-xfgmc-plugin-upd.php:239
-#: includes/updates/class-xfgmc-plugin-upd.php:254
-#: includes/updates/class-xfgmc-plugin-upd.php:267
 msgid "purchase a new one"
 msgstr "приобретите новую"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:285
+#: includes/updates/class-xfgmc-plugin-upd.php:282
 msgid "License expires in"
 msgstr "Лицензия истекает через"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:287
+#: includes/updates/class-xfgmc-plugin-upd.php:284
 msgid "day"
 msgstr "день"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:288
+#: includes/updates/class-xfgmc-plugin-upd.php:285
 msgctxt "2 days"
 msgid "days"
 msgstr "дня"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:289
+#: includes/updates/class-xfgmc-plugin-upd.php:286
 msgctxt "5 days"
 msgid "days"
 msgstr "дней"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:538
+#: includes/updates/class-xfgmc-plugin-upd.php:561
 msgid "Error checking for updates"
 msgstr "Проверка обновлений на наличие ошибок"
 
-#: includes/updates/class-xfgmc-plugin-upd.php:577
+#: includes/updates/class-xfgmc-plugin-upd.php:600
 msgid "Error when requesting information about the plugin"
 msgstr "Ошибка при запросе информации о плагине"
 
@@ -2242,6 +2241,10 @@ msgid ""
 msgstr ""
 "Чтобы восстановить его работоспособность, срочно обновите плагин до версии "
 "не ниже"
+
+#~ msgid ""
+#~ "Сreates a XML-feed for importing your products to Google Merchant Center"
+#~ msgstr "Создает XML-фид для импорта ваших товаров в Google Merchant Center"
 
 #~ msgid "Y4YM"
 #~ msgstr "Y4YM"
@@ -2864,9 +2867,6 @@ msgstr ""
 
 #~ msgid "out of stock"
 #~ msgstr "нет в наличии"
-
-#~ msgid "Сreates a YML-feed for importing your products to Yandex Market"
-#~ msgstr "Создает YML-фид для импорта ваших товаров на Яндекс Маркет"
 
 #~ msgid "A variation product has more than 256 variations"
 #~ msgstr "Вариативный товар имеет более 256 вариаций"

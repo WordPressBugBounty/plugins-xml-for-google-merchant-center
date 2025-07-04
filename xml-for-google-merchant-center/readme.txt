@@ -4,7 +4,7 @@ Donate link: https://pay.cloudtips.ru/p/45d8ff3f
 Tags: xml, google, product feed, export, woocommerce
 Requires at least: 5.0
 Tested up to: 6.8.1
-Stable tag: 4.0.4
+Stable tag: 4.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,11 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 
 == Changelog ==
 
+= 4.0.5 =
+*Release Date 04-07-2025*
+
+* Fixed interface bugs.
+
 = 4.0.4 =
 *Release Date 20-06-2025*
 
@@ -85,9 +90,7 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 
 == Upgrade Notice ==
 
-= 4.0.4 =
-*Release Date 20-06-2025*
+= 4.0.5 =
+*Release Date 04-07-2025*
 
 * Fixed interface bugs.
-* Added support for `g:shipping_length`, `g:shipping_width`, `g:shipping_height`, `g:shipping_weight` tags.
-* Updated translation files.
