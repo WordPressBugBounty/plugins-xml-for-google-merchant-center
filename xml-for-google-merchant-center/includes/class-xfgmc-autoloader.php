@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.3 (17-06-2025)
+ * @version    4.0.6 (28-08-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -186,7 +186,17 @@ class XFGMC_Autoloader {
 		}
 		$files_arr = [];
 		$dir = rtrim( $dir, '/\\' ); // удалим слэш на конце
-		foreach ( glob( "$dir/{,.}[!.,!..]*", GLOB_BRACE ) as $file ) {
+
+		// Проверка наличия константы
+		if ( defined( 'GLOB_BRACE' ) ) {
+			$pattern = "$dir/{,.}[!.,!..]*";
+			$flags = GLOB_BRACE;
+		} else {
+			$pattern = "$dir/*";
+			$flags = 0;
+		}
+
+		foreach ( glob( $pattern, $flags ) as $file ) {
 			if ( is_dir( $file ) ) {
 				if ( $include_folders ) {
 					$files_arr[] = $file;

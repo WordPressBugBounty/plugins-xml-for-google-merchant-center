@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.5 (04-07-2025)
+ * @version    4.0.6 (28-08-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -172,7 +172,7 @@ class XFGMC_Data {
 							[ 'value' => '9am', 'text' => '09-00' ],
 							[ 'value' => '10am', 'text' => '10-00' ],
 							[ 'value' => '11am', 'text' => '11-00' ],
-							[ 'value' => '12am', 'text' => '12-00' ],
+							[ 'value' => '12pm', 'text' => '12-00' ],
 							[ 'value' => '1pm', 'text' => '13-00' ],
 							[ 'value' => '2pm', 'text' => '14-00' ],
 							[ 'value' => '3pm', 'text' => '15-00' ],
@@ -184,7 +184,7 @@ class XFGMC_Data {
 							[ 'value' => '9pm', 'text' => '21-00' ],
 							[ 'value' => '10pm', 'text' => '22-00' ],
 							[ 'value' => '11pm', 'text' => '23-00' ],
-							[ 'value' => '12pm', 'text' => '00-00' ]
+							[ 'value' => '12am', 'text' => '00-00' ]
 						]
 					]
 				],

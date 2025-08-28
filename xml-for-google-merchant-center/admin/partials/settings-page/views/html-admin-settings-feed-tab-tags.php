@@ -2,7 +2,7 @@
 /**
  * The Another page tab
  * 
- * @version    4.0.2 (08-06-2025)
+ * @version    4.0.6 (28-08-2025)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/settings_page/
  * 
@@ -39,10 +39,12 @@ $html_th = '';
 $html_td = '';
 
 // придерживаться правил. 2 из 2
-$xml_rules = common_option_get( 'xfgmc_xml_rules', false, $view_arr['feed_id'], 'xfgmc' );
-if ( $xml_rules === 'yandex_market' ) { // TODO: 4.0.0 (02-06-2025) - удалить со временем это условие
-	$xml_rules = 'merchant_center';
-}
+$xml_rules = common_option_get(
+	'xfgmc_xml_rules',
+	'merchant_center',
+	$view_arr['feed_id'],
+	'xfgmc'
+);
 $rules_obj = new XFGMC_Rules_List();
 $rules_arr = $rules_obj->get_rules_arr();
 $attr_arr_new = [];
