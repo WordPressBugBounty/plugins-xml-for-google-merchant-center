@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.3 (17-06-2025)
+ * @version    4.0.7 (11-09-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -74,7 +74,11 @@ class XFGMC_Get_Unit {
 			unset( $product );
 		}
 		do_action( 'xfgmc_after_wc_get_product', $args_arr, $this->get_product() );
-		$date_product_modified = strtotime( $this->get_product()->get_date_modified() );
+		if ( null === $this->get_product()->get_date_modified() ) {
+			$date_product_modified = (int) 0;
+		} else {
+			$date_product_modified = strtotime( $this->get_product()->get_date_modified() );
+		}
 		$data_from_cache = 'no';
 		if (
 			( (int) $date_successful_feed_update > 0 )

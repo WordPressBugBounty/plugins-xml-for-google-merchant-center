@@ -304,3 +304,51 @@ if ( ! function_exists( 'xfgmc_remove_special_characters' ) ) {
 
 	}
 }
+
+if ( ! function_exists( 'xfgmc_global_set_woocommerce_currency' ) ) {
+	/**
+	 * Set currency from FOX - Currency Switcher Professional for WooCommerce.
+	 * 
+	 * @since 4.0.7
+	 *
+	 * @param string $feed_id
+	 *
+	 * @return void
+	 */
+	function xfgmc_global_set_woocommerce_currency( $feed_id ) {
+
+		// FOX - Currency Switcher Professional for WooCommerce
+		if ( class_exists( 'WOOCS' ) ) {
+			$wooc_currencies = common_option_get(
+				'xfgmc_wooc_currencies',
+				'RUB',
+				$feed_id,
+				'xfgmc'
+			);
+			if ( $wooc_currencies !== '' ) {
+				global $WOOCS;
+				$WOOCS->set_currency( $wooc_currencies );
+			}
+		}
+
+	}
+}
+
+if ( ! function_exists( 'xfgmc_global_rest_woocommerce_currency' ) ) {
+	/**
+	 * Rest currency from FOX - Currency Switcher Professional for WooCommerce.
+	 * 
+	 * @since 4.0.7
+	 *
+	 * @return void
+	 */
+	function xfgmc_global_rest_woocommerce_currency() {
+
+		// FOX - Currency Switcher Professional for WooCommerce
+		if ( class_exists( 'WOOCS' ) ) {
+			global $WOOCS;
+			$WOOCS->reset_currency();
+		}
+
+	}
+}

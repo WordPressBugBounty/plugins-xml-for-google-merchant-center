@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.0.7 (11-09-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -101,7 +101,9 @@ abstract class XFGMC_Get_Unit_Offer {
 			$this->variation_count = null;
 		}
 
+		xfgmc_global_set_woocommerce_currency( $this->get_feed_id() );
 		$r = $this->generation_product_xml();
+		xfgmc_global_rest_woocommerce_currency();
 
 		// если нет нужды пропускать
 		if ( empty( $this->get_skip_reasons_arr() ) ) {
