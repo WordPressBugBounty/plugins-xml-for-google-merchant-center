@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.3 (17-06-2025)
+ * @version    4.0.9 (23-12-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -152,7 +152,7 @@ class XFGMC_Admin {
 	 */
 	public function enqueue_classes() {
 
-		new XFGMC_Feedback( [ 
+		new XFGMC_Feedback( [
 			'plugin_version' => XFGMC_PLUGIN_VERSION,
 			'logs_url' => XFGMC_PLUGIN_UPLOADS_DIR_URL . '/xml-for-google-merchant-center.log',
 			'logs_path' => XFGMC_PLUGIN_UPLOADS_DIR_PATH . '/xml-for-google-merchant-center.log'
@@ -194,7 +194,7 @@ class XFGMC_Admin {
 				}
 				$('#xfgmc_color_picker').wpColorPicker(myOptions);
 			});</script>
-		<?php
+	<?php // HACK: по хорошему нужно в цикле парсить поля с ColorPicker и выводит ID в скрипте автоматически 
 
 	}
 
@@ -213,7 +213,7 @@ class XFGMC_Admin {
 		$return = [];
 
 		// you can use WP_Query, query_posts() or get_posts() here - it doesn't matter
-		$search_results = new WP_Query( [ 
+		$search_results = new WP_Query( [
 			's' => $_GET['q'], // the search query
 			'post_status' => 'publish', // if you don't want drafts to be returned
 			'post_type' => [ 'product', 'product_variation' ],
@@ -266,7 +266,10 @@ class XFGMC_Admin {
 		add_submenu_page(
 			$this->plugin_name,
 			__( 'Extensions', 'xml-for-google-merchant-center' ),
-			__( 'Extensions', 'xml-for-google-merchant-center' ),
+			sprintf(
+				'<span style="font-weight: 700; text-transform: uppercase;">%s</span>',
+				__( 'More features', 'xml-for-google-merchant-center' )
+			),
 			'manage_woocommerce',
 			$this->plugin_name . '-extensions',
 			[ $this, 'display_plugin_extensions_page' ]
@@ -644,7 +647,7 @@ class XFGMC_Admin {
 	/**
 	 * Delete feed.
 	 * - Remove feed ID folder;
-	 * - // TODO: Remove feed file;
+	 * - Remove feed file;
 	 * - Remove an element to the array stored in the `xfgmc_settings_arr` option;
 	 * - Clear CRON scheduled;
 	 * - Print notice.
@@ -665,8 +668,7 @@ class XFGMC_Admin {
 		for ( $i = 0; $i < count( $checkbox_xml_file_arr ); $i++ ) {
 			$feed_id_str = (string) $checkbox_xml_file_arr[ $i ];
 
-			// ! Пока не работает почему-то...
-			// ! remove_directory( XFGMC_PLUGIN_UPLOADS_DIR_PATH . '/feed' . $feed_id_str );
+			xfgmc_remove_directory( XFGMC_PLUGIN_UPLOADS_DIR_PATH . '/feed' . $feed_id_str );
 
 			if ( isset( $settings_arr[ $feed_id_str ] ) ) {
 				unset( $settings_arr[ $feed_id_str ] );
@@ -944,19 +946,19 @@ class XFGMC_Admin {
 	 */
 	public function add_cron_intervals( $schedules ) {
 
-		$schedules['every_minute'] = [ 
+		$schedules['every_minute'] = [
 			'interval' => 60,
 			'display' => __( 'Every minute', 'xml-for-google-merchant-center' )
 		];
-		$schedules['three_hours'] = [ 
+		$schedules['three_hours'] = [
 			'interval' => 10800,
 			'display' => __( 'Every three hours', 'xml-for-google-merchant-center' )
 		];
-		$schedules['six_hours'] = [ 
+		$schedules['six_hours'] = [
 			'interval' => 21600,
 			'display' => __( 'Every six hours', 'xml-for-google-merchant-center' )
 		];
-		$schedules['every_two_days'] = [ 
+		$schedules['every_two_days'] = [
 			'interval' => 172800,
 			'display' => __( 'Every two days', 'xml-for-google-merchant-center' )
 		];
@@ -1473,7 +1475,7 @@ class XFGMC_Admin {
 	 */
 	public static function add_woocommerce_product_data_tab( $tabs ) {
 
-		$tabs['xfgmc_individual_settings_tab'] = [ 
+		$tabs['xfgmc_individual_settings_tab'] = [
 			'label' => __( 'XML for Google Merchant Center', 'xml-for-google-merchant-center' ), // название вкладки
 			'target' => 'xfgmc_individual_settings_tab', // идентификатор вкладки
 			'class' => [ 'hide_if_grouped' ], // классы управления видимостью вкладки в зависимости от типа товара
@@ -1535,7 +1537,7 @@ class XFGMC_Admin {
 					</p>
 				</div>
 				<?php
-				woocommerce_wp_text_input( [ 
+				woocommerce_wp_text_input( [
 					'id' => '_xfgmc_google_product_category',
 					'label' => sprintf(
 						'%s <i>[google_product_category]</i>',
@@ -1546,7 +1548,7 @@ class XFGMC_Admin {
 					'type' => 'text'
 				] );
 
-				woocommerce_wp_text_input( [ 
+				woocommerce_wp_text_input( [
 					'id' => '_xfgmc_tax_category',
 					'label' => sprintf(
 						'%s <i>[tax_category]</i>',
@@ -1557,13 +1559,13 @@ class XFGMC_Admin {
 					'type' => 'text'
 				] );
 
-				woocommerce_wp_select( [ 
+				woocommerce_wp_select( [
 					'id' => '_xfgmc_identifier_exists',
 					'label' => sprintf(
 						'%s <i>[identifier_exists]</i>',
 						__( 'Identifier exists', 'xml-for-google-merchant-center' )
 					),
-					'options' => [ 
+					'options' => [
 						'default' => __( 'Default', 'xml-for-google-merchant-center' ),
 						'disabled' => __( 'Disabled', 'xml-for-google-merchant-center' ),
 						'no' => __( 'No', 'xml-for-google-merchant-center' ) . ' (no)',
@@ -1576,13 +1578,13 @@ class XFGMC_Admin {
 					'desc_tip' => 'true'
 				] );
 
-				woocommerce_wp_select( [ 
+				woocommerce_wp_select( [
 					'id' => '_xfgmc_adult',
 					'label' => sprintf(
 						'%s <i>[adult]</i>',
 						__( 'Adult', 'xml-for-google-merchant-center' )
 					),
-					'options' => [ 
+					'options' => [
 						'default' => __( 'Default', 'xml-for-google-merchant-center' ),
 						'disabled' => __( 'Disabled', 'xml-for-google-merchant-center' ),
 						'no' => __( 'No', 'xml-for-google-merchant-center' ) . ' (no)',
@@ -1595,13 +1597,13 @@ class XFGMC_Admin {
 					'desc_tip' => 'true'
 				] );
 
-				woocommerce_wp_select( [ 
+				woocommerce_wp_select( [
 					'id' => '_xfgmc_condition',
 					'label' => sprintf(
 						'%s <i>[condition]</i>',
 						__( 'Сondition', 'xml-for-google-merchant-center' )
 					),
-					'options' => [ 
+					'options' => [
 						'default' => __( 'Default', 'xml-for-google-merchant-center' ),
 						'disabled' => __( 'Disabled', 'xml-for-google-merchant-center' ),
 						'new' => __( 'New', 'xml-for-google-merchant-center' ),
@@ -1615,13 +1617,13 @@ class XFGMC_Admin {
 					'desc_tip' => 'true'
 				] );
 
-				woocommerce_wp_select( [ 
+				woocommerce_wp_select( [
 					'id' => '_xfgmc_is_bundle',
 					'label' => sprintf(
 						'%s <i>[is_bundle]</i>',
 						__( 'Kit', 'xml-for-google-merchant-center' )
 					),
-					'options' => [ 
+					'options' => [
 						'default' => __( 'Default', 'xml-for-google-merchant-center' ),
 						'disabled' => __( 'Disabled', 'xml-for-google-merchant-center' ),
 						'no' => __( 'No', 'xml-for-google-merchant-center' ),
@@ -1634,7 +1636,7 @@ class XFGMC_Admin {
 					'desc_tip' => 'true'
 				] );
 
-				woocommerce_wp_text_input( [ 
+				woocommerce_wp_text_input( [
 					'id' => '_xfgmc_multipack',
 					'label' => sprintf(
 						'%s <i>[multipack]</i>',
@@ -1643,13 +1645,13 @@ class XFGMC_Admin {
 					'description' => '',
 					'desc_tip' => 'true',
 					'type' => 'number',
-					'custom_attributes' => [ 
+					'custom_attributes' => [
 						'step' => '1',
 						'min' => '0',
 					],
 				] );
 
-				woocommerce_wp_text_input( [ 
+				woocommerce_wp_text_input( [
 					'id' => '_xfgmc_unit_pricing_measure',
 					'label' => sprintf(
 						'%s <i>[unit_pricing_measure]</i>',
@@ -1660,7 +1662,7 @@ class XFGMC_Admin {
 					'type' => 'text'
 				] );
 
-				woocommerce_wp_text_input( [ 
+				woocommerce_wp_text_input( [
 					'id' => '_xfgmc_unit_pricing_base_measure',
 					'label' => sprintf(
 						'%s <i>[unit_pricing_base_measure]</i>',
@@ -1672,7 +1674,7 @@ class XFGMC_Admin {
 				] );
 
 
-				woocommerce_wp_text_input( [ 
+				woocommerce_wp_text_input( [
 					'id' => '_xfgmc_shipping_label',
 					'label' => sprintf(
 						'%s <i>[shipping_label]</i>',
@@ -1683,7 +1685,7 @@ class XFGMC_Admin {
 					'type' => 'text'
 				] );
 
-				woocommerce_wp_text_input( [ 
+				woocommerce_wp_text_input( [
 					'id' => '_xfgmc_store_code',
 					'label' => sprintf(
 						'%s <i>[store_code]</i>',
@@ -1694,7 +1696,7 @@ class XFGMC_Admin {
 					'type' => 'text'
 				] );
 
-				woocommerce_wp_text_input( [ 
+				woocommerce_wp_text_input( [
 					'id' => '_xfgmc_min_handling_time',
 					'label' => sprintf(
 						'%s <i>[min_handling_time]</i>',
@@ -1705,7 +1707,7 @@ class XFGMC_Admin {
 					'type' => 'text'
 				] );
 
-				woocommerce_wp_text_input( [ 
+				woocommerce_wp_text_input( [
 					'id' => '_xfgmc_max_handling_time',
 					'label' => sprintf(
 						'%s <i>[max_handling_time]</i>',
@@ -1732,7 +1734,7 @@ class XFGMC_Admin {
 				<?php
 				for ( $i = 0; $i < 5; $i++ ) {
 					$post_meta_name = '_xfgmc_custom_label_' . (string) $i;
-					woocommerce_wp_text_input( [ 
+					woocommerce_wp_text_input( [
 						'id' => $post_meta_name,
 						'label' => sprintf(
 							'%s <i>[custom_label_%s]</i>',
@@ -1764,7 +1766,7 @@ class XFGMC_Admin {
 					</p>
 				</div>
 				<?php
-				woocommerce_wp_text_input( [ 
+				woocommerce_wp_text_input( [
 					'id' => '_xfgmc_fb_product_category',
 					'label' => __( 'Facebook product category', 'xml-for-google-merchant-center' ),
 					'description' => sprintf( '%s fb_product_category',
@@ -1789,7 +1791,7 @@ class XFGMC_Admin {
 	 */
 	function add_fields_to_inventory_product_data_tab() {
 
-		woocommerce_wp_text_input( [ 
+		woocommerce_wp_text_input( [
 			'id' => '_xfgmc_barcode',
 			'label' => __( 'Barcode for XML', 'xml-for-google-merchant-center' ),
 			'placeholder' => sprintf( '%s: 978020137962', __( 'For example', 'xml-for-google-merchant-center' ) ),
@@ -1830,7 +1832,7 @@ class XFGMC_Admin {
 			return; // если юзер не имеет прав
 		}
 
-		$post_meta_arr = [ 
+		$post_meta_arr = [
 			'_xfgmc_google_product_category',
 			'_xfgmc_tax_category',
 			'_xfgmc_identifier_exists',
@@ -1901,7 +1903,7 @@ class XFGMC_Admin {
 	public function add_fields_to_variable_settings( $loop, $variation_data, $variation ) {
 
 		echo '<div>';
-		woocommerce_wp_text_input( [ 
+		woocommerce_wp_text_input( [
 			'id' => '_xfgmc_barcode[' . $variation->ID . ']',
 			'label' => __( 'Barcode for XML', 'xml-for-google-merchant-center' ),
 			'placeholder' => sprintf( '%s: 978020137962', __( 'For example', 'xml-for-google-merchant-center' ) ),

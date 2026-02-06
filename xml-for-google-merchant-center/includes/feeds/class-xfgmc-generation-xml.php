@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.3 (17-06-2025)
+ * @version    4.0.8 (19-11-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -243,7 +243,18 @@ class XFGMC_Generation_XML {
 				$result_xml = $this->get_feed_header();
 				$r = new XFGMC_Write_File( $result_xml, '-1.tmp', $this->get_feed_id() );
 				if ( false === $result ) {
-					// TODO: Добавить проверку на успешную запись временно файла, как выше.
+					new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s `%3$s`. %4$s; %5$s: %6$s; %7$s: %8$s',
+						$this->get_feed_id(),
+						__( 'An error occurred while creating a temporary feed file', 'xml-for-google-merchant-center' ),
+						'-1.tmp',
+						__( 'The creation of the feed has been stopped', 'xml-for-google-merchant-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
+						'class-xfgmc-generation-xml.php',
+						__( 'Line', 'xml-for-google-merchant-center' ),
+						__LINE__
+					) );
+					$this->stop();
+					return;
 				}
 
 				// создаём временный файл с id-шниками товаров, попавших в фид
@@ -251,10 +262,22 @@ class XFGMC_Generation_XML {
 					'-1;;;' . PHP_EOL,
 					sprintf( 'ids-in-xml-feed-%s.tmp', $this->get_feed_id() ),
 					$this->get_feed_id(),
-					'create'
+					'create',
+					XFGMC_PLUGIN_UPLOADS_DIR_PATH,
+					'no_trim' // ! сохраняем символ переноса на другую строку
 				);
 				if ( false === $result ) {
-					// TODO: Добавить проверку на успешную запись временно файла со списком id-шников, как выше.
+					new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s `%3$s`. %4$s; %5$s: %6$s; %7$s: %8$s',
+						$this->get_feed_id(),
+						__( 'An error occurred while creating an empty temporary feed file', 'xml-for-google-merchant-center' ),
+						sprintf( 'ids-in-xml-feed-%s.tmp', $this->get_feed_id() ),
+						__( 'The creation of the feed has been stopped', 'xml-for-google-merchant-center' ),
+						__( 'File', 'xml-for-google-merchant-center' ),
+						'class-xfgmc-generation-xml.php',
+						__( 'Line', 'xml-for-google-merchant-center' ),
+						__LINE__
+					) );
+					$this->stop();
 				}
 
 				$planning_result = XFGMC_Admin::cron_sborki_task_planning( $this->get_feed_id() );
@@ -318,7 +341,7 @@ class XFGMC_Generation_XML {
 				);
 				$args = apply_filters(
 					'xfgmc_f_query_args',
-					[ 
+					[
 						'post_type' => 'product',
 						'post_status' => 'publish',
 						'posts_per_page' => $step_export,
@@ -600,7 +623,7 @@ class XFGMC_Generation_XML {
 		$result_xml = apply_filters(
 			'xfgmc_f_before_offers',
 			$result_xml,
-			[ 
+			[
 				'xml_rules' => $xml_rules
 			],
 			$this->get_feed_id()
@@ -838,7 +861,21 @@ class XFGMC_Generation_XML {
 			'xfgmc'
 		);
 		if ( ! empty( $feed_old_path ) ) {
-			// TODO: Удалить старый файл фида $feed_old_path
+			// Удаляем старый файл фида $feed_old_path
+			if ( file_exists( $feed_old_path ) ) {
+				$res = unlink( $feed_old_path );
+				if ( true !== $res ) {
+					new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s `%3$s`; %4$s: %5$s; %6$s: %7$s',
+						$this->get_feed_id(),
+						__( "Couldn't delete the old feed file", "xml-for-google-merchant-center" ),
+						$feed_old_path,
+						__( 'File', 'xml-for-google-merchant-center' ),
+						'class-xfgmc-generation-xml.php',
+						__( 'Line', 'xml-for-google-merchant-center' ),
+						__LINE__
+					) );
+				}
+			}
 		}
 
 		if ( false === rename( $feed_tmp_full_file_name, $feed_new_path ) ) {

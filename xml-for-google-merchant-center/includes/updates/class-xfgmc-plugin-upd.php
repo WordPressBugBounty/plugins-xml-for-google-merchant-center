@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.5 (04-07-2025)
+ * @version    4.0.8 (19-11-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -31,7 +31,7 @@ final class XFGMC_Plugin_Upd {
 	 * @access private
 	 * @var array
 	 */
-	private $list_plugin_names = [ 
+	private $list_plugin_names = [
 		'xfgmcp' => [ 'name' => 'PRO', 'code' => 'renewlicense20gp' ]
 	];
 
@@ -162,27 +162,37 @@ final class XFGMC_Plugin_Upd {
 		}
 		switch ( $i ) {
 			case "202":
+
 				$message = __( 'License is active', 'xml-for-google-merchant-center' );
 				$color = 'green';
+
 				break;
 			case "402":
+
 				$message = __( 'License expired', 'xml-for-google-merchant-center' );
 				$color = '#dc3232';
+
 				break;
 			case "412":
+
 				$message = __( 'License data is invalid', 'xml-for-google-merchant-center' );
 				$color = '#dc3232';
+
 				break;
 			case "418":
+
 				$message = __(
 					'This license cannot be used on this site. The package limit has been exceeded',
 					'xml-for-google-merchant-center'
 				);
 				$color = '#dc3232';
+
 				break;
 			default: // или ошибка 520
+
 				$message = __( 'License data is invalid', 'xml-for-google-merchant-center' );
 				$color = '#dc3232';
+
 				break;
 		}
 		$settings_link = sprintf( '<span style="color: %s; font-weight: 700;">%s</span>',
@@ -208,10 +218,12 @@ final class XFGMC_Plugin_Upd {
 		$message = '';
 		switch ( $c ) {
 			case "202":
+
 				break;
 			case "402":
+
 				$message = sprintf(
-					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s! %3$s, <a href="https://icopydoc.ru/product/%4$s/?utm_source=%4$s&utm_medium=organic&utm_campaign=in-plugin&utm_content=notice&utm_term=license-expired" target="_blank">%5$s</a> (%6$s: <span style="font-weight: 700;">%7$s</span>). %8$s <a href="/wp-admin/admin.php?page=%9$s">%10$s</a>.',
+					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s! %3$s, <a href="https://icopydoc.ru/product/%4$s/?utm_source=xml-for-google-merchant-center&utm_medium=renewal&utm_campaign=%4$s&utm_content=notice&utm_term=license-expired" target="_blank">%5$s</a> (%6$s: <span style="font-weight: 700;">%7$s</span>). %8$s <a href="%11$sadmin.php?page=%9$s">%10$s</a>.',
 					$this->list_plugin_names[ $this->get_pref()]['name'],
 					__( 'License expired', 'xml-for-google-merchant-center' ),
 					__( 'Please', 'xml-for-google-merchant-center' ),
@@ -221,12 +233,15 @@ final class XFGMC_Plugin_Upd {
 					$this->list_plugin_names[ $this->get_pref()]['code'],
 					__( 'If you have already done this', 'xml-for-google-merchant-center' ),
 					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium',
-					__( 'enter the new license information here', 'xml-for-google-merchant-center' )
+					__( 'enter the new license information here', 'xml-for-google-merchant-center' ),
+					admin_url()
 				);
+
 				break;
 			case "412":
+
 				$message = sprintf(
-					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s! %1$s %3$s. <a href="/wp-admin/admin.php?page=%8$s">%4$s</a> %5$s <a href="https://icopydoc.ru/product/%6$s/?utm_source=%6$s&utm_medium=organic&utm_campaign=in-plugin&utm_content=license-err&utm_term=notice" target="_blank">%7$s</a>.',
+					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s! %1$s %3$s. <a href="%9$sadmin.php?page=%8$s">%4$s</a> %5$s <a href="https://icopydoc.ru/product/%6$s/?utm_source=xml-for-google-merchant-center&utm_medium=renewal&utm_campaign=%6$s&utm_content=notice&utm_term=license-invalid" target="_blank">%7$s</a>.',
 					$this->list_plugin_names[ $this->get_pref()]['name'],
 					__( 'License data is invalid', 'xml-for-google-merchant-center' ),
 					__( 'version features do not work and you can not install updates', 'xml-for-google-merchant-center' ),
@@ -234,12 +249,15 @@ final class XFGMC_Plugin_Upd {
 					__( 'or', 'xml-for-google-merchant-center' ),
 					$this->get_slug(),
 					__( 'purchase a new one', 'xml-for-google-merchant-center' ),
-					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium'
+					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium',
+					admin_url()
 				);
+
 				break;
 			case "418":
+
 				$message = sprintf(
-					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s! <a href="/wp-admin/admin.php?page=%7$s">%3$s</a> %4$s <a href="https://icopydoc.ru/product/%5$s/?utm_source=%5$s&utm_medium=organic&utm_campaign=in-plugin&utm_content=license-limit&utm_term=notice" target="_blank">%6$s</a>.',
+					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s! <a href="%8$sadmin.php?page=%7$s">%3$s</a> %4$s <a href="https://icopydoc.ru/product/%5$s/?utm_source=xml-for-google-merchant-center&utm_medium=renewal&utm_campaign=%5$s&utm_content=notice&utm_term=license-limit" target="_blank">%6$s</a>.',
 					$this->list_plugin_names[ $this->get_pref()]['name'],
 					__(
 						'This license cannot be used on this site. The package limit has been exceeded',
@@ -249,12 +267,15 @@ final class XFGMC_Plugin_Upd {
 					__( 'or', 'xml-for-google-merchant-center' ),
 					$this->get_slug(),
 					__( 'purchase a new one', 'xml-for-google-merchant-center' ),
-					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium'
+					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium',
+					admin_url()
 				);
+
 				break;
 			default: // или ошибка 520
+
 				$message = sprintf(
-					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s! %1$s %3$s. <a href="/wp-admin/admin.php?page=%8$s">%4$s</a> %5$s <a href="https://icopydoc.ru/product/%6$s/?utm_source=%6$s&utm_medium=organic&utm_campaign=in-plugin&utm_content=license-err&utm_term=notice" target="_blank">%7$s</a>.',
+					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s! %1$s %3$s. <a href="%9$sadmin.php?page=%8$s">%4$s</a> %5$s <a href="https://icopydoc.ru/product/%6$s/?utm_source=xml-for-google-merchant-center&utm_medium=renewal&utm_campaign=%6$s&utm_content=notice&utm_term=license-err" target="_blank">%7$s</a>.',
 					$this->list_plugin_names[ $this->get_pref()]['name'],
 					__( 'License data is invalid', 'xml-for-google-merchant-center' ),
 					__( 'version features do not work and you can not install updates', 'xml-for-google-merchant-center' ),
@@ -262,8 +283,10 @@ final class XFGMC_Plugin_Upd {
 					__( 'or', 'xml-for-google-merchant-center' ),
 					$this->get_slug(),
 					__( 'purchase a new one', 'xml-for-google-merchant-center' ),
-					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium'
+					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium',
+					admin_url()
 				);
+
 				break;
 		}
 
@@ -277,10 +300,10 @@ final class XFGMC_Plugin_Upd {
 			$remaining_days = ceil( ( $remaining_seconds / ( 24 * 60 * 60 ) ) );
 			if ( $remaining_days > 0 && $remaining_days < 8 ) {
 				$message = sprintf(
-					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s <span style="font-weight: 700; color: red;">%3$s</span>. %4$s, <a href="https://icopydoc.ru/product/%5$s/?utm_source=link&utm_medium=organic&utm_campaign=in-plugin&utm_content=notice&utm_term=license-remaining" target="_blank">%6$s</a> (%7$s: <span style="font-weight: 700;">%8$s</span>). %9$s <a href="/wp-admin/admin.php?page=%10$s">%11$s</a>.',
+					'<span style="font-weight: 700;">XML for Google Merchant Center %1$s:</span> %2$s <span style="font-weight: 700; color: red;">%3$s</span>. %4$s, <a href="https://icopydoc.ru/product/%5$s/?utm_source=xml-for-google-merchant-center&utm_medium=renewal&utm_campaign=%5$s&utm_content=notice&utm_term=license-remaining" target="_blank">%6$s</a> (%7$s: <span style="font-weight: 700;">%8$s</span>). %9$s <a href="%12$sadmin.php?page=%10$s">%11$s</a>.',
 					$this->list_plugin_names[ $this->get_pref()]['name'],
 					__( 'License expires in', 'xml-for-google-merchant-center' ),
-					$this->num_decline( $remaining_days, [ 
+					$this->num_decline( $remaining_days, [
 						__( 'day', 'xml-for-google-merchant-center' ),
 						_x( 'days', '2 days', 'xml-for-google-merchant-center' ),
 						_x( 'days', '5 days', 'xml-for-google-merchant-center' )
@@ -293,7 +316,8 @@ final class XFGMC_Plugin_Upd {
 					$this->list_plugin_names[ $this->get_pref()]['code'],
 					__( 'If you have already done this', 'xml-for-google-merchant-center' ),
 					__( 'enter the new license information here', 'xml-for-google-merchant-center' ),
-					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium'
+					'xml-for-google-merchant-center-debug&action=edit&current_display=debug_page&tab=premium',
+					admin_url()
 				);
 				if ( ! empty( $message ) ) {
 					$class = 'error';
@@ -345,7 +369,7 @@ final class XFGMC_Plugin_Upd {
 	 */
 	private function get_body_request() {
 
-		$body_request = [ 
+		$body_request = [
 			'action' => 'basic_check',
 			'slug' => $this->get_slug(),
 			'plugin_slug' => $this->get_plugin_slug(),
@@ -442,7 +466,7 @@ final class XFGMC_Plugin_Upd {
 
 		global $wp_version;
 		$response = false;
-		$request_arr = [ 
+		$request_arr = [
 			'user-agent' => 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' ),
 			'body' => [ 'request' => $this->get_body_request() ] // request будет передан как $_POST['request']
 		];
@@ -464,7 +488,7 @@ final class XFGMC_Plugin_Upd {
 	 */
 	private function response_to_reserved_servers( $request_arr ) {
 
-		$backup_servers_arr = [ 
+		$backup_servers_arr = [
 			'https://icpd-server.ru/api/v2',
 			'https://icopydoc.com/api/v2'
 		];

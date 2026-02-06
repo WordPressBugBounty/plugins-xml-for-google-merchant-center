@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.3 (17-06-2025)
+ * @version    4.0.8 (19-11-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -69,7 +69,7 @@ trait XFGMC_T_Simple_Get_Image_Link {
 			'disabled',
 			$this->get_feed_id(), 'xfgmc'
 		);
-		if ( ( $no_default_png_products === 'enabled' ) ) {
+		if ( $no_default_png_products === 'enabled' ) {
 			// включён пропуск default.png из фида
 			if ( false !== strpos( $result_xml, 'default.' ) ) {
 				$result_xml = '';
@@ -79,7 +79,7 @@ trait XFGMC_T_Simple_Get_Image_Link {
 		$result_xml = apply_filters(
 			'xfgmc_f_simple_tag_image_link',
 			$result_xml,
-			[ 
+			[
 				'product' => $this->get_product(),
 				'size_pic' => $size_pic
 			],
@@ -94,7 +94,7 @@ trait XFGMC_T_Simple_Get_Image_Link {
 			'xfgmc'
 		);
 		if ( ( $skip_products_without_pic === 'enabled' ) && ( empty( $result_xml ) ) ) {
-			$this->add_skip_reason( [ 
+			$this->add_skip_reason( [
 				'offer_id' => $this->get_product()->get_id(),
 				'reason' => __( 'Product has no images', 'xml-for-google-merchant-center' ),
 				'post_id' => $this->get_product()->get_id(),

@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.3 (17-06-2025)
+ * @version    4.0.8 (19-11-2025)
  * @see        https://2web-master.ru/wp_list_table-%E2%80%93-poshagovoe-rukovodstvo.html 
  *             https://wp-kama.ru/function/wp_list_table
  *
@@ -492,7 +492,7 @@ class XFGMC_Feeds_List_Table extends WP_List_Table {
 	public function no_items() {
 
 		$utm = sprintf(
-			'?utm_source=%1$s&utm_medium=organic&utm_campaign=in-plugin-%1$s&utm_content=settings&utm_term=%2$s',
+			'?utm_source=%1$s&utm_medium=documentation&utm_campaign=basic_version&utm_content=settings-page&utm_term=%2$s',
 			'xml-for-google-merchant-center',
 			'main-instruction-in-feeds-list'
 		);

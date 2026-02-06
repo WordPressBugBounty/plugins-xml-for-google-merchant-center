@@ -8,7 +8,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.3 (17-06-2025)
+ * @version    4.0.9 (23-12-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -68,6 +68,7 @@ class XFGMC {
 	 * @since 0.1.0
 	 */
 	public function __construct() {
+
 		if ( defined( 'XFGMC_PLUGIN_VERSION' ) ) {
 			$this->version = XFGMC_PLUGIN_VERSION;
 		} else {
@@ -114,8 +115,8 @@ class XFGMC {
 		/**
 		 * Adding third-party libraries.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/common-libs/functions-icpd-useful-2-0-1.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/common-libs/functions-icpd-woocommerce-1-1-0.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/common-libs/functions-icpd-useful-2-0-2.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/common-libs/functions-icpd-woocommerce-1-1-1.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/common-libs/class-icpd-set-admin-notices.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/common-libs/class-icpd-promo.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/common-libs/backward-compatibility.php';

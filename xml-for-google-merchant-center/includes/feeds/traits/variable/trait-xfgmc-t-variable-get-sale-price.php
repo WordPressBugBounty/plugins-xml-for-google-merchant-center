@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.1 (10-05-2025)
+ * @version    4.0.9 (23-12-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -55,7 +55,7 @@ trait XFGMC_T_Variable_Get_Sale_Price {
 			$sale_price_value = apply_filters(
 				'xfgmc_f_variable_price',
 				$sale_price_value,
-				[ 
+				[
 					'product' => $this->get_product(),
 					'offer' => $this->get_offer(),
 					'product_category_id' => $this->get_feed_category_id()
@@ -68,6 +68,7 @@ trait XFGMC_T_Variable_Get_Sale_Price {
 				$this->get_feed_id(),
 				'xfgmc'
 			);
+			$sale_price_value = number_format( (float) $sale_price_value, wc_get_price_decimals(), '.', '' );
 			$result_xml .= new XFGMC_Get_Paired_Tag(
 				$tag_name,
 				sprintf( '%s %s', $sale_price_value, $default_currency )

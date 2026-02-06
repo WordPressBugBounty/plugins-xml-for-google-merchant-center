@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.1 (10-05-2025)
+ * @version    4.0.9 (23-12-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -57,7 +57,7 @@ trait XFGMC_T_Simple_Get_Price {
 		$tag_value = apply_filters(
 			'xfgmc_f_simple_price',
 			$tag_value,
-			[ 
+			[
 				'product' => $this->get_product(),
 				'product_category_id' => $this->get_feed_category_id()
 			],
@@ -73,7 +73,7 @@ trait XFGMC_T_Simple_Get_Price {
 		if ( $xml_rules !== 'all_elements' ) {
 			// если цены нет - пропускаем товар. Работает для всех правил кроме "Без правил"
 			if ( $tag_value == 0 || empty( $tag_value ) ) {
-				$this->add_skip_reason( [ 
+				$this->add_skip_reason( [
 					'offer_id' => $this->get_product()->get_id(),
 					'reason' => __( 'The product has no price', 'xfgmc' ),
 					'post_id' => $this->get_product()->get_id(),
@@ -87,7 +87,7 @@ trait XFGMC_T_Simple_Get_Price {
 		$skip_price_reason = apply_filters(
 			'xfgmc_f_simple_skip_price_reason',
 			false,
-			[ 
+			[
 				'tag_value' => $tag_value,
 				'product_category_id' => $this->get_feed_category_id(),
 				'product' => $this->get_product()
@@ -101,12 +101,13 @@ trait XFGMC_T_Simple_Get_Price {
 				$this->get_feed_id(),
 				'xfgmc'
 			);
+			$tag_value = number_format( (float) $tag_value, wc_get_price_decimals(), '.', '' );
 			$result_xml .= new XFGMC_Get_Paired_Tag(
 				$tag_name,
 				sprintf( '%s %s', $tag_value, $default_currency )
 			);
 		} else {
-			$this->add_skip_reason( [ 
+			$this->add_skip_reason( [
 				'offer_id' => $this->get_product()->get_id(),
 				'reason' => $skip_price_reason,
 				'post_id' => $this->get_product()->get_id(),

@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.7 (11-09-2025)
+ * @version    4.0.8 (19-11-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -48,13 +48,14 @@ final class XFGMC_Write_File {
 	 * @param string $xml_string The data to be written to the file.
 	 * @param string $file_name Full file name. Example: `12345.tmp`.
 	 * @param string $feed_id Feed ID.
-	 * @param string $action Maybe `create`, `append`.
+	 * @param string $action Maybe: `create`, `append`.
 	 * @param string $tmp_dir_name The location of the file on the server. 
 	 *                             Example: `/home/site.ru/public_html/wp-content/uploads/xfgmc/feed1/12345.tmp`.
+	 * @param string $trim Maybe: `yes`, `no_trim`.
 	 * 
 	 * @return void
 	 */
-	public function __construct( $xml_string, $file_name, $feed_id, $action = 'create', $tmp_dir_name = XFGMC_PLUGIN_UPLOADS_DIR_PATH ) {
+	public function __construct( $xml_string, $file_name, $feed_id, $action = 'create', $tmp_dir_name = XFGMC_PLUGIN_UPLOADS_DIR_PATH, $trim = 'yes' ) {
 
 		$this->xml_string = $xml_string;
 		$tmp_file_path = sprintf( '%1$s/feed%2$s/%3$s', $tmp_dir_name, $feed_id, $file_name );
@@ -108,7 +109,7 @@ final class XFGMC_Write_File {
 		}
 
 		if ( $action === 'create' ) {
-			$this->create_file( $xml_string );
+			$this->create_file( $xml_string, $trim );
 		} else {
 			$this->append_to_file( $xml_string );
 		}
@@ -119,13 +120,18 @@ final class XFGMC_Write_File {
 	 * Save tmp file.
 	 * 
 	 * @param string $xml_string
+	 * @param string $trim Maybe: `yes`, `no_trim`.
 	 * 
 	 * @return void
 	 */
-	protected function create_file( $xml_string ) {
+	protected function create_file( $xml_string, $trim ) {
 
 		if ( empty( $xml_string ) ) {
 			$xml_string = ' ';
+		} else {
+			if ( $trim === 'yes' ) {
+				$xml_string = trim( $xml_string );
+			}
 		}
 		$fp = fopen( $this->get_file_path(), "wb" );
 		if ( false === $fp ) {

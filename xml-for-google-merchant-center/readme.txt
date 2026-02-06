@@ -3,8 +3,8 @@ Contributors: icopydoc
 Donate link: https://pay.cloudtips.ru/p/45d8ff3f
 Tags: xml, google, product feed, export, woocommerce
 Requires at least: 5.0
-Tested up to: 6.8.2
-Stable tag: 4.0.7
+Tested up to: 6.9
+Stable tag: 4.0.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ This plugin allows you to create XML feeds for Google Merchant Center and Facebo
 
 IMPORTANT: The plugin Woocommerce is required!
 
-PRO version: [https://icopydoc.ru/product/plagin-xml-for-google-merchant-center-pro/](https://icopydoc.ru/product/plagin-xml-for-google-merchant-center-pro/?utm_source=wp-repository&utm_medium=organic&utm_campaign=xml-for-google-merchant-center&utm_content=readme&utm_term=pro-version)
+PRO version: [https://icopydoc.ru/product/plagin-xml-for-google-merchant-center-pro/](https://icopydoc.ru/product/plagin-xml-for-google-merchant-center-pro/?utm_source=wp-repository&utm_medium=content&utm_campaign=xml-for-google-merchant-center&utm_content=readme&utm_term=pro-version)
 
 = Format and method requirements for product data feeds =
 
@@ -36,7 +36,7 @@ Only Woocommerce.
 
 = How to create a XML feed? =
 
-Detailed instructions with screenshots [here](https://icopydoc.ru/how-to-create-an-xml-feed-in-woocommerce-for-google-merchant-center-instruction/?utm_source=wp-repository&utm_medium=organic&utm_campaign=xml-for-google-merchant-center&utm_content=readme&utm_term=main-instruction).
+Detailed instructions with screenshots [here](https://icopydoc.ru/how-to-create-an-xml-feed-in-woocommerce-for-google-merchant-center-instruction/?utm_source=wp-repository&utm_medium=content&utm_campaign=xml-for-google-merchant-center&utm_content=readme&utm_term=documentation).
 
 Go to Exporter Google Merchant Center Settings. In the box called "Automatic file creation" select another menu entry (which differs from "off"). You can also change values in other boxes if necessary, then press "Save".
 After 1-7 minutes (depending on the number of products), the feed will be generated and a link will appear instead of this message.
@@ -47,6 +47,23 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 1. screenshot-2.png
 
 == Changelog ==
+
+= 4.0.10 =
+*Release Date 12-01-2026*
+
+* Fixed a security bug.
+* Improved the mechanism for generating the tag `g:availability_date`.
+
+= 4.0.9 =
+*Release Date 23-12-2025*
+
+* Improved the mechanism for generating tags `g:price` and `g:sale_price'.
+* Updated plugin libraries.
+
+= 4.0.8 =
+*Release Date 19-11-2025*
+
+* Fixed bugs.
 
 = 4.0.7 =
 *Release Date 11-09-2025*
@@ -101,8 +118,8 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 
 == Upgrade Notice ==
 
-= 4.0.7 =
-*Release Date 11-09-2025*
+= 4.0.10 =
+*Release Date 12-01-2026*
 
-* Fixed compatibility with the plugin FOX - Currency Switcher Professional for WooCommerce.
-* Improved mechanism for recording temporary files.
+* Fixed a security bug.
+* Improved the mechanism for generating the tag `g:availability_date`.

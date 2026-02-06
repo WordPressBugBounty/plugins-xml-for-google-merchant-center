@@ -2,100 +2,181 @@
 /**
  * Print Extensions page.
  * 
- * @version 4.0.3 (17-06-2025)
+ * @version 4.0.8 (19-11-2025)
  * @see     
  * @package 
  */
 defined( 'ABSPATH' ) || exit;
 ?>
 <style>
-	.button-primary {
-		padding: 0.375rem 0.75rem !important;
-		font-size: 1rem !important;
-		border-radius: 0.25rem !important;
-		border: #181a1c 1px solid !important;
-		background-color: #181a1c !important;
-		text-align: center;
-		margin: 0 auto !important;
+	.notice {
+		display: none;
 	}
 
-	.button-primary:hover {
+	#xfgmc_extensions .grid-container {
+		display: grid;
+		gap: 20px;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		align-items: start;
+		justify-items: center;
+		padding: 20px;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	#xfgmc_extensions .grid-container .extension-card {
+		background-color: #ffffff;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		padding: 20px;
+		max-width: 400px;
+		width: 100%;
+	}
+
+	#xfgmc_extensions .grid-container .extension-card img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+		margin: 0 auto;
+		object-fit: cover;
+	}
+
+	#xfgmc_extensions .grid-container .extension-card h2 {
+		font-size: 24px;
+		line-height: 1.5;
+		margin-bottom: 10px;
+	}
+
+	#xfgmc_extensions .grid-container .extension-card p {
+		font-size: 16px;
+		line-height: 1.5;
+		margin-bottom: 10px;
+	}
+
+	#xfgmc_extensions .grid-container .extension-card ul {
+		list-style-type: circle;
+		padding-left: 20px;
+		margin-top: 25px;
+		margin-bottom: 20px;
+	}
+
+	#xfgmc_extensions .grid-container p {
+		font-size: 18px;
+		text-align: justify;
+		margin: 20px 0;
+	}
+
+	#xfgmc_extensions .grid-container .description-list {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	#xfgmc_extensions .grid-container .description-list li {
+		display: flex;
+		align-items: center;
+		margin-bottom: 10px;
+	}
+
+	#xfgmc_extensions .grid-container .description-list li::before {
+		content: "✔";
+		color: green;
+		margin-right: 10px;
+		font-size: 1.2em;
+	}
+
+	#xfgmc_extensions .grid-container .description-list li.red-cross::before {
+		content: "✘";
+		color: red;
+		margin-right: 10px;
+		font-size: 1.2em;
+	}
+
+	#xfgmc_extensions .grid-container .description-list li span {
+		font-size: 18px;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+
+	#xfgmc_extensions .grid-container .button-primary {
+		display: inline-block;
+		/* Изменение на inline-block */
+		background-color: #181a1c !important;
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		cursor: pointer;
+		border-radius: 5px;
+		font-weight: bold;
+		font-size: 18px;
+		margin: 20px auto;
+		text-decoration: none;
+		transition: background-color 0.3s ease-in-out;
+		max-width: 200px;
+		/* Ограничение максимальной ширины */
+	}
+
+	#xfgmc_extensions .grid-container .button-primary:hover {
 		background-color: #3d4247 !important;
 		border-color: #4b5157 !important;
 	}
+
+	/* Обновленный медиа-запрос для экранов меньше 1152px */
+	@media (max-width: 1152px) {
+		#xfgmc_extensions .grid-container {
+			grid-template-columns: 1fr;
+			/* Один столбец для экранов меньше 1152px */
+		}
+	}
 </style>
 <div id="xfgmc_extensions" class="wrap">
-	<h1 style="font-size: 32px; text-align: center; color: #5b2942;">
-		<?php esc_html_e( 'Extensions for', 'xml-for-google-merchant-center' ); ?> XML for Google Merchant Center
-	</h1>
-	<div id="dashboard-widgets-wrap">
-		<div id="dashboard-widgets" class="metabox-holder">
-			<div id="postbox-container-1" class="postbox-container">
-				<div class="meta-box-sortables">
-					<div class="postbox">
-						<a href="https://icopydoc.ru/product/plagin-xml-for-google-merchant-center-pro/?utm_source=xml-for-google-merchant-center&utm_medium=organic&utm_campaign=in-plugin-xml-for-google-merchant-center&utm_content=extensions&utm_term=banner-xml-pro"
-							target="_blank"><img class="xfgmc_banner"
-								src="<?php echo esc_attr( plugin_dir_url( __FILE__ ) ); ?>/imgs/xml-for-google-merchant-center-pro-banner.jpg"
-								alt="Upgrade to XML for Google Merchant Center Pro" /></a>
-						<div class="inside">
-							<table class="form-table">
-								<tbody>
-									<tr>
-										<td class="overalldesc" style="font-size: 18px;">
-											<h1 style="font-size: 24px; text-align: center; color: #5b2942;">XML for
-												Google Merchant Center PRO</h1>
-											<ul style="text-align: center;">
-												<li>&#10004;
-													<?php esc_html_e( 'The ability to exclude products from certain categories', 'xml-for-google-merchant-center' ); ?>;
-												</li>
-												<li>&#10004;
-													<?php esc_html_e( 'Ability to exclude products by certain tags', 'xml-for-google-merchant-center' ); ?>;
-												</li>
-												<li>&#10004;
-													<?php esc_html_e( 'The ability to exclude products at a price', 'xml-for-google-merchant-center' ); ?>;
-												</li>
-												<li>&#10004;
-													<?php esc_html_e( 'The ability to unload only products marked with a checkbox', 'xml-for-google-merchant-center' ); ?>;
-												</li>
-												<li>&#10004;
-													<?php esc_html_e( 'Ability to assign labels as categories', 'xml-for-google-merchant-center' ); ?>;
-												</li>
-												<li>&#10004;
-													<?php esc_html_e( 'Ability to download multiple images for products instead of one', 'xml-for-google-merchant-center' ); ?>;
-												</li>
-												<li>&#10004;
-													<?php esc_html_e( 'Ability to remove the Visual Composer shortcodes from the description', 'xml-for-google-merchant-center' ); ?>;
-												</li>
-												<li>&#10004;
-													<?php esc_html_e( 'The ability to add one attribute to the beginning of the product name, add three attributes to the end of the product name', 'xml-for-google-merchant-center' ); ?>;
-												</li>
-												<li>&#10004;
-													<?php esc_html_e( 'Support UTM tags', 'xml-for-google-merchant-center' ); ?>;
-												</li>
-												<li>&#10004;
-													<?php esc_html_e( 'Even more stable work', 'xml-for-google-merchant-center' ); ?>!
-												</li>
-											</ul>
-											<p style="text-align: center;"><a class="button-primary"
-													href="https://icopydoc.ru/<?php if ( version_compare( get_bloginfo( 'version' ), '4.7', '>=' ) ) {
-														$res = get_user_locale();
-														if ( $res !== 'ru_RU' ) {
-															$lang = 'en/';
-														} else {
-															$lang = '';
-														}
-														echo $lang;
-													} ?>product/plagin-xml-for-google-merchant-center-pro/?utm_source=xml-for-google-merchant-center&utm_medium=organic&utm_campaign=in-plugin-xml-for-google-merchant-center&utm_content=extensions&utm_term=poluchit-xml-google-pro"
-													target="_blank"><?php esc_html_e( 'Get XML for Google Merchant Center Pro Now', 'xml-for-google-merchant-center' ); ?></a><br />
-											</p>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
+	<div>
+		<h1 style="font-size: 32px; text-align: center;">
+			<?php esc_html_e( 'Upgrade the', 'xml-for-google-merchant-center' ); ?>
+			XML for Google Merchant Center</h1>
+		<hr />
+	</div>
+	<div class="grid-container">
+		<div class="extension-card">
+			<a href="https://icopydoc.ru/product/plagin-xml-for-google-merchant-center-pro/?utm_source=xml-for-google-merchant-center&utm_medium=purchase&utm_campaign=basic_version&utm_content=extensions-page&utm_term=product-image-xml-for-google-merchant-center-pro"
+				target="_blank">
+				<img style="max-width: 100%; display: block; margin: 0 auto;"
+					src="<?php echo esc_attr( plugin_dir_url( __FILE__ ) ); ?>/imgs/xml-for-google-merchant-center-pro-350x350.jpg"
+					alt="img">
+			</a>
+			<h2 style="text-align: center;">XML for Google Merchant Center PRO</h2>
+			<ul class="description-list">
+				<li><span><?php esc_html_e( 'All features of the free version', 'xml-for-google-merchant-center' ); ?></span>
+				</li>
+				<li><span><?php esc_html_e( 'Automatic mark-up on products', 'xml-for-google-merchant-center' ); ?></span>
+				</li>
+				<li><span><?php esc_html_e( 'Filter products by price', 'xml-for-google-merchant-center' ); ?></span>
+				</li>
+				<li><span><?php esc_html_e( 'Product filter based on stock availability', 'xml-for-google-merchant-center' ); ?></span>
+				</li>
+				<li><span><?php esc_html_e( 'Filter products by categories and tags', 'xml-for-google-merchant-center' ); ?></span>
+				</li>
+				<li><span><?php esc_html_e( 'Product filter by brand', 'xml-for-google-merchant-center' ); ?></span>
+				</li>
+				<li><span><?php esc_html_e( 'Product filter by ID', 'xml-for-google-merchant-center' ); ?></span></li>
+				<li><span><?php esc_html_e( 'Product filter by "checkmark"', 'xml-for-google-merchant-center' ); ?></span>
+				</li>
+				<li><span><?php esc_html_e( 'Support for UTM tags', 'xml-for-google-merchant-center' ); ?></span></li>
+				<li><span><?php esc_html_e( 'Support for RS tags', 'xml-for-google-merchant-center' ); ?></span></li>
+				<li><span><?php esc_html_e( 'Multiple photos instead of one', 'xml-for-google-merchant-center' ); ?></span>
+				</li>
+				<li><span><?php esc_html_e( '1 year of technical support', 'xml-for-google-merchant-center' ); ?></span>
+				</li>
+				<li><span><?php esc_html_e( 'Unlimited updates throughout the year', 'xml-for-google-merchant-center' ); ?></span>
+				</li>
+			</ul>
+			<p style="text-align: center;">
+				<a class="button-primary"
+					href="https://icopydoc.ru/product/plagin-xml-for-google-merchant-center-pro/?utm_source=xml-for-google-merchant-center&utm_medium=purchase&utm_campaign=basic_version&utm_content=extensions-page&utm_term=poluchit-xml-pro"
+					target="_blank">
+					<?php esc_html_e( 'Get Now', 'xml-for-google-merchant-center' ); ?>
+				</a>
+			</p>
 		</div>
 	</div>
 </div>

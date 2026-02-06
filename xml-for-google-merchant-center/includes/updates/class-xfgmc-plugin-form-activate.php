@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.4 (20-06-2025)
+ * @version    4.0.8 (19-11-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -147,10 +147,10 @@ final class XFGMC_Plugin_Form_Activate {
 									value="<?php echo esc_attr( $order_id ); ?>" /><br />
 								<span class="description">
 									<a target="_blank" href="<?php
-									printf( '%1$s?utm_source=%2$s&utm_medium=organic&utm_campaign=%2$s%3$s',
+									printf( '%1$s?utm_source=%2$s&utm_medium=documentation&utm_campaign=%2$s%3$s',
 										esc_attr( self::INSTRUCTION_URL ),
 										esc_attr( $this->slug ),
-										'&utm_content=settings&utm_term=how-to-activate-order-id'
+										'&utm_content=activate-form&utm_term=how-to-activate-order-id'
 									); ?>"><?php esc_attr_e( 'Read more', 'xml-for-google-merchant-center' ); ?></a>
 								</span>
 							</td>
@@ -164,10 +164,10 @@ final class XFGMC_Plugin_Form_Activate {
 									value="<?php echo esc_attr( $order_email ); ?>" type="text" /><br />
 								<span class="description">
 									<a target="_blank" href="<?php
-									printf( '%1$s?utm_source=%2$s&utm_medium=organic&utm_campaign=%2$s%3$s',
+									printf( '%1$s?utm_source=%2$s&utm_medium=documentation&utm_campaign=%2$s%3$s',
 										esc_attr( self::INSTRUCTION_URL ),
 										esc_attr( $this->slug ),
-										'&utm_content=settings&utm_term=how-to-activate-order-email'
+										'&utm_content=activate-form&utm_term=how-to-activate-order-email'
 									); ?>"><?php esc_attr_e( 'Read more', 'xml-for-google-merchant-center' ); ?></a></span>
 							</td>
 						</tr>

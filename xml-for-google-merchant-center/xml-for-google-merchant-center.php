@@ -17,7 +17,7 @@
  * Requires Plugins:        woocommerce
  * Plugin URI:              https://wordpress.org/plugins/xml-for-google-merchant-center/
  * Description:             Creates a XML feed that allows merchants to easily display their products across Google’s network.
- * Version:                 4.0.7
+ * Version:                 4.0.10
  * Requires at least:       5.9
  * Requires PHP:            7.4.0
  * Author:                  Maxim Glazunov
@@ -28,7 +28,7 @@
  * Domain Path:             /languages
  * Tags:                    xml, google, product feed, export, woocommerce
  * WC requires at least:    3.0.0
- * WC tested up to:         10.1.2
+ * WC tested up to:         10.4.3
  */
 
 // If this file is called directly, abort.
@@ -248,11 +248,11 @@ function xfgmc_plugin_database_upd( $old_version ) {
 			for ( $i = 0; $i < count( $feed_ids_arr ); $i++ ) {
 				$feed_id = (string) $feed_ids_arr[ $i ]; // $key
 
-				$arrs_old = [ 
+				$arrs_old = [
 					'xfgmc_params_arr', // basic
 					'xfgmcp_exclude_cat_arr' // pro
 				];
-				$arrs_new = [ 
+				$arrs_new = [
 					'xfgmc_params_arr', // basic
 					'xfgmcp_exclude_cat_arr' // pro
 				];
@@ -433,8 +433,8 @@ if ( false === $not_run ) {
 	unset( $not_run );
 
 	// for wp_kses
-	define( 'XFGMC_ALLOWED_HTML_ARR', [ 
-		'a' => [ 
+	define( 'XFGMC_ALLOWED_HTML_ARR', [
+		'a' => [
 			'href' => true,
 			'title' => true,
 			'target' => true,
@@ -447,7 +447,7 @@ if ( false === $not_run ) {
 		'strong' => [ 'class' => true, 'style' => true ],
 		'p' => [ 'class' => true, 'style' => true ],
 		'kbd' => [ 'class' => true ],
-		'input' => [ 
+		'input' => [
 			'id' => true,
 			'name' => true,
 			'class' => true,
@@ -459,7 +459,7 @@ if ( false === $not_run ) {
 			'min' => true,
 			'max' => true
 		],
-		'textarea' => [ 
+		'textarea' => [
 			'id' => true,
 			'name' => true,
 			'class' => true,
@@ -482,7 +482,7 @@ if ( false === $not_run ) {
 	 * Start at version 0.1.0 and use SemVer - https://semver.org
 	 * Rename this for your plugin and update it as you release new versions.
 	 */
-	define( 'XFGMC_PLUGIN_VERSION', '4.0.7' );
+	define( 'XFGMC_PLUGIN_VERSION', '4.0.10' );
 
 	$upload_dir = wp_get_upload_dir();
 	// http://site.ru/wp-content/uploads
@@ -573,7 +573,7 @@ if ( false === $not_run ) {
 	} else {
 		$xfgmc_v = get_option( 'xfgmc_version', '0.1.0' );
 	}
-	if ( version_compare( $xfgmc_v, '4.0.7', '<' ) ) {
+	if ( version_compare( $xfgmc_v, '4.0.10', '<' ) ) {
 		xfgmc_plugin_database_upd( $xfgmc_v );
 	}
 

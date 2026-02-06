@@ -352,3 +352,51 @@ if ( ! function_exists( 'xfgmc_global_rest_woocommerce_currency' ) ) {
 
 	}
 }
+
+if ( ! function_exists( 'xfgmc_remove_directory' ) ) {
+	/**
+	 * Remove non-empty directories.
+	 * 
+	 * @since 4.0.8 (19-11-2025)
+	 *
+	 * @param string $path
+	 *
+	 * @return bool
+	 */
+	function xfgmc_remove_directory( $path ) {
+
+		global $wp_filesystem;
+
+		// Подключаем необходимые файлы
+		require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
+
+		// Инициализация файловой системы
+		if ( ! is_object( $wp_filesystem ) ) {
+			WP_Filesystem();
+		}
+
+		try {
+			// Проверяем существование каталога
+			if ( $wp_filesystem->exists( $path ) ) {
+				// Удаляем каталог рекурсивно
+				$result = $wp_filesystem->delete( $path, true );
+
+				if ( false === $result ) {
+					throw new Exception(
+						__( 'Error when deleting a folder', 'xml-fro-google-merchant-center' )
+					);
+				}
+
+				return true;
+			} else {
+				throw new Exception( __( 'The catalog does not exist', 'xml-fro-google-merchant-center' ) );
+			}
+		} catch (Exception $e) {
+			error_log(
+				__( 'Error when deleting a folder', 'xml-fro-google-merchant-center' ) . $e->getMessage()
+			);
+			return false;
+		}
+
+	}
+}

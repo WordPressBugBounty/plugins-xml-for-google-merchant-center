@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.0.10 (12-01-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -40,15 +40,40 @@ trait XFGMC_T_Simple_Get_Availability_Date {
 	public function get_availability_date( $tag_name = 'g:availability_date', $result_xml = '' ) {
 
 		$tag_value = '';
-		$availability_date = common_option_get(
-			'xfgmc_availability_date',
+		$use_availability_date = common_option_get(
+			'xfgmc_use_availability_date',
 			'disabled',
 			$this->get_feed_id(),
 			'xfgmc'
 		);
+		if ( $use_availability_date === 'disabled' ) {
+			return $result_xml;
+		}
 
-		if ( ! empty( $availability_date ) ) {
-			$tag_value = $availability_date;
+		if ( $use_availability_date === 'enabled_default_value' ) {
+			$availability_date = common_option_get(
+				'xfgmc_availability_date',
+				'',
+				$this->get_feed_id(),
+				'xfgmc'
+			);
+			if ( ! empty( $availability_date ) ) {
+				$tag_value = $availability_date;
+			}
+		}
+
+		if ( $use_availability_date === 'enabled' ) {
+			$add_to_availability = (int) common_option_get(
+				'xfgmc_add_to_availability',
+				'0',
+				$this->get_feed_id(),
+				'xfgmc'
+			);
+			// Получаем текущую дату + $add_to_availability дня в объекте DateTime, с учётом часового пояса WordPress
+			$date = new DateTime( 'now', wp_timezone() );
+			$date->modify( sprintf( '+%s days', $add_to_availability ) );
+			// Формируем строку в нужном формате: Y-m-d\TH:iP (без секунд, смещение без разделителя)
+			$tag_value = $date->format( 'Y-m-d\TH:iP' ); // ISO 8601 $date->format('c')
 		}
 
 		$tag_value = apply_filters(
