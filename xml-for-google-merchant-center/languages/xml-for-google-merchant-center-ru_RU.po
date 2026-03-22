@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2026-01-12 16:41+0300\n"
-"PO-Revision-Date: 2026-01-12 16:42+0300\n"
+"POT-Creation-Date: 2026-03-22 15:36+0300\n"
+"PO-Revision-Date: 2026-03-22 15:37+0300\n"
 "Last-Translator: \n"
 "Language-Team: Maxim Glazunov <djdiplomat477@gmail.com>\n"
 "Language: ru\n"
@@ -42,26 +42,31 @@ msgid "More features"
 msgstr "Больше функций"
 
 #: admin/class-xfgmc-admin.php:428
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:340
 msgid "Creating feed headers"
 msgstr "Создание заголовков фида"
 
 #: admin/class-xfgmc-admin.php:441
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:353
 msgid "Creating temporary feed files"
 msgstr "Создание временных файлов фида"
 
 #: admin/class-xfgmc-admin.php:442
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:354
 msgid "The number of processed products"
 msgstr "Количество обработанных товаров"
 
 #: admin/class-xfgmc-admin.php:452
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:365
 msgid "Gluing the feed"
 msgstr "Склейка фида"
 
 #: admin/class-xfgmc-admin.php:461
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:373
 msgid "Completing the assembly"
 msgstr "Завершение сборки"
 
-#: admin/class-xfgmc-admin.php:504 admin/class-xfgmc-admin.php:828
+#: admin/class-xfgmc-admin.php:504 admin/class-xfgmc-admin.php:837
 msgid "Updated"
 msgstr "Обновлено"
 
@@ -74,7 +79,7 @@ msgid "Feed ID"
 msgstr "Фид ID"
 
 #: admin/class-xfgmc-admin.php:586 admin/class-xfgmc-admin.php:601
-#: admin/class-xfgmc-admin.php:731 admin/class-xfgmc-admin.php:746
+#: admin/class-xfgmc-admin.php:740 admin/class-xfgmc-admin.php:755
 #: includes/class-xfgmc-activator.php:42 includes/class-xfgmc-activator.php:59
 msgid "Folder creation error"
 msgstr "Ошибка создания папки"
@@ -84,11 +89,15 @@ msgid "during the creation of a new feed"
 msgstr "во время создания нового фида"
 
 #: admin/class-xfgmc-admin.php:589 admin/class-xfgmc-admin.php:604
-#: admin/class-xfgmc-admin.php:734 admin/class-xfgmc-admin.php:749
-#: admin/class-xfgmc-admin.php:984 admin/class-xfgmc-admin.php:1005
-#: admin/class-xfgmc-admin.php:1015 admin/class-xfgmc-admin.php:1058
-#: admin/class-xfgmc-admin.php:1993 admin/class-xfgmc-admin.php:2038
+#: admin/class-xfgmc-admin.php:743 admin/class-xfgmc-admin.php:758
 #: includes/class-xfgmc-activator.php:45 includes/class-xfgmc-activator.php:62
+#: includes/cron/class-xfgmc-cron-manager.php:72
+#: includes/cron/class-xfgmc-cron-manager.php:93
+#: includes/cron/class-xfgmc-cron-manager.php:103
+#: includes/cron/class-xfgmc-cron-manager.php:146
+#: includes/feeds/class-xfgmc-feed-updater.php:65
+#: includes/feeds/class-xfgmc-feed-updater.php:110
+#: includes/feeds/class-xfgmc-feed-updater.php:174
 #: includes/feeds/class-xfgmc-generation-xml.php:112
 #: includes/feeds/class-xfgmc-generation-xml.php:156
 #: includes/feeds/class-xfgmc-generation-xml.php:203
@@ -128,11 +137,16 @@ msgid "Line"
 msgstr "Строка"
 
 #: admin/class-xfgmc-admin.php:590 admin/class-xfgmc-admin.php:605
-#: admin/class-xfgmc-admin.php:735 admin/class-xfgmc-admin.php:750
-#: admin/class-xfgmc-admin.php:982 admin/class-xfgmc-admin.php:1003
-#: admin/class-xfgmc-admin.php:1013 admin/class-xfgmc-admin.php:1056
-#: admin/class-xfgmc-admin.php:1991 admin/class-xfgmc-admin.php:2036
+#: admin/class-xfgmc-admin.php:744 admin/class-xfgmc-admin.php:759
 #: includes/class-xfgmc-activator.php:46 includes/class-xfgmc-activator.php:63
+#: includes/cron/class-xfgmc-cron-manager.php:70
+#: includes/cron/class-xfgmc-cron-manager.php:91
+#: includes/cron/class-xfgmc-cron-manager.php:101
+#: includes/cron/class-xfgmc-cron-manager.php:144
+#: includes/cron/class-xfgmc-cron-manager.php:174
+#: includes/feeds/class-xfgmc-feed-updater.php:63
+#: includes/feeds/class-xfgmc-feed-updater.php:108
+#: includes/feeds/class-xfgmc-feed-updater.php:172
 #: includes/feeds/class-xfgmc-generation-xml.php:110
 #: includes/feeds/class-xfgmc-generation-xml.php:154
 #: includes/feeds/class-xfgmc-generation-xml.php:201
@@ -176,117 +190,83 @@ msgstr "Файл"
 msgid "Feed creation error. Failed to create a folder for temporary files"
 msgstr "Ошибка создания фида. Не удалось создать папку для временных файлов"
 
-#: admin/class-xfgmc-admin.php:687
+#: admin/class-xfgmc-admin.php:696
 msgid "Feed with"
 msgstr "Фид с"
 
-#: admin/class-xfgmc-admin.php:689
+#: admin/class-xfgmc-admin.php:698
 msgid "has been successfully deleted"
 msgstr "был успешно удалён"
 
-#: admin/class-xfgmc-admin.php:733 admin/class-xfgmc-admin.php:748
+#: admin/class-xfgmc-admin.php:742 admin/class-xfgmc-admin.php:757
 msgid "during the duplicate of a new feed"
 msgstr "во время дублирования фида"
 
-#: admin/class-xfgmc-admin.php:789
+#: admin/class-xfgmc-admin.php:798
 msgid "Feed duplicate error. Failed to create a folder for temporary files"
 msgstr ""
 "Ошибка дублирования фида. Не удалось создать папку для временных файлов"
 
-#: admin/class-xfgmc-admin.php:848
+#: admin/class-xfgmc-admin.php:857
 msgid "Logs were cleared"
 msgstr "Логи были очищены"
 
-#: admin/class-xfgmc-admin.php:852
+#: admin/class-xfgmc-admin.php:861
 msgid "Error accessing log file. The log file may have been deleted previously"
 msgstr "Ошибка доступа к log-файлу. Возможно log-файл был удален ранее"
 
-#: admin/class-xfgmc-admin.php:951
-msgid "Every minute"
-msgstr "Каждую минуту"
-
-#: admin/class-xfgmc-admin.php:955
-#: admin/partials/settings-page/class-xfgmc-feeds-list-table.php:175
-msgid "Every three hours"
-msgstr "Каждые 3 часа"
-
-#: admin/class-xfgmc-admin.php:959
-#: admin/partials/settings-page/class-xfgmc-feeds-list-table.php:178
-msgid "Every six hours"
-msgstr "Каждые 6 часов"
-
-#: admin/class-xfgmc-admin.php:963
-#: admin/partials/settings-page/class-xfgmc-feeds-list-table.php:187
-msgid "Every two days"
-msgstr "Каждые два дня"
-
-#: admin/class-xfgmc-admin.php:981
-msgid "The CRON task for creating a feed has started"
-msgstr "Запущена CRON задача для создания фида"
-
-#: admin/class-xfgmc-admin.php:1002
-#: includes/feeds/class-xfgmc-generation-xml.php:288
-#: includes/feeds/class-xfgmc-generation-xml.php:326
-msgid "Failed to schedule a CRON task"
-msgstr "Не удалось запланировать CRON задачу"
-
-#: admin/class-xfgmc-admin.php:1012
-msgid "Successful CRON task planning"
-msgstr "CRON задача успешно запланирована"
-
-#: admin/class-xfgmc-admin.php:1055
-msgid "The CRON task started"
-msgstr "Стартовала CRON задача"
-
-#: admin/class-xfgmc-admin.php:1177 admin/class-xfgmc-admin.php:1304
-#: admin/class-xfgmc-admin.php:1544 includes/class-xfgmc-data.php:1005
+#: admin/class-xfgmc-admin.php:947 admin/class-xfgmc-admin.php:1074
+#: admin/class-xfgmc-admin.php:1314 includes/core/class-xfgmc-data.php:1005
 msgid "Google product category"
 msgstr "Google категория товара"
 
-#: admin/class-xfgmc-admin.php:1182 admin/class-xfgmc-admin.php:1195
-#: admin/class-xfgmc-admin.php:1223 admin/class-xfgmc-admin.php:1267
-#: admin/class-xfgmc-admin.php:1277 admin/class-xfgmc-admin.php:1311
-#: admin/class-xfgmc-admin.php:1329 admin/class-xfgmc-admin.php:1364
-#: admin/class-xfgmc-admin.php:1415 admin/class-xfgmc-admin.php:1430
-#: admin/class-xfgmc-admin.php:1576 admin/class-xfgmc-admin.php:1595
-#: admin/class-xfgmc-admin.php:1615 admin/class-xfgmc-admin.php:1634
-#: admin/class-xfgmc-admin.php:1773
+#: admin/class-xfgmc-admin.php:952 admin/class-xfgmc-admin.php:965
+#: admin/class-xfgmc-admin.php:993 admin/class-xfgmc-admin.php:1037
+#: admin/class-xfgmc-admin.php:1047 admin/class-xfgmc-admin.php:1081
+#: admin/class-xfgmc-admin.php:1099 admin/class-xfgmc-admin.php:1134
+#: admin/class-xfgmc-admin.php:1185 admin/class-xfgmc-admin.php:1200
+#: admin/class-xfgmc-admin.php:1346 admin/class-xfgmc-admin.php:1365
+#: admin/class-xfgmc-admin.php:1385 admin/class-xfgmc-admin.php:1404
+#: admin/class-xfgmc-admin.php:1554
 msgid "Optional element"
 msgstr "Необязательный элемент"
 
-#: admin/class-xfgmc-admin.php:1185 admin/class-xfgmc-admin.php:1197
-#: admin/class-xfgmc-admin.php:1225 admin/class-xfgmc-admin.php:1281
-#: admin/class-xfgmc-admin.php:1314 admin/class-xfgmc-admin.php:1331
-#: admin/class-xfgmc-admin.php:1366 admin/class-xfgmc-admin.php:1434
-#: includes/class-xfgmc-data.php:929 includes/class-xfgmc-data.php:1826
-#: includes/class-xfgmc-data.php:2200
+#: admin/class-xfgmc-admin.php:955 admin/class-xfgmc-admin.php:967
+#: admin/class-xfgmc-admin.php:995 admin/class-xfgmc-admin.php:1051
+#: admin/class-xfgmc-admin.php:1084 admin/class-xfgmc-admin.php:1101
+#: admin/class-xfgmc-admin.php:1136 admin/class-xfgmc-admin.php:1204
 #: includes/common-libs/class-icpd-promo.php:200
+#: includes/core/class-xfgmc-data.php:929
+#: includes/core/class-xfgmc-data.php:1853
+#: includes/core/class-xfgmc-data.php:2227
 msgid "Read more"
 msgstr "Подробнее"
 
-#: admin/class-xfgmc-admin.php:1191 admin/class-xfgmc-admin.php:1322
-#: admin/class-xfgmc-admin.php:1555 includes/class-xfgmc-data.php:2152
+#: admin/class-xfgmc-admin.php:961 admin/class-xfgmc-admin.php:1092
+#: admin/class-xfgmc-admin.php:1325 includes/core/class-xfgmc-data.php:2179
 msgid "Tax category"
 msgstr "Категория налогообложения"
 
-#: admin/class-xfgmc-admin.php:1203 admin/class-xfgmc-admin.php:1339
-#: includes/class-xfgmc-data.php:1558
+#: admin/class-xfgmc-admin.php:973 admin/class-xfgmc-admin.php:1109
+#: includes/core/class-xfgmc-data.php:1558
 msgid "Size"
 msgstr "Размер"
 
-#: admin/class-xfgmc-admin.php:1207 admin/class-xfgmc-admin.php:1240
-#: admin/class-xfgmc-admin.php:1258 admin/class-xfgmc-admin.php:1346
-#: admin/class-xfgmc-admin.php:1386 admin/class-xfgmc-admin.php:1406
-#: admin/class-xfgmc-admin.php:1569 admin/class-xfgmc-admin.php:1588
-#: admin/class-xfgmc-admin.php:1607 admin/class-xfgmc-admin.php:1627
-#: includes/class-xfgmc-data.php:306 includes/class-xfgmc-data.php:323
-#: includes/class-xfgmc-data.php:631 includes/class-xfgmc-data.php:671
-#: includes/class-xfgmc-data.php:695
+#: admin/class-xfgmc-admin.php:977 admin/class-xfgmc-admin.php:1010
+#: admin/class-xfgmc-admin.php:1028 admin/class-xfgmc-admin.php:1116
+#: admin/class-xfgmc-admin.php:1156 admin/class-xfgmc-admin.php:1176
+#: admin/class-xfgmc-admin.php:1339 admin/class-xfgmc-admin.php:1358
+#: admin/class-xfgmc-admin.php:1377 admin/class-xfgmc-admin.php:1397
+#: includes/core/class-xfgmc-data.php:306
+#: includes/core/class-xfgmc-data.php:323
+#: includes/core/class-xfgmc-data.php:631
+#: includes/core/class-xfgmc-data.php:671
+#: includes/core/class-xfgmc-data.php:695
 msgid "Default"
 msgstr "По умолчанию"
 
-#: admin/class-xfgmc-admin.php:1228 admin/class-xfgmc-admin.php:1268
-#: admin/class-xfgmc-admin.php:1369 admin/class-xfgmc-admin.php:1416
+#: admin/class-xfgmc-admin.php:998 admin/class-xfgmc-admin.php:1038
+#: admin/class-xfgmc-admin.php:1139 admin/class-xfgmc-admin.php:1186
 msgid ""
 "These settings take precedence over those you specify on the \"XML for "
 "Google Merchant Center\" plugin settings page"
@@ -294,185 +274,211 @@ msgstr ""
 "Эти настройки имеют приоритет над теми, которые вы указываете на странице "
 "настроек плагина \"XML for Google Merchant Center\""
 
-#: admin/class-xfgmc-admin.php:1235 admin/class-xfgmc-admin.php:1381
-#: includes/class-xfgmc-data.php:1578
+#: admin/class-xfgmc-admin.php:1005 admin/class-xfgmc-admin.php:1151
+#: includes/core/class-xfgmc-data.php:1578
 msgid "Size type"
 msgstr "Тип размера"
 
-#: admin/class-xfgmc-admin.php:1255 admin/class-xfgmc-admin.php:1403
+#: admin/class-xfgmc-admin.php:1025 admin/class-xfgmc-admin.php:1173
 msgid "In the absence of a substitute"
 msgstr "Если отсутствует, то подставить"
 
-#: admin/class-xfgmc-admin.php:1273 admin/class-xfgmc-admin.php:1423
-#: admin/class-xfgmc-admin.php:1771
+#: admin/class-xfgmc-admin.php:1043 admin/class-xfgmc-admin.php:1193
+#: admin/class-xfgmc-admin.php:1552
 msgid "Facebook product category"
 msgstr "Facebook категория товара"
 
-#: admin/class-xfgmc-admin.php:1479
+#: admin/class-xfgmc-admin.php:1249
 msgid "XML for Google Merchant Center"
 msgstr "XML for Google Merchant Center"
 
-#: admin/class-xfgmc-admin.php:1520
+#: admin/class-xfgmc-admin.php:1290
 msgid "Individual product settings for XML-feed"
 msgstr "Индивидуальные настройки товара для XML-фида"
 
-#: admin/class-xfgmc-admin.php:1528
+#: admin/class-xfgmc-admin.php:1298
 msgid "Individual product settings for Google Merchatnt Center"
 msgstr "Индивидуальные настройки товара в Google Merchatnt Center"
 
-#: admin/class-xfgmc-admin.php:1533
+#: admin/class-xfgmc-admin.php:1303
 msgid "Here you can set up individual settings for Google Merchatnt Center"
 msgstr ""
 "Здесь вы можете настроить индивидуальные настройки Google Merchatnt Center"
 
-#: admin/class-xfgmc-admin.php:1535 admin/class-xfgmc-admin.php:1730
+#: admin/class-xfgmc-admin.php:1305 admin/class-xfgmc-admin.php:1511
 msgid "Read more on Google"
 msgstr "Подробнее на Google"
 
-#: admin/class-xfgmc-admin.php:1566 includes/class-xfgmc-data.php:1235
-#: includes/class-xfgmc-data.php:1236
+#: admin/class-xfgmc-admin.php:1336 includes/core/class-xfgmc-data.php:1235
+#: includes/core/class-xfgmc-data.php:1236
 msgid "Identifier exists"
 msgstr "Имеет идентификатор"
 
-#: admin/class-xfgmc-admin.php:1570 admin/class-xfgmc-admin.php:1589
-#: admin/class-xfgmc-admin.php:1608 admin/class-xfgmc-admin.php:1628
+#: admin/class-xfgmc-admin.php:1340 admin/class-xfgmc-admin.php:1359
+#: admin/class-xfgmc-admin.php:1378 admin/class-xfgmc-admin.php:1398
 #: admin/partials/debug-page/views/html-admin-debug-page-tab-settings.php:22
 #: admin/partials/debug-page/views/html-admin-debug-page-tab-settings.php:57
 #: admin/partials/settings-page/class-xfgmc-feeds-list-table.php:163
-#: includes/class-xfgmc-data.php:208 includes/class-xfgmc-data.php:324
-#: includes/class-xfgmc-data.php:328 includes/class-xfgmc-data.php:420
-#: includes/class-xfgmc-data.php:449 includes/class-xfgmc-data.php:546
-#: includes/class-xfgmc-data.php:677 includes/class-xfgmc-data.php:702
-#: includes/class-xfgmc-data.php:723 includes/class-xfgmc-data.php:747
-#: includes/class-xfgmc-data.php:787 includes/class-xfgmc-data.php:841
-#: includes/class-xfgmc-data.php:911 includes/class-xfgmc-data.php:954
-#: includes/class-xfgmc-data.php:972 includes/class-xfgmc-data.php:991
-#: includes/class-xfgmc-data.php:1010 includes/class-xfgmc-data.php:1031
-#: includes/class-xfgmc-data.php:1070 includes/class-xfgmc-data.php:1128
-#: includes/class-xfgmc-data.php:1185 includes/class-xfgmc-data.php:1240
-#: includes/class-xfgmc-data.php:1264 includes/class-xfgmc-data.php:1285
-#: includes/class-xfgmc-data.php:1306 includes/class-xfgmc-data.php:1327
-#: includes/class-xfgmc-data.php:1347 includes/class-xfgmc-data.php:1366
-#: includes/class-xfgmc-data.php:1387 includes/class-xfgmc-data.php:1411
-#: includes/class-xfgmc-data.php:1465 includes/class-xfgmc-data.php:1485
-#: includes/class-xfgmc-data.php:1505 includes/class-xfgmc-data.php:1526
-#: includes/class-xfgmc-data.php:1545 includes/class-xfgmc-data.php:1563
-#: includes/class-xfgmc-data.php:1583 includes/class-xfgmc-data.php:1603
-#: includes/class-xfgmc-data.php:1628 includes/class-xfgmc-data.php:1648
-#: includes/class-xfgmc-data.php:1680 includes/class-xfgmc-data.php:1805
-#: includes/class-xfgmc-data.php:1838 includes/class-xfgmc-data.php:2038
-#: includes/class-xfgmc-data.php:2157 includes/class-xfgmc-data.php:2179
-#: includes/class-xfgmc-data.php:2205 includes/class-xfgmc-data.php:2286
-#: includes/class-xfgmc-data.php:2303 includes/class-xfgmc-data.php:2331
-#: includes/class-xfgmc-data.php:2349 includes/class-xfgmc-data.php:2367
-#: includes/class-xfgmc-data.php:2387 includes/class-xfgmc-data.php:2404
-#: includes/class-xfgmc-data.php:2632
+#: includes/core/class-xfgmc-data.php:208
+#: includes/core/class-xfgmc-data.php:324
+#: includes/core/class-xfgmc-data.php:328
+#: includes/core/class-xfgmc-data.php:420
+#: includes/core/class-xfgmc-data.php:449
+#: includes/core/class-xfgmc-data.php:546
+#: includes/core/class-xfgmc-data.php:677
+#: includes/core/class-xfgmc-data.php:702
+#: includes/core/class-xfgmc-data.php:723
+#: includes/core/class-xfgmc-data.php:747
+#: includes/core/class-xfgmc-data.php:787
+#: includes/core/class-xfgmc-data.php:841
+#: includes/core/class-xfgmc-data.php:911
+#: includes/core/class-xfgmc-data.php:954
+#: includes/core/class-xfgmc-data.php:972
+#: includes/core/class-xfgmc-data.php:991
+#: includes/core/class-xfgmc-data.php:1010
+#: includes/core/class-xfgmc-data.php:1031
+#: includes/core/class-xfgmc-data.php:1070
+#: includes/core/class-xfgmc-data.php:1128
+#: includes/core/class-xfgmc-data.php:1185
+#: includes/core/class-xfgmc-data.php:1240
+#: includes/core/class-xfgmc-data.php:1264
+#: includes/core/class-xfgmc-data.php:1285
+#: includes/core/class-xfgmc-data.php:1306
+#: includes/core/class-xfgmc-data.php:1327
+#: includes/core/class-xfgmc-data.php:1347
+#: includes/core/class-xfgmc-data.php:1366
+#: includes/core/class-xfgmc-data.php:1387
+#: includes/core/class-xfgmc-data.php:1411
+#: includes/core/class-xfgmc-data.php:1465
+#: includes/core/class-xfgmc-data.php:1485
+#: includes/core/class-xfgmc-data.php:1505
+#: includes/core/class-xfgmc-data.php:1526
+#: includes/core/class-xfgmc-data.php:1545
+#: includes/core/class-xfgmc-data.php:1563
+#: includes/core/class-xfgmc-data.php:1583
+#: includes/core/class-xfgmc-data.php:1603
+#: includes/core/class-xfgmc-data.php:1628
+#: includes/core/class-xfgmc-data.php:1648
+#: includes/core/class-xfgmc-data.php:1680
+#: includes/core/class-xfgmc-data.php:1808
+#: includes/core/class-xfgmc-data.php:1832
+#: includes/core/class-xfgmc-data.php:1865
+#: includes/core/class-xfgmc-data.php:2065
+#: includes/core/class-xfgmc-data.php:2184
+#: includes/core/class-xfgmc-data.php:2206
+#: includes/core/class-xfgmc-data.php:2232
+#: includes/core/class-xfgmc-data.php:2313
+#: includes/core/class-xfgmc-data.php:2330
+#: includes/core/class-xfgmc-data.php:2358
+#: includes/core/class-xfgmc-data.php:2376
+#: includes/core/class-xfgmc-data.php:2394
+#: includes/core/class-xfgmc-data.php:2414
+#: includes/core/class-xfgmc-data.php:2431
+#: includes/core/class-xfgmc-data.php:2659
 msgid "Disabled"
 msgstr "Отключено"
 
-#: admin/class-xfgmc-admin.php:1571 admin/class-xfgmc-admin.php:1590
-#: admin/class-xfgmc-admin.php:1629 includes/class-xfgmc-data.php:1129
-#: includes/class-xfgmc-data.php:1186 includes/class-xfgmc-data.php:2138
+#: admin/class-xfgmc-admin.php:1341 admin/class-xfgmc-admin.php:1360
+#: admin/class-xfgmc-admin.php:1399 includes/core/class-xfgmc-data.php:1129
+#: includes/core/class-xfgmc-data.php:1186
+#: includes/core/class-xfgmc-data.php:2165
 msgid "No"
 msgstr "Нет"
 
-#: admin/class-xfgmc-admin.php:1572 admin/class-xfgmc-admin.php:1591
-#: admin/class-xfgmc-admin.php:1630 includes/class-xfgmc-data.php:2139
+#: admin/class-xfgmc-admin.php:1342 admin/class-xfgmc-admin.php:1361
+#: admin/class-xfgmc-admin.php:1400 includes/core/class-xfgmc-data.php:2166
 msgid "Yes"
 msgstr "Да"
 
-#: admin/class-xfgmc-admin.php:1585 includes/class-xfgmc-data.php:1301
+#: admin/class-xfgmc-admin.php:1355 includes/core/class-xfgmc-data.php:1301
 msgid "Adult"
 msgstr "Для взрослых"
 
-#: admin/class-xfgmc-admin.php:1604
+#: admin/class-xfgmc-admin.php:1374
 msgid "Сondition"
 msgstr "Состояние товара"
 
-#: admin/class-xfgmc-admin.php:1609 includes/class-xfgmc-data.php:1286
+#: admin/class-xfgmc-admin.php:1379 includes/core/class-xfgmc-data.php:1286
 msgid "New"
 msgstr "Новый"
 
-#: admin/class-xfgmc-admin.php:1610 includes/class-xfgmc-data.php:1287
+#: admin/class-xfgmc-admin.php:1380 includes/core/class-xfgmc-data.php:1287
 msgid "Refurbished"
 msgstr "Восстановленный"
 
-#: admin/class-xfgmc-admin.php:1611 includes/class-xfgmc-data.php:1288
+#: admin/class-xfgmc-admin.php:1381 includes/core/class-xfgmc-data.php:1288
 msgid "Used"
 msgstr "Подержанный"
 
-#: admin/class-xfgmc-admin.php:1624
+#: admin/class-xfgmc-admin.php:1394
 msgid "Kit"
 msgstr "Набор"
 
-#: admin/class-xfgmc-admin.php:1643 includes/class-xfgmc-data.php:1342
+#: admin/class-xfgmc-admin.php:1413 includes/core/class-xfgmc-data.php:1342
 msgid "Multipack"
 msgstr "Мультиупаковка"
 
-#: admin/class-xfgmc-admin.php:1658
+#: admin/class-xfgmc-admin.php:1428
 msgid "Unit pricing measure"
 msgstr "Количество единицы товара"
 
-#: admin/class-xfgmc-admin.php:1669
+#: admin/class-xfgmc-admin.php:1439
 msgid "Unit pricing base measure"
 msgstr "Базовое количество товара"
 
-#: admin/class-xfgmc-admin.php:1681 admin/class-xfgmc-admin.php:1692
-#: admin/class-xfgmc-admin.php:1703 admin/class-xfgmc-admin.php:1714
-#: admin/class-xfgmc-admin.php:1741 admin/class-xfgmc-admin.php:1745
+#: admin/class-xfgmc-admin.php:1451 admin/class-xfgmc-admin.php:1462
+#: admin/class-xfgmc-admin.php:1473 admin/class-xfgmc-admin.php:1484
+#: admin/class-xfgmc-admin.php:1522 admin/class-xfgmc-admin.php:1526
 msgid "Definition"
 msgstr "Определение"
 
-#: admin/class-xfgmc-admin.php:1724
+#: admin/class-xfgmc-admin.php:1495 includes/core/class-xfgmc-data.php:1795
+msgid "Ads redirect"
+msgstr "Переадресация в объявлениях"
+
+#: admin/class-xfgmc-admin.php:1505
 msgid "Custom labels"
 msgstr "Метки продавца"
 
-#: admin/class-xfgmc-admin.php:1728
+#: admin/class-xfgmc-admin.php:1509
 msgid "Here you can set up individual \"Custom Labels\" for the product"
 msgstr ""
 "Здесь вы можете настроить индивидуальные \"Метки Продавца\" для данного "
 "товара"
 
-#: admin/class-xfgmc-admin.php:1757
+#: admin/class-xfgmc-admin.php:1538
 msgid "Individual product settings for Facebook"
 msgstr "Индивидуальные настройки товара для Facebook"
 
-#: admin/class-xfgmc-admin.php:1761
+#: admin/class-xfgmc-admin.php:1542
 msgid "Here you can set up individual settings for Facebook"
 msgstr "Здесь вы можете задать индивидуальные настройки для Facebook"
 
-#: admin/class-xfgmc-admin.php:1764
+#: admin/class-xfgmc-admin.php:1545
 msgid "Read more on Facebook"
 msgstr "Прочитать подробности на Facebook"
 
-#: admin/class-xfgmc-admin.php:1796 admin/class-xfgmc-admin.php:1908
+#: admin/class-xfgmc-admin.php:1577 admin/class-xfgmc-admin.php:1690
 msgid "Barcode for XML"
 msgstr "Штрихкод для XML"
 
-#: admin/class-xfgmc-admin.php:1797 admin/class-xfgmc-admin.php:1909
-#: includes/class-xfgmc-data.php:650 includes/class-xfgmc-data.php:928
+#: admin/class-xfgmc-admin.php:1578 admin/class-xfgmc-admin.php:1691
+#: includes/core/class-xfgmc-data.php:650
+#: includes/core/class-xfgmc-data.php:928
 msgid "For example"
 msgstr "Например"
 
-#: admin/class-xfgmc-admin.php:1799 admin/class-xfgmc-admin.php:1911
+#: admin/class-xfgmc-admin.php:1580 admin/class-xfgmc-admin.php:1693
 msgid "The data of this field is stored in the"
 msgstr "Данные этого поля хранятся в"
 
-#: admin/class-xfgmc-admin.php:1800 admin/class-xfgmc-admin.php:1912
+#: admin/class-xfgmc-admin.php:1581 admin/class-xfgmc-admin.php:1694
 msgid "meta field"
 msgstr "мета поле"
 
-#: admin/class-xfgmc-admin.php:1801 admin/class-xfgmc-admin.php:1913
+#: admin/class-xfgmc-admin.php:1582 admin/class-xfgmc-admin.php:1695
 msgid "You can always display them in your website template using"
 msgstr "Вы всегда можете отобразить их в шаблоне своего сайта с помощью"
-
-#: admin/class-xfgmc-admin.php:1986
-msgid "Creating a cache file is not required for this type"
-msgstr "Для этого типа файлов создание файла кэша не требуется"
-
-#: admin/class-xfgmc-admin.php:2031
-msgid "Starting a quick feed build"
-msgstr "Начинаем быструю сборку фида"
 
 #: admin/partials/debug-page/class-xfgmc-debug-page.php:87
 msgid "Everything is normal"
@@ -514,26 +520,47 @@ msgstr "Вести логи"
 
 #: admin/partials/debug-page/views/html-admin-debug-page-tab-settings.php:25
 #: admin/partials/debug-page/views/html-admin-debug-page-tab-settings.php:54
-#: includes/class-xfgmc-data.php:209 includes/class-xfgmc-data.php:329
-#: includes/class-xfgmc-data.php:421 includes/class-xfgmc-data.php:450
-#: includes/class-xfgmc-data.php:545 includes/class-xfgmc-data.php:672
-#: includes/class-xfgmc-data.php:678 includes/class-xfgmc-data.php:696
-#: includes/class-xfgmc-data.php:703 includes/class-xfgmc-data.php:724
-#: includes/class-xfgmc-data.php:748 includes/class-xfgmc-data.php:788
-#: includes/class-xfgmc-data.php:845 includes/class-xfgmc-data.php:852
-#: includes/class-xfgmc-data.php:912 includes/class-xfgmc-data.php:953
-#: includes/class-xfgmc-data.php:973 includes/class-xfgmc-data.php:992
-#: includes/class-xfgmc-data.php:1011 includes/class-xfgmc-data.php:1032
-#: includes/class-xfgmc-data.php:1241 includes/class-xfgmc-data.php:1265
-#: includes/class-xfgmc-data.php:1307 includes/class-xfgmc-data.php:1348
-#: includes/class-xfgmc-data.php:1367 includes/class-xfgmc-data.php:1527
-#: includes/class-xfgmc-data.php:1681 includes/class-xfgmc-data.php:1806
-#: includes/class-xfgmc-data.php:1839 includes/class-xfgmc-data.php:2039
-#: includes/class-xfgmc-data.php:2158 includes/class-xfgmc-data.php:2180
-#: includes/class-xfgmc-data.php:2206 includes/class-xfgmc-data.php:2287
-#: includes/class-xfgmc-data.php:2304 includes/class-xfgmc-data.php:2332
-#: includes/class-xfgmc-data.php:2350 includes/class-xfgmc-data.php:2368
-#: includes/class-xfgmc-data.php:2388 includes/class-xfgmc-data.php:2405
+#: includes/core/class-xfgmc-data.php:209
+#: includes/core/class-xfgmc-data.php:329
+#: includes/core/class-xfgmc-data.php:421
+#: includes/core/class-xfgmc-data.php:450
+#: includes/core/class-xfgmc-data.php:545
+#: includes/core/class-xfgmc-data.php:672
+#: includes/core/class-xfgmc-data.php:678
+#: includes/core/class-xfgmc-data.php:696
+#: includes/core/class-xfgmc-data.php:703
+#: includes/core/class-xfgmc-data.php:724
+#: includes/core/class-xfgmc-data.php:748
+#: includes/core/class-xfgmc-data.php:788
+#: includes/core/class-xfgmc-data.php:845
+#: includes/core/class-xfgmc-data.php:852
+#: includes/core/class-xfgmc-data.php:912
+#: includes/core/class-xfgmc-data.php:953
+#: includes/core/class-xfgmc-data.php:973
+#: includes/core/class-xfgmc-data.php:992
+#: includes/core/class-xfgmc-data.php:1011
+#: includes/core/class-xfgmc-data.php:1032
+#: includes/core/class-xfgmc-data.php:1241
+#: includes/core/class-xfgmc-data.php:1265
+#: includes/core/class-xfgmc-data.php:1307
+#: includes/core/class-xfgmc-data.php:1348
+#: includes/core/class-xfgmc-data.php:1367
+#: includes/core/class-xfgmc-data.php:1527
+#: includes/core/class-xfgmc-data.php:1681
+#: includes/core/class-xfgmc-data.php:1809
+#: includes/core/class-xfgmc-data.php:1833
+#: includes/core/class-xfgmc-data.php:1866
+#: includes/core/class-xfgmc-data.php:2066
+#: includes/core/class-xfgmc-data.php:2185
+#: includes/core/class-xfgmc-data.php:2207
+#: includes/core/class-xfgmc-data.php:2233
+#: includes/core/class-xfgmc-data.php:2314
+#: includes/core/class-xfgmc-data.php:2331
+#: includes/core/class-xfgmc-data.php:2359
+#: includes/core/class-xfgmc-data.php:2377
+#: includes/core/class-xfgmc-data.php:2395
+#: includes/core/class-xfgmc-data.php:2415
+#: includes/core/class-xfgmc-data.php:2432
 msgid "Enabled"
 msgstr "Включено"
 
@@ -628,6 +655,8 @@ msgid "Get Now"
 msgstr "Получить сейчас"
 
 #: admin/partials/settings-page/class-xfgmc-feeds-list-table.php:80
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:328
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:445
 msgid "Feed URL"
 msgstr "Фид URL"
 
@@ -656,6 +685,16 @@ msgstr "запустить сейчас"
 msgid "Hourly"
 msgstr "Раз в час"
 
+#: admin/partials/settings-page/class-xfgmc-feeds-list-table.php:175
+#: includes/cron/class-xfgmc-cron-manager.php:43
+msgid "Every three hours"
+msgstr "Каждые 3 часа"
+
+#: admin/partials/settings-page/class-xfgmc-feeds-list-table.php:178
+#: includes/cron/class-xfgmc-cron-manager.php:47
+msgid "Every six hours"
+msgstr "Каждые 6 часов"
+
 #: admin/partials/settings-page/class-xfgmc-feeds-list-table.php:181
 msgid "Twice a day"
 msgstr "2 раза в день"
@@ -663,6 +702,11 @@ msgstr "2 раза в день"
 #: admin/partials/settings-page/class-xfgmc-feeds-list-table.php:184
 msgid "Daily"
 msgstr "Раз в день"
+
+#: admin/partials/settings-page/class-xfgmc-feeds-list-table.php:187
+#: includes/cron/class-xfgmc-cron-manager.php:51
+msgid "Every two days"
+msgstr "Каждые два дня"
 
 #: admin/partials/settings-page/class-xfgmc-feeds-list-table.php:190
 msgid "Once a week"
@@ -794,1002 +838,6 @@ msgstr "Каталог не существует"
 msgid "at the time of plugin activation"
 msgstr "во время активации плагина"
 
-#: includes/class-xfgmc-data.php:113
-msgid "Creating this feed"
-msgstr "Создание фида"
-
-#: includes/class-xfgmc-data.php:115
-msgid "The refresh interval on your feed"
-msgstr "Интервал обновления вашего фида"
-
-#: includes/class-xfgmc-data.php:116
-msgid "If you select the option"
-msgstr "Если вы выберете"
-
-#: includes/class-xfgmc-data.php:117 includes/class-xfgmc-data.php:133
-msgid "Create a feed once and DO NOT update"
-msgstr "Создать фид один раз и НЕ обновлять его"
-
-#: includes/class-xfgmc-data.php:119
-msgid "after generating the feed, the parameter value will change to"
-msgstr "после создания фида значение параметра изменится на"
-
-#: includes/class-xfgmc-data.php:122 includes/class-xfgmc-data.php:128
-#: includes/class-xfgmc-data.php:203
-msgid "Disable the creation and updating of this feed"
-msgstr "Отключить создание и обновление этого фида"
-
-#: includes/class-xfgmc-data.php:138
-msgid "Create a feed once an hour"
-msgstr "Создавать фид один раз в час"
-
-#: includes/class-xfgmc-data.php:139
-msgid "Create a feed every three hours"
-msgstr "Создавать фид каждые три часа"
-
-#: includes/class-xfgmc-data.php:140
-msgid "Create a feed every six hours"
-msgstr "Создавать фид каждые шесть часов"
-
-#: includes/class-xfgmc-data.php:141
-msgid "Create a feed twice a day"
-msgstr "Создавать фид два раза в день"
-
-#: includes/class-xfgmc-data.php:142
-msgid "Create a feed once a day"
-msgstr "Создавать фид один раз в день"
-
-#: includes/class-xfgmc-data.php:143
-msgid "Create a feed every two days"
-msgstr "Создавать фид каждые два дня"
-
-#: includes/class-xfgmc-data.php:144
-msgid "Create a feed once a week"
-msgstr "Создавать фид раз в неделю"
-
-#: includes/class-xfgmc-data.php:157
-msgid "Starting at the specified time"
-msgstr "Запустить в указанное время"
-
-#: includes/class-xfgmc-data.php:159
-msgid "The time at which the feed generation should start"
-msgstr "Время, в которое должна начаться генерация фида"
-
-#: includes/class-xfgmc-data.php:163
-msgid "Now"
-msgstr "Сейчас"
-
-#: includes/class-xfgmc-data.php:200
-msgid "Update feed when updating products"
-msgstr "Обновить фид при обновлении карточки товара"
-
-#: includes/class-xfgmc-data.php:202
-msgid "This option does not work if selected"
-msgstr "Этот параметр не работает, если выбрано"
-
-#: includes/class-xfgmc-data.php:204
-msgid "in the field above"
-msgstr "в поле выше"
-
-#: includes/class-xfgmc-data.php:220
-msgid "To follow the rules"
-msgstr "Придерживаться правил"
-
-#: includes/class-xfgmc-data.php:222
-msgid "Exclude products that do not meet the requirements"
-msgstr "Исключить товары, которые не соответствуют требованиям"
-
-#: includes/class-xfgmc-data.php:223
-msgid "missing required elements/data"
-msgstr "отсутствуют обязательные элементы/данные"
-
-#: includes/class-xfgmc-data.php:225
-msgid ""
-"The plugin will try to automatically remove products from the XML-feed for "
-"which the required fields for the feed are not filled"
-msgstr ""
-"Плагин попытается автоматически удалить товары из XML-фида, для которых не "
-"заполнены обязательные поля для фида"
-
-#: includes/class-xfgmc-data.php:228
-msgid "Also, this item affects the structure of the file"
-msgstr "Также этот пункт влияет на структуру файла"
-
-#: includes/class-xfgmc-data.php:230
-msgid "Learn more about how it works"
-msgstr "Узнайте больше о том, как это работает"
-
-#: includes/class-xfgmc-data.php:237
-msgid "Google Merchant Center"
-msgstr "Google Merchant Center"
-
-#: includes/class-xfgmc-data.php:243
-msgid "Facebook"
-msgstr "Facebook"
-
-#: includes/class-xfgmc-data.php:249
-msgid "No rules"
-msgstr "Нет правил"
-
-#: includes/class-xfgmc-data.php:250
-msgid "For experienced users"
-msgstr "Для опытных пользователей"
-
-#: includes/class-xfgmc-data.php:264
-msgid "Feed assignment"
-msgstr "Назначение фида"
-
-#: includes/class-xfgmc-data.php:265
-msgid "Not used in feed. Inner note for your convenience"
-msgstr "Не используется в фиде. Внутренняя заметка для вашего удобства"
-
-#: includes/class-xfgmc-data.php:266
-msgid "For Google Merchant Center"
-msgstr "Для Google Merchant Center"
-
-#: includes/class-xfgmc-data.php:279
-msgid "Name of the feed file"
-msgstr "Имя файла фида"
-
-#: includes/class-xfgmc-data.php:282
-msgid "If you leave the field empty, the default value will be used"
-msgstr ""
-"Если оставить поле пустым, то будет использоваться значение по умолчанию"
-
-#: includes/class-xfgmc-data.php:285
-msgid "Important"
-msgstr "Важно"
-
-#: includes/class-xfgmc-data.php:287
-msgid "Spaces cannot be used"
-msgstr "Пробелы использовать нельзя"
-
-#: includes/class-xfgmc-data.php:304
-msgid "Feed file extension"
-msgstr "Расширение фида"
-
-#: includes/class-xfgmc-data.php:310
-msgid "recommend"
-msgstr "рекомендуется"
-
-#: includes/class-xfgmc-data.php:321
-msgid "Archive to ZIP"
-msgstr "Архивировать в ZIP"
-
-#: includes/class-xfgmc-data.php:340
-msgid "Step export"
-msgstr "Шаг экспорта"
-
-#: includes/class-xfgmc-data.php:343
-msgid "The value affects the speed of file creation"
-msgstr "Значение влияет на скорость создания YML фида"
-
-#: includes/class-xfgmc-data.php:345
-msgid ""
-"If you have any problems with the generation of the file - try to reduce the "
-"value in this field"
-msgstr ""
-"Если у вас возникли проблемы с генерацией файла - попробуйте уменьшить "
-"значение в данном поле"
-
-#: includes/class-xfgmc-data.php:348
-msgid "More than 500 can only be installed on powerful servers"
-msgstr "Более 500 можно устанавливать только на мощных серверах"
-
-#: includes/class-xfgmc-data.php:360 includes/class-xfgmc-data.php:390
-#: includes/class-xfgmc-data.php:889 includes/class-xfgmc-data.php:1084
-#: includes/class-xfgmc-data.php:1102 includes/class-xfgmc-data.php:1107
-#: includes/class-xfgmc-data.php:1280 includes/class-xfgmc-data.php:1322
-#: includes/class-xfgmc-data.php:1382 includes/class-xfgmc-data.php:1421
-#: includes/class-xfgmc-data.php:1439 includes/class-xfgmc-data.php:1446
-#: includes/class-xfgmc-data.php:1500 includes/class-xfgmc-data.php:1598
-#: includes/class-xfgmc-data.php:1643 includes/class-xfgmc-data.php:2220
-#: includes/class-xfgmc-data.php:2222
-msgid "Default value"
-msgstr "Значение по умолчанию"
-
-#: includes/class-xfgmc-data.php:384
-#: includes/feeds/class-xfgmc-generation-xml.php:391
-msgid "The maximum script execution time"
-msgstr "Максимальное время выполнения скрипта"
-
-#: includes/class-xfgmc-data.php:387
-msgid "The maximum script execution time in seconds"
-msgstr "Максимальное время выполнения скрипта в секундах"
-
-#: includes/class-xfgmc-data.php:392
-msgid ""
-"If you experience freezes when creating the feed, try increasing this "
-"parameter by"
-msgstr ""
-"Если при создании фида у вас возникают зависания, попробуйте увеличить "
-"параметр на"
-
-#: includes/class-xfgmc-data.php:395
-#: includes/feeds/class-xfgmc-generation-xml.php:394
-msgid "points"
-msgstr "пунктов"
-
-#: includes/class-xfgmc-data.php:408
-msgid "Ignore plugin cache"
-msgstr "Игнорировать кэш плагина"
-
-#: includes/class-xfgmc-data.php:412
-msgid ""
-"Changing this option can be useful if your feed prices don't change after "
-"syncing"
-msgstr ""
-"Изменение этой опции может быть полезно, если цены в фиде не меняются после "
-"синхронизации"
-
-#: includes/class-xfgmc-data.php:416 includes/class-xfgmc-data.php:697
-msgid "Learn More"
-msgstr "Подробнее"
-
-#: includes/class-xfgmc-data.php:434
-msgid "Сreate cache files when saving products"
-msgstr "Создавать файлы кэша при сохранении товаров"
-
-#: includes/class-xfgmc-data.php:439
-msgid ""
-"This option allows you to reduce the load on the site at the time of saving "
-"the product card"
-msgstr ""
-"Данная опция позволяет снизить нагрузку на сайт в момент сохранения карточки "
-"товара"
-
-#: includes/class-xfgmc-data.php:443
-msgid ""
-"However, disabling this option leads to a significant increase in the feed "
-"creation time"
-msgstr ""
-"Однако отключение этой опции приводит к значительному увеличению времени "
-"создания фида"
-
-#: includes/class-xfgmc-data.php:464
-msgid "Shop name"
-msgstr "Название магазина"
-
-#: includes/class-xfgmc-data.php:466
-msgid "The short name of the store should not exceed 20 characters"
-msgstr "Краткое название магазина, должно содержать не более 20 символов"
-
-#: includes/class-xfgmc-data.php:482 includes/class-xfgmc-data.php:483
-msgid "Shop description"
-msgstr "Описание магазина"
-
-#: includes/class-xfgmc-data.php:500
-msgid "Source ID of the product"
-msgstr "Источник ID товара"
-
-#: includes/class-xfgmc-data.php:505
-msgid "Product ID / Variation ID"
-msgstr "ID товара / ID вариации"
-
-#: includes/class-xfgmc-data.php:506 includes/class-xfgmc-data.php:1130
-#: includes/class-xfgmc-data.php:1187
-msgid "Substitute from SKU"
-msgstr "Подставлять из Артикул"
-
-#: includes/class-xfgmc-data.php:507 includes/class-xfgmc-data.php:593
-#: includes/class-xfgmc-data.php:1078 includes/class-xfgmc-data.php:1131
-#: includes/class-xfgmc-data.php:1188 includes/class-xfgmc-data.php:1415
-msgid "Substitute from post meta"
-msgstr "Подставлять из метаполя"
-
-#: includes/class-xfgmc-data.php:510
-msgid "Substitute from"
-msgstr "Подставлять из"
-
-#: includes/class-xfgmc-data.php:526 includes/class-xfgmc-data.php:528
-#: includes/class-xfgmc-data.php:610 includes/class-xfgmc-data.php:612
-#: includes/class-xfgmc-data.php:1103 includes/class-xfgmc-data.php:1108
-#: includes/class-xfgmc-data.php:1164 includes/class-xfgmc-data.php:1166
-#: includes/class-xfgmc-data.php:1221 includes/class-xfgmc-data.php:1223
-#: includes/class-xfgmc-data.php:1440 includes/class-xfgmc-data.php:1447
-msgid "Name post_meta"
-msgstr "Имя метаполя"
-
-#: includes/class-xfgmc-data.php:540
-msgid "Product name"
-msgstr "Название товара"
-
-#: includes/class-xfgmc-data.php:561
-msgid "Description of the product"
-msgstr "Описание товара"
-
-#: includes/class-xfgmc-data.php:563
-msgid "The source of the description"
-msgstr "Источник описания товара"
-
-#: includes/class-xfgmc-data.php:569
-msgid "Only Excerpt description"
-msgstr "Только Краткое описание"
-
-#: includes/class-xfgmc-data.php:573
-msgid "Only Full description"
-msgstr "Только Полное описание"
-
-#: includes/class-xfgmc-data.php:577
-msgid "Excerpt or Full description"
-msgstr "Краткое или Полное описание"
-
-#: includes/class-xfgmc-data.php:581
-msgid "Full or Excerpt description"
-msgstr "Полное или Краткое описание"
-
-#: includes/class-xfgmc-data.php:585
-msgid "Excerpt plus Full description"
-msgstr "Краткое плюс Полное описание"
-
-#: includes/class-xfgmc-data.php:589
-msgid "Full plus Excerpt description"
-msgstr "Полное плюс Краткое описание"
-
-#: includes/class-xfgmc-data.php:626
-msgid "List of allowed tags"
-msgstr "Список разрешенных тегов"
-
-#: includes/class-xfgmc-data.php:632
-msgid "From the field below"
-msgstr "Из поля ниже"
-
-#: includes/class-xfgmc-data.php:648
-msgid "Allowed tags"
-msgstr "Разрешенные теги"
-
-#: includes/class-xfgmc-data.php:667
-msgid "The varition description takes precedence over others"
-msgstr "Описание вариации имеет приоритет над другими"
-
-#: includes/class-xfgmc-data.php:693
-msgid "Use the filter"
-msgstr "Задействовать фильтр"
-
-#: includes/class-xfgmc-data.php:717
-msgid "Product link"
-msgstr "Ссылка на товар"
-
-#: includes/class-xfgmc-data.php:738
-msgid "Product mobile link"
-msgstr "Мобильная ссылка на товар"
-
-#: includes/class-xfgmc-data.php:741
-msgid ""
-"The mobile link attribute lets you include a URL to a mobile-optimized "
-"version of your landing page"
-msgstr ""
-"Атрибут \"мобильная ссылка\" позволяет указать URL целевой страницы, "
-"оптимизированной для мобильных устройств"
-
-#: includes/class-xfgmc-data.php:761
-msgid "Picture"
-msgstr "Изображение"
-
-#: includes/class-xfgmc-data.php:763
-msgid "Specify the size of the image to be used in the feed"
-msgstr "Укажите размер изображения, которое будет использоваться в фиде"
-
-#: includes/class-xfgmc-data.php:779 includes/class-xfgmc-data.php:2171
-msgid "Quantity of products"
-msgstr "Количество товаров"
-
-#: includes/class-xfgmc-data.php:781 includes/class-xfgmc-data.php:2173
-msgid ""
-"To make it work you must enable \"Manage stock\" and indicate \"Stock "
-"quantity\""
-msgstr ""
-"Чтобы это работало, вы должны включить \"Управлять запасами\" и указать "
-"\"Количество в запасе\""
-
-#: includes/class-xfgmc-data.php:802 includes/class-xfgmc-data.php:807
-msgid "For pre-order products, establish availability equal to"
-msgstr "Для товаров на предзаказ установить доступность, равную"
-
-#: includes/class-xfgmc-data.php:830
-msgid "Availability date"
-msgstr "Дата поступления в продажу"
-
-#: includes/class-xfgmc-data.php:834
-msgid "This parameter applies only to products whose status is equal to"
-msgstr "Этот параметр применяется только к продуктам, статус которых равен"
-
-#: includes/class-xfgmc-data.php:846
-msgid "Use the current date"
-msgstr "Использовать текущую дату"
-
-#: includes/class-xfgmc-data.php:853
-msgid "Use the default value"
-msgstr "Использовать значение по умолчанию"
-
-#: includes/class-xfgmc-data.php:870
-msgid "Add days to the current date"
-msgstr "Добавить дни к текущей дате"
-
-#: includes/class-xfgmc-data.php:872
-msgid "This option will add the number of days you specified to today's date"
-msgstr "Эта опция добавит указанное вами количество дней к сегодняшней дате"
-
-#: includes/class-xfgmc-data.php:891
-msgid "Date, time, and timezone, ISO 8601 compliant"
-msgstr "Дата, время и часовой пояс в соответствии со стандартом ISO 8601"
-
-#: includes/class-xfgmc-data.php:906
-msgid "Product price"
-msgstr "Цена товара"
-
-#: includes/class-xfgmc-data.php:925 includes/class-xfgmc-data.php:935
-msgid "Shop currency"
-msgstr "Валюта магазина"
-
-#: includes/class-xfgmc-data.php:927
-msgid "Uppercase letter"
-msgstr "Заглавными буквами"
-
-#: includes/class-xfgmc-data.php:945
-msgid "Sale price"
-msgstr "Старая цена"
-
-#: includes/class-xfgmc-data.php:947
-msgid ""
-"In sale price indicates the old price of the goods, which must necessarily "
-"be higher than the new price (price)"
-msgstr ""
-"В sale price указывается старая цена товара, которая обязательно должна быть "
-"выше новой цены (price)"
-
-#: includes/class-xfgmc-data.php:967 includes/class-xfgmc-data.php:968
-#: includes/class-xfgmc-data.php:986 includes/class-xfgmc-data.php:987
-msgid "Shop SKU"
-msgstr "Артикул магазина"
-
-#: includes/class-xfgmc-data.php:1026 includes/class-xfgmc-data.php:1027
-msgid "Google product type"
-msgstr "Google тип товара"
-
-#: includes/class-xfgmc-data.php:1047
-msgid "Add root element"
-msgstr "Добавить корневой элемент"
-
-#: includes/class-xfgmc-data.php:1049
-msgid "Main"
-msgstr "Главная"
-
-#: includes/class-xfgmc-data.php:1063 includes/class-xfgmc-data.php:1064
-msgid "Brand"
-msgstr "Брэнд"
-
-#: includes/class-xfgmc-data.php:1074
-msgid "WooCommerce brands"
-msgstr "Бренды WooCommerce"
-
-#: includes/class-xfgmc-data.php:1083 includes/class-xfgmc-data.php:1420
-msgid "Default value from field"
-msgstr "Значение из поля"
-
-#: includes/class-xfgmc-data.php:1123
-msgid "GTIN"
-msgstr "Штрихкод"
-
-#: includes/class-xfgmc-data.php:1135 includes/class-xfgmc-data.php:1141
-#: includes/class-xfgmc-data.php:1147 includes/class-xfgmc-data.php:1192
-#: includes/class-xfgmc-data.php:1198 includes/class-xfgmc-data.php:1204
-msgid "Substitute from the plugin"
-msgstr "Замена из плагина"
-
-#: includes/class-xfgmc-data.php:1180
-msgid "MPN"
-msgstr "MPN"
-
-#: includes/class-xfgmc-data.php:1256
-msgid "Condition"
-msgstr "Состояние товара"
-
-#: includes/class-xfgmc-data.php:1258
-msgid "The default value, unless otherwise specified in the product settings"
-msgstr "Значение по умолчанию, если иное не указано в настройках товара"
-
-#: includes/class-xfgmc-data.php:1328 includes/class-xfgmc-data.php:1329
-#: includes/class-xfgmc-data.php:1388 includes/class-xfgmc-data.php:1389
-msgid "Add to all"
-msgstr "Добавить всем"
-
-#: includes/class-xfgmc-data.php:1361
-msgid "Is bundle"
-msgstr "Набор"
-
-#: includes/class-xfgmc-data.php:1404 includes/class-xfgmc-data.php:1405
-msgid "Age group"
-msgstr "Возрастная группа"
-
-#: includes/class-xfgmc-data.php:1443
-msgid "Acceptable values"
-msgstr "Допустимые значения"
-
-#: includes/class-xfgmc-data.php:1460
-msgid "Color"
-msgstr "Цвет"
-
-#: includes/class-xfgmc-data.php:1480
-msgid "Gender"
-msgstr "Пол"
-
-#: includes/class-xfgmc-data.php:1521
-msgid "Material"
-msgstr "Материал"
-
-#: includes/class-xfgmc-data.php:1540
-msgid "Pattern"
-msgstr "Узор"
-
-#: includes/class-xfgmc-data.php:1623
-msgid "Size system"
-msgstr "Система размеров"
-
-#: includes/class-xfgmc-data.php:1672
-msgid "Item group ID"
-msgstr "ID группы товаров"
-
-#: includes/class-xfgmc-data.php:1674
-msgid ""
-"Use the item group ID attribute to group product variants in your product "
-"data"
-msgstr ""
-"Атрибут \"ID группы товаров\" используется, чтобы группировать варианты "
-"товара"
-
-#: includes/class-xfgmc-data.php:1694 includes/class-xfgmc-data.php:1697
-#: includes/class-xfgmc-data.php:1932
-msgid "Length"
-msgstr "Длина"
-
-#: includes/class-xfgmc-data.php:1705 includes/class-xfgmc-data.php:1731
-#: includes/class-xfgmc-data.php:1756 includes/class-xfgmc-data.php:1781
-#: includes/class-xfgmc-data.php:1940 includes/class-xfgmc-data.php:1966
-#: includes/class-xfgmc-data.php:1991 includes/class-xfgmc-data.php:2016
-msgid "Substitute from WooCommerce Shippings tab"
-msgstr "Подставлять из WooCommerce вкладки Доставка"
-
-#: includes/class-xfgmc-data.php:1710
-msgid "Dimensions"
-msgstr "Размеры"
-
-#: includes/class-xfgmc-data.php:1720 includes/class-xfgmc-data.php:1723
-#: includes/class-xfgmc-data.php:1958
-msgid "Width"
-msgstr "Ширина"
-
-#: includes/class-xfgmc-data.php:1745 includes/class-xfgmc-data.php:1748
-#: includes/class-xfgmc-data.php:1983
-msgid "Height"
-msgstr "Высота"
-
-#: includes/class-xfgmc-data.php:1770 includes/class-xfgmc-data.php:1773
-#: includes/class-xfgmc-data.php:2008
-msgid "Weight"
-msgstr "Вес"
-
-#: includes/class-xfgmc-data.php:1795
-msgid "Custom elements"
-msgstr "Кастомные элементы"
-
-#: includes/class-xfgmc-data.php:1797
-msgid "To set a value, edit your products"
-msgstr "Чтобы задать значение, отредактируйте свои товары"
-
-#: includes/class-xfgmc-data.php:1798
-msgid "About this tag"
-msgstr "Об этом теге"
-
-#: includes/class-xfgmc-data.php:1800
-msgid "see the Yandex help"
-msgstr "см. справку Яндекса"
-
-#: includes/class-xfgmc-data.php:1819
-msgid "Shipping"
-msgstr "Доставка"
-
-#: includes/class-xfgmc-data.php:1822
-msgid ""
-"Google recommend that you set up shipping costs through Merchant Center "
-"settings instead of submitting the shipping attribute in the feed"
-msgstr ""
-"Google рекомендует настраивать стоимость доставки через настройки Merchant "
-"Center, а не указывать атрибут доставки в фиде"
-
-#: includes/class-xfgmc-data.php:1828
-msgid "To add this element to your feed make sure the fields are filled"
-msgstr "Чтобы добавить этот элемент в свой фид, убедитесь, что заполнены"
-
-#: includes/class-xfgmc-data.php:1831
-msgid "and"
-msgstr "и"
-
-#: includes/class-xfgmc-data.php:1832 includes/class-xfgmc-data.php:1866
-#: includes/class-xfgmc-data.php:1887
-msgid "Delivery area"
-msgstr "Зона доставки"
-
-#: includes/class-xfgmc-data.php:1852
-msgid "Shipping country"
-msgstr "Страна доставки"
-
-#: includes/class-xfgmc-data.php:1901
-msgid "Shipping price"
-msgstr "Стоимость доставки"
-
-#: includes/class-xfgmc-data.php:1915
-msgid "Shipping service"
-msgstr "Служба доставки"
-
-#: includes/class-xfgmc-data.php:1929
-msgid "Shipping length"
-msgstr "Длина транспортной упаковки"
-
-#: includes/class-xfgmc-data.php:1945
-msgid "Shipping dimensions"
-msgstr "Габаритные размеры при транспортировке"
-
-#: includes/class-xfgmc-data.php:1955
-msgid "Shipping width"
-msgstr "Ширина транспортной упаковки"
-
-#: includes/class-xfgmc-data.php:1980
-msgid "Shipping height"
-msgstr "Высота транспортной упаковки"
-
-#: includes/class-xfgmc-data.php:2005
-msgid "Shipping weight"
-msgstr "Вес брутто"
-
-#: includes/class-xfgmc-data.php:2030
-msgid "Tax"
-msgstr "Налог"
-
-#: includes/class-xfgmc-data.php:2032
-msgid ""
-"Required for the United States when you need to override the account tax "
-"settings that you created in Merchant Center. This attribute exclusively "
-"covers US sales tax. Don't use it for other taxes, such as value-added tax "
-"(VAT) or import tax"
-msgstr ""
-"Атрибут является обязательным для товаров с таргетингом на США, если к ним "
-"применяются налоговые ставки, отличные от тех, которые указаны в настройках "
-"аккаунта Merchant Center. С его помощью можно указывать только налог с "
-"продаж. Не используйте его для налога на добавленную стоимость или налога на "
-"импорт"
-
-#: includes/class-xfgmc-data.php:2052
-msgid "Region"
-msgstr "Регион"
-
-#: includes/class-xfgmc-data.php:2057
-msgid "Idaho"
-msgstr "Айдахо"
-
-#: includes/class-xfgmc-data.php:2058
-msgid "Iowa"
-msgstr "Айова"
-
-#: includes/class-xfgmc-data.php:2059
-msgid "Alabama"
-msgstr "Алабама"
-
-#: includes/class-xfgmc-data.php:2060
-msgid "Alaska"
-msgstr "Аляска"
-
-#: includes/class-xfgmc-data.php:2061
-msgid "Arizona"
-msgstr "Аризона"
-
-#: includes/class-xfgmc-data.php:2062
-msgid "Arkansas"
-msgstr "Арканзас"
-
-#: includes/class-xfgmc-data.php:2063
-msgid "Wyoming"
-msgstr "Вайоминг"
-
-#: includes/class-xfgmc-data.php:2064
-msgid "Washington"
-msgstr "Вашингтон"
-
-#: includes/class-xfgmc-data.php:2065
-msgid "Vermont"
-msgstr "Вермонт"
-
-#: includes/class-xfgmc-data.php:2066
-msgid "Virginia"
-msgstr "Вирджиния"
-
-#: includes/class-xfgmc-data.php:2067
-msgid "Wisconsin"
-msgstr "Висконсин"
-
-#: includes/class-xfgmc-data.php:2068
-msgid "Hawai"
-msgstr "Гавайи"
-
-#: includes/class-xfgmc-data.php:2069
-msgid "Delaware"
-msgstr "Делавэр"
-
-#: includes/class-xfgmc-data.php:2070
-msgid "Georgia"
-msgstr "Джорджия"
-
-#: includes/class-xfgmc-data.php:2071
-msgid "West Virginia"
-msgstr "Западная Вирджиния"
-
-#: includes/class-xfgmc-data.php:2072
-msgid "Illinois"
-msgstr "Иллинойс"
-
-#: includes/class-xfgmc-data.php:2073
-msgid "Indiana"
-msgstr "Индиана"
-
-#: includes/class-xfgmc-data.php:2074
-msgid "California"
-msgstr "Калифорния"
-
-#: includes/class-xfgmc-data.php:2075
-msgid "Kansas"
-msgstr "Канзас"
-
-#: includes/class-xfgmc-data.php:2076
-msgid "Kentucky"
-msgstr "Кентукки"
-
-#: includes/class-xfgmc-data.php:2077
-msgid "Colorado"
-msgstr "Колорадо"
-
-#: includes/class-xfgmc-data.php:2078
-msgid "Connecticut"
-msgstr "Коннектикут"
-
-#: includes/class-xfgmc-data.php:2079
-msgid "Louisiana"
-msgstr "Луизиана"
-
-#: includes/class-xfgmc-data.php:2080
-msgid "Massachusetts"
-msgstr "Массачусетс"
-
-#: includes/class-xfgmc-data.php:2081
-msgid "Minnesota"
-msgstr "Миннесота"
-
-#: includes/class-xfgmc-data.php:2082
-msgid "Mississippi"
-msgstr "Миссисипи"
-
-#: includes/class-xfgmc-data.php:2083
-msgid "Missouri"
-msgstr "Миссури"
-
-#: includes/class-xfgmc-data.php:2084
-msgid "Michigan"
-msgstr "Мичиган"
-
-#: includes/class-xfgmc-data.php:2085
-msgid "Montana"
-msgstr "Монтана"
-
-#: includes/class-xfgmc-data.php:2086
-msgid "Maine"
-msgstr "Мэн"
-
-#: includes/class-xfgmc-data.php:2087
-msgid "Maryland"
-msgstr "Мэриленд"
-
-#: includes/class-xfgmc-data.php:2088
-msgid "Nebraska"
-msgstr "Небраска"
-
-#: includes/class-xfgmc-data.php:2089
-msgid "Nevada"
-msgstr "Невада"
-
-#: includes/class-xfgmc-data.php:2090
-msgid "New Hampshire"
-msgstr "Нью-Гэмпшир"
-
-#: includes/class-xfgmc-data.php:2091
-msgid "New Jersey"
-msgstr "Нью-Джерси"
-
-#: includes/class-xfgmc-data.php:2092
-msgid "New York"
-msgstr "Нью-Йорк"
-
-#: includes/class-xfgmc-data.php:2093
-msgid "New Mexico"
-msgstr "Нью-Мексико"
-
-#: includes/class-xfgmc-data.php:2094
-msgid "Ohio"
-msgstr "Огайо"
-
-#: includes/class-xfgmc-data.php:2095
-msgid "Oklahoma"
-msgstr "Оклахома"
-
-#: includes/class-xfgmc-data.php:2096
-msgid "Oregon"
-msgstr "Орегон"
-
-#: includes/class-xfgmc-data.php:2097
-msgid "Pennsylvania"
-msgstr "Пенсильвания"
-
-#: includes/class-xfgmc-data.php:2098
-msgid "Rhode Island"
-msgstr "Род-Айленд"
-
-#: includes/class-xfgmc-data.php:2099
-msgid "North Dakota"
-msgstr "Северная Дакота"
-
-#: includes/class-xfgmc-data.php:2100
-msgid "North Carolina"
-msgstr "Северная Каролина"
-
-#: includes/class-xfgmc-data.php:2101
-msgid "Tennessee"
-msgstr "Теннесси"
-
-#: includes/class-xfgmc-data.php:2102
-msgid "Texas"
-msgstr "Техас"
-
-#: includes/class-xfgmc-data.php:2103
-msgid "Florida"
-msgstr "Флорида"
-
-#: includes/class-xfgmc-data.php:2104
-msgid "South Dakota"
-msgstr "Южная Дакота"
-
-#: includes/class-xfgmc-data.php:2105
-msgid "South Carolina"
-msgstr "Южная Каролина"
-
-#: includes/class-xfgmc-data.php:2106
-msgid "Utah"
-msgstr "Юта"
-
-#: includes/class-xfgmc-data.php:2119
-msgid "Tax rate"
-msgstr "Налоговая ставка"
-
-#: includes/class-xfgmc-data.php:2133
-msgid "Shipping tax"
-msgstr "Налог на доставку"
-
-#: includes/class-xfgmc-data.php:2193
-msgid "Store code"
-msgstr "Код магазина"
-
-#: includes/class-xfgmc-data.php:2196
-msgid ""
-"Required for products in local inventory ads, free local listings, and "
-"vehicle ads"
-msgstr ""
-"Обязательный атрибут для товаров, продвигаемых в рекламе местного "
-"ассортимента, бесплатных местных предложениях и рекламе автомобилей"
-
-#: includes/class-xfgmc-data.php:2235
-msgid "Whot export"
-msgstr "Что экспортировать"
-
-#: includes/class-xfgmc-data.php:2241
-msgid "Simple & Variable products"
-msgstr "Вариативные и обычные товары"
-
-#: includes/class-xfgmc-data.php:2245
-msgid "Only simple products"
-msgstr "Только обычные товары"
-
-#: includes/class-xfgmc-data.php:2249
-msgid "Only variable products"
-msgstr "Только вариативные товары"
-
-#: includes/class-xfgmc-data.php:2262
-msgid "Change the domain to"
-msgstr "Изменить домен на"
-
-#: includes/class-xfgmc-data.php:2264
-msgid ""
-"The option allows you to change the domain of your site in the feed to any "
-"other"
-msgstr "Опция позволяет изменить домен вашего сайта в фиде на любой другой"
-
-#: includes/class-xfgmc-data.php:2279
-msgid "Clear URL from GET-paramrs"
-msgstr "Очистить URL от GET-параметров"
-
-#: includes/class-xfgmc-data.php:2298
-msgid "Remove default.png from XML"
-msgstr "Удалить default.png из XML"
-
-#: includes/class-xfgmc-data.php:2316
-msgid "Take steps to remove products with the same ID from the feed"
-msgstr "Примите меры по удалению товаров с одинаковым ID из фида"
-
-#: includes/class-xfgmc-data.php:2321
-msgid "This is an experimental feature"
-msgstr "Это экспериментальная функция"
-
-#: includes/class-xfgmc-data.php:2325
-msgid ""
-"It should only be used if you have an error related to the presence of "
-"products with the same identifier in the product feed"
-msgstr ""
-"Её следует использовать только в том случае, если у вас возникла ошибка, "
-"связанная с наличием товаров с одинаковым ID в фиде"
-
-#: includes/class-xfgmc-data.php:2344
-msgid "Skip products without pictures"
-msgstr "Пропустить товары без картинок"
-
-#: includes/class-xfgmc-data.php:2362
-msgid "Skip products without description"
-msgstr "Пропустить товары без описания"
-
-#: includes/class-xfgmc-data.php:2380
-#: includes/feeds/traits/common/trait-xfgmc-t-common-skips.php:146
-#: includes/feeds/traits/common/trait-xfgmc-t-common-skips.php:194
-msgid "Skip missing products"
-msgstr "Исключать товары которых нет в наличии"
-
-#: includes/class-xfgmc-data.php:2381
-msgid "except for products for which a pre-order is permitted"
-msgstr "за исключением товаров, для которых разрешен предварительный заказ"
-
-#: includes/class-xfgmc-data.php:2399
-#: includes/feeds/traits/common/trait-xfgmc-t-common-skips.php:168
-#: includes/feeds/traits/common/trait-xfgmc-t-common-skips.php:178
-#: includes/feeds/traits/common/trait-xfgmc-t-common-skips.php:211
-msgid "Skip backorders products"
-msgstr "Исключать из фида товары для предзаказа"
-
-#: includes/class-xfgmc-data.php:2434
-msgid "Feed currency"
-msgstr "Валюта фида"
-
-#: includes/class-xfgmc-data.php:2436
-msgid "You have plugin installed"
-msgstr "У вас установлен плагин"
-
-#: includes/class-xfgmc-data.php:2438
-msgid "Indicate in what currency the prices should be"
-msgstr "Укажите, в какой валюте должны быть цены"
-
-#: includes/class-xfgmc-data.php:2439
-msgid "Please note"
-msgstr "Обратите внимание"
-
-#: includes/class-xfgmc-data.php:2440
-msgid "Google Merchant Center only supports the following currencies"
-msgstr "Google Merchant Center поддерживает только следующие валюты"
-
-#: includes/class-xfgmc-data.php:2442
-msgid "Choosing a different currency can lead to errors"
-msgstr "Выбор другой валюты может привести к ошибкам"
-
-#: includes/class-xfgmc-data.php:2633
-msgid "Full size (default)"
-msgstr "Полный размер (по умолчанию)"
-
-#: includes/class-xfgmc-data.php:2641
-msgid "сrop thumbnail to exact dimensions"
-msgstr "обрезать миниатюру точно по размерам"
-
 #: includes/class-xfgmc-feedback.php:92
 msgid "The data has been sent. Thank you"
 msgstr "Данные были отправлены. Спасибо"
@@ -1920,6 +968,1101 @@ msgstr "Нет %s с таким #%d"
 #, php-format
 msgid "This %s cannot be deleted"
 msgstr "%s не может быть удалён"
+
+#: includes/core/class-xfgmc-data.php:113
+msgid "Creating this feed"
+msgstr "Создание фида"
+
+#: includes/core/class-xfgmc-data.php:115
+msgid "The refresh interval on your feed"
+msgstr "Интервал обновления вашего фида"
+
+#: includes/core/class-xfgmc-data.php:116
+msgid "If you select the option"
+msgstr "Если вы выберете"
+
+#: includes/core/class-xfgmc-data.php:117
+#: includes/core/class-xfgmc-data.php:133
+msgid "Create a feed once and DO NOT update"
+msgstr "Создать фид один раз и НЕ обновлять его"
+
+#: includes/core/class-xfgmc-data.php:119
+msgid "after generating the feed, the parameter value will change to"
+msgstr "после создания фида значение параметра изменится на"
+
+#: includes/core/class-xfgmc-data.php:122
+#: includes/core/class-xfgmc-data.php:128
+#: includes/core/class-xfgmc-data.php:203
+msgid "Disable the creation and updating of this feed"
+msgstr "Отключить создание и обновление этого фида"
+
+#: includes/core/class-xfgmc-data.php:138
+msgid "Create a feed once an hour"
+msgstr "Создавать фид один раз в час"
+
+#: includes/core/class-xfgmc-data.php:139
+msgid "Create a feed every three hours"
+msgstr "Создавать фид каждые три часа"
+
+#: includes/core/class-xfgmc-data.php:140
+msgid "Create a feed every six hours"
+msgstr "Создавать фид каждые шесть часов"
+
+#: includes/core/class-xfgmc-data.php:141
+msgid "Create a feed twice a day"
+msgstr "Создавать фид два раза в день"
+
+#: includes/core/class-xfgmc-data.php:142
+msgid "Create a feed once a day"
+msgstr "Создавать фид один раз в день"
+
+#: includes/core/class-xfgmc-data.php:143
+msgid "Create a feed every two days"
+msgstr "Создавать фид каждые два дня"
+
+#: includes/core/class-xfgmc-data.php:144
+msgid "Create a feed once a week"
+msgstr "Создавать фид раз в неделю"
+
+#: includes/core/class-xfgmc-data.php:157
+msgid "Starting at the specified time"
+msgstr "Запустить в указанное время"
+
+#: includes/core/class-xfgmc-data.php:159
+msgid "The time at which the feed generation should start"
+msgstr "Время, в которое должна начаться генерация фида"
+
+#: includes/core/class-xfgmc-data.php:163
+msgid "Now"
+msgstr "Сейчас"
+
+#: includes/core/class-xfgmc-data.php:200
+msgid "Update feed when updating products"
+msgstr "Обновить фид при обновлении карточки товара"
+
+#: includes/core/class-xfgmc-data.php:202
+msgid "This option does not work if selected"
+msgstr "Этот параметр не работает, если выбрано"
+
+#: includes/core/class-xfgmc-data.php:204
+msgid "in the field above"
+msgstr "в поле выше"
+
+#: includes/core/class-xfgmc-data.php:220
+msgid "To follow the rules"
+msgstr "Придерживаться правил"
+
+#: includes/core/class-xfgmc-data.php:222
+msgid "Exclude products that do not meet the requirements"
+msgstr "Исключить товары, которые не соответствуют требованиям"
+
+#: includes/core/class-xfgmc-data.php:223
+msgid "missing required elements/data"
+msgstr "отсутствуют обязательные элементы/данные"
+
+#: includes/core/class-xfgmc-data.php:225
+msgid ""
+"The plugin will try to automatically remove products from the XML-feed for "
+"which the required fields for the feed are not filled"
+msgstr ""
+"Плагин попытается автоматически удалить товары из XML-фида, для которых не "
+"заполнены обязательные поля для фида"
+
+#: includes/core/class-xfgmc-data.php:228
+msgid "Also, this item affects the structure of the file"
+msgstr "Также этот пункт влияет на структуру файла"
+
+#: includes/core/class-xfgmc-data.php:230
+msgid "Learn more about how it works"
+msgstr "Узнайте больше о том, как это работает"
+
+#: includes/core/class-xfgmc-data.php:237
+msgid "Google Merchant Center"
+msgstr "Google Merchant Center"
+
+#: includes/core/class-xfgmc-data.php:243
+msgid "Facebook"
+msgstr "Facebook"
+
+#: includes/core/class-xfgmc-data.php:249
+msgid "No rules"
+msgstr "Нет правил"
+
+#: includes/core/class-xfgmc-data.php:250
+msgid "For experienced users"
+msgstr "Для опытных пользователей"
+
+#: includes/core/class-xfgmc-data.php:264
+msgid "Feed assignment"
+msgstr "Назначение фида"
+
+#: includes/core/class-xfgmc-data.php:265
+msgid "Not used in feed. Inner note for your convenience"
+msgstr "Не используется в фиде. Внутренняя заметка для вашего удобства"
+
+#: includes/core/class-xfgmc-data.php:266
+msgid "For Google Merchant Center"
+msgstr "Для Google Merchant Center"
+
+#: includes/core/class-xfgmc-data.php:279
+msgid "Name of the feed file"
+msgstr "Имя файла фида"
+
+#: includes/core/class-xfgmc-data.php:282
+msgid "If you leave the field empty, the default value will be used"
+msgstr ""
+"Если оставить поле пустым, то будет использоваться значение по умолчанию"
+
+#: includes/core/class-xfgmc-data.php:285
+msgid "Important"
+msgstr "Важно"
+
+#: includes/core/class-xfgmc-data.php:287
+msgid "Spaces cannot be used"
+msgstr "Пробелы использовать нельзя"
+
+#: includes/core/class-xfgmc-data.php:304
+msgid "Feed file extension"
+msgstr "Расширение фида"
+
+#: includes/core/class-xfgmc-data.php:310
+msgid "recommend"
+msgstr "рекомендуется"
+
+#: includes/core/class-xfgmc-data.php:321
+msgid "Archive to ZIP"
+msgstr "Архивировать в ZIP"
+
+#: includes/core/class-xfgmc-data.php:340
+msgid "Step export"
+msgstr "Шаг экспорта"
+
+#: includes/core/class-xfgmc-data.php:343
+msgid "The value affects the speed of file creation"
+msgstr "Значение влияет на скорость создания YML фида"
+
+#: includes/core/class-xfgmc-data.php:345
+msgid ""
+"If you have any problems with the generation of the file - try to reduce the "
+"value in this field"
+msgstr ""
+"Если у вас возникли проблемы с генерацией файла - попробуйте уменьшить "
+"значение в данном поле"
+
+#: includes/core/class-xfgmc-data.php:348
+msgid "More than 500 can only be installed on powerful servers"
+msgstr "Более 500 можно устанавливать только на мощных серверах"
+
+#: includes/core/class-xfgmc-data.php:360
+#: includes/core/class-xfgmc-data.php:390
+#: includes/core/class-xfgmc-data.php:889
+#: includes/core/class-xfgmc-data.php:1084
+#: includes/core/class-xfgmc-data.php:1102
+#: includes/core/class-xfgmc-data.php:1107
+#: includes/core/class-xfgmc-data.php:1280
+#: includes/core/class-xfgmc-data.php:1322
+#: includes/core/class-xfgmc-data.php:1382
+#: includes/core/class-xfgmc-data.php:1421
+#: includes/core/class-xfgmc-data.php:1439
+#: includes/core/class-xfgmc-data.php:1446
+#: includes/core/class-xfgmc-data.php:1500
+#: includes/core/class-xfgmc-data.php:1598
+#: includes/core/class-xfgmc-data.php:1643
+#: includes/core/class-xfgmc-data.php:2247
+#: includes/core/class-xfgmc-data.php:2249
+msgid "Default value"
+msgstr "Значение по умолчанию"
+
+#: includes/core/class-xfgmc-data.php:384
+#: includes/feeds/class-xfgmc-generation-xml.php:391
+msgid "The maximum script execution time"
+msgstr "Максимальное время выполнения скрипта"
+
+#: includes/core/class-xfgmc-data.php:387
+msgid "The maximum script execution time in seconds"
+msgstr "Максимальное время выполнения скрипта в секундах"
+
+#: includes/core/class-xfgmc-data.php:392
+msgid ""
+"If you experience freezes when creating the feed, try increasing this "
+"parameter by"
+msgstr ""
+"Если при создании фида у вас возникают зависания, попробуйте увеличить "
+"параметр на"
+
+#: includes/core/class-xfgmc-data.php:395
+#: includes/feeds/class-xfgmc-generation-xml.php:394
+msgid "points"
+msgstr "пунктов"
+
+#: includes/core/class-xfgmc-data.php:408
+msgid "Ignore plugin cache"
+msgstr "Игнорировать кэш плагина"
+
+#: includes/core/class-xfgmc-data.php:412
+msgid ""
+"Changing this option can be useful if your feed prices don't change after "
+"syncing"
+msgstr ""
+"Изменение этой опции может быть полезно, если цены в фиде не меняются после "
+"синхронизации"
+
+#: includes/core/class-xfgmc-data.php:416
+#: includes/core/class-xfgmc-data.php:697
+msgid "Learn More"
+msgstr "Подробнее"
+
+#: includes/core/class-xfgmc-data.php:434
+msgid "Сreate cache files when saving products"
+msgstr "Создавать файлы кэша при сохранении товаров"
+
+#: includes/core/class-xfgmc-data.php:439
+msgid ""
+"This option allows you to reduce the load on the site at the time of saving "
+"the product card"
+msgstr ""
+"Данная опция позволяет снизить нагрузку на сайт в момент сохранения карточки "
+"товара"
+
+#: includes/core/class-xfgmc-data.php:443
+msgid ""
+"However, disabling this option leads to a significant increase in the feed "
+"creation time"
+msgstr ""
+"Однако отключение этой опции приводит к значительному увеличению времени "
+"создания фида"
+
+#: includes/core/class-xfgmc-data.php:464
+msgid "Shop name"
+msgstr "Название магазина"
+
+#: includes/core/class-xfgmc-data.php:466
+msgid "The short name of the store should not exceed 20 characters"
+msgstr "Краткое название магазина, должно содержать не более 20 символов"
+
+#: includes/core/class-xfgmc-data.php:482
+#: includes/core/class-xfgmc-data.php:483
+msgid "Shop description"
+msgstr "Описание магазина"
+
+#: includes/core/class-xfgmc-data.php:500
+msgid "Source ID of the product"
+msgstr "Источник ID товара"
+
+#: includes/core/class-xfgmc-data.php:505
+msgid "Product ID / Variation ID"
+msgstr "ID товара / ID вариации"
+
+#: includes/core/class-xfgmc-data.php:506
+#: includes/core/class-xfgmc-data.php:1130
+#: includes/core/class-xfgmc-data.php:1187
+msgid "Substitute from SKU"
+msgstr "Подставлять из Артикул"
+
+#: includes/core/class-xfgmc-data.php:507
+#: includes/core/class-xfgmc-data.php:593
+#: includes/core/class-xfgmc-data.php:1078
+#: includes/core/class-xfgmc-data.php:1131
+#: includes/core/class-xfgmc-data.php:1188
+#: includes/core/class-xfgmc-data.php:1415
+msgid "Substitute from post meta"
+msgstr "Подставлять из метаполя"
+
+#: includes/core/class-xfgmc-data.php:510
+msgid "Substitute from"
+msgstr "Подставлять из"
+
+#: includes/core/class-xfgmc-data.php:526
+#: includes/core/class-xfgmc-data.php:528
+#: includes/core/class-xfgmc-data.php:610
+#: includes/core/class-xfgmc-data.php:612
+#: includes/core/class-xfgmc-data.php:1103
+#: includes/core/class-xfgmc-data.php:1108
+#: includes/core/class-xfgmc-data.php:1164
+#: includes/core/class-xfgmc-data.php:1166
+#: includes/core/class-xfgmc-data.php:1221
+#: includes/core/class-xfgmc-data.php:1223
+#: includes/core/class-xfgmc-data.php:1440
+#: includes/core/class-xfgmc-data.php:1447
+msgid "Name post_meta"
+msgstr "Имя метаполя"
+
+#: includes/core/class-xfgmc-data.php:540
+msgid "Product name"
+msgstr "Название товара"
+
+#: includes/core/class-xfgmc-data.php:561
+msgid "Description of the product"
+msgstr "Описание товара"
+
+#: includes/core/class-xfgmc-data.php:563
+msgid "The source of the description"
+msgstr "Источник описания товара"
+
+#: includes/core/class-xfgmc-data.php:569
+msgid "Only Excerpt description"
+msgstr "Только Краткое описание"
+
+#: includes/core/class-xfgmc-data.php:573
+msgid "Only Full description"
+msgstr "Только Полное описание"
+
+#: includes/core/class-xfgmc-data.php:577
+msgid "Excerpt or Full description"
+msgstr "Краткое или Полное описание"
+
+#: includes/core/class-xfgmc-data.php:581
+msgid "Full or Excerpt description"
+msgstr "Полное или Краткое описание"
+
+#: includes/core/class-xfgmc-data.php:585
+msgid "Excerpt plus Full description"
+msgstr "Краткое плюс Полное описание"
+
+#: includes/core/class-xfgmc-data.php:589
+msgid "Full plus Excerpt description"
+msgstr "Полное плюс Краткое описание"
+
+#: includes/core/class-xfgmc-data.php:626
+msgid "List of allowed tags"
+msgstr "Список разрешенных тегов"
+
+#: includes/core/class-xfgmc-data.php:632
+msgid "From the field below"
+msgstr "Из поля ниже"
+
+#: includes/core/class-xfgmc-data.php:648
+msgid "Allowed tags"
+msgstr "Разрешенные теги"
+
+#: includes/core/class-xfgmc-data.php:667
+msgid "The varition description takes precedence over others"
+msgstr "Описание вариации имеет приоритет над другими"
+
+#: includes/core/class-xfgmc-data.php:693
+msgid "Use the filter"
+msgstr "Задействовать фильтр"
+
+#: includes/core/class-xfgmc-data.php:717
+msgid "Product link"
+msgstr "Ссылка на товар"
+
+#: includes/core/class-xfgmc-data.php:738
+msgid "Product mobile link"
+msgstr "Мобильная ссылка на товар"
+
+#: includes/core/class-xfgmc-data.php:741
+msgid ""
+"The mobile link attribute lets you include a URL to a mobile-optimized "
+"version of your landing page"
+msgstr ""
+"Атрибут \"мобильная ссылка\" позволяет указать URL целевой страницы, "
+"оптимизированной для мобильных устройств"
+
+#: includes/core/class-xfgmc-data.php:761
+msgid "Picture"
+msgstr "Изображение"
+
+#: includes/core/class-xfgmc-data.php:763
+msgid "Specify the size of the image to be used in the feed"
+msgstr "Укажите размер изображения, которое будет использоваться в фиде"
+
+#: includes/core/class-xfgmc-data.php:779
+#: includes/core/class-xfgmc-data.php:2198
+msgid "Quantity of products"
+msgstr "Количество товаров"
+
+#: includes/core/class-xfgmc-data.php:781
+#: includes/core/class-xfgmc-data.php:2200
+msgid ""
+"To make it work you must enable \"Manage stock\" and indicate \"Stock "
+"quantity\""
+msgstr ""
+"Чтобы это работало, вы должны включить \"Управлять запасами\" и указать "
+"\"Количество в запасе\""
+
+#: includes/core/class-xfgmc-data.php:802
+#: includes/core/class-xfgmc-data.php:807
+msgid "For pre-order products, establish availability equal to"
+msgstr "Для товаров на предзаказ установить доступность, равную"
+
+#: includes/core/class-xfgmc-data.php:830
+msgid "Availability date"
+msgstr "Дата поступления в продажу"
+
+#: includes/core/class-xfgmc-data.php:834
+msgid "This parameter applies only to products whose status is equal to"
+msgstr "Этот параметр применяется только к продуктам, статус которых равен"
+
+#: includes/core/class-xfgmc-data.php:846
+msgid "Use the current date"
+msgstr "Использовать текущую дату"
+
+#: includes/core/class-xfgmc-data.php:853
+msgid "Use the default value"
+msgstr "Использовать значение по умолчанию"
+
+#: includes/core/class-xfgmc-data.php:870
+msgid "Add days to the current date"
+msgstr "Добавить дни к текущей дате"
+
+#: includes/core/class-xfgmc-data.php:872
+msgid "This option will add the number of days you specified to today's date"
+msgstr "Эта опция добавит указанное вами количество дней к сегодняшней дате"
+
+#: includes/core/class-xfgmc-data.php:891
+msgid "Date, time, and timezone, ISO 8601 compliant"
+msgstr "Дата, время и часовой пояс в соответствии со стандартом ISO 8601"
+
+#: includes/core/class-xfgmc-data.php:906
+msgid "Product price"
+msgstr "Цена товара"
+
+#: includes/core/class-xfgmc-data.php:925
+#: includes/core/class-xfgmc-data.php:935
+msgid "Shop currency"
+msgstr "Валюта магазина"
+
+#: includes/core/class-xfgmc-data.php:927
+msgid "Uppercase letter"
+msgstr "Заглавными буквами"
+
+#: includes/core/class-xfgmc-data.php:945
+msgid "Sale price"
+msgstr "Старая цена"
+
+#: includes/core/class-xfgmc-data.php:947
+msgid ""
+"In sale price indicates the old price of the goods, which must necessarily "
+"be higher than the new price (price)"
+msgstr ""
+"В sale price указывается старая цена товара, которая обязательно должна быть "
+"выше новой цены (price)"
+
+#: includes/core/class-xfgmc-data.php:967
+#: includes/core/class-xfgmc-data.php:968
+#: includes/core/class-xfgmc-data.php:986
+#: includes/core/class-xfgmc-data.php:987
+msgid "Shop SKU"
+msgstr "Артикул магазина"
+
+#: includes/core/class-xfgmc-data.php:1026
+#: includes/core/class-xfgmc-data.php:1027
+msgid "Google product type"
+msgstr "Google тип товара"
+
+#: includes/core/class-xfgmc-data.php:1047
+msgid "Add root element"
+msgstr "Добавить корневой элемент"
+
+#: includes/core/class-xfgmc-data.php:1049
+msgid "Main"
+msgstr "Главная"
+
+#: includes/core/class-xfgmc-data.php:1063
+#: includes/core/class-xfgmc-data.php:1064
+msgid "Brand"
+msgstr "Брэнд"
+
+#: includes/core/class-xfgmc-data.php:1074
+msgid "WooCommerce brands"
+msgstr "Бренды WooCommerce"
+
+#: includes/core/class-xfgmc-data.php:1083
+#: includes/core/class-xfgmc-data.php:1420
+msgid "Default value from field"
+msgstr "Значение из поля"
+
+#: includes/core/class-xfgmc-data.php:1123
+msgid "GTIN"
+msgstr "Штрихкод"
+
+#: includes/core/class-xfgmc-data.php:1135
+#: includes/core/class-xfgmc-data.php:1141
+#: includes/core/class-xfgmc-data.php:1147
+#: includes/core/class-xfgmc-data.php:1192
+#: includes/core/class-xfgmc-data.php:1198
+#: includes/core/class-xfgmc-data.php:1204
+msgid "Substitute from the plugin"
+msgstr "Замена из плагина"
+
+#: includes/core/class-xfgmc-data.php:1180
+msgid "MPN"
+msgstr "MPN"
+
+#: includes/core/class-xfgmc-data.php:1256
+msgid "Condition"
+msgstr "Состояние товара"
+
+#: includes/core/class-xfgmc-data.php:1258
+msgid "The default value, unless otherwise specified in the product settings"
+msgstr "Значение по умолчанию, если иное не указано в настройках товара"
+
+#: includes/core/class-xfgmc-data.php:1328
+#: includes/core/class-xfgmc-data.php:1329
+#: includes/core/class-xfgmc-data.php:1388
+#: includes/core/class-xfgmc-data.php:1389
+msgid "Add to all"
+msgstr "Добавить всем"
+
+#: includes/core/class-xfgmc-data.php:1361
+msgid "Is bundle"
+msgstr "Набор"
+
+#: includes/core/class-xfgmc-data.php:1404
+#: includes/core/class-xfgmc-data.php:1405
+msgid "Age group"
+msgstr "Возрастная группа"
+
+#: includes/core/class-xfgmc-data.php:1443
+msgid "Acceptable values"
+msgstr "Допустимые значения"
+
+#: includes/core/class-xfgmc-data.php:1460
+msgid "Color"
+msgstr "Цвет"
+
+#: includes/core/class-xfgmc-data.php:1480
+msgid "Gender"
+msgstr "Пол"
+
+#: includes/core/class-xfgmc-data.php:1521
+msgid "Material"
+msgstr "Материал"
+
+#: includes/core/class-xfgmc-data.php:1540
+msgid "Pattern"
+msgstr "Узор"
+
+#: includes/core/class-xfgmc-data.php:1623
+msgid "Size system"
+msgstr "Система размеров"
+
+#: includes/core/class-xfgmc-data.php:1672
+msgid "Item group ID"
+msgstr "ID группы товаров"
+
+#: includes/core/class-xfgmc-data.php:1674
+msgid ""
+"Use the item group ID attribute to group product variants in your product "
+"data"
+msgstr ""
+"Атрибут \"ID группы товаров\" используется, чтобы группировать варианты "
+"товара"
+
+#: includes/core/class-xfgmc-data.php:1694
+#: includes/core/class-xfgmc-data.php:1697
+#: includes/core/class-xfgmc-data.php:1959
+msgid "Length"
+msgstr "Длина"
+
+#: includes/core/class-xfgmc-data.php:1705
+#: includes/core/class-xfgmc-data.php:1731
+#: includes/core/class-xfgmc-data.php:1756
+#: includes/core/class-xfgmc-data.php:1781
+#: includes/core/class-xfgmc-data.php:1967
+#: includes/core/class-xfgmc-data.php:1993
+#: includes/core/class-xfgmc-data.php:2018
+#: includes/core/class-xfgmc-data.php:2043
+msgid "Substitute from WooCommerce Shippings tab"
+msgstr "Подставлять из WooCommerce вкладки Доставка"
+
+#: includes/core/class-xfgmc-data.php:1710
+msgid "Dimensions"
+msgstr "Размеры"
+
+#: includes/core/class-xfgmc-data.php:1720
+#: includes/core/class-xfgmc-data.php:1723
+#: includes/core/class-xfgmc-data.php:1985
+msgid "Width"
+msgstr "Ширина"
+
+#: includes/core/class-xfgmc-data.php:1745
+#: includes/core/class-xfgmc-data.php:1748
+#: includes/core/class-xfgmc-data.php:2010
+msgid "Height"
+msgstr "Высота"
+
+#: includes/core/class-xfgmc-data.php:1770
+#: includes/core/class-xfgmc-data.php:1773
+#: includes/core/class-xfgmc-data.php:2035
+msgid "Weight"
+msgstr "Вес"
+
+#: includes/core/class-xfgmc-data.php:1798
+msgid ""
+"Customers will be sent to this URL rather than the value that you submit for "
+"the link [link] or mobile link [mobile_link] attributes"
+msgstr ""
+"Пользователи будут переходить на этот адрес, а не на тот, который "
+"представлен в атрибутах \"ссылка\" [link] и \"мобильная ссылка\" "
+"[mobile_link]"
+
+#: includes/core/class-xfgmc-data.php:1801
+#: includes/core/class-xfgmc-data.php:1825
+msgid "About this tag"
+msgstr "Об этом теге"
+
+#: includes/core/class-xfgmc-data.php:1803
+#: includes/core/class-xfgmc-data.php:1827
+msgid "see the Google help"
+msgstr "см. справку Гугл"
+
+#: includes/core/class-xfgmc-data.php:1822
+msgid "Custom elements"
+msgstr "Кастомные элементы"
+
+#: includes/core/class-xfgmc-data.php:1824
+msgid "To set a value, edit your products"
+msgstr "Чтобы задать значение, отредактируйте свои товары"
+
+#: includes/core/class-xfgmc-data.php:1846
+msgid "Shipping"
+msgstr "Доставка"
+
+#: includes/core/class-xfgmc-data.php:1849
+msgid ""
+"Google recommend that you set up shipping costs through Merchant Center "
+"settings instead of submitting the shipping attribute in the feed"
+msgstr ""
+"Google рекомендует настраивать стоимость доставки через настройки Merchant "
+"Center, а не указывать атрибут доставки в фиде"
+
+#: includes/core/class-xfgmc-data.php:1855
+msgid "To add this element to your feed make sure the fields are filled"
+msgstr "Чтобы добавить этот элемент в свой фид, убедитесь, что заполнены"
+
+#: includes/core/class-xfgmc-data.php:1858
+msgid "and"
+msgstr "и"
+
+#: includes/core/class-xfgmc-data.php:1859
+#: includes/core/class-xfgmc-data.php:1893
+#: includes/core/class-xfgmc-data.php:1914
+msgid "Delivery area"
+msgstr "Зона доставки"
+
+#: includes/core/class-xfgmc-data.php:1879
+msgid "Shipping country"
+msgstr "Страна доставки"
+
+#: includes/core/class-xfgmc-data.php:1928
+msgid "Shipping price"
+msgstr "Стоимость доставки"
+
+#: includes/core/class-xfgmc-data.php:1942
+msgid "Shipping service"
+msgstr "Служба доставки"
+
+#: includes/core/class-xfgmc-data.php:1956
+msgid "Shipping length"
+msgstr "Длина транспортной упаковки"
+
+#: includes/core/class-xfgmc-data.php:1972
+msgid "Shipping dimensions"
+msgstr "Габаритные размеры при транспортировке"
+
+#: includes/core/class-xfgmc-data.php:1982
+msgid "Shipping width"
+msgstr "Ширина транспортной упаковки"
+
+#: includes/core/class-xfgmc-data.php:2007
+msgid "Shipping height"
+msgstr "Высота транспортной упаковки"
+
+#: includes/core/class-xfgmc-data.php:2032
+msgid "Shipping weight"
+msgstr "Вес брутто"
+
+#: includes/core/class-xfgmc-data.php:2057
+msgid "Tax"
+msgstr "Налог"
+
+#: includes/core/class-xfgmc-data.php:2059
+msgid ""
+"Required for the United States when you need to override the account tax "
+"settings that you created in Merchant Center. This attribute exclusively "
+"covers US sales tax. Don't use it for other taxes, such as value-added tax "
+"(VAT) or import tax"
+msgstr ""
+"Атрибут является обязательным для товаров с таргетингом на США, если к ним "
+"применяются налоговые ставки, отличные от тех, которые указаны в настройках "
+"аккаунта Merchant Center. С его помощью можно указывать только налог с "
+"продаж. Не используйте его для налога на добавленную стоимость или налога на "
+"импорт"
+
+#: includes/core/class-xfgmc-data.php:2079
+msgid "Region"
+msgstr "Регион"
+
+#: includes/core/class-xfgmc-data.php:2084
+msgid "Idaho"
+msgstr "Айдахо"
+
+#: includes/core/class-xfgmc-data.php:2085
+msgid "Iowa"
+msgstr "Айова"
+
+#: includes/core/class-xfgmc-data.php:2086
+msgid "Alabama"
+msgstr "Алабама"
+
+#: includes/core/class-xfgmc-data.php:2087
+msgid "Alaska"
+msgstr "Аляска"
+
+#: includes/core/class-xfgmc-data.php:2088
+msgid "Arizona"
+msgstr "Аризона"
+
+#: includes/core/class-xfgmc-data.php:2089
+msgid "Arkansas"
+msgstr "Арканзас"
+
+#: includes/core/class-xfgmc-data.php:2090
+msgid "Wyoming"
+msgstr "Вайоминг"
+
+#: includes/core/class-xfgmc-data.php:2091
+msgid "Washington"
+msgstr "Вашингтон"
+
+#: includes/core/class-xfgmc-data.php:2092
+msgid "Vermont"
+msgstr "Вермонт"
+
+#: includes/core/class-xfgmc-data.php:2093
+msgid "Virginia"
+msgstr "Вирджиния"
+
+#: includes/core/class-xfgmc-data.php:2094
+msgid "Wisconsin"
+msgstr "Висконсин"
+
+#: includes/core/class-xfgmc-data.php:2095
+msgid "Hawai"
+msgstr "Гавайи"
+
+#: includes/core/class-xfgmc-data.php:2096
+msgid "Delaware"
+msgstr "Делавэр"
+
+#: includes/core/class-xfgmc-data.php:2097
+msgid "Georgia"
+msgstr "Джорджия"
+
+#: includes/core/class-xfgmc-data.php:2098
+msgid "West Virginia"
+msgstr "Западная Вирджиния"
+
+#: includes/core/class-xfgmc-data.php:2099
+msgid "Illinois"
+msgstr "Иллинойс"
+
+#: includes/core/class-xfgmc-data.php:2100
+msgid "Indiana"
+msgstr "Индиана"
+
+#: includes/core/class-xfgmc-data.php:2101
+msgid "California"
+msgstr "Калифорния"
+
+#: includes/core/class-xfgmc-data.php:2102
+msgid "Kansas"
+msgstr "Канзас"
+
+#: includes/core/class-xfgmc-data.php:2103
+msgid "Kentucky"
+msgstr "Кентукки"
+
+#: includes/core/class-xfgmc-data.php:2104
+msgid "Colorado"
+msgstr "Колорадо"
+
+#: includes/core/class-xfgmc-data.php:2105
+msgid "Connecticut"
+msgstr "Коннектикут"
+
+#: includes/core/class-xfgmc-data.php:2106
+msgid "Louisiana"
+msgstr "Луизиана"
+
+#: includes/core/class-xfgmc-data.php:2107
+msgid "Massachusetts"
+msgstr "Массачусетс"
+
+#: includes/core/class-xfgmc-data.php:2108
+msgid "Minnesota"
+msgstr "Миннесота"
+
+#: includes/core/class-xfgmc-data.php:2109
+msgid "Mississippi"
+msgstr "Миссисипи"
+
+#: includes/core/class-xfgmc-data.php:2110
+msgid "Missouri"
+msgstr "Миссури"
+
+#: includes/core/class-xfgmc-data.php:2111
+msgid "Michigan"
+msgstr "Мичиган"
+
+#: includes/core/class-xfgmc-data.php:2112
+msgid "Montana"
+msgstr "Монтана"
+
+#: includes/core/class-xfgmc-data.php:2113
+msgid "Maine"
+msgstr "Мэн"
+
+#: includes/core/class-xfgmc-data.php:2114
+msgid "Maryland"
+msgstr "Мэриленд"
+
+#: includes/core/class-xfgmc-data.php:2115
+msgid "Nebraska"
+msgstr "Небраска"
+
+#: includes/core/class-xfgmc-data.php:2116
+msgid "Nevada"
+msgstr "Невада"
+
+#: includes/core/class-xfgmc-data.php:2117
+msgid "New Hampshire"
+msgstr "Нью-Гэмпшир"
+
+#: includes/core/class-xfgmc-data.php:2118
+msgid "New Jersey"
+msgstr "Нью-Джерси"
+
+#: includes/core/class-xfgmc-data.php:2119
+msgid "New York"
+msgstr "Нью-Йорк"
+
+#: includes/core/class-xfgmc-data.php:2120
+msgid "New Mexico"
+msgstr "Нью-Мексико"
+
+#: includes/core/class-xfgmc-data.php:2121
+msgid "Ohio"
+msgstr "Огайо"
+
+#: includes/core/class-xfgmc-data.php:2122
+msgid "Oklahoma"
+msgstr "Оклахома"
+
+#: includes/core/class-xfgmc-data.php:2123
+msgid "Oregon"
+msgstr "Орегон"
+
+#: includes/core/class-xfgmc-data.php:2124
+msgid "Pennsylvania"
+msgstr "Пенсильвания"
+
+#: includes/core/class-xfgmc-data.php:2125
+msgid "Rhode Island"
+msgstr "Род-Айленд"
+
+#: includes/core/class-xfgmc-data.php:2126
+msgid "North Dakota"
+msgstr "Северная Дакота"
+
+#: includes/core/class-xfgmc-data.php:2127
+msgid "North Carolina"
+msgstr "Северная Каролина"
+
+#: includes/core/class-xfgmc-data.php:2128
+msgid "Tennessee"
+msgstr "Теннесси"
+
+#: includes/core/class-xfgmc-data.php:2129
+msgid "Texas"
+msgstr "Техас"
+
+#: includes/core/class-xfgmc-data.php:2130
+msgid "Florida"
+msgstr "Флорида"
+
+#: includes/core/class-xfgmc-data.php:2131
+msgid "South Dakota"
+msgstr "Южная Дакота"
+
+#: includes/core/class-xfgmc-data.php:2132
+msgid "South Carolina"
+msgstr "Южная Каролина"
+
+#: includes/core/class-xfgmc-data.php:2133
+msgid "Utah"
+msgstr "Юта"
+
+#: includes/core/class-xfgmc-data.php:2146
+msgid "Tax rate"
+msgstr "Налоговая ставка"
+
+#: includes/core/class-xfgmc-data.php:2160
+msgid "Shipping tax"
+msgstr "Налог на доставку"
+
+#: includes/core/class-xfgmc-data.php:2220
+msgid "Store code"
+msgstr "Код магазина"
+
+#: includes/core/class-xfgmc-data.php:2223
+msgid ""
+"Required for products in local inventory ads, free local listings, and "
+"vehicle ads"
+msgstr ""
+"Обязательный атрибут для товаров, продвигаемых в рекламе местного "
+"ассортимента, бесплатных местных предложениях и рекламе автомобилей"
+
+#: includes/core/class-xfgmc-data.php:2262
+msgid "Whot export"
+msgstr "Что экспортировать"
+
+#: includes/core/class-xfgmc-data.php:2268
+msgid "Simple & Variable products"
+msgstr "Вариативные и обычные товары"
+
+#: includes/core/class-xfgmc-data.php:2272
+msgid "Only simple products"
+msgstr "Только обычные товары"
+
+#: includes/core/class-xfgmc-data.php:2276
+msgid "Only variable products"
+msgstr "Только вариативные товары"
+
+#: includes/core/class-xfgmc-data.php:2289
+msgid "Change the domain to"
+msgstr "Изменить домен на"
+
+#: includes/core/class-xfgmc-data.php:2291
+msgid ""
+"The option allows you to change the domain of your site in the feed to any "
+"other"
+msgstr "Опция позволяет изменить домен вашего сайта в фиде на любой другой"
+
+#: includes/core/class-xfgmc-data.php:2306
+msgid "Clear URL from GET-paramrs"
+msgstr "Очистить URL от GET-параметров"
+
+#: includes/core/class-xfgmc-data.php:2325
+msgid "Remove default.png from XML"
+msgstr "Удалить default.png из XML"
+
+#: includes/core/class-xfgmc-data.php:2343
+msgid "Take steps to remove products with the same ID from the feed"
+msgstr "Примите меры по удалению товаров с одинаковым ID из фида"
+
+#: includes/core/class-xfgmc-data.php:2348
+msgid "This is an experimental feature"
+msgstr "Это экспериментальная функция"
+
+#: includes/core/class-xfgmc-data.php:2352
+msgid ""
+"It should only be used if you have an error related to the presence of "
+"products with the same identifier in the product feed"
+msgstr ""
+"Её следует использовать только в том случае, если у вас возникла ошибка, "
+"связанная с наличием товаров с одинаковым ID в фиде"
+
+#: includes/core/class-xfgmc-data.php:2371
+msgid "Skip products without pictures"
+msgstr "Пропустить товары без картинок"
+
+#: includes/core/class-xfgmc-data.php:2389
+msgid "Skip products without description"
+msgstr "Пропустить товары без описания"
+
+#: includes/core/class-xfgmc-data.php:2407
+#: includes/feeds/traits/common/trait-xfgmc-t-common-skips.php:146
+#: includes/feeds/traits/common/trait-xfgmc-t-common-skips.php:194
+msgid "Skip missing products"
+msgstr "Исключать товары которых нет в наличии"
+
+#: includes/core/class-xfgmc-data.php:2408
+msgid "except for products for which a pre-order is permitted"
+msgstr "за исключением товаров, для которых разрешен предварительный заказ"
+
+#: includes/core/class-xfgmc-data.php:2426
+#: includes/feeds/traits/common/trait-xfgmc-t-common-skips.php:168
+#: includes/feeds/traits/common/trait-xfgmc-t-common-skips.php:178
+#: includes/feeds/traits/common/trait-xfgmc-t-common-skips.php:211
+msgid "Skip backorders products"
+msgstr "Исключать из фида товары для предзаказа"
+
+#: includes/core/class-xfgmc-data.php:2461
+msgid "Feed currency"
+msgstr "Валюта фида"
+
+#: includes/core/class-xfgmc-data.php:2463
+msgid "You have plugin installed"
+msgstr "У вас установлен плагин"
+
+#: includes/core/class-xfgmc-data.php:2465
+msgid "Indicate in what currency the prices should be"
+msgstr "Укажите, в какой валюте должны быть цены"
+
+#: includes/core/class-xfgmc-data.php:2466
+msgid "Please note"
+msgstr "Обратите внимание"
+
+#: includes/core/class-xfgmc-data.php:2467
+msgid "Google Merchant Center only supports the following currencies"
+msgstr "Google Merchant Center поддерживает только следующие валюты"
+
+#: includes/core/class-xfgmc-data.php:2469
+msgid "Choosing a different currency can lead to errors"
+msgstr "Выбор другой валюты может привести к ошибкам"
+
+#: includes/core/class-xfgmc-data.php:2660
+msgid "Full size (default)"
+msgstr "Полный размер (по умолчанию)"
+
+#: includes/core/class-xfgmc-data.php:2668
+msgid "сrop thumbnail to exact dimensions"
+msgstr "обрезать миниатюру точно по размерам"
+
+#: includes/cron/class-xfgmc-cron-manager.php:39
+msgid "Every minute"
+msgstr "Каждую минуту"
+
+#: includes/cron/class-xfgmc-cron-manager.php:69
+msgid "The CRON task for creating a feed has started"
+msgstr "Запущена CRON задача для создания фида"
+
+#: includes/cron/class-xfgmc-cron-manager.php:90
+#: includes/feeds/class-xfgmc-generation-xml.php:288
+#: includes/feeds/class-xfgmc-generation-xml.php:326
+msgid "Failed to schedule a CRON task"
+msgstr "Не удалось запланировать CRON задачу"
+
+#: includes/cron/class-xfgmc-cron-manager.php:100
+msgid "Successful CRON task planning"
+msgstr "CRON задача успешно запланирована"
+
+#: includes/cron/class-xfgmc-cron-manager.php:143
+msgid "The CRON task started"
+msgstr "Стартовала CRON задача"
+
+#: includes/cron/class-xfgmc-cron-manager.php:172
+msgid "The CRON task completed in"
+msgstr "Задача CRON завершилась через"
+
+#: includes/feeds/class-xfgmc-feed-updater.php:58
+msgid "Creating a cache file is not required for this type"
+msgstr "Для этого типа файлов создание файла кэша не требуется"
+
+#: includes/feeds/class-xfgmc-feed-updater.php:103
+msgid "Starting a quick feed build"
+msgstr "Начинаем быструю сборку фида"
+
+#: includes/feeds/class-xfgmc-feed-updater.php:169
+msgid ""
+"After changing the stock product the task of creating the feed has been "
+"queued for completion"
+msgstr ""
+"После изменения остатков товара задача по созданию фида была поставлена в "
+"очередь на выполнение"
 
 #: includes/feeds/class-xfgmc-generation-xml.php:108
 msgid "An error occurred when writing the temporary feed file"
@@ -2255,6 +2398,38 @@ msgstr "Проверка обновлений на наличие ошибок"
 msgid "Error when requesting information about the plugin"
 msgstr "Ошибка при запросе информации о плагине"
 
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:236
+msgid "This feed is currently being created"
+msgstr "В настоящее время этот фид создается"
+
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:238
+msgid ""
+"Are you sure you want to interrupt the current process and start generating "
+"from scratch"
+msgstr ""
+"Вы уверены, что хотите прервать текущий процесс и начать генерацию с нуля"
+
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:246
+msgid "The action was canceled by the user"
+msgstr "Действие было отменено пользователем"
+
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:294
+msgid "The maximum step execution according to the settings is"
+msgstr ""
+"Максимальное время выполнения шага в соответствии с настройками составляе"
+
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:296 sandbox.php:30
+msgid "seconds"
+msgstr "секунд"
+
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:324
+msgid "The creation of the feed has been completed successfully"
+msgstr "Создание фида успешно завершено"
+
+#: includes/wp-cli/class-xfgmc-wp-cli-command.php:441
+msgid "Quick feed build generation has been completed successfully"
+msgstr "Быстрая сборка фида успешно завершена"
+
 #: sandbox.php:15
 msgid "The sandbox is working. The result will appear below"
 msgstr "Песочница работает. Результат появится ниже"
@@ -2266,10 +2441,6 @@ msgstr "Песочница работает правильно"
 #: sandbox.php:28
 msgid "The execution time of the test script was"
 msgstr "Время выполнения тестового скрипта составило"
-
-#: sandbox.php:30
-msgid "seconds"
-msgstr "секунд"
 
 #: sandbox.php:34
 msgid "The sandbox is not active. To activate, edit the file"

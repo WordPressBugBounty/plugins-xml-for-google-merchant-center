@@ -5,10 +5,10 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.8 (19-11-2025)
+ * @version    4.1.0 (22-03-2026)
  *
  * @package    XFGMC
- * @subpackage XFGMC/includes
+ * @subpackage XFGMC/includes/feeds
  */
 
 /**
@@ -280,7 +280,7 @@ class XFGMC_Generation_XML {
 					$this->stop();
 				}
 
-				$planning_result = XFGMC_Admin::cron_sborki_task_planning( $this->get_feed_id() );
+				$planning_result = XFGMC_Cron_Manager::cron_sborki_task_planning( $this->get_feed_id() );
 				if ( false === $planning_result ) {
 					new XFGMC_Error_Log( sprintf(
 						'FEED #%1$s; ERROR: %2$s `xfgmc_cron_sborki` %3$s 1; %4$s: %5$s; %6$s: %7$s',
@@ -318,7 +318,7 @@ class XFGMC_Generation_XML {
 				);
 
 				// сразу запланируем задачу через 32 секунды
-				$planning_result = XFGMC_Admin::cron_sborki_task_planning( $this->get_feed_id(), 32 );
+				$planning_result = XFGMC_Cron_Manager::cron_sborki_task_planning( $this->get_feed_id(), 32 );
 				if ( false === $planning_result ) {
 					new XFGMC_Error_Log( sprintf(
 						'FEED #%1$s; ERROR: %2$s `xfgmc_cron_sborki` %3$s 2; %4$s: %5$s; %6$s: %7$s',
@@ -490,7 +490,7 @@ class XFGMC_Generation_XML {
 			case 3:
 
 				// сразу запланируем задачу через 32 секунды
-				$planning_result = XFGMC_Admin::cron_sborki_task_planning( $this->get_feed_id(), 32 );
+				$planning_result = XFGMC_Cron_Manager::cron_sborki_task_planning( $this->get_feed_id(), 32 );
 
 				// постов нет, пишем концовку файла
 				$last_element_feed = (int) univ_option_get(
