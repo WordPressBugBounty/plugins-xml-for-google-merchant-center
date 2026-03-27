@@ -3,8 +3,8 @@ Contributors: icopydoc
 Donate link: https://pay.cloudtips.ru/p/45d8ff3f
 Tags: xml, google, product feed, export, woocommerce
 Requires at least: 5.0
-Tested up to: 6.9
-Stable tag: 4.1.0
+Tested up to: 6.9.4
+Stable tag: 4.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,12 +48,19 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 
 == Changelog ==
 
+= 4.1.1 =
+*Release Date 27-03-2026*
+
+* Fixed interface bugs.
+* Fixed bugs with `g:adult` and `g:google_product_type`.
+
 = 4.1.0 =
 *Release Date 22-03-2026*
 
 * Fixed a security bug.
 * Fixed bugs with `g:product_length`, `g:product_width`, `g:product_height` and `g:product_weight`.
 * Added support for the tag `g:ads_redirect`.
+* Added support for WP-CLI.
 
 = 4.0.10 =
 *Release Date 12-01-2026*
@@ -125,9 +132,8 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 
 == Upgrade Notice ==
 
-= 4.1.0 =
-*Release Date 22-03-2026*
+= 4.1.1 =
+*Release Date 27-03-2026*
 
-* Fixed a security bug.
-* Fixed bugs with `g:product_length`, `g:product_width`, `g:product_height` and `g:product_weight`.
-* Added support for the tag `g:ads_redirect`.
+* Fixed interface bugs.
+* Fixed bugs with `g:adult` and `g:google_product_type`.

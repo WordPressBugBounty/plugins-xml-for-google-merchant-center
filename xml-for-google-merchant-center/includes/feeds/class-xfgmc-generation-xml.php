@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.1.0 (22-03-2026)
+ * @version    4.1.1 (27-03-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -590,7 +590,7 @@ class XFGMC_Generation_XML {
 	 * 
 	 * @return string
 	 */
-	protected function get_feed_header() {
+	public function get_feed_header() {
 
 		$xml_rules = common_option_get(
 			'xfgmc_xml_rules',
@@ -688,21 +688,23 @@ class XFGMC_Generation_XML {
 	 * 
 	 * @return string
 	 */
-	protected function get_feed_footer( $tracing = '' ) {
+	public function get_feed_footer( $tracing = '' ) {
 
 		$result_xml = '';
-		$result_xml .= $this->get_feed_body( $result_xml );
-		if ( empty( $result_xml ) ) {
-			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s (%3$s); %4$s: %5$s; %6$s: %7$s',
-				$this->get_feed_id(),
-				__( 'Data loss when writing a feed file', 'xml-for-google-merchant-center' ),
-				$tracing,
-				__( 'File', 'xml-for-google-merchant-center' ),
-				'class-xfgmc-generation-xml.php',
-				__( 'Line', 'xml-for-google-merchant-center' ),
-				__LINE__
-			) );
-			return $result_xml;
+		if ( $tracing !== 'sumulation' ) {
+			$result_xml .= $this->get_feed_body( $result_xml );
+			if ( empty( $result_xml ) ) {
+				new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s (%3$s); %4$s: %5$s; %6$s: %7$s',
+					$this->get_feed_id(),
+					__( 'Data loss when writing a feed file', 'xml-for-google-merchant-center' ),
+					$tracing,
+					__( 'File', 'xml-for-google-merchant-center' ),
+					'class-xfgmc-generation-xml.php',
+					__( 'Line', 'xml-for-google-merchant-center' ),
+					__LINE__
+				) );
+				return $result_xml;
+			}
 		}
 
 		$result_xml .= new XFGMC_Get_Closed_Tag( 'channel' );

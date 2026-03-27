@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.1.0 (22-03-2026)
+ * @version    4.1.1 (27-03-2025)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -111,8 +111,6 @@ trait XFGMC_T_Simple_Get_Dimensions {
 		);
 		if ( empty( $product_weight ) || $product_weight === 'woo_shippings' ) {
 			$product_weight_xml = $this->get_product()->get_weight();
-			var_dump( $product_weight_xml );
-			var_dump( gettype( $product_weight_xml ) );
 			if ( ! empty( $product_weight_xml ) && get_option( 'woocommerce_weight_unit' ) !== 'kg' ) {
 				$product_weight_xml = round( wc_get_weight( $product_weight_xml, 'kg' ), 3 );
 			}
