@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      4.1.0
- * @version    4.1.0 (22-03-2026)
+ * @version    4.2.0 (05-04-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin/cron
@@ -24,6 +24,36 @@
  * @author     Maxim Glazunov <icopydoc@gmail.com>
  */
 class XFGMC_Cron_Manager {
+
+	/**
+	 * Registers all hooks related to this component through the given loader.
+	 *
+	 * This method sets up the functionality of the current module by attaching callbacks for:
+	 * - Adding custom cron schedules (e.g. every minute, three hours, six hours, every two days).
+	 * - Starting the full feed creation process via `xfgmc_cron_start_feed_creation`.
+	 * - Performing incremental feed generation every minute using `xfgmc_cron_sborki` until complete.
+	 * 
+	 * Each hook is registered with proper priority and context via the loader, ensuring
+	 * reliable and organized integration with the WordPress hook system.
+	 *
+	 * @access  public
+	 *
+	 * @param XFGMC_Loader $loader The loader instance responsible for managing WordPress actions and filters.
+	 *
+	 * @return void
+	 */
+	public function init_hooks( XFGMC_Loader $loader ) {
+
+		// Add cron intervals to WordPress
+		$$loader->add_action( 'cron_schedules', $this, 'add_cron_intervals' );
+
+		// этот крон срабатывает в момент запуска генерации фида с нуля
+		$$loader->add_action( 'xfgmc_cron_start_feed_creation', $this, 'do_start_feed_creation' );
+
+		// этот крон срабатывает в процессе генерации фида. вызывает кроном xfgmc_cron_start_feed_creation
+		$$loader->add_action( 'xfgmc_cron_sborki', $this, 'do_it_every_minute' );
+
+	}
 
 	/**
 	 * Add cron intervals to WordPress. Function for `cron_schedules` action-hook.
