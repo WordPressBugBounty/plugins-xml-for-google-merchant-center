@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      4.1.0
- * @version    4.2.0 (05-04-2026)
+ * @version    4.3.0 (05-04-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin/cron
@@ -45,13 +45,13 @@ class XFGMC_Cron_Manager {
 	public function init_hooks( XFGMC_Loader $loader ) {
 
 		// Add cron intervals to WordPress
-		$$loader->add_action( 'cron_schedules', $this, 'add_cron_intervals' );
+		$loader->add_action( 'cron_schedules', $this, 'add_cron_intervals' );
 
 		// этот крон срабатывает в момент запуска генерации фида с нуля
-		$$loader->add_action( 'xfgmc_cron_start_feed_creation', $this, 'do_start_feed_creation' );
+		$loader->add_action( 'xfgmc_cron_start_feed_creation', $this, 'do_start_feed_creation' );
 
 		// этот крон срабатывает в процессе генерации фида. вызывает кроном xfgmc_cron_start_feed_creation
-		$$loader->add_action( 'xfgmc_cron_sborki', $this, 'do_it_every_minute' );
+		$loader->add_action( 'xfgmc_cron_sborki', $this, 'do_it_every_minute' );
 
 	}
 

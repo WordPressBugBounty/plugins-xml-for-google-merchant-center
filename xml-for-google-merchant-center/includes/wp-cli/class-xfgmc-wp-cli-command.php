@@ -8,7 +8,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      4.1.0
- * @version    4.1.0 (22-03-2026)
+ * @version    4.3.0 (05-04-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/wp-cli
@@ -87,7 +87,7 @@ class XFGMC_WP_CLI_Command extends WP_CLI_Command {
 			$table[] = [
 				'ID' => $feed_id,
 				'Feed URL' => $feed_url,
-				'Last Generated Start' => $$date_sborki_start ?: '-',
+				'Last Generated Start' => $date_sborki_start ?: '-',
 				'Last Generated End' => $date_sborki_end ?: '-',
 				'Status' => $status_text,
 			];
