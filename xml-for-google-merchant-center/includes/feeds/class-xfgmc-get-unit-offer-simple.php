@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Get unit for Simple Products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.1.0 (22-03-2026)
+ * @version    4.4.0 (14-08-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -37,6 +37,7 @@ class XFGMC_Get_Unit_Offer_Simple extends XFGMC_Get_Unit_Offer {
 	use XFGMC_T_Simple_Get_Custom_Label;
 	use XFGMC_T_Simple_Get_Description;
 	use XFGMC_T_Simple_Get_Dimensions;
+	use XFGMC_T_Simple_Get_Shipping_Pickup_Cost;
 	use XFGMC_T_Simple_Get_Fb_Product_Category;
 	use XFGMC_T_Simple_Get_Gender;
 	use XFGMC_T_Simple_Get_Google_Product_Category;
@@ -53,6 +54,7 @@ class XFGMC_Get_Unit_Offer_Simple extends XFGMC_Get_Unit_Offer {
 	use XFGMC_T_Simple_Get_Multipack;
 	use XFGMC_T_Simple_Get_Open_Item_Tag;
 	use XFGMC_T_Simple_Get_Pattern;
+	use XFGMC_T_Simple_Get_Pickup_Sla;
 	use XFGMC_T_Simple_Get_Price;
 	use XFGMC_T_Simple_Get_Product_Type;
 	use XFGMC_T_Simple_Get_Quantity;

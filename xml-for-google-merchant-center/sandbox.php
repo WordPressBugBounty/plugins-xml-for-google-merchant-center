@@ -1,9 +1,10 @@
-<?php defined( 'ABSPATH' ) || exit;
+<?php defined( 'WPINC' ) || exit;
+
 /**
  * Sandbox function.
  * 
  * @since 0.1.0
- * @version 4.0.3 (17-06-2025)
+ * @version 4.4.0 (14-08-2026)
  *
  * @return void
  */

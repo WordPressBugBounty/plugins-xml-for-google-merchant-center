@@ -1,4 +1,5 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
+
 /**
  * Default Plugin Settings Structure.
  *
@@ -12,13 +13,12 @@
  * timestamps), while public ones are displayed in the settings form.
  *
  * @since      0.1.0
- * @version    4.1.1 (27-03-2025)
+ * @version    4.4.0 (14-08-2026)
  * @package    XFGMC
  * @subpackage XFGMC/includes/core
  * 
  * @param $registered_image_sizes  Get registered image sizes.
  */
-defined( 'ABSPATH' ) || exit;
 
 /** 
  * @var array $data_arr The resulting array of settings; returned implicitly via include. 
@@ -222,6 +222,12 @@ $data_arr = [
 					'value' => 'merchant_center',
 					'text' => sprintf( '%s',
 						__( 'Google Merchant Center', 'xml-for-google-merchant-center' )
+					)
+				],
+				[
+					'value' => 'merchant_center_local_inventory',
+					'text' => sprintf( '%s',
+						__( 'Google Merchant Center Local Inventory', 'xml-for-google-merchant-center' )
 					)
 				],
 				[
@@ -942,6 +948,25 @@ $data_arr = [
 			],
 			'tag_name' => 'sale_price',
 			'tag_name_for_desc' => 'g:sale_price'
+		]
+	],
+	[
+		'opt_name' => 'xfgmc_availability_date', // default value
+		'def_val' => '',
+		'mark' => 'public',
+		'type' => 'text',
+		'tab' => 'offer_data_tab',
+		'data' => [
+			'has_next' => false,
+			'table_location' => 'td-td',
+			'label' => __( 'Default value', 'xml-for-google-merchant-center' ),
+			'desc' => __(
+				'Date, time, and timezone, ISO 8601 compliant',
+				'xml-for-google-merchant-center'
+			),
+			'placeholder' => '2025-05-29T13:00-0800',
+			'tag_name' => 'availability_date',
+			'tag_name_for_desc' => 'g:availability_date'
 		]
 	],
 	[
@@ -1907,6 +1932,98 @@ $data_arr = [
 			'placeholder' => '',
 			'tag_name' => 'shipping',
 			'tag_name_for_desc' => 'g:shipping'
+		]
+	],
+	[
+		'opt_name' => 'xfgmc_pickup_sla',
+		'def_val' => 'multi-week',
+		'mark' => 'public',
+		'type' => 'select',
+		'tab' => 'offer_data_tab',
+		'data' => [
+			'label' => __( 'Pickup SLA', 'xml-for-google-merchant-center' ),
+			'desc' => __(
+				'Use the pickup SLA attribute to specify the expected date when an order will be ready for pickup, relative to when the order is placed',
+				'xml-for-google-merchant-center'
+			),
+			'woo_attr' => false,
+			'default_value' => false,
+			'key_value_arr' => [
+				[ 'text' => 'same day', 'value' => __( 'Same day', 'xml-for-google-merchant-center' ) ],
+				[ 'text' => 'next day', 'value' => __( 'Next day', 'xml-for-google-merchant-center' ) ],
+				[ 'text' => '2-day', 'value' => sprintf( '2 %s', _x( 'days', '2-4 days', 'xml-for-google-merchant-center' ) ) ],
+				[ 'text' => '3-day', 'value' => sprintf( '3 %s', _x( 'days', '2-4 days', 'xml-for-google-merchant-center' ) ) ],
+				[ 'text' => '4-day', 'value' => sprintf( '4 %s', _x( 'days', '2-4 days', 'xml-for-google-merchant-center' ) ) ],
+				[ 'text' => '5-day', 'value' => sprintf( '5 %s', _x( 'days', '5-6 days', 'xml-for-google-merchant-center' ) ) ],
+				[ 'text' => '6-day', 'value' => sprintf( '6 %s', _x( 'days', '5-6 days', 'xml-for-google-merchant-center' ) ) ],
+				[ 'text' => 'multi-week', 'value' => __( 'More than a week later', 'xml-for-google-merchant-center' ) ]
+			],
+			'tag_name' => 'pickup_sla',
+			'tag_name_for_desc' => 'g:pickup_sla'
+		]
+	],
+	[
+		'opt_name' => 'xfgmc_pickup_cost',
+		'def_val' => 'disabled',
+		'mark' => 'public',
+		'type' => 'select',
+		'tab' => 'offer_data_tab',
+		'data' => [
+			'label' => __( 'Pickup cost', 'xml-for-google-merchant-center' ),
+			'desc' => '',
+			'woo_attr' => false,
+			'default_value' => false,
+			'key_value_arr' => [
+				[ 'value' => 'disabled', 'text' => __( 'Disabled', 'xml-for-google-merchant-center' ) ],
+				[ 'value' => 'enabled', 'text' => __( 'Enabled', 'xml-for-google-merchant-center' ) ]
+			],
+			'tag_name' => 'pickup_cost',
+			'tag_name_for_desc' => 'g:pickup_cost'
+		]
+	],
+	[
+		'opt_name' => 'xfgmc_pickup_cost_flat_rate',
+		'def_val' => 'true',
+		'mark' => 'public',
+		'type' => 'text',
+		'tab' => 'offer_data_tab',
+		'data' => [
+			'label' => __( 'Pickup flat rate', 'xml-for-google-merchant-center' ),
+			'desc' => sprintf(
+				'%s: %s.<br/>%s',
+				__( 'Pickup flat rate', 'xml-for-google-merchant-center' ),
+				'&lt;g:pickup_cost_flat_rate>3.00 USD</g:pickup_cost_flat_rate&gt;',
+				__(
+					"Specify only numbers, the decimal separator is a dot. The store's currency will be automatically added to the feed",
+					"xml-for-google-merchant-center"
+				)
+			),
+			'placeholder' => '3.00',
+			'tag_name' => 'pickup_cost',
+			'tag_name_for_desc' => 'g:pickup_cost_flat_rate'
+		]
+	],
+	[
+		'opt_name' => 'xfgmc_pick_cost_free_threshold',
+		'def_val' => 'disabled',
+		'mark' => 'public',
+		'type' => 'text',
+		'tab' => 'offer_data_tab',
+		'data' => [
+			'has_next' => false,
+			'label' => __( 'Pickup cost free threshold', 'xml-for-google-merchant-center' ),
+			'desc' => sprintf(
+				'%s: %s.<br/>%s',
+				__( 'Pickup cost free threshold', 'xml-for-google-merchant-center' ),
+				'&lt;g:pick_cost_free_threshold>20.00 USD</g:pick_cost_free_threshold&gt;',
+				__(
+					"Specify only numbers, the decimal separator is a dot. The store's currency will be automatically added to the feed",
+					"xml-for-google-merchant-center"
+				)
+			),
+			'placeholder' => '20.00',
+			'tag_name' => 'pickup_cost',
+			'tag_name_for_desc' => 'g:pick_cost_free_threshold'
 		]
 	],
 	[

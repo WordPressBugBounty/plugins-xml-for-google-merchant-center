@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Sets the list of tags depending on the selected feed rules.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.1.0 (22-03-2026)
+ * @version    4.4.0 (14-08-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -45,7 +45,7 @@ class XFGMC_Rules_List {
 					// TODO: 'additional_image_link', 'virtual_model_link',
 					'mobile_link', 'availability', 'availability_date',
 					// TODO: 'cost_of_goods_sold', 'expiration_date'
-					'price', 'sale_price', /* //'sale_price_effective_date', внтури тега sale_price */
+					'price', 'sale_price', // ! 'sale_price_effective_date' - внутри sale_price
 					'unit_pricing_measure', 'unit_pricing_base_measure', // TODO: 'installment',
 					// TODO: 'subscription_cost', 'loyalty_program', 'auto_pricing_min_price',
 					'google_product_category', 'product_type',
@@ -64,12 +64,24 @@ class XFGMC_Rules_List {
 					'tax', 'tax_category',
 					'quantity', 'store_code'
 				],
+				'merchant_center_local_inventory' => [
+					// https://support.google.com/merchants/answer/14819809?sjid=15507476470920692269-EU#definitions
+					// https://support.google.com/merchants/answer/14980864?hl=ru
+					'open_item_tag', 'id',
+					'title', 'description', 'link', 'image_link', // ? есть ли поддержка этих 4х тегов
+					'store_code', 'availability', 'price', 'sale_price', // ! 'sale_price_effective_date' - внутри sale_price
+					// TODO: 'loyalty_program',
+					'quantity',
+					// TODO:  pickup_method, 
+					'pickup_sla', 'pickup_cost', // TODO: 'local_shipping_label'
+				],
 				'facebook' => [
 					// Facebook
 					// https://www.facebook.com/business/help/120325381656392?id=725943027795860&recommended_by=2041876302542944
 					'open_item_tag', 'id', 'title', 'description', 'availability', 'condition',
-					'price', 'sale_price', 'link', 'image_link', 'brand',
-					// TODO: 'quantity_to_sell_on_facebook', 'sale_price_effective_date'
+					'price', 'sale_price', // ! 'sale_price_effective_date' - внутри sale_price
+					'link', 'image_link', 'brand',
+					// TODO: 'quantity_to_sell_on_facebook',
 					'size', 'item_group_id', // TODO: 'status', 'additional_image_link',
 					'gtin', 'mpn', 'google_product_category', 'fb_product_category',
 					'color', 'gender', 'size', 'age_group', 'material', 'pattern',
@@ -87,7 +99,7 @@ class XFGMC_Rules_List {
 					// TODO: 'additional_image_link', 'virtual_model_link', 'mobile_link',
 					'availability', 'availability_date',
 					// TODO: 'cost_of_goods_sold', 'expiration_date'
-					'price', 'sale_price', /* //'sale_price_effective_date', внтури тега sale_price */
+					'price', 'sale_price', // ! 'sale_price_effective_date' - внутри sale_price
 					'unit_pricing_measure', 'unit_pricing_base_measure', // TODO: 'installment',
 					// TODO: 'subscription_cost', 'loyalty_program', 'auto_pricing_min_price',
 					'google_product_category', 'product_type',
@@ -104,7 +116,7 @@ class XFGMC_Rules_List {
 					'shipping', // включает g:min_handling_time, g:max_handling_time, g:shipping_label
 					'shipping_dimensions', // включает g:shipping_length, g:shipping_width, g:shipping_height, g:shipping_weight
 					'tax', 'tax_category',
-					'quantity', 'store_code'
+					'quantity', 'store_code', 'pickup_sla', 'pickup_cost'
 				]
 			];
 		} else {

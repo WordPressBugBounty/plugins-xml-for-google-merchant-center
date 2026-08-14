@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Writes plugin logs.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.1.0 (22-03-2026)
+ * @version    4.4.0 (14-08-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/core

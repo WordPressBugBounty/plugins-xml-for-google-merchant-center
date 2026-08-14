@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for variable products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.10 (12-01-2026)
+ * @version    4.4.0 (14-08-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -36,7 +36,7 @@ trait XFGMC_T_Variable_Get_Availability_Date {
 	 * @param string $tag_name
 	 * @param string $result_xml
 	 * 
-	 * @return string Example: `<g:availability_date>2016-11-25T13:00-0800</g:availability_date>.
+	 * @return string Example: `<g:availability_date>2016-11-25T13:00-0800</g:availability_date>`.
 	 */
 	public function get_availability_date( $tag_name = 'g:availability_date', $result_xml = '' ) {
 

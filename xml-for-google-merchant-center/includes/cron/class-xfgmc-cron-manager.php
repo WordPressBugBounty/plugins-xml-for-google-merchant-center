@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * CRON task management for the YML for Yandex Market plugin.
  *
  * @link       https://icopydoc.ru
  * @since      4.1.0
- * @version    4.3.0 (05-04-2026)
+ * @version    4.4.0 (14-08-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin/cron

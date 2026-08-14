@@ -2,9 +2,9 @@
 Contributors: icopydoc
 Donate link: https://pay.cloudtips.ru/p/45d8ff3f
 Tags: xml, google, product feed, export, woocommerce
-Requires at least: 5.0
-Tested up to: 6.9.4
-Stable tag: 4.3.0
+Requires at least: 5.9
+Tested up to: 7.0
+Stable tag: 4.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,12 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 1. screenshot-2.png
 
 == Changelog ==
+
+= 4.4.0 =
+*Release Date 14-08-2026*
+
+* Added support for `g:pickup_cost` and `g:pickup_sla' tags.
+* Code refactoring.
 
 = 4.3.0 =
 *Release Date 05-04-2026*
@@ -143,7 +149,8 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 
 == Upgrade Notice ==
 
-= 4.3.0 =
-*Release Date 05-04-2026*
+= 4.4.0 =
+*Release Date 14-08-2026*
 
-* Fixed critical bug.
+* Added support for `g:pickup_cost` and `g:pickup_sla' tags.
+* Code refactoring.

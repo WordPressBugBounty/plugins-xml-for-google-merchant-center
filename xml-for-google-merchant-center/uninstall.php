@@ -1,4 +1,4 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Fired when the plugin is uninstalled.
@@ -21,6 +21,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
+ * @version    4.4.0 (14-08-2026)
  *
  * @package    XFGMC
  */
@@ -45,6 +46,7 @@ if ( is_multisite() ) {
 
 	delete_blog_option( get_current_blog_id(), 'xfgmc_version' );
 	delete_blog_option( get_current_blog_id(), 'xfgmc_keeplogs' );
+	delete_blog_option( get_current_blog_id(), 'xfgmc_autoloader_classmap' );
 	delete_blog_option( get_current_blog_id(), 'xfgmc_plugin_notifications' );
 	delete_blog_option( get_current_blog_id(), 'xfgmc_feed_content' );
 
@@ -65,6 +67,7 @@ if ( is_multisite() ) {
 
 	delete_option( 'xfgmc_version' );
 	delete_option( 'xfgmc_keeplogs' );
+	delete_option( 'xfgmc_autoloader_classmap' );
 	delete_option( 'xfgmc_plugin_notifications' );
 	delete_option( 'xfgmc_feed_content' );
 

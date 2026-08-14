@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Fired during plugin activation.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.3 (17-06-2025)
+ * @version    4.4.0 (14-08-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -71,6 +71,7 @@ class XFGMC_Activator {
 		if ( is_multisite() ) {
 			add_blog_option( get_current_blog_id(), 'xfgmc_version', XFGMC_PLUGIN_VERSION );
 			add_blog_option( get_current_blog_id(), 'xfgmc_keeplogs', 'disabled' );
+			add_blog_option( get_current_blog_id(), 'xfgmc_autoloader_classmap', [] );
 			add_blog_option( get_current_blog_id(), 'xfgmc_plugin_notifications', 'enabled' );
 			add_blog_option( get_current_blog_id(), 'xfgmc_feed_content', '' ); // kejo
 
@@ -80,6 +81,7 @@ class XFGMC_Activator {
 		} else {
 			add_option( 'xfgmc_version', XFGMC_PLUGIN_VERSION, '', true ); // без автозагрузки
 			add_option( 'xfgmc_keeplogs', 'disabled' );
+			add_option( 'xfgmc_autoloader_classmap', [] );
 			add_option( 'xfgmc_plugin_notifications', 'enabled' );
 			add_option( 'xfgmc_feed_content', '' ); // kejo
 
