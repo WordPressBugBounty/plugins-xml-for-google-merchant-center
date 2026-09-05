@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.1 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -23,7 +23,7 @@
  * @depends    classes:     XFGMC_Get_Paired_Tag
  *             methods:     get_product
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Mpn {
 
@@ -39,7 +39,7 @@ trait XFGMC_T_Simple_Get_Mpn {
 	 */
 	public function get_mpn( $tag_name = 'g:mpn', $result_xml = '' ) {
 
-		$mpn = common_option_get(
+		$mpn = XFGMC_Options::settings_get(
 			'xfgmc_mpn',
 			'disabled',
 			$this->get_feed_id(),
@@ -77,13 +77,13 @@ trait XFGMC_T_Simple_Get_Mpn {
 				break;
 			case "post_meta":
 
-				$mpn_post_meta = common_option_get(
+				$mpn_post_meta = XFGMC_Options::settings_get(
 					'xfgmc_mpn_post_meta',
 					'',
 					$this->get_feed_id(),
 					'xfgmc'
 				);
-				if ( get_post_meta( $this->get_product()->get_id(), $mpn_post_meta, true ) == '' ) {
+				if ( empty( $mpn_post_meta ) || get_post_meta( $this->get_product()->get_id(), $mpn_post_meta, true ) == '' ) {
 					$tag_value = '';
 				} else {
 					$tag_value = get_post_meta( $this->get_product()->get_id(), $mpn_post_meta, true );
@@ -95,7 +95,7 @@ trait XFGMC_T_Simple_Get_Mpn {
 				$tag_value = apply_filters(
 					'xfgmc_f_simple_tag_value_switch_mpn',
 					'',
-					[ 
+					[
 						'product' => $this->get_product(),
 						'switch_value' => $mpn
 					],

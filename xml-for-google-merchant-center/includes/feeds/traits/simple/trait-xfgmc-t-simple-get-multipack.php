@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -25,7 +25,7 @@
  *                          get_feed_id
  *                          get_simple_product_post_meta
  *                          get_simple_tag
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Multipack {
 
@@ -41,7 +41,7 @@ trait XFGMC_T_Simple_Get_Multipack {
 	 */
 	public function get_multipack( $tag_name = 'g:multipack', $result_xml = '' ) {
 
-		$multipack = common_option_get(
+		$multipack = XFGMC_Options::settings_get(
 			'xfgmc_multipack',
 			'disabled',
 			$this->get_feed_id(),

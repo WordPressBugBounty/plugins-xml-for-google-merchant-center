@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Handles feed updates triggered by product changes.
  *
  * @link       https://icopydoc.ru
  * @since      4.1.0
- * @version    4.1.0 (22-03-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -33,18 +33,18 @@ class XFGMC_Feed_Updater {
 	 */
 	public static function run_feeds_upd( $post_id ) {
 
-		$settings_arr = univ_option_get( 'xfgmc_settings_arr' );
+		$settings_arr = XFGMC_Options::get( 'xfgmc_settings_arr' );
 		$settings_arr_keys_arr = array_keys( $settings_arr );
 		for ( $i = 0; $i < count( $settings_arr_keys_arr ); $i++ ) {
 
 			$feed_id = (string) $settings_arr_keys_arr[ $i ]; // ! для правильности работы важен тип string
-			$run_cron = common_option_get(
+			$run_cron = XFGMC_Options::settings_get(
 				'xfgmc_run_cron',
 				'disabled',
 				$feed_id,
 				'xfgmc'
 			);
-			$ufup = common_option_get(
+			$ufup = XFGMC_Options::settings_get(
 				'xfgmc_ufup',
 				'disabled',
 				$feed_id,
@@ -68,7 +68,7 @@ class XFGMC_Feed_Updater {
 				continue;
 			}
 
-			$do_cash_file = common_option_get(
+			$do_cash_file = XFGMC_Options::settings_get(
 				'xfgmc_do_cash_file',
 				'enabled',
 				$feed_id, 'xfgmc'
@@ -89,7 +89,7 @@ class XFGMC_Feed_Updater {
 
 			// нужно ли запускать обновление фида при перезаписи файла
 			if ( $ufup === 'enabled' ) {
-				$status_sborki = (int) common_option_get(
+				$status_sborki = (int) XFGMC_Options::settings_get(
 					'xfgmc_status_sborki',
 					-1,
 					$feed_id,
@@ -133,18 +133,18 @@ class XFGMC_Feed_Updater {
 	 */
 	public function check_update_feed_stock_change( $item, $change, $order ) {
 
-		$settings_arr = univ_option_get( 'xfgmc_settings_arr' );
+		$settings_arr = XFGMC_Options::get( 'xfgmc_settings_arr' );
 		$settings_arr_keys_arr = array_keys( $settings_arr );
 		for ( $i = 0; $i < count( $settings_arr_keys_arr ); $i++ ) {
 
 			$feed_id = (string) $settings_arr_keys_arr[ $i ]; // ! для правильности работы важен тип string
-			$run_cron = common_option_get(
+			$run_cron = XFGMC_Options::settings_get(
 				'xfgmc_run_cron',
 				'disabled',
 				$feed_id,
 				'xfgmc'
 			);
-			$upd_feed_after_stock_change = common_option_get(
+			$upd_feed_after_stock_change = XFGMC_Options::settings_get(
 				'xfgmc_upd_feed_after_stock_change',
 				'disabled',
 				$feed_id,
@@ -154,7 +154,7 @@ class XFGMC_Feed_Updater {
 				continue;
 			}
 			if ( $upd_feed_after_stock_change === 'enabled' ) {
-				$status_sborki = (int) common_option_get(
+				$status_sborki = (int) XFGMC_Options::settings_get(
 					'xfgmc_status_sborki',
 					-1,
 					$feed_id,

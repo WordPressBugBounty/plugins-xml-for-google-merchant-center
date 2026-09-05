@@ -1,12 +1,12 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
+
 /**
  * Display a list of feeds and the "Add new feed" button.
  * 
- * @version    4.0.3 (17-06-2025)
+ * @version    4.5.0 (04-09-2026)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/settings_page/
  */
-defined( 'ABSPATH' ) || exit;
 
 $feeds_list_table = new XFGMC_Feeds_List_Table();
 ?>

@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * The admin-specific functionality of the plugin.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.2.0 (05-04-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -16,7 +16,8 @@
  *
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
- *
+ * 
+ * @since      0.1.0
  * @package    XFGMC
  * @subpackage XFGMC/admin
  * @author     Maxim Glazunov <icopydoc@gmail.com>
@@ -509,7 +510,7 @@ class XFGMC_Admin {
 								);
 								break;
 							case '2':
-								$last_element_feed = (int) univ_option_get(
+								$last_element_feed = (int) XFGMC_Options::get(
 									'xfgmc_last_element_feed_' . $feed_id_str,
 									0
 								);
@@ -560,7 +561,7 @@ class XFGMC_Admin {
 	private function save_plugin_option() {
 
 		$feed_id = sanitize_text_field( $_POST['xfgmc_feed_id_for_save'] );
-		common_option_upd(
+		XFGMC_Options::settings_update(
 			'xfgmc_date_save_set',
 			current_time( 'timestamp', 1 ),
 			'no',
@@ -612,14 +613,15 @@ class XFGMC_Admin {
 		if ( isset( $_POST[ $option_name ] ) ) {
 			if ( is_array( $_POST[ $option_name ] ) ) {
 				// массивы храним отдельно от других параметров
-				univ_option_upd( $option_name . $feed_id, maybe_serialize( $_POST[ $option_name ] ) );
+				// ? может стоит очищать через wp_kses_post_deep()
+				XFGMC_Options::update( $option_name . $feed_id, $_POST[ $option_name ] );
 			} else {
 				$option_value = preg_replace( '#<script(.*?)>(.*?)</script>#is', '', $_POST[ $option_name ] );
-				common_option_upd( $option_name, $option_value, 'no', $feed_id, 'xfgmc' );
+				XFGMC_Options::settings_update( $option_name, $option_value, 'no', $feed_id, 'xfgmc' );
 			}
 		} else {
 			if ( 'empty_str' === $save_if_empty ) {
-				common_option_upd(
+				XFGMC_Options::settings_update(
 					$option_name,
 					'',
 					'no',
@@ -629,7 +631,7 @@ class XFGMC_Admin {
 			}
 			if ( 'empty_arr' === $save_if_empty ) {
 				// массивы храним отдельно от других параметров
-				univ_option_upd( sprintf( '%s%s', $option_name, $feed_id ), maybe_serialize( [] ) );
+				XFGMC_Options::update( sprintf( '%s%s', $option_name, $feed_id ), [] );
 			}
 		}
 

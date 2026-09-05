@@ -1,21 +1,22 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
+
 /**
  * Debug page.
  * 
- * @version    4.0.3 (17-06-2025)
+ * @version    4.5.0 (04-09-2026)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/debug_page/
  * 
  * @param $view_arr['tab_name']
  */
-defined( 'ABSPATH' ) || exit; ?>
+?>
 <div id="xfgmc_wrap" class="wrap">
 
 	<div id="icon-options-general" class="icon32"></div>
 	<h1><?php printf( '%s - %s (v. %s)',
 		'XML for Google Merchant Center',
 		esc_html__( 'Debug page', 'xml-for-google-merchant-center' ),
-		esc_html( univ_option_get( 'xfgmc_version' ) )
+		esc_html( XFGMC_Options::get( 'xfgmc_version' ) )
 	); ?></h1>
 
 	<div id="poststuff">

@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.0.1
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -23,7 +23,7 @@
  * @depends    classes:     XFGMC_Get_Paired_Tag
  *             methods:     get_product
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Color {
 
@@ -39,7 +39,7 @@ trait XFGMC_T_Simple_Get_Color {
 	 */
 	public function get_color( $tag_name = 'g:color', $result_xml = '' ) {
 
-		$color = common_option_get(
+		$color = XFGMC_Options::settings_get(
 			'xfgmc_color',
 			'enabled',
 			$this->get_feed_id(),

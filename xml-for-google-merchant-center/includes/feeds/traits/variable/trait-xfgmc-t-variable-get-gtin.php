@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for variable products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -24,7 +24,7 @@
  *             methods:     get_product
  *                          get_offer
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Variable_Get_Gtin {
 
@@ -42,7 +42,7 @@ trait XFGMC_T_Variable_Get_Gtin {
 
 		$tag_value = '';
 
-		$gtin = common_option_get(
+		$gtin = XFGMC_Options::settings_get(
 			'xfgmc_gtin',
 			'disabled',
 			$this->get_feed_id(),
@@ -76,21 +76,25 @@ trait XFGMC_T_Variable_Get_Gtin {
 				break;
 			case "post_meta":
 
-				$gtin_post_meta_id = common_option_get(
+				$gtin_post_meta_id = XFGMC_Options::settings_get(
 					'xfgmc_gtin_post_meta',
-					false,
+					'',
 					$this->get_feed_id(),
 					'xfgmc'
 				);
-				$gtin_post_meta_id = trim( $gtin_post_meta_id );
-				if ( get_post_meta( $this->get_offer()->get_id(), $gtin_post_meta_id, true ) == '' ) {
-					if ( get_post_meta( $this->get_product()->get_id(), $gtin_post_meta_id, true ) !== '' ) {
-						$tag_value = get_post_meta( $this->get_product()->get_id(), $gtin_post_meta_id, true );
-					} else {
-						$tag_value = '';
-					}
+				if ( empty( $gtin_post_meta_id ) ) {
+					$tag_value = '';
 				} else {
-					$tag_value = get_post_meta( $this->get_offer()->get_id(), $gtin_post_meta_id, true );
+					$gtin_post_meta_id = trim( $gtin_post_meta_id );
+					if ( get_post_meta( $this->get_offer()->get_id(), $gtin_post_meta_id, true ) == '' ) {
+						if ( get_post_meta( $this->get_product()->get_id(), $gtin_post_meta_id, true ) !== '' ) {
+							$tag_value = get_post_meta( $this->get_product()->get_id(), $gtin_post_meta_id, true );
+						} else {
+							$tag_value = '';
+						}
+					} else {
+						$tag_value = get_post_meta( $this->get_offer()->get_id(), $gtin_post_meta_id, true );
+					}
 				}
 
 				break;
@@ -139,7 +143,7 @@ trait XFGMC_T_Variable_Get_Gtin {
 				$tag_value = apply_filters(
 					'xfgmc_f_variable_tag_value_switch_gtin',
 					$tag_value,
-					[ 
+					[
 						'product' => $this->get_product(),
 						'offer' => $this->get_offer(),
 						'switch_value' => $gtin

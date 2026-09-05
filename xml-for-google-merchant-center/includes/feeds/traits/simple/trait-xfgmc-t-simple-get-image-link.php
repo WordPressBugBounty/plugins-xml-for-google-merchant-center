@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.8 (19-11-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -23,7 +23,7 @@
  * @depends    classes:     XFGMC_Get_Paired_Tag
  *             methods:     get_product
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Image_Link {
 
@@ -39,7 +39,7 @@ trait XFGMC_T_Simple_Get_Image_Link {
 	 */
 	public function get_image_link( $tag_name = 'g:image_link', $result_xml = '' ) {
 
-		$image_link = common_option_get(
+		$image_link = XFGMC_Options::settings_get(
 			'xfgmc_image_link',
 			'full',
 			$this->get_feed_id(),
@@ -64,7 +64,7 @@ trait XFGMC_T_Simple_Get_Image_Link {
 			$result_xml = $this->skip_gif( $tag_name, $thumb_xml );
 		}
 
-		$no_default_png_products = common_option_get(
+		$no_default_png_products = XFGMC_Options::settings_get(
 			'xfgmc_no_default_png_products',
 			'disabled',
 			$this->get_feed_id(), 'xfgmc'
@@ -87,7 +87,7 @@ trait XFGMC_T_Simple_Get_Image_Link {
 		);
 
 		// пропускаем вариации без картинок
-		$skip_products_without_pic = common_option_get(
+		$skip_products_without_pic = XFGMC_Options::settings_get(
 			'xfgmc_skip_products_without_pic',
 			'disabled',
 			$this->get_feed_id(),

@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.9 (23-12-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -23,7 +23,7 @@
  * @depends    classes:     XFGMC_Get_Paired_Tag
  *             methods:     get_product
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Price {
 
@@ -39,7 +39,7 @@ trait XFGMC_T_Simple_Get_Price {
 	 */
 	public function get_price( $tag_name = 'g:price', $result_xml = '' ) {
 
-		$price = common_option_get(
+		$price = XFGMC_Options::settings_get(
 			'xfgmc_price',
 			'enabled',
 			$this->get_feed_id(),
@@ -64,7 +64,7 @@ trait XFGMC_T_Simple_Get_Price {
 			$this->get_feed_id()
 		);
 
-		$xml_rules = common_option_get(
+		$xml_rules = XFGMC_Options::settings_get(
 			'xfgmc_xml_rules',
 			'merchant_center',
 			$this->get_feed_id(),
@@ -95,7 +95,7 @@ trait XFGMC_T_Simple_Get_Price {
 			$this->get_feed_id()
 		);
 		if ( false === $skip_price_reason ) {
-			$default_currency = common_option_get(
+			$default_currency = XFGMC_Options::settings_get(
 				'xfgmc_default_currency',
 				'USD',
 				$this->get_feed_id(),

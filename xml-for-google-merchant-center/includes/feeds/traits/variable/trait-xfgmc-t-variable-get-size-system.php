@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for variable products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -24,7 +24,7 @@
  *             methods:     get_product
  *                          get_offer
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Variable_Get_Size_System {
 
@@ -40,7 +40,7 @@ trait XFGMC_T_Variable_Get_Size_System {
 	 */
 	public function get_size_system( $tag_name = 'g:size_system', $result_xml = '' ) {
 
-		$size_system = common_option_get(
+		$size_system = XFGMC_Options::settings_get(
 			'xfgmc_size_system',
 			'disabled',
 			$this->get_feed_id(),
@@ -53,7 +53,7 @@ trait XFGMC_T_Variable_Get_Size_System {
 		}
 
 		if ( empty( $tag_value ) ) {
-			$size_system_default_value = common_option_get(
+			$size_system_default_value = XFGMC_Options::settings_get(
 				'xfgmc_size_system_default_value',
 				'',
 				$this->get_feed_id(),

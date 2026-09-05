@@ -1,15 +1,16 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
+
 /**
  * Settings page.
  * 
- * @version    4.0.3 (17-06-2025)
+ * @version    4.5.0 (04-09-2026)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/settings_page/
  * 
  * @param $view_arr['feed_id']
  * @param $view_arr['tab_name']
  */
-defined( 'ABSPATH' ) || exit; ?>
+?>
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <div id="xfgmc_wrap" class="wrap">
 
@@ -19,7 +20,7 @@ defined( 'ABSPATH' ) || exit; ?>
 		esc_html__( 'Feed', 'xml-for-google-merchant-center' ),
 		esc_html( $view_arr['feed_id'] )
 	);
-	$feed_assignment = common_option_get(
+	$feed_assignment = XFGMC_Options::settings_get(
 		'xfgmc_feed_assignment',
 		false,
 		$view_arr['feed_id'],

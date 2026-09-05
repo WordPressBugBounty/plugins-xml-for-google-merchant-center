@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -23,7 +23,7 @@
  * @depends    classes:     XFGMC_Get_Paired_Tag
  *             methods:     get_product
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Pattern {
 
@@ -35,11 +35,11 @@ trait XFGMC_T_Simple_Get_Pattern {
 	 * @param string $tag_name
 	 * @param string $result_xml
 	 * 
-	 * @return string Example: `<g:pattern>Striped</g:pattern>`
+	 * @return string Example: `<g:pattern>Striped</g:pattern>`.
 	 */
 	public function get_pattern( $tag_name = 'g:pattern', $result_xml = '' ) {
 
-		$pattern = common_option_get(
+		$pattern = XFGMC_Options::settings_get(
 			'xfgmc_pattern',
 			'enabled',
 			$this->get_feed_id(),

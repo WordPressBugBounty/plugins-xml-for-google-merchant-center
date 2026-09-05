@@ -1,15 +1,15 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
+
 /**
  * The Another page tab
  * 
- * @version    4.0.6 (28-08-2025)
+ * @version    4.5.0 (04-09-2026)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/settings_page/
  * 
  * @param $view_arr['feed_id']
  * @param $view_arr['tab_name']
  */
-defined( 'ABSPATH' ) || exit;
 
 // придерживаться правил. 1 из 2
 $plugin_date = new XFGMC_Data();
@@ -39,7 +39,7 @@ $html_th = '';
 $html_td = '';
 
 // придерживаться правил. 2 из 2
-$xml_rules = common_option_get(
+$xml_rules = XFGMC_Options::settings_get(
 	'xfgmc_xml_rules',
 	'merchant_center',
 	$view_arr['feed_id'],

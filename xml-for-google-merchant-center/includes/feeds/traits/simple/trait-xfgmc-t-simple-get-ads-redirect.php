@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      4.1.0
- * @version    4.4.0 (14-08-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -25,7 +25,7 @@
  *                          get_feed_id
  *                          get_simple_product_post_meta
  *                          get_simple_tag
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Ads_Redirect {
 
@@ -41,7 +41,7 @@ trait XFGMC_T_Simple_Get_Ads_Redirect {
 	 */
 	public function get_ads_redirect( $tag_name = 'g:ads_redirect', $result_xml = '' ) {
 
-		$ads_redirect = common_option_get(
+		$ads_redirect = XFGMC_Options::settings_get(
 			'xfgmc_ads_redirect',
 			'disabled',
 			$this->get_feed_id(),
@@ -50,7 +50,7 @@ trait XFGMC_T_Simple_Get_Ads_Redirect {
 		if ( $ads_redirect === 'enabled' ) {
 			$tag_value = $this->get_simple_product_post_meta( 'ads_redirect' );
 			if ( empty( $tag_value ) ) {
-				$tag_value = common_option_get(
+				$tag_value = XFGMC_Options::settings_get(
 					'xfgmc_ads_redirect_default_value',
 					'',
 					$this->get_feed_id(),

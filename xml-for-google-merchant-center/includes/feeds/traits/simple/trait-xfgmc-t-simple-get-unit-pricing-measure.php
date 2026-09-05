@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -23,7 +23,7 @@
  * @depends    classes:     XFGMC_Get_Paired_Tag
  *             methods:     get_product
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   wc_gzd_get_gzd_product
  */
 trait XFGMC_T_Simple_Get_Unit_Pricing_Measure {
 
@@ -35,11 +35,11 @@ trait XFGMC_T_Simple_Get_Unit_Pricing_Measure {
 	 * @param string $tag_name
 	 * @param string $result_xml
 	 * 
-	 * @return string Example: `<g:unit_pricing_measure>750 ml</g:unit_pricing_measure>`
+	 * @return string Example: `<g:unit_pricing_measure>750 ml</g:unit_pricing_measure>`.
 	 */
 	public function get_unit_pricing_measure( $tag_name = 'g:unit_pricing_measure', $result_xml = '' ) {
 
-		$unit_pricing_measure = common_option_get(
+		$unit_pricing_measure = XFGMC_Options::settings_get(
 			'xfgmc_unit_pricing_measure',
 			'enabled',
 			$this->get_feed_id(),

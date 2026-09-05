@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      4.1.0
- * @version    4.4.0 (14-08-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin/cron
@@ -104,7 +104,7 @@ class XFGMC_Cron_Manager {
 		) );
 
 		// счётчик завершенных товаров в положение 0.
-		univ_option_upd(
+		XFGMC_Options::update(
 			'xfgmc_last_element_feed_' . $feed_id,
 			'0',
 			'no'
@@ -134,7 +134,7 @@ class XFGMC_Cron_Manager {
 				__LINE__
 			) );
 			// сборку начали
-			common_option_upd(
+			XFGMC_Options::settings_update(
 				'xfgmc_status_sborki',
 				'1',
 				'no',
@@ -142,7 +142,7 @@ class XFGMC_Cron_Manager {
 				'xfgmc'
 			);
 			// сразу планируем крон-задачу на начало сброки фида в следующий раз в нужный час
-			$run_cron = common_option_get(
+			$run_cron = XFGMC_Options::settings_get(
 				'xfgmc_run_cron',
 				'disabled',
 				$feed_id,
@@ -191,7 +191,7 @@ class XFGMC_Cron_Manager {
 				$e->getLine()
 			) );
 			// ? Можно даже поставить флаг остановки
-			// common_option_upd( 'xfgmc_status_sborki', '-1', 'no', $feed_id, 'xfgmc' );
+			// XFGMC_Options::settings_update( 'xfgmc_status_sborki', '-1', 'no', $feed_id, 'xfgmc' );
 		}
 
 		$execution_time = microtime( true ) - $start_time;
@@ -220,7 +220,7 @@ class XFGMC_Cron_Manager {
 	public static function cron_starting_feed_creation_task_planning( $feed_id, $delay_second = 0 ) {
 
 		$planning_result = false;
-		$run_cron = common_option_get(
+		$run_cron = XFGMC_Options::settings_get(
 			'xfgmc_run_cron',
 			'disabled',
 			$feed_id,
@@ -231,11 +231,11 @@ class XFGMC_Cron_Manager {
 			// останавливаем сборку досрочно, если это выбрано в настройках плагина при сохранении
 			wp_clear_scheduled_hook( 'xfgmc_cron_start_feed_creation', [ $feed_id ] );
 			wp_clear_scheduled_hook( 'xfgmc_cron_sborki', [ $feed_id ] );
-			univ_option_upd(
+			XFGMC_Options::update(
 				'xfgmc_last_element_feed_' . $feed_id,
 				0
 			);
-			common_option_upd(
+			XFGMC_Options::settings_update(
 				'xfgmc_status_sborki',
 				'-1',
 				'no',
@@ -245,7 +245,7 @@ class XFGMC_Cron_Manager {
 		} else {
 			wp_clear_scheduled_hook( 'xfgmc_cron_start_feed_creation', [ $feed_id ] );
 			if ( ! wp_next_scheduled( 'xfgmc_cron_start_feed_creation', [ $feed_id ] ) ) {
-				$cron_start_time = common_option_get(
+				$cron_start_time = XFGMC_Options::settings_get(
 					'xfgmc_cron_start_time',
 					'disabled',
 					$feed_id,

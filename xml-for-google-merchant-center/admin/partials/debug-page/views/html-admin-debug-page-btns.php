@@ -1,15 +1,14 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
+
 /**
  * Print the Save and Clear logs button for Debug page.
  * 
- * @version    4.0.3 (17-06-2025)
+ * @version    4.5.0 (04-09-2026)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/debug_page/
  * 
  * @param $view_arr['tab_name']
  */
-defined( 'ABSPATH' ) || exit;
-
 ?>
 <?php wp_nonce_field( 'xfgmc_nonce_action', 'xfgmc_nonce_field' ); ?>
 <input id="button-primary" class="button-primary" type="submit"

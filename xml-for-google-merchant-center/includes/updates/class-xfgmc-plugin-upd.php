@@ -98,19 +98,19 @@ final class XFGMC_Plugin_Upd {
 			$this->license_key = $args['license_key'];
 		} else {
 			$license_key = $args['pref'] . '_license_key';
-			$this->license_key = common_option_get( $license_key );
+			$this->license_key = XFGMC_Options::settings_get( $license_key );
 		}
 		if ( isset( $args['order_id'] ) ) {
 			$this->order_id = $args['order_id'];
 		} else {
 			$order_id = $args['pref'] . '_order_id';
-			$this->order_id = common_option_get( $order_id );
+			$this->order_id = XFGMC_Options::settings_get( $order_id );
 		}
 		if ( isset( $args['order_email'] ) ) {
 			$this->order_email = $args['order_email'];
 		} else {
 			$order_email = $args['pref'] . '_order_email';
-			$this->order_email = common_option_get( $order_email );
+			$this->order_email = XFGMC_Options::settings_get( $order_email );
 		}
 		if ( isset( $args['order_home_url'] ) ) {
 			$this->order_home_url = $args['order_home_url'];
@@ -158,7 +158,7 @@ final class XFGMC_Plugin_Upd {
 			return $actions;
 		} else {
 			$u = 'ok';
-			$i = common_option_get( 'woo_ho' . $u . '_isc' . $this->get_pref() );
+			$i = XFGMC_Options::settings_get( 'woo_ho' . $u . '_isc' . $this->get_pref() );
 		}
 		switch ( $i ) {
 			case "202":
@@ -212,8 +212,8 @@ final class XFGMC_Plugin_Upd {
 	public function get_info() {
 
 		$v = 'hook';
-		$c = common_option_get( 'woo_' . $v . '_is' . 'c' . $this->get_pref() );
-		$d = common_option_get( 'woo_' . $v . '_is' . 'd' . $this->get_pref() );
+		$c = XFGMC_Options::settings_get( 'woo_' . $v . '_is' . 'c' . $this->get_pref() );
+		$d = XFGMC_Options::settings_get( 'woo_' . $v . '_is' . 'd' . $this->get_pref() );
 
 		$message = '';
 		switch ( $c ) {
@@ -429,7 +429,7 @@ final class XFGMC_Plugin_Upd {
 	private function get_license_key() {
 
 		$order_email = $this->get_pref() . '_license_key';
-		return common_option_get( $order_email );
+		return XFGMC_Options::settings_get( $order_email );
 
 	}
 
@@ -441,7 +441,7 @@ final class XFGMC_Plugin_Upd {
 	private function get_order_id() {
 
 		$order_email = $this->get_pref() . '_order_id';
-		return common_option_get( $order_email );
+		return XFGMC_Options::settings_get( $order_email );
 
 	}
 
@@ -453,7 +453,7 @@ final class XFGMC_Plugin_Upd {
 	private function get_order_email() {
 
 		$order_email = $this->get_pref() . '_order_email';
-		return common_option_get( $order_email, '' );
+		return XFGMC_Options::settings_get( $order_email, '' );
 
 	}
 

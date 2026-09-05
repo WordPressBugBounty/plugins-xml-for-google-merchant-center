@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -25,7 +25,7 @@
  *                          get_feed_id
  *                          get_simple_product_post_meta
  *                          get_simple_tag
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Tax {
 
@@ -41,7 +41,7 @@ trait XFGMC_T_Simple_Get_Tax {
 	 */
 	public function get_tax( $tag_name = 'g:tax', $result_xml = '' ) {
 
-		$tax = common_option_get(
+		$tax = XFGMC_Options::settings_get(
 			'xfgmc_tax',
 			'disabled',
 			$this->get_feed_id(),
@@ -54,7 +54,7 @@ trait XFGMC_T_Simple_Get_Tax {
 		$result_xml .= new XFGMC_Get_Open_Tag( 'g:tax' );
 		$result_xml .= new XFGMC_Get_Paired_Tag( 'g:country', 'US' );
 
-		$tax_region = common_option_get(
+		$tax_region = XFGMC_Options::settings_get(
 			'xfgmc_tax_region',
 			'Washington',
 			$this->get_feed_id(),
@@ -64,7 +64,7 @@ trait XFGMC_T_Simple_Get_Tax {
 			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:region', $tax_region );
 		}
 
-		$tax_rate = common_option_get(
+		$tax_rate = XFGMC_Options::settings_get(
 			'xfgmc_tax_rate',
 			'',
 			$this->get_feed_id(),
@@ -74,7 +74,7 @@ trait XFGMC_T_Simple_Get_Tax {
 			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:rate', $tax_rate );
 		}
 
-		$sipping_tax = common_option_get(
+		$sipping_tax = XFGMC_Options::settings_get(
 			'xfgmc_sipping_tax',
 			'no',
 			$this->get_feed_id(),

@@ -8,7 +8,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      4.1.0
- * @version    4.3.0 (05-04-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/wp-cli
@@ -71,10 +71,10 @@ class XFGMC_WP_CLI_Command extends WP_CLI_Command {
 
 		$table = [];
 		foreach ( $all_feed_ids as $feed_id ) {
-			$feed_url = common_option_get( 'xfgmc_feed_url', '', $feed_id, 'xfgmc' );
-			$date_sborki_start = common_option_get( 'xfgmc_date_sborki_start', '', $feed_id, 'xfgmc' );
-			$date_sborki_end = common_option_get( 'xfgmc_date_sborki_end', '', $feed_id, 'xfgmc' );
-			$status_sborki = (int) common_option_get( 'xfgmc_status_sborki', '-1', $feed_id, 'xfgmc' );
+			$feed_url = XFGMC_Options::settings_get( 'xfgmc_feed_url', '', $feed_id, 'xfgmc' );
+			$date_sborki_start = XFGMC_Options::settings_get( 'xfgmc_date_sborki_start', '', $feed_id, 'xfgmc' );
+			$date_sborki_end = XFGMC_Options::settings_get( 'xfgmc_date_sborki_end', '', $feed_id, 'xfgmc' );
+			$status_sborki = (int) XFGMC_Options::settings_get( 'xfgmc_status_sborki', '-1', $feed_id, 'xfgmc' );
 			$status_map = [
 				'-1' => 'Completed',
 				'1' => 'Initializing',
@@ -131,11 +131,11 @@ class XFGMC_WP_CLI_Command extends WP_CLI_Command {
 
 		$feed_id = WP_CLI\Utils\get_flag_value( $assoc_args, 'feed_id', '1' );
 
-		$status_code = (int) common_option_get( 'xfgmc_status_sborki', -1, $feed_id, 'xfgmc' );
-		$last_element = (int) univ_option_get( 'xfgmc_last_element_feed_' . $feed_id, 0 );
+		$status_code = (int) XFGMC_Options::settings_get( 'xfgmc_status_sborki', -1, $feed_id, 'xfgmc' );
+		$last_element = (int) XFGMC_Options::get( 'xfgmc_last_element_feed_' . $feed_id, 0 );
 		$total_products = $this->get_total_products_count( $feed_id );
-		$date_start = common_option_get( 'xfgmc_date_sborki_start', '', $feed_id, 'xfgmc' );
-		$date_end = common_option_get( 'xfgmc_date_sborki_end', '', $feed_id, 'xfgmc' );
+		$date_start = XFGMC_Options::settings_get( 'xfgmc_date_sborki_start', '', $feed_id, 'xfgmc' );
+		$date_end = XFGMC_Options::settings_get( 'xfgmc_date_sborki_end', '', $feed_id, 'xfgmc' );
 
 		$status_map = [
 			-1 => 'Completed or stopped',
@@ -171,7 +171,7 @@ class XFGMC_WP_CLI_Command extends WP_CLI_Command {
 	private function get_all_feed_ids() {
 
 		$feed_ids = [];
-		$settings_arr = univ_option_get( 'xfgmc_settings_arr' );
+		$settings_arr = XFGMC_Options::get( 'xfgmc_settings_arr' );
 		$settings_arr_keys_arr = array_keys( $settings_arr );
 		for ( $i = 0; $i < count( $settings_arr_keys_arr ); $i++ ) {
 			$feed_ids[] = (string) $settings_arr_keys_arr[ $i ];
@@ -221,7 +221,7 @@ class XFGMC_WP_CLI_Command extends WP_CLI_Command {
 		}
 
 		// Проверяем статус сборки
-		$status_sborki = (string) common_option_get(
+		$status_sborki = (string) XFGMC_Options::settings_get(
 			'xfgmc_status_sborki',
 			'-1',
 			$feed_id,
@@ -254,13 +254,13 @@ class XFGMC_WP_CLI_Command extends WP_CLI_Command {
 			wp_clear_scheduled_hook( 'xfgmc_cron_sborki', [ $feed_id ] );
 
 			// счётчик завершенных товаров в положение 0.
-			univ_option_upd(
+			XFGMC_Options::update(
 				'xfgmc_last_element_feed_' . $feed_id,
 				'0',
 				'no'
 			);
 			// сборку начали
-			common_option_upd(
+			XFGMC_Options::settings_update(
 				'xfgmc_status_sborki',
 				'1',
 				'no',
@@ -268,7 +268,7 @@ class XFGMC_WP_CLI_Command extends WP_CLI_Command {
 				'xfgmc'
 			);
 			$date_sborki_start = current_time( 'Y-m-d H:i' );
-			common_option_upd(
+			XFGMC_Options::settings_update(
 				'xfgmc_date_sborki_start',
 				$date_sborki_start,
 				'no',
@@ -281,7 +281,7 @@ class XFGMC_WP_CLI_Command extends WP_CLI_Command {
 			$total_products = $this->get_total_products_count( $feed_id );
 
 			// Читаем время выполнения шага из настроек
-			$script_execution_time = (int) common_option_get(
+			$script_execution_time = (int) XFGMC_Options::settings_get(
 				'xfgmc_script_execution_time',
 				'26',
 				$feed_id,
@@ -300,7 +300,7 @@ class XFGMC_WP_CLI_Command extends WP_CLI_Command {
 
 				$start_time = microtime( true );
 				// Проверяем статус сборки
-				$status_sborki = (string) common_option_get(
+				$status_sborki = (string) XFGMC_Options::settings_get(
 					'xfgmc_status_sborki',
 					'-1',
 					$feed_id,
@@ -311,7 +311,7 @@ class XFGMC_WP_CLI_Command extends WP_CLI_Command {
 
 					case '-1':
 
-						$feed_url = common_option_get(
+						$feed_url = XFGMC_Options::settings_get(
 							'xfgmc_feed_url',
 							'',
 							$feed_id,
@@ -343,7 +343,7 @@ class XFGMC_WP_CLI_Command extends WP_CLI_Command {
 						break;
 					case '2':
 
-						$last_element_feed = (int) univ_option_get(
+						$last_element_feed = (int) XFGMC_Options::get(
 							'xfgmc_last_element_feed_' . $feed_id,
 							0
 						);
@@ -429,7 +429,7 @@ class XFGMC_WP_CLI_Command extends WP_CLI_Command {
 		try {
 			$generation = new XFGMC_Generation_XML( $feed_id );
 			$generation->quick_generation();
-			$feed_url = common_option_get(
+			$feed_url = XFGMC_Options::settings_get(
 				'xfgmc_feed_url',
 				'',
 				$feed_id,

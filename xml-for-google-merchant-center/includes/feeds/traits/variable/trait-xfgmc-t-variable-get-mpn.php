@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for variable products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.1 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -24,7 +24,7 @@
  *             methods:     get_product
  *                          get_offer
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Variable_Get_Mpn {
 
@@ -40,7 +40,7 @@ trait XFGMC_T_Variable_Get_Mpn {
 	 */
 	public function get_mpn( $tag_name = 'g:mpn', $result_xml = '' ) {
 
-		$mpn = common_option_get(
+		$mpn = XFGMC_Options::settings_get(
 			'xfgmc_mpn',
 			'disabled',
 			$this->get_feed_id(),
@@ -74,6 +74,30 @@ trait XFGMC_T_Variable_Get_Mpn {
 			case "products_id": // выгружать из id вариации
 
 				$tag_value = $this->get_offer()->get_id();
+
+				break;
+			case "post_meta":
+
+				$mpn_post_meta_id = XFGMC_Options::settings_get(
+					'xfgmc_mpn_post_meta',
+					'',
+					$this->get_feed_id(),
+					'xfgmc'
+				);
+				if ( empty( $mpn_post_meta_id ) ) {
+					$tag_value = '';
+				} else {
+					$mpn_post_meta_id = trim( $mpn_post_meta_id );
+					if ( get_post_meta( $this->get_offer()->get_id(), $mpn_post_meta_id, true ) == '' ) {
+						if ( get_post_meta( $this->get_product()->get_id(), $mpn_post_meta_id, true ) !== '' ) {
+							$tag_value = get_post_meta( $this->get_product()->get_id(), $mpn_post_meta_id, true );
+						} else {
+							$tag_value = '';
+						}
+					} else {
+						$tag_value = get_post_meta( $this->get_offer()->get_id(), $mpn_post_meta_id, true );
+					}
+				}
 
 				break;
 			default:

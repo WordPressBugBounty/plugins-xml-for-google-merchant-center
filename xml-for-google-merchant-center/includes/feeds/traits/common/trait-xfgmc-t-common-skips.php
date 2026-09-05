@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Traits for different classes.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.3 (17-06-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/common
@@ -28,7 +28,7 @@
  *             methods:     get_product
  *                          get_offer
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  *             constants:   
  *             variable:    feed_category_id (set it)
  */
@@ -85,7 +85,7 @@ trait XFGMC_T_Common_Skips {
 		}
 
 		// что выгружать
-		$whot_export = common_option_get(
+		$whot_export = XFGMC_Options::settings_get(
 			'xfgmc_whot_export',
 			'all',
 			$this->get_feed_id(),
@@ -134,7 +134,7 @@ trait XFGMC_T_Common_Skips {
 		}
 
 		// пропуск товаров, которых нет в наличии
-		$skip_missing_products = common_option_get(
+		$skip_missing_products = XFGMC_Options::settings_get(
 			'xfgmc_skip_missing_products',
 			'disabled',
 			$this->get_feed_id(),
@@ -153,7 +153,7 @@ trait XFGMC_T_Common_Skips {
 		}
 
 		// пропускаем товары на предзаказ
-		$skip_backorders_products = common_option_get(
+		$skip_backorders_products = XFGMC_Options::settings_get(
 			'xfgmc_skip_backorders_products',
 			'disabled',
 			$this->get_feed_id(),

@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      4.0.4
- * @version    4.1.0 (22-03-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -24,7 +24,7 @@
  *             methods:     get_product
  *                          get_product
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Shipping_Dimensions {
 
@@ -43,95 +43,95 @@ trait XFGMC_T_Simple_Get_Shipping_Dimensions {
 	public function get_shipping_dimensions( $tag_name = 'shipping_dimensions', $result_xml = '' ) {
 
 		// * к сожалению wc_get_dimension не всегда возвращает float и юзер может передать в размер что-то типа '13-18'
-		$length_xml = 0;
-		$width_xml = 0;
-		$height_xml = 0;
-		$shipping_weight_xml = 0;
-		$length = common_option_get(
+		$shipping_length_value = 0;
+		$shipping_width_value = 0;
+		$shipping_height_value = 0;
+		$shipping_weight_value = 0;
+		$shipping_length_source = XFGMC_Options::settings_get(
 			'xfgmc_shipping_length',
 			'woo_shippings',
 			$this->get_feed_id(),
 			'xfgmc'
 		);
-		if ( empty( $length ) || $length === 'woo_shippings' ) {
+		if ( empty( $shipping_length_source ) || $shipping_length_source === 'woo_shippings' ) {
 			if ( $this->get_product()->has_dimensions() ) {
-				$length_xml = $this->get_product()->get_length();
-				if ( ! empty( $length_xml ) && get_option( 'woocommerce_dimension_unit' ) !== 'cm' ) {
-					$length_xml = round( wc_get_dimension( $length_xml, 'cm' ), 3 );
+				$shipping_length_value = $this->get_product()->get_length();
+				if ( ! empty( $shipping_length_value ) && get_option( 'woocommerce_dimension_unit' ) !== 'cm' ) {
+					$shipping_length_value = round( wc_get_dimension( $shipping_length_value, 'cm' ), 3 );
 				}
 			}
 		} else {
-			$length = (int) $length;
-			$tag_value = $this->get_product()->get_attribute( wc_attribute_taxonomy_name_by_id( $length ) );
-			$length_xml = round( wc_get_dimension( (float) $tag_value, 'cm' ), 3 );
+			$shipping_length_source = (int) $shipping_length_source;
+			$tag_value = $this->get_product()->get_attribute( wc_attribute_taxonomy_name_by_id( $shipping_length_source ) );
+			$shipping_length_value = round( wc_get_dimension( (float) $tag_value, 'cm' ), 3 );
 		}
 
-		$width = common_option_get(
+		$shipping_width_source = XFGMC_Options::settings_get(
 			'xfgmc_shipping_width',
 			'woo_shippings',
 			$this->get_feed_id(),
 			'xfgmc'
 		);
-		if ( empty( $width ) || $width === 'woo_shippings' ) {
+		if ( empty( $shipping_width_source ) || $shipping_width_source === 'woo_shippings' ) {
 			if ( $this->get_product()->has_dimensions() ) {
-				$width_xml = $this->get_product()->get_width();
-				if ( ! empty( $width_xml ) && get_option( 'woocommerce_dimension_unit' ) !== 'cm' ) {
-					$width_xml = round( wc_get_dimension( $width_xml, 'cm' ), 3 );
+				$shipping_width_value = $this->get_product()->get_width();
+				if ( ! empty( $shipping_width_value ) && get_option( 'woocommerce_dimension_unit' ) !== 'cm' ) {
+					$shipping_width_value = round( wc_get_dimension( $shipping_width_value, 'cm' ), 3 );
 				}
 			}
 		} else {
-			$width = (int) $width;
-			$tag_value = $this->get_product()->get_attribute( wc_attribute_taxonomy_name_by_id( $width ) );
-			$width_xml = round( wc_get_dimension( (float) $tag_value, 'cm' ), 3 );
+			$shipping_width_source = (int) $shipping_width_source;
+			$tag_value = $this->get_product()->get_attribute( wc_attribute_taxonomy_name_by_id( $shipping_width_source ) );
+			$shipping_width_value = round( wc_get_dimension( (float) $tag_value, 'cm' ), 3 );
 		}
 
-		$height = common_option_get(
+		$shipping_height_source = XFGMC_Options::settings_get(
 			'xfgmc_shipping_height',
 			'woo_shippings',
 			$this->get_feed_id(),
 			'xfgmc'
 		);
-		if ( empty( $height ) || $height === 'woo_shippings' ) {
+		if ( empty( $shipping_height_source ) || $shipping_height_source === 'woo_shippings' ) {
 			if ( $this->get_product()->has_dimensions() ) {
-				$height_xml = $this->get_product()->get_height();
-				if ( ! empty( $height_xml ) && get_option( 'woocommerce_dimension_unit' ) !== 'cm' ) {
-					$height_xml = round( wc_get_dimension( $height_xml, 'cm' ), 3 );
+				$shipping_height_value = $this->get_product()->get_height();
+				if ( ! empty( $shipping_height_value ) && get_option( 'woocommerce_dimension_unit' ) !== 'cm' ) {
+					$shipping_height_value = round( wc_get_dimension( $shipping_height_value, 'cm' ), 3 );
 				}
 			}
 		} else {
-			$height = (int) $height;
-			$tag_value = $this->get_product()->get_attribute( wc_attribute_taxonomy_name_by_id( $height ) );
-			$height_xml = round( wc_get_dimension( (float) $tag_value, 'cm' ), 3 );
+			$shipping_height_source = (int) $shipping_height_source;
+			$tag_value = $this->get_product()->get_attribute( wc_attribute_taxonomy_name_by_id( $shipping_height_source ) );
+			$shipping_height_value = round( wc_get_dimension( (float) $tag_value, 'cm' ), 3 );
 		}
 
-		$shipping_weight = common_option_get(
+		$shipping_weight_source = XFGMC_Options::settings_get(
 			'xfgmc_shipping_weight',
 			'woo_shippings',
 			$this->get_feed_id(),
 			'xfgmc'
 		);
-		if ( empty( $shipping_weight ) || $shipping_weight === 'woo_shippings' ) {
-			$shipping_weight_xml = $this->get_product()->get_weight();
-			if ( ! empty( $shipping_weight_xml ) && get_option( 'woocommerce_weight_unit' ) !== 'kg' ) {
-				$shipping_weight_xml = round( wc_get_weight( $shipping_weight_xml, 'kg' ), 3 );
+		if ( empty( $shipping_weight_source ) || $shipping_weight_source === 'woo_shippings' ) {
+			$shipping_weight_value = $this->get_product()->get_weight();
+			if ( ! empty( $shipping_weight_value ) && get_option( 'woocommerce_weight_unit' ) !== 'kg' ) {
+				$shipping_weight_value = round( wc_get_weight( $shipping_weight_value, 'kg' ), 3 );
 			}
 		} else {
-			$shipping_weight = (int) $shipping_weight;
-			$tag_value = $this->get_product()->get_attribute( wc_attribute_taxonomy_name_by_id( $shipping_weight ) );
-			$shipping_weight_xml = round( wc_get_weight( (float) $tag_value, 'kg' ), 3 );
+			$shipping_weight_source = (int) $shipping_weight_source;
+			$tag_value = $this->get_product()->get_attribute( wc_attribute_taxonomy_name_by_id( $shipping_weight_source ) );
+			$shipping_weight_value = round( wc_get_weight( (float) $tag_value, 'kg' ), 3 );
 		}
 
-		if ( $length_xml > 0 ) {
-			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:shipping_length', sprintf( '%s cm', $length_xml ) );
+		if ( $shipping_length_value > 0 ) {
+			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:shipping_length', sprintf( '%s cm', $shipping_length_value ) );
 		}
-		if ( $width_xml > 0 ) {
-			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:shipping_width', sprintf( '%s cm', $width_xml ) );
+		if ( $shipping_width_value > 0 ) {
+			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:shipping_width', sprintf( '%s cm', $shipping_width_value ) );
 		}
-		if ( $height_xml > 0 ) {
-			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:shipping_height', sprintf( '%s cm', $height_xml ) );
+		if ( $shipping_height_value > 0 ) {
+			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:shipping_height', sprintf( '%s cm', $shipping_height_value ) );
 		}
-		if ( $shipping_weight_xml > 0 ) {
-			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:shipping_weight', sprintf( '%s kg', $shipping_weight_xml ) );
+		if ( $shipping_weight_value > 0 ) {
+			$result_xml .= new XFGMC_Get_Paired_Tag( 'g:shipping_weight', sprintf( '%s kg', $shipping_weight_value ) );
 		}
 
 		$result_xml = apply_filters(

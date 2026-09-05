@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.3 (17-06-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -23,7 +23,7 @@
  * @depends    classes:     XFGMC_Get_Paired_Tag
  *             methods:     get_product
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Description {
 
@@ -40,19 +40,19 @@ trait XFGMC_T_Simple_Get_Description {
 	public function get_description( $tag_name = 'g:description', $result_xml = '' ) {
 
 		$tag_value = '';
-		$xfgmc_desc = common_option_get(
+		$xfgmc_desc = XFGMC_Options::settings_get(
 			'xfgmc_desc',
 			'fullexcerpt',
 			$this->get_feed_id(),
 			'xfgmc'
 		);
-		$xfgmc_the_content = common_option_get(
+		$xfgmc_the_content = XFGMC_Options::settings_get(
 			'xfgmc_the_content',
 			'enabled',
 			$this->get_feed_id(),
 			'xfgmc'
 		);
-		$xfgmc_enable_tags_behavior = common_option_get(
+		$xfgmc_enable_tags_behavior = XFGMC_Options::settings_get(
 			'xfgmc_enable_tags_behavior',
 			'default',
 			$this->get_feed_id(),
@@ -104,7 +104,7 @@ trait XFGMC_T_Simple_Get_Description {
 				break;
 			case 'post_meta':
 
-				$post_meta = common_option_get(
+				$post_meta = XFGMC_Options::settings_get(
 					'xfgmc_source_description_post_meta',
 					'',
 					$this->get_feed_id(),
@@ -123,7 +123,7 @@ trait XFGMC_T_Simple_Get_Description {
 					$tag_value = $this->get_product()->get_description();
 					$tag_value = apply_filters( 'xfgmc_f_simple_switchcase_default_description',
 						$tag_value,
-						[ 
+						[
 							'xfgmc_desc' => $xfgmc_desc,
 							'product' => $this->get_product()
 						],
@@ -149,7 +149,7 @@ trait XFGMC_T_Simple_Get_Description {
 		$tag_value = apply_filters(
 			'xfgmc_f_simple_tag_value_description',
 			$tag_value,
-			[ 
+			[
 				'product' => $this->get_product()
 			],
 			$this->get_feed_id()
@@ -160,7 +160,7 @@ trait XFGMC_T_Simple_Get_Description {
 			$tag_name = apply_filters(
 				'xfgmc_f_simple_tag_name_description',
 				$tag_name,
-				[ 
+				[
 					'product' => $this->get_product()
 				],
 				$this->get_feed_id()
@@ -171,21 +171,21 @@ trait XFGMC_T_Simple_Get_Description {
 		$result_xml = apply_filters(
 			'xfgmc_f_simple_tag_description',
 			$result_xml,
-			[ 
+			[
 				'product' => $this->get_product()
 			],
 			$this->get_feed_id()
 		);
 		if ( empty( $result_xml ) ) {
 			// пропускаем товары без описания
-			$skip_products_without_desc = common_option_get(
+			$skip_products_without_desc = XFGMC_Options::settings_get(
 				'xfgmc_skip_products_without_desc',
 				'disabled',
 				$this->get_feed_id(),
 				'xfgmc'
 			);
 			if ( ( $skip_products_without_desc === 'enabled' ) && ( $tag_value == '' ) ) {
-				$this->add_skip_reason( [ 
+				$this->add_skip_reason( [
 					'reason' => __( 'Product has no description', 'xml-for-google-merchant-center' ),
 					'post_id' => $this->get_product()->get_id(),
 					'file' => 'trait-xfgmc-t-simple-get-description.php',
@@ -199,32 +199,41 @@ trait XFGMC_T_Simple_Get_Description {
 	}
 
 	/**
-	 * Summary of replace_tags.
-	 * 
-	 * @param string $description_xml
-	 * @param string $xfgmc_enable_tags_behavior
-	 * 
-	 * @return string
+	 * Processes and sanitizes a string by replacing or removing specific HTML tags and shortcodes.
+	 *
+	 * Depending on the $enable_tags_behavior value, the function either applies a default set of allowed tags
+	 * or uses a custom list of allowed tags retrieved from settings. It also handles specific tag replacements,
+	 * such as converting list items to line breaks, and removes all shortcodes from the string.
+	 *
+	 * @param string $tag_value The input string containing HTML tags and/or shortcodes to be processed.
+	 * @param string $enable_tags_behavior The behavior mode for allowed tags. Use `default` for standard processing,
+	 *                                     or another value to use custom allowed tags from settings.
+	 *
+	 * @return string The sanitized string with processed tags and removed shortcodes.
 	 */
-	private function replace_tags( $tag_value, $xfgmc_enable_tags_behavior ) {
+	private function replace_tags( $tag_value, $enable_tags_behavior ) {
 
-		if ( $xfgmc_enable_tags_behavior == 'default' ) {
+		if ( $enable_tags_behavior === 'default' ) {
 			$tag_value = str_replace( '<ul>', '', $tag_value );
 			$tag_value = str_replace( '<li>', '', $tag_value );
 			$tag_value = str_replace( '</li>', '<br/>', $tag_value );
 		}
 
-		$xfgmc_enable_tags_custom = common_option_get(
+		$enable_tags_custom = XFGMC_Options::settings_get(
 			'xfgmc_enable_tags_custom',
 			'',
 			$this->get_feed_id(),
 			'xfgmc'
 		);
-		if ( $xfgmc_enable_tags_behavior == 'default' ) {
+		if ( $enable_tags_behavior === 'default' ) {
 			$enable_tags = '<p>,<br/>,<br>';
-			$enable_tags = apply_filters( 'xfgmc_enable_tags_filter', $enable_tags, $this->get_feed_id() );
+			$enable_tags = apply_filters(
+				'xfgmc_enable_tags_filter',
+				$enable_tags,
+				$this->get_feed_id()
+			);
 		} else {
-			$enable_tags = trim( $xfgmc_enable_tags_custom );
+			$enable_tags = trim( $enable_tags_custom );
 			if ( $enable_tags !== '' ) {
 				$enable_tags = '<' . str_replace( ',', '>,<', $enable_tags ) . '>';
 			}

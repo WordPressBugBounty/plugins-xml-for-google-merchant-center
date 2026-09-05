@@ -111,7 +111,7 @@ class XFGMC_Debug_Page {
 	 */
 	public function render() {
 
-		$view_arr = [ 
+		$view_arr = [
 			'tab_name' => $this->get_current_tab_name(),
 			'tabs_arr' => $this->get_tabs_arr(),
 			'simulated_post_id' => $this->get_simulation_post_id(),
@@ -121,8 +121,8 @@ class XFGMC_Debug_Page {
 		];
 
 		if ( $this->get_current_tab_name() === 'debug_options' ) {
-			$view_arr['keeplogs'] = univ_option_get( 'xfgmc_keeplogs', 'disabled' );
-			$view_arr['plugin_notifications'] = univ_option_get( 'xfgmc_plugin_notifications', 'disabled' );
+			$view_arr['keeplogs'] = XFGMC_Options::get( 'xfgmc_keeplogs', 'disabled' );
+			$view_arr['plugin_notifications'] = XFGMC_Options::get( 'xfgmc_plugin_notifications', 'disabled' );
 		}
 
 		include_once __DIR__ . '/views/html-admin-debug-page.php';
@@ -146,7 +146,7 @@ class XFGMC_Debug_Page {
 	 */
 	private function get_tabs_arr() {
 
-		$tabs_arr = [ 
+		$tabs_arr = [
 			'debug_options' => sprintf( '%s',
 				__( 'Debug settings', 'xml-for-google-merchant-center' )
 			),

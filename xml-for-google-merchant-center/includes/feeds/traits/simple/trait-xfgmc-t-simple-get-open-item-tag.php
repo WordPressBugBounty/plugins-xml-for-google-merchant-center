@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      4.0.0
- * @version    4.0.2 (08-06-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -34,7 +34,7 @@ trait XFGMC_T_Simple_Get_Open_Item_Tag {
 	 * @param string $tag_name
 	 * @param string $result_xml
 	 * 
-	 * @return string Example: `<item>`
+	 * @return string Example: `<item>`.
 	 */
 	public function get_open_item_tag( $tag_name = 'item', $result_xml = '' ) {
 

@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -23,7 +23,7 @@
  * @depends    classes:     XFGMC_Get_Paired_Tag
  *             methods:     get_product
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Shipping {
 
@@ -39,7 +39,7 @@ trait XFGMC_T_Simple_Get_Shipping {
 	 */
 	public function get_shipping( $tag_name = 'g:shipping', $result_xml = '' ) {
 
-		$shipping = common_option_get(
+		$shipping = XFGMC_Options::settings_get(
 			'xfgmc_shipping',
 			'disabled',
 			$this->get_feed_id(),
@@ -49,7 +49,7 @@ trait XFGMC_T_Simple_Get_Shipping {
 			return $result_xml;
 		}
 
-		$default_currency = common_option_get(
+		$default_currency = XFGMC_Options::settings_get(
 			'xfgmc_default_currency',
 			'RUB',
 			$this->get_feed_id(),
@@ -64,21 +64,21 @@ trait XFGMC_T_Simple_Get_Shipping {
 			$this->get_feed_id()
 		);
 
-		$shipping_country = common_option_get(
+		$shipping_country = XFGMC_Options::settings_get(
 			'xfgmc_shipping_country',
 			'',
 			$this->get_feed_id(),
 			'xfgmc'
 		);
 
-		$delivery_area_type = common_option_get(
+		$delivery_area_type = XFGMC_Options::settings_get(
 			'xfgmc_delivery_area_type',
 			'region',
 			$this->get_feed_id(),
 			'xfgmc'
 		);
 
-		$delivery_area_value = common_option_get(
+		$delivery_area_value = XFGMC_Options::settings_get(
 			'xfgmc_delivery_area_value',
 			'',
 			$this->get_feed_id(),
@@ -94,7 +94,7 @@ trait XFGMC_T_Simple_Get_Shipping {
 				$delivery_area_value
 			);
 
-			$shipping_price = common_option_get(
+			$shipping_price = XFGMC_Options::settings_get(
 				'xfgmc_shipping_price',
 				'',
 				$this->get_feed_id(),
@@ -104,7 +104,7 @@ trait XFGMC_T_Simple_Get_Shipping {
 				$result_xml .= new XFGMC_Get_Paired_Tag( '<g:service>', $shipping_service );
 			}
 
-			$shipping_service = common_option_get(
+			$shipping_service = XFGMC_Options::settings_get(
 				'xfgmc_shipping_service',
 				'',
 				$this->get_feed_id(),

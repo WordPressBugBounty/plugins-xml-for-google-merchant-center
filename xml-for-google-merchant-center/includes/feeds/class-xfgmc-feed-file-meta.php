@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Get the feed file meta.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.10 (12-01-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -57,7 +57,7 @@ class XFGMC_Feed_File_Meta {
 			$blog_index = '0';
 		}
 
-		$feed_name = common_option_get(
+		$feed_name = XFGMC_Options::settings_get(
 			'xfgmc_feed_name',
 			'',
 			$this->get_feed_id(),
@@ -80,7 +80,7 @@ class XFGMC_Feed_File_Meta {
 	 */
 	public function get_feed_extension() {
 
-		$file_extension = common_option_get(
+		$file_extension = XFGMC_Options::settings_get(
 			'xfgmc_file_extension',
 			'xml',
 			$this->get_feed_id(),
@@ -102,7 +102,7 @@ class XFGMC_Feed_File_Meta {
 	 */
 	public function get_feed_full_filename( $without_zip = false ) {
 
-		$archive_to_zip = common_option_get(
+		$archive_to_zip = XFGMC_Options::settings_get(
 			'xfgmc_archive_to_zip',
 			'disabled',
 			$this->get_feed_id(),

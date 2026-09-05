@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      4.4.0
- * @version    4.4.0 (14-08-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -23,7 +23,7 @@
  * @depends    classes:     XFGMC_Get_Paired_Tag
  *             methods:     get_product
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Sale_Price_Effective_Date {
 
@@ -40,7 +40,7 @@ trait XFGMC_T_Simple_Get_Sale_Price_Effective_Date {
 	public function get_sale_price_effective_date( $tag_name = 'g:sale_price_effective_date', $result_xml = '' ) {
 
 		$tag_value = '';
-		$use_sale_price_effective_date = common_option_get(
+		$use_sale_price_effective_date = XFGMC_Options::settings_get(
 			'xfgmc_use_sale_price_effective_date',
 			'disabled',
 			$this->get_feed_id(),
@@ -51,7 +51,7 @@ trait XFGMC_T_Simple_Get_Sale_Price_Effective_Date {
 		}
 
 		if ( $use_sale_price_effective_date === 'enabled_default_value' ) {
-			$sale_price_effective_date = common_option_get(
+			$sale_price_effective_date = XFGMC_Options::settings_get(
 				'xfgmc_sale_price_effective_date',
 				'',
 				$this->get_feed_id(),
@@ -63,7 +63,7 @@ trait XFGMC_T_Simple_Get_Sale_Price_Effective_Date {
 		}
 
 		if ( $use_sale_price_effective_date === 'enabled' ) {
-			$add_to_availability = (int) common_option_get(
+			$add_to_availability = (int) XFGMC_Options::settings_get(
 				'xfgmc_add_to_availability',
 				'0',
 				$this->get_feed_id(),

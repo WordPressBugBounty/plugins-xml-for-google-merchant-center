@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.4.0 (14-08-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -24,7 +24,7 @@
  *             methods:     get_product
  *                          get_offer
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Variable_Get_Availability_Date {
 
@@ -41,7 +41,7 @@ trait XFGMC_T_Variable_Get_Availability_Date {
 	public function get_availability_date( $tag_name = 'g:availability_date', $result_xml = '' ) {
 
 		$tag_value = '';
-		$use_availability_date = common_option_get(
+		$use_availability_date = XFGMC_Options::settings_get(
 			'xfgmc_use_availability_date',
 			'disabled',
 			$this->get_feed_id(),
@@ -52,7 +52,7 @@ trait XFGMC_T_Variable_Get_Availability_Date {
 		}
 
 		if ( $use_availability_date === 'enabled_default_value' ) {
-			$availability_date = common_option_get(
+			$availability_date = XFGMC_Options::settings_get(
 				'xfgmc_availability_date',
 				'',
 				$this->get_feed_id(),
@@ -64,7 +64,7 @@ trait XFGMC_T_Variable_Get_Availability_Date {
 		}
 
 		if ( $use_availability_date === 'enabled' ) {
-			$add_to_availability = (int) common_option_get(
+			$add_to_availability = (int) XFGMC_Options::settings_get(
 				'xfgmc_add_to_availability',
 				'0',
 				$this->get_feed_id(),

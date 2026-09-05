@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for variable products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.2.0 (05-04-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -24,7 +24,7 @@
  *             methods:     get_product
  *                          get_offer
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Variable_Get_Dimensions {
 
@@ -46,7 +46,7 @@ trait XFGMC_T_Variable_Get_Dimensions {
 		$width_xml = 0;
 		$height_xml = 0;
 		$product_weight_xml = 0;
-		$length = common_option_get(
+		$length = XFGMC_Options::settings_get(
 			'xfgmc_length',
 			'woo_shippings',
 			$this->get_feed_id(),
@@ -69,7 +69,7 @@ trait XFGMC_T_Variable_Get_Dimensions {
 			$length_xml = round( wc_get_dimension( (float) $tag_value, 'cm' ), 3 );
 		}
 
-		$width = common_option_get(
+		$width = XFGMC_Options::settings_get(
 			'xfgmc_width',
 			'woo_shippings',
 			$this->get_feed_id(),
@@ -91,7 +91,7 @@ trait XFGMC_T_Variable_Get_Dimensions {
 			$width_xml = round( wc_get_dimension( (float) $tag_value, 'cm' ), 3 );
 		}
 
-		$height = common_option_get(
+		$height = XFGMC_Options::settings_get(
 			'xfgmc_height',
 			'woo_shippings',
 			$this->get_feed_id(),
@@ -113,7 +113,7 @@ trait XFGMC_T_Variable_Get_Dimensions {
 			$height_xml = round( wc_get_dimension( (float) $tag_value, 'cm' ), 3 );
 		}
 
-		$product_weight = common_option_get(
+		$product_weight = XFGMC_Options::settings_get(
 			'xfgmc_product_weight',
 			'woo_shippings',
 			$this->get_feed_id(),

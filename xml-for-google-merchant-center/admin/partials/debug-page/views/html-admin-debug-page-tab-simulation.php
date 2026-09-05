@@ -1,8 +1,9 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
+
 /**
  * Display the Simulation tab.
  * 
- * @version    4.1.1 (27-03-2025)
+ * @version    4.5.0 (04-09-2026)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/debug_page/
  * 
@@ -11,7 +12,7 @@
  * @param $view_arr['simulation_result_report']
  * @param $view_arr['simulation_result']
  */
-defined( 'ABSPATH' ) || exit; ?>
+?>
 <div class="postbox">
 	<table class="form-table">
 		<tbody>
@@ -37,7 +38,7 @@ defined( 'ABSPATH' ) || exit; ?>
 						} else {
 							$cur_feed_id = '1';
 						}
-						$xfgmc_settings_arr = univ_option_get( 'xfgmc_settings_arr' );
+						$xfgmc_settings_arr = XFGMC_Options::get( 'xfgmc_settings_arr' );
 						$xfgmc_settings_arr_keys_arr = array_keys( $xfgmc_settings_arr );
 						for ( $i = 0; $i < count( $xfgmc_settings_arr_keys_arr ); $i++ ) {
 							$feed_id = (string) $xfgmc_settings_arr_keys_arr[ $i ];

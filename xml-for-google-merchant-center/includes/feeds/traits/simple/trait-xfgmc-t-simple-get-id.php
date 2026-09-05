@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -24,7 +24,7 @@
  *             methods:     get_product
  *                          get_feed_id
  *                          get_simple_tag
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Id {
 
@@ -40,7 +40,7 @@ trait XFGMC_T_Simple_Get_Id {
 	 */
 	public function get_id( $tag_name = 'g:id', $result_xml = '' ) {
 
-		$source_id = common_option_get(
+		$source_id = XFGMC_Options::settings_get(
 			'xfgmc_source_id',
 			'default',
 			$this->get_feed_id(),
@@ -65,7 +65,7 @@ trait XFGMC_T_Simple_Get_Id {
 				break;
 			case 'post_meta':
 
-				$post_meta = common_option_get(
+				$post_meta = XFGMC_Options::settings_get(
 					'xfgmc_source_id_post_meta',
 					'',
 					$this->get_feed_id(),

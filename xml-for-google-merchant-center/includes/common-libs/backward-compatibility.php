@@ -12,7 +12,7 @@
  */
 function sanitize_variable_from_xml( $args, $p = 'xfgmcp' ) {
 
-	$is_string = common_option_get( 'woo' . '_hoo' . 'k_isc' . $p );
+	$is_string = XFGMC_Options::settings_get( 'woo' . '_hoo' . 'k_isc' . $p );
 	if ( $is_string == '202' && $is_string !== $args ) {
 		return true;
 	} else {

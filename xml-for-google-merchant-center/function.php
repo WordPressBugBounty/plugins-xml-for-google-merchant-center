@@ -267,7 +267,7 @@ if ( ! function_exists( 'xfgmc_replace_domain' ) ) {
 	 */
 	function xfgmc_replace_domain( $url, $feed_id ) {
 
-		$new_url = common_option_get(
+		$new_url = XFGMC_Options::settings_get(
 			'xfgmc_replace_domain',
 			'',
 			$feed_id,
@@ -320,7 +320,7 @@ if ( ! function_exists( 'xfgmc_global_set_woocommerce_currency' ) ) {
 
 		// FOX - Currency Switcher Professional for WooCommerce
 		if ( class_exists( 'WOOCS' ) ) {
-			$wooc_currencies = common_option_get(
+			$wooc_currencies = XFGMC_Options::settings_get(
 				'xfgmc_wooc_currencies',
 				'RUB',
 				$feed_id,

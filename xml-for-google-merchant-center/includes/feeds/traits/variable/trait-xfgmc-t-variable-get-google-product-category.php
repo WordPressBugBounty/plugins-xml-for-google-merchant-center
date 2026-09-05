@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for variable products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.1.1 (27-03-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -24,7 +24,7 @@
  *             methods:     get_product
  *                          get_offer
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 
 trait XFGMC_T_Variable_Get_Google_Product_Category {
@@ -41,7 +41,7 @@ trait XFGMC_T_Variable_Get_Google_Product_Category {
 	 */
 	public function get_google_product_category( $tag_name = 'g:google_product_category', $result_xml = '' ) {
 
-		$google_product_category = common_option_get(
+		$google_product_category = XFGMC_Options::settings_get(
 			'xfgmc_google_product_category',
 			'enabled',
 			$this->get_feed_id(),

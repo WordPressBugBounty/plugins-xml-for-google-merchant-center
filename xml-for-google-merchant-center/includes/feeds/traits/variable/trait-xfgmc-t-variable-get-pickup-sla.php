@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      4.4.0
- * @version    4.4.0 (14-08-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -41,7 +41,7 @@ trait XFGMC_T_Variable_Get_Pickup_Sla {
 	 */
 	public function get_pickup_sla( $tag_name = 'g:pickup_sla', $result_xml = '' ) {
 
-		$pickup_sla = common_option_get(
+		$pickup_sla = XFGMC_Options::settings_get(
 			'xfgmc_pickup_sla',
 			'disabled',
 			$this->get_feed_id(),

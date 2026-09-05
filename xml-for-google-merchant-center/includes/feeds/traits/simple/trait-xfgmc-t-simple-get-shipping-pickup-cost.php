@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      4.0.4
- * @version    4.4.0 (14-08-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -23,7 +23,7 @@
  * @depends    classes:     XFGMC_Get_Paired_Tag
  *             methods:     get_product
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Shipping_Pickup_Cost {
 
@@ -42,7 +42,7 @@ trait XFGMC_T_Simple_Get_Shipping_Pickup_Cost {
 	 */
 	public function get_pickup_cost( $tag_name = 'pickup_cost', $result_xml = '' ) {
 
-		$pickup_cost = common_option_get(
+		$pickup_cost = XFGMC_Options::settings_get(
 			'xfgmc_pickup_cost',
 			'disabled',
 			$this->get_feed_id(),
@@ -53,13 +53,13 @@ trait XFGMC_T_Simple_Get_Shipping_Pickup_Cost {
 			return $result_xml;
 		}
 
-		$pickup_cost_flat_rate = common_option_get(
+		$pickup_cost_flat_rate = XFGMC_Options::settings_get(
 			'xfgmc_pickup_cost_flat_rate',
 			'',
 			$this->get_feed_id(),
 			'xfgmc'
 		);
-		$pick_cost_free_threshold = common_option_get(
+		$pick_cost_free_threshold = XFGMC_Options::settings_get(
 			'xfgmc_pick_cost_free_threshold',
 			'',
 			$this->get_feed_id(),
@@ -68,7 +68,7 @@ trait XFGMC_T_Simple_Get_Shipping_Pickup_Cost {
 		if ( empty( $pickup_cost_flat_rate ) && empty( $pick_cost_free_threshold ) ) {
 			return $result_xml;
 		}
-		$default_currency = common_option_get(
+		$default_currency = XFGMC_Options::settings_get(
 			'xfgmc_default_currency',
 			'USD',
 			$this->get_feed_id(),

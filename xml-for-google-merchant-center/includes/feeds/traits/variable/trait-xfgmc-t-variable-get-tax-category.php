@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for variable products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -26,7 +26,7 @@
  *                          get_feed_id
  *                          get_variable_product_post_meta
  *                          get_variable_tag
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Variable_Get_Tax_Category {
 
@@ -42,7 +42,7 @@ trait XFGMC_T_Variable_Get_Tax_Category {
 	 */
 	public function get_tax_category( $tag_name = 'g:tax_category', $result_xml = '' ) {
 
-		$tax_category = common_option_get(
+		$tax_category = XFGMC_Options::settings_get(
 			'xfgmc_tax_category',
 			'disabled',
 			$this->get_feed_id(),

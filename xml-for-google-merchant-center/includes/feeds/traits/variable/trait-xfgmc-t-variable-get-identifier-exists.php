@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for variable products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -24,7 +24,7 @@
  *             methods:     get_product
  *                          get_offer
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 
 trait XFGMC_T_Variable_Get_Identifier_Exists {
@@ -41,7 +41,7 @@ trait XFGMC_T_Variable_Get_Identifier_Exists {
 	 */
 	public function get_identifier_exists( $tag_name = 'g:identifier_exists', $result_xml = '' ) {
 
-		$identifier_exists = common_option_get(
+		$identifier_exists = XFGMC_Options::settings_get(
 			'xfgmc_identifier_exists',
 			'enabled',
 			$this->get_feed_id(),

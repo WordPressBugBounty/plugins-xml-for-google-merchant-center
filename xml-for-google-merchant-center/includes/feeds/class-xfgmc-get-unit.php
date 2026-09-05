@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * The main class for getting the XML-code of the product.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.7 (11-09-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -245,7 +245,7 @@ class XFGMC_Get_Unit {
 	 */
 	protected function get_result_from_tmp() {
 
-		$ignore_cache = common_option_get(
+		$ignore_cache = XFGMC_Options::settings_get(
 			'xfgmc_ignore_cache',
 			'disabled',
 			$this->get_feed_id(),

@@ -1,4 +1,4 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * The file that defines the core plugin class.
@@ -8,7 +8,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.2.0 (05-04-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -127,6 +127,11 @@ class XFGMC {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-xfgmc-i18n.php';
 
 		/** ----------------------------------- */
+
+		/**
+		 * The class responsible for unified options management for the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-xfgmc-options.php';
 
 		/**
 		 * These classes are responsible for generating the feed.

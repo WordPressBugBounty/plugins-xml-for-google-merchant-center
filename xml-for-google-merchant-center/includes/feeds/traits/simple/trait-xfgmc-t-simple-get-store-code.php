@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -25,7 +25,7 @@
  *                          get_feed_id
  *                          get_simple_product_post_meta
  *                          get_simple_tag
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Store_Code {
 
@@ -41,7 +41,7 @@ trait XFGMC_T_Simple_Get_Store_Code {
 	 */
 	public function get_store_code( $tag_name = 'g:store_code', $result_xml = '' ) {
 
-		$store_code = common_option_get(
+		$store_code = XFGMC_Options::settings_get(
 			'xfgmc_store_code',
 			'disabled',
 			$this->get_feed_id(),
@@ -50,7 +50,7 @@ trait XFGMC_T_Simple_Get_Store_Code {
 		if ( $store_code === 'enabled' ) {
 			$tag_value = $this->get_simple_product_post_meta( 'store_code' );
 			if ( empty( $tag_value ) ) {
-				$tag_value = common_option_get(
+				$tag_value = XFGMC_Options::settings_get(
 					'xfgmc_store_code_default_value',
 					'',
 					$this->get_feed_id(),

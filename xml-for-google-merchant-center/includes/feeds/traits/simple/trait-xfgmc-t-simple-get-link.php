@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -23,7 +23,7 @@
  * @depends    classes:     XFGMC_Get_Paired_Tag
  *             methods:     get_product
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Link {
 
@@ -39,7 +39,7 @@ trait XFGMC_T_Simple_Get_Link {
 	 */
 	public function get_link( $tag_name = 'g:link', $result_xml = '' ) {
 
-		$link = common_option_get(
+		$link = XFGMC_Options::settings_get(
 			'xfgmc_link',
 			'enabled',
 			$this->get_feed_id(),
@@ -51,7 +51,7 @@ trait XFGMC_T_Simple_Get_Link {
 		}
 
 		$tag_value = htmlspecialchars( get_permalink( $this->get_product()->get_id() ) );
-		$clear_get = common_option_get(
+		$clear_get = XFGMC_Options::settings_get(
 			'xfgmc_clear_get',
 			'disabled',
 			$this->get_feed_id(),

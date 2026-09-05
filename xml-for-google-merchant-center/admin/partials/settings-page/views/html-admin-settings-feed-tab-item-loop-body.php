@@ -1,17 +1,17 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
+
 /**
  * The tab items loop body.
  * 
- * @version    4.0.4 (20-06-2025)
+ * @version    4.5.0 (04-09-2026)
  * @package    XFGMC
  * @subpackage XFGMC/admin/partials/settings_page/
  * 
  * @param $view_arr['feed_id']
  */
-defined( 'ABSPATH' ) || exit;
 
 $tag_label = $attr_arr[ $i ]['data']['label'];
-$opt_value = common_option_get(
+$opt_value = XFGMC_Options::settings_get(
 	$attr_arr[ $i ]['opt_name'],
 	'',
 	$view_arr['feed_id'],
@@ -58,7 +58,7 @@ if ( $attr_arr[ $i ]['type'] === 'select' ) {
 			]
 		);
 		// массивы хранятся в отдельных опциях
-		$opt_value = maybe_unserialize( univ_option_get(
+		$opt_value = maybe_unserialize( XFGMC_Options::get(
 			$attr_arr[ $i ]['opt_name'] . $view_arr['feed_id'],
 			[]
 		) );
@@ -115,7 +115,7 @@ if ( $attr_arr[ $i ]['type'] === 'select2' ) {
 		'style' => 'width:99%;max-width:25em;'
 	];
 	// массивы хранятся в отдельных опциях, а select2 точно массив
-	$opt_value = maybe_unserialize( univ_option_get(
+	$opt_value = maybe_unserialize( XFGMC_Options::get(
 		$attr_arr[ $i ]['opt_name'] . $view_arr['feed_id'],
 		[]
 	) );

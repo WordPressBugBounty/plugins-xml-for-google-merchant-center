@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -24,7 +24,7 @@
  *             methods:     get_product
  *                          get_feed_id
  *                          get_feed_category_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Size_Type {
 
@@ -40,7 +40,7 @@ trait XFGMC_T_Simple_Get_Size_Type {
 	 */
 	public function get_size_type( $tag_name = 'g:size_type', $result_xml = '' ) {
 
-		$size_type = common_option_get(
+		$size_type = XFGMC_Options::settings_get(
 			'xfgmc_size_type',
 			'disabled',
 			$this->get_feed_id(),
@@ -68,7 +68,7 @@ trait XFGMC_T_Simple_Get_Size_Type {
 		}
 
 		if ( empty( $tag_value ) ) {
-			$size_type_default_value = common_option_get(
+			$size_type_default_value = XFGMC_Options::settings_get(
 				'xfgmc_size_type_default_value',
 				'',
 				$this->get_feed_id(),

@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * This class is responsible for creating the feed.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.1.1 (27-03-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -49,20 +49,26 @@ class XFGMC_Generation_XML {
 	protected $result_xml = '';
 
 	/**
+	 * Is WP_Filesystem already initialized?
+	 * @var bool
+	 */
+	private $filesystem_initialized = false;
+
+	/**
 	 * Starts feed generation.
 	 * 
-	 * @param string|int $feed_id - Required
+	 * @param string|int $feed_id Feed ID.
 	 */
 	public function __construct( $feed_id ) {
 
 		$this->feed_id = (string) $feed_id;
-		$this->status_sborki = (int) common_option_get(
+		$this->status_sborki = (int) XFGMC_Options::settings_get(
 			'xfgmc_status_sborki',
 			-1,
 			$this->get_feed_id(),
 			'xfgmc'
 		);
-		$this->step_export = (int) common_option_get(
+		$this->step_export = (int) XFGMC_Options::settings_get(
 			'xfgmc_step_export',
 			25,
 			$this->get_feed_id(),
@@ -79,7 +85,7 @@ class XFGMC_Generation_XML {
 	public function quick_generation() {
 
 		$date_sborki_start = current_time( 'Y-m-d H:i' );
-		common_option_upd(
+		XFGMC_Options::settings_update(
 			'xfgmc_date_sborki_start',
 			$date_sborki_start,
 			'no',
@@ -116,14 +122,14 @@ class XFGMC_Generation_XML {
 			$res_rename = $this->rename_feed_file();
 			if ( true === $res_rename ) {
 				$this->archiving();
-				common_option_upd(
+				XFGMC_Options::settings_update(
 					'xfgmc_date_sborki_end',
 					current_time( 'Y-m-d H:i' ),
 					'no',
 					$this->get_feed_id(),
 					'xfgmc'
 				);
-				common_option_upd(
+				XFGMC_Options::settings_update(
 					'xfgmc_date_successful_feed_update',
 					current_time( 'timestamp', 1 ),
 					'no',
@@ -171,19 +177,19 @@ class XFGMC_Generation_XML {
 				 */
 
 				$date_sborki_start = current_time( 'Y-m-d H:i' );
-				common_option_upd(
+				XFGMC_Options::settings_update(
 					'xfgmc_date_sborki_start',
 					$date_sborki_start,
 					'no',
 					$this->get_feed_id(),
 					'xfgmc'
 				);
-				common_option_upd(
+				XFGMC_Options::settings_update(
 					'xfgmc_date_sborki_end',
 					sprintf( '%s (%s: %s)',
 						__( 'Not completed', 'xml-for-google-merchant-center' ),
 						__( 'The version used is from', 'xml-for-google-merchant-center' ),
-						common_option_get(
+						XFGMC_Options::settings_get(
 							'xfgmc_date_sborki_end',
 							$date_sborki_start,
 							$this->get_feed_id(),
@@ -300,7 +306,7 @@ class XFGMC_Generation_XML {
 			case 2:
 
 				// создание временных файлов товаров, входящих в фид
-				$last_element_feed = (int) univ_option_get(
+				$last_element_feed = (int) XFGMC_Options::get(
 					'xfgmc_last_element_feed_' . $this->get_feed_id(),
 					0
 				);
@@ -333,7 +339,7 @@ class XFGMC_Generation_XML {
 				}
 
 				$time_start = time();
-				$step_export = (int) common_option_get(
+				$step_export = (int) XFGMC_Options::settings_get(
 					'xfgmc_step_export',
 					500,
 					$this->get_feed_id(),
@@ -371,7 +377,7 @@ class XFGMC_Generation_XML {
 					__( 'Line', 'xml-for-google-merchant-center' ),
 					__LINE__
 				) );
-				$script_execution_time = (int) common_option_get(
+				$script_execution_time = (int) XFGMC_Options::settings_get(
 					'xfgmc_script_execution_time',
 					'26',
 					$this->get_feed_id(),
@@ -409,13 +415,13 @@ class XFGMC_Generation_XML {
 						__( 'Line', 'xml-for-google-merchant-center' ),
 						__LINE__
 					) );
-					$date_successful_feed_update = common_option_get(
+					$date_successful_feed_update = XFGMC_Options::settings_get(
 						'xfgmc_date_successful_feed_update',
 						50,
 						$this->get_feed_id(),
 						'xfgmc'
 					);
-					$date_save_set = common_option_get(
+					$date_save_set = XFGMC_Options::settings_get(
 						'xfgmc_date_save_set',
 						50,
 						$this->get_feed_id(),
@@ -493,7 +499,7 @@ class XFGMC_Generation_XML {
 				$planning_result = XFGMC_Cron_Manager::cron_sborki_task_planning( $this->get_feed_id(), 32 );
 
 				// постов нет, пишем концовку файла
-				$last_element_feed = (int) univ_option_get(
+				$last_element_feed = (int) XFGMC_Options::get(
 					'xfgmc_last_element_feed_' . $this->get_feed_id(),
 					0
 				);
@@ -558,14 +564,14 @@ class XFGMC_Generation_XML {
 					)
 				);
 				$this->archiving();
-				common_option_upd(
+				XFGMC_Options::settings_update(
 					'xfgmc_date_sborki_end',
 					current_time( 'Y-m-d H:i' ),
 					'no',
 					$this->get_feed_id(),
 					'xfgmc'
 				);
-				common_option_upd(
+				XFGMC_Options::settings_update(
 					'xfgmc_date_successful_feed_update',
 					current_time( 'timestamp', 1 ),
 					'no',
@@ -592,7 +598,7 @@ class XFGMC_Generation_XML {
 	 */
 	public function get_feed_header() {
 
-		$xml_rules = common_option_get(
+		$xml_rules = XFGMC_Options::settings_get(
 			'xfgmc_xml_rules',
 			'merchant_center',
 			$this->get_feed_id(),
@@ -602,14 +608,14 @@ class XFGMC_Generation_XML {
 		$result_xml .= '<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">' . PHP_EOL;
 		$result_xml .= new XFGMC_Get_Open_Tag( 'channel' );
 		$shop_name = stripslashes(
-			common_option_get( 'xfgmc_shop_name',
+			XFGMC_Options::settings_get( 'xfgmc_shop_name',
 				get_bloginfo( 'name' ),
 				$this->get_feed_id(),
 				'xfgmc' )
 		);
 		$result_xml .= new XFGMC_Get_Paired_Tag( 'title', esc_html( $shop_name ) );
 		$shop_description = stripslashes(
-			common_option_get(
+			XFGMC_Options::settings_get(
 				'xfgmc_shop_description',
 				'',
 				$this->get_feed_id(),
@@ -647,7 +653,7 @@ class XFGMC_Generation_XML {
 			$this->get_feed_id()
 		);
 		$file_content = file_get_contents( $ids_in_xml_path );
-		if ( false === $file_content || $file_content == '' ) {
+		if ( false === $file_content || '' === trim( $file_content ) ) {
 			new XFGMC_Error_Log( sprintf( 'FEED #%1$s; ERROR: %2$s (path = %3$s); %4$s: %5$s; %6$s: %7$s',
 				$this->get_feed_id(),
 				__( 'The list of product IDs in the feed is empty or the temporary file has been deleted', 'xml-for-google-merchant-center' ),
@@ -663,21 +669,121 @@ class XFGMC_Generation_XML {
 
 		$name_dir = XFGMC_SITE_UPLOADS_DIR_PATH . '/xfgmc/feed' . $this->get_feed_id();
 		foreach ( $ids_in_xml_arr as $key => $value ) {
+
 			$product_id = (int) $key;
 			$filename = sprintf( '%s/%s.tmp', $name_dir, $product_id );
-			$result_xml .= file_get_contents( $filename );
+
+			if ( ! file_exists( $filename ) || ! is_readable( $filename ) ) {
+				continue; // Пропускаем отсутствующие файлы без ошибок
+			}
+
+			$offer_xml = @file_get_contents( $filename );
+			if ( false === $offer_xml ) {
+				XFGMC_Error_Log::record( sprintf( 'FEED #%1$s; ERROR: %2$s {%3$s}; %4$s: %5$s; %6$s: %7$s',
+					$this->get_feed_id(),
+					__( 'Error reading the file', 'xml-for-google-merchant-center' ),
+					$filename,
+					__( 'File', 'xml-for-google-merchant-center' ),
+					'class-y4ym-generation-xml.php',
+					__( 'Line', 'xml-for-google-merchant-center' ),
+					__LINE__
+				) );
+				continue;
+			}
+
+			// это условие нужно потому, что заголовок фида хранится в tmp-файле
+			// с отрицательным значением и проверять его не надо
+			if ( $product_id > 0 ) {
+
+				if ( $this->check_xml_fragment( $offer_xml, $filename ) === 'not_valid' ) {
+					continue;
+				}
+
+			}
+
+			if ( trim( $offer_xml ) === '' ) {
+				continue;
+			}
+
+			$result_xml .= $offer_xml;
+			$products_count++;
+
 		}
 
-		$offer_count = count( $ids_in_xml_arr ); // число товаров попавших в фид
-		common_option_upd(
+		XFGMC_Options::settings_update(
 			'xfgmc_count_products_in_feed',
-			$offer_count,
+			$products_count,
 			'no',
 			$this->get_feed_id(),
 			'xfgmc'
 		);
 
 		return $result_xml;
+
+	}
+
+	/**
+	 * Checking XML fragment.
+	 * 
+	 * @param string $offer_xml
+	 * @param string $filename
+	 * 
+	 * @return string Maybe `valid` or `not_valid`.
+	 */
+	public function check_xml_fragment( $offer_xml, $filename ) {
+
+		// Добавляем wrapper с объявлением namespace
+		$wrapped_xml_content = '<wrapper xmlns:g="http://base.google.com/ns/1.0">' . $offer_xml . '</wrapper>';
+
+		// Включаем обработку внутренних ошибок
+		libxml_use_internal_errors( true );
+		try {
+			// Создаем объект DOMDocument
+			$dom = new DOMDocument();
+
+			// Загружаем преобразованный XML
+			$dom_result = $dom->loadXML( $wrapped_xml_content );
+
+			// Проверяем успешность загрузки
+			if ( ! $dom_result || ! empty( libxml_get_errors() ) ) {
+				throw new Exception(
+					sprintf( '%s {%s}',
+						__(
+							'Error checking the XML fragment',
+							'xml-for-google-merchant-center'
+						),
+						$filename
+					)
+				);
+			}
+		} catch (\Exception $e) {
+			$errors_list = '';
+			foreach ( libxml_get_errors() as $error ) {
+				$errors_list .= sprintf(
+					'%1$s: %2$s, %3$s: %4$s - %5$s',
+					__( 'Line', 'xml-for-google-merchant-center' ),
+					$error->line,
+					__( 'Column', 'xml-for-google-merchant-center' ),
+					$error->column,
+					$error->message
+				);
+			}
+			XFGMC_Error_Log::record( sprintf( 'FEED #%1$s; ERROR: %2$s {%3$s [%4$s]}; %5$s: %6$s; %7$s: %8$s',
+				$this->get_feed_id(),
+				__( 'Error reading the file', 'xml-for-google-merchant-center' ),
+				$e->getMessage(),
+				$errors_list,
+				__( 'File', 'xml-for-google-merchant-center' ),
+				'class-y4ym-generation-xml.php',
+				__( 'Line', 'xml-for-google-merchant-center' ),
+				__LINE__
+			) );
+			libxml_clear_errors();
+			return 'not_valid';
+		}
+
+		libxml_clear_errors();
+		return 'valid';
 
 	}
 
@@ -720,9 +826,9 @@ class XFGMC_Generation_XML {
 	 */
 	public function stop() {
 
-		if ( 'once' === common_option_get( 'xfgmc_run_cron', 'disabled', $this->get_feed_id(), 'xfgmc' ) ) {
+		if ( 'once' === XFGMC_Options::settings_get( 'xfgmc_run_cron', 'disabled', $this->get_feed_id(), 'xfgmc' ) ) {
 			// если была одноразовая сборка - переводим переключатель в `отключено`
-			common_option_upd( 'xfgmc_run_cron', 'disabled', 'no', $this->get_feed_id(), 'xfgmc' );
+			XFGMC_Options::settings_update( 'xfgmc_run_cron', 'disabled', 'no', $this->get_feed_id(), 'xfgmc' );
 		}
 		$this->set_status_sborki( -1 );
 		wp_clear_scheduled_hook( 'xfgmc_cron_sborki', [ $this->get_feed_id() ] );
@@ -733,21 +839,33 @@ class XFGMC_Generation_XML {
 	/**
 	 * Getting product IDs in an XML feed.
 	 * 
-	 * @param string $file_content
+	 * @param string $file_content Содержимое файла.
 	 * 
-	 * @return array
+	 * @return array Возвращает массив в котором ключи - это id товаров в БД WordPress, попавшие в фид.
 	 */
 	protected function get_ids_in_xml_arr( $file_content ) {
 
-		/**
-		 * $file_content - содержимое файла (Обязательный параметр)
-		 * Возвращает массив в котором ключи - это id товаров в БД WordPress, попавшие в фид
-		 */
+		if ( '' === trim( $file_content ) ) {
+			return [];
+		}
+
 		$res_arr = [];
 		$file_content_string_arr = explode( PHP_EOL, $file_content );
-		for ( $i = 0; $i < count( $file_content_string_arr ) - 1; $i++ ) {
-			$r_arr = explode( ';', $file_content_string_arr[ $i ] );
-			$res_arr[ $r_arr[0] ] = '';
+
+		// Проходим по всем строкам, включая последнюю (если она есть)
+		// Важно: explode может вернуть элементы с пустыми строками в конце
+		foreach ( $file_content_string_arr as $line ) {
+			$line = trim( $line );
+			if ( empty( $line ) ) {
+				continue; // Пропускаем пустые строки
+			}
+
+			$parts = explode( ';', $line );
+			$id = isset( $parts[0] ) ? trim( $parts[0] ) : '';
+
+			if ( ! empty( $id ) ) {
+				$res_arr[ (int) $id ] = ''; // Ключуем сразу как int
+			}
 		}
 		return $res_arr;
 
@@ -762,7 +880,7 @@ class XFGMC_Generation_XML {
 	 */
 	private function set_status_sborki( $status_sborki ) {
 
-		common_option_upd(
+		XFGMC_Options::settings_update(
 			'xfgmc_status_sborki',
 			(string) $status_sborki,
 			'no',
@@ -825,6 +943,8 @@ class XFGMC_Generation_XML {
 		} else {
 			$folder_index = $this->get_prefix_feed();
 		}
+
+		// Путь к временному файлу
 		if ( is_multisite() ) {
 			$feed_tmp_full_file_name = sprintf( '%1$s/feed%2$s/%3$s-feed-xml-%4$s-tmp.xml',
 				XFGMC_PLUGIN_UPLOADS_DIR_PATH,
@@ -856,7 +976,7 @@ class XFGMC_Generation_XML {
 		);
 
 		// старый адрес фида /home/site.ru/public_html/wp-content/uploads/feed-xml-0.xml
-		$feed_old_path = common_option_get(
+		$feed_old_path = XFGMC_Options::settings_get(
 			'xfgmc_feed_path',
 			'',
 			$this->get_feed_id(),
@@ -894,14 +1014,14 @@ class XFGMC_Generation_XML {
 			) );
 			return false;
 		} else {
-			common_option_upd(
+			XFGMC_Options::settings_update(
 				'xfgmc_feed_path',
 				$feed_new_path,
 				'no',
 				$this->get_feed_id(),
 				'xfgmc'
 			);
-			common_option_upd(
+			XFGMC_Options::settings_update(
 				'xfgmc_feed_url',
 				$feed_new_url,
 				'no',
@@ -924,13 +1044,42 @@ class XFGMC_Generation_XML {
 	}
 
 	/**
+	 * Инициализирует WP_Filesystem. Обязательно использовать перед любыми операциями с файлами.
+	 *
+	 * @return bool
+	 */
+	private function init_filesystem() {
+
+		if ( $this->filesystem_initialized ) {
+			return true;
+		}
+
+		// Загружаем функции WordPress для работы с файловой системой
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+
+		// Инициализируем
+		$creds = request_filesystem_credentials( '', '', false, false, null );
+		if ( false === $creds ) {
+			return false;
+		}
+
+		if ( ! WP_Filesystem( $creds ) ) {
+			return false;
+		}
+
+		$this->filesystem_initialized = true;
+		return true;
+
+	}
+
+	/**
 	 * Archiving to ZIP.
 	 * 
 	 * @return void
 	 */
 	private function archiving() {
 
-		$archive_to_zip = common_option_get(
+		$archive_to_zip = XFGMC_Options::settings_get(
 			'xfgmc_archive_to_zip',
 			'disabled',
 			$this->get_feed_id(),

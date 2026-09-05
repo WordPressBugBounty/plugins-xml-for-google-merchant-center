@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /** 
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -34,7 +34,6 @@ trait XFGMC_T_Simple_Get_Unit_Pricing_Base_Measure {
 	 * 
 	 * @param string $tag_name
 	 * @param string $result_xml
-	 * @param string $depricated
 	 * 
 	 * @return string Example: `<g:unit_pricing_base_measure>100oz</g:unit_pricing_base_measure>`.
 	 */

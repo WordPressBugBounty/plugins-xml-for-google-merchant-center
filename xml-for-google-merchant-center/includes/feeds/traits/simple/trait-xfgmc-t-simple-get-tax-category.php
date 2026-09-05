@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -25,7 +25,7 @@
  *                          get_feed_id
  *                          get_simple_product_post_meta
  *                          get_simple_tag
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Tax_Category {
 
@@ -41,7 +41,7 @@ trait XFGMC_T_Simple_Get_Tax_Category {
 	 */
 	public function get_tax_category( $tag_name = 'g:tax_category', $result_xml = '' ) {
 
-		$tax_category = common_option_get(
+		$tax_category = XFGMC_Options::settings_get(
 			'xfgmc_tax_category',
 			'disabled',
 			$this->get_feed_id(),
@@ -68,7 +68,7 @@ trait XFGMC_T_Simple_Get_Tax_Category {
 		$result_xml = apply_filters(
 			'xfgmc_f_simple_tag_tax_category',
 			$result_xml,
-			[ 
+			[
 				'product' => $this->get_product(),
 				'feed_category_id' => $this->get_feed_category_id(),
 				'input_data_arr' => $this->get_input_data_arr()

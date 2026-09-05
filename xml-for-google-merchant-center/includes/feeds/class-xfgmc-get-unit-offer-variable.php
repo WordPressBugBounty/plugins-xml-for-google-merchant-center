@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.4.0 (14-08-2026)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -84,7 +84,7 @@ class XFGMC_Get_Unit_Offer_Variable extends XFGMC_Get_Unit_Offer {
 		$this->set_category_id();
 		$this->get_skips();
 
-		$feed_xml_rules = common_option_get(
+		$feed_xml_rules = XFGMC_Options::settings_get(
 			'xfgmc_xml_rules',
 			false,
 			$this->get_feed_id(),

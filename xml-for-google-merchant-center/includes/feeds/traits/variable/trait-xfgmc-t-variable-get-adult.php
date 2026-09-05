@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for variable products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.1.1 (27-03-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -24,7 +24,9 @@
  *             methods:     get_product
  *                          get_offer
  *                          get_feed_id
- *             functions:   common_option_get
+ *                          get_variable_product_post_meta
+ *                          get_variable_tag
+ *             functions:   
  */
 trait XFGMC_T_Variable_Get_Adult {
 
@@ -40,7 +42,7 @@ trait XFGMC_T_Variable_Get_Adult {
 	 */
 	public function get_adult( $tag_name = 'g:adult', $result_xml = '' ) {
 
-		$adult = common_option_get(
+		$adult = XFGMC_Options::settings_get(
 			'xfgmc_adult',
 			'disabled',
 			$this->get_feed_id(),
@@ -57,7 +59,7 @@ trait XFGMC_T_Variable_Get_Adult {
 				$tag_value = '';
 			}
 			if ( empty( $tag_value ) ) {
-				$adult_default_value = common_option_get(
+				$adult_default_value = XFGMC_Options::settings_get(
 					'xfgmc_adult_default_value',
 					'disabled',
 					$this->get_feed_id(),

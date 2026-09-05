@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for variable products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -24,8 +24,7 @@
  *             methods:     get_product
  *                          get_offer
  *                          get_feed_id
- *             functions:   common_option_get
- *                          univ_option_get
+ *             functions:   
  */
 trait XFGMC_T_Variable_Get_Title {
 
@@ -34,14 +33,14 @@ trait XFGMC_T_Variable_Get_Title {
 	 * 
 	 * @see https://support.google.com/merchants/answer/6324415
 	 * 
-	 * @param string $tag_title
+	 * @param string $tag_name
 	 * @param string $result_xml
 	 * 
-	 * @return string Example: `<g:title>Ударная дрель Makita HP1630, 710 Вт</g:title>`
+	 * @return string Example: `<g:title>Ударная дрель Makita HP1630, 710 Вт</g:title>`.
 	 */
 	public function get_title( $tag_name = 'g:title', $result_xml = '' ) {
 
-		$title = common_option_get(
+		$title = XFGMC_Options::settings_get(
 			'xfgmc_product_title',
 			'enabled',
 			$this->get_feed_id(),

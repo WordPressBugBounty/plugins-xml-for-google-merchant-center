@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Traits for different classes.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (02-06-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/global
@@ -48,12 +48,14 @@ trait XFGMC_T_Get_Product {
 	 * @return bool `true` - if this parameter is not set at the product level; `false` - in other cases.
 	 */
 	protected function is_default_value( $meta_key ) {
+
 		if ( get_post_meta( $this->get_product()->get_id(), $meta_key, true ) == ''
 			|| get_post_meta( $this->get_product()->get_id(), $meta_key, true ) === 'default' ) {
 			return true;
 		} else {
 			return false;
 		}
+
 	}
 
 }

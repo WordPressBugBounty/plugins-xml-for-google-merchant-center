@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Traits for different classes.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.3 (17-06-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/common
@@ -63,7 +63,7 @@ trait XFGMC_T_Common_Get_CatId {
 				$category_skip_flag = apply_filters(
 					'xfgmc_f_category_product_skip_flag',
 					$category_skip_flag,
-					[ 
+					[
 						'product' => $this->get_product(),
 						'offer' => $this->get_offer(),
 						'term_id' => $cat_id_yoast_seo,
@@ -91,7 +91,7 @@ trait XFGMC_T_Common_Get_CatId {
 					$category_skip_flag = apply_filters(
 						'xfgmc_f_category_product_skip_flag',
 						$category_skip_flag,
-						[ 
+						[
 							'product' => $this->get_product(),
 							'offer' => $this->get_offer(),
 							'term_id' => $product_cat->term_id,
@@ -117,7 +117,7 @@ trait XFGMC_T_Common_Get_CatId {
 		}
 
 		if ( empty( $site_category_id ) ) {
-			$this->add_skip_reason( [ 
+			$this->add_skip_reason( [
 				'reason' => sprintf( '%s %s',
 					__( 'The product has no categories', 'xml-for-google-merchant-center' ),
 					__( 'or filtering by category is enabled', 'xml-for-google-merchant-center' )
@@ -163,7 +163,7 @@ trait XFGMC_T_Common_Get_CatId {
 				$category_skip_flag = apply_filters(
 					'xfgmc_f_category_product_skip_flag',
 					$category_skip_flag,
-					[ 
+					[
 						'product' => $this->get_product(),
 						'offer' => $this->get_offer(),
 						'term_id' => $termin->term_id,

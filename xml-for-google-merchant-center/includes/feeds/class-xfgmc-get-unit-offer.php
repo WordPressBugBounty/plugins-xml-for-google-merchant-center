@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * The abstract class for getting the XML-code or skip reasons.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.7 (11-09-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds

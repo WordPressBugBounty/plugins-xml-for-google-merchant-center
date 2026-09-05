@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -23,7 +23,7 @@
  * @depends    classes:     XFGMC_Get_Paired_Tag
  *             methods:     get_product
  *                          get_feed_id
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Availability {
 
@@ -39,7 +39,7 @@ trait XFGMC_T_Simple_Get_Availability {
 	 */
 	public function get_availability( $tag_name = 'g:availability', $result_xml = '' ) {
 
-		$availability = common_option_get(
+		$availability = XFGMC_Options::settings_get(
 			'xfgmc_availability',
 			'enabled',
 			$this->get_feed_id(),
@@ -49,7 +49,7 @@ trait XFGMC_T_Simple_Get_Availability {
 			return $result_xml;
 		}
 
-		$xml_rules = common_option_get(
+		$xml_rules = XFGMC_Options::settings_get(
 			'xfgmc_xml_rules',
 			'merchant_center',
 			$this->get_feed_id(),
@@ -72,7 +72,7 @@ trait XFGMC_T_Simple_Get_Availability {
 				if ( $this->get_product()->get_backorders() === 'no' ) { // предзаказ запрещен
 					$tag_value = 'out_of_stock';
 				} else {
-					$behavior_onbackorder = common_option_get(
+					$behavior_onbackorder = XFGMC_Options::settings_get(
 						'xfgmc_behavior_onbackorder',
 						'true',
 						$this->get_feed_id(),
@@ -105,7 +105,7 @@ trait XFGMC_T_Simple_Get_Availability {
 			} else if ( $this->get_product()->get_stock_status() === 'outofstock' ) {
 				$tag_value = 'out_of_stock';
 			} else {
-				$behavior_onbackorder = common_option_get(
+				$behavior_onbackorder = XFGMC_Options::settings_get(
 					'xfgmc_behavior_onbackorder',
 					'true',
 					$this->get_feed_id(),

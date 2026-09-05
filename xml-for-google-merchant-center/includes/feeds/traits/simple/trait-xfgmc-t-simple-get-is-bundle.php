@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Trait for simple products.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.0 (10-05-2025)
+ * @version    4.5.0 (04-09-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/simple
@@ -25,7 +25,7 @@
  *                          get_feed_id
  *                          get_simple_product_post_meta
  *                          get_simple_tag
- *             functions:   common_option_get
+ *             functions:   
  */
 trait XFGMC_T_Simple_Get_Is_Bundle {
 
@@ -41,7 +41,7 @@ trait XFGMC_T_Simple_Get_Is_Bundle {
 	 */
 	public function get_is_bundle( $tag_name = 'g:is_bundle', $result_xml = '' ) {
 
-		$is_bundle = common_option_get(
+		$is_bundle = XFGMC_Options::settings_get(
 			'xfgmc_is_bundle',
 			'disabled',
 			$this->get_feed_id(),
@@ -55,7 +55,7 @@ trait XFGMC_T_Simple_Get_Is_Bundle {
 				return $result_xml;
 			}
 			if ( empty( $tag_value ) || $tag_value === 'default' ) {
-				$is_bundle_default_value = common_option_get(
+				$is_bundle_default_value = XFGMC_Options::settings_get(
 					'xfgmc_is_bundle_default_value',
 					'disabled',
 					$this->get_feed_id(),
