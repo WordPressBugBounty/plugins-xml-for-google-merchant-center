@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Plugin Updates.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.8 (19-11-2025)
+ * @version    4.6.0 (03-10-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -14,7 +14,7 @@
 /**
  * Plugin Updates.
  *
- * Depends on the class `ICPD_Set_Admin_Notices` and the constant `XFGMC_PLUGIN_VERSION`.
+ * Depends on the class `XFGMC_Set_Admin_Notices` and the constant `XFGMC_PLUGIN_VERSION`.
  *
  * @see        [ 202, 402, 412, 418, 520 ]
  * @package    XFGMC
@@ -292,7 +292,7 @@ final class XFGMC_Plugin_Upd {
 
 		if ( ! empty( $message ) ) {
 			$class = 'error';
-			new ICPD_Set_Admin_Notices( $message, $class );
+			new XFGMC_Set_Admin_Notices( $message, $class );
 		}
 
 		if ( $c !== '0' ) {
@@ -321,7 +321,7 @@ final class XFGMC_Plugin_Upd {
 				);
 				if ( ! empty( $message ) ) {
 					$class = 'error';
-					new ICPD_Set_Admin_Notices( $message, $class );
+					new XFGMC_Set_Admin_Notices( $message, $class );
 				}
 			}
 		}

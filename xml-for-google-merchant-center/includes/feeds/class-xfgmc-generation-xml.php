@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.5.0 (04-09-2026)
+ * @version    4.6.0 (03-10-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds
@@ -667,6 +667,7 @@ class XFGMC_Generation_XML {
 		}
 		$ids_in_xml_arr = $this->get_ids_in_xml_arr( $file_content );
 
+		$products_count = 0;
 		$name_dir = XFGMC_SITE_UPLOADS_DIR_PATH . '/xfgmc/feed' . $this->get_feed_id();
 		foreach ( $ids_in_xml_arr as $key => $value ) {
 
@@ -713,7 +714,7 @@ class XFGMC_Generation_XML {
 		XFGMC_Options::settings_update(
 			'xfgmc_count_products_in_feed',
 			$products_count,
-			'no',
+			'-1',
 			$this->get_feed_id(),
 			'xfgmc'
 		);

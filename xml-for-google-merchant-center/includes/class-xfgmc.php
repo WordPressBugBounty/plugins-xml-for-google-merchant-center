@@ -8,7 +8,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.5.0 (04-09-2026)
+ * @version    4.6.0 (03-10-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes
@@ -183,6 +183,8 @@ class XFGMC {
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/wp-cli/class-xfgmc-wp-cli-command.php';
 		}
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-xfgmc-set-admin-notices.php';
 
 		/** ----------------------------------- */
 

@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.5.0 (04-09-2026)
+ * @version    4.6.0 (03-10-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -501,7 +501,7 @@ class XFGMC_Admin {
 
 						switch ( $status_sboki ) {
 							case '1':
-								new ICPD_Set_Admin_Notices(
+								new XFGMC_Set_Admin_Notices(
 									sprintf( '<span class="xfgmc_bold">XFGMC:</span> Feed #%s. %s.',
 										$feed_id_str,
 										__( 'Creating feed headers', 'xml-for-google-merchant-center' )
@@ -514,7 +514,7 @@ class XFGMC_Admin {
 									'xfgmc_last_element_feed_' . $feed_id_str,
 									0
 								);
-								new ICPD_Set_Admin_Notices(
+								new XFGMC_Set_Admin_Notices(
 									sprintf( '<span class="xfgmc_bold">XFGMC:</span> Feed #%s. %s. %s: %s',
 										$feed_id_str,
 										__( 'Creating temporary feed files', 'xml-for-google-merchant-center' ),
@@ -525,7 +525,7 @@ class XFGMC_Admin {
 								);
 								break;
 							case '3':
-								new ICPD_Set_Admin_Notices(
+								new XFGMC_Set_Admin_Notices(
 									sprintf( '<span class="xfgmc_bold">XFGMC:</span> Feed #%s. %s.',
 										$feed_id_str,
 										__( 'Gluing the feed', 'xml-for-google-merchant-center' )
@@ -534,7 +534,7 @@ class XFGMC_Admin {
 								);
 								break;
 							case '4':
-								new ICPD_Set_Admin_Notices(
+								new XFGMC_Set_Admin_Notices(
 									sprintf( '<span class="xfgmc_bold">XFGMC:</span> Feed #%s. %s...',
 										$feed_id_str,
 										__( 'Completing the assembly', 'xml-for-google-merchant-center' )
@@ -580,11 +580,11 @@ class XFGMC_Admin {
 			);
 			$this->save_plugin_set( $option_name, $feed_id, $save_if_empty );
 		}
-		new ICPD_Set_Admin_Notices( __( 'Updated', 'xml-for-google-merchant-center' ), 'success' );
+		new XFGMC_Set_Admin_Notices( __( 'Updated', 'xml-for-google-merchant-center' ), 'success' );
 
 		$planning_result = XFGMC_Cron_Manager::cron_starting_feed_creation_task_planning( $feed_id );
 		if ( true === $planning_result ) {
-			new ICPD_Set_Admin_Notices(
+			new XFGMC_Set_Admin_Notices(
 				sprintf( '%s. %s: %s',
 					__(
 						'The task of creating the feed has been queued for completion',
@@ -710,7 +710,7 @@ class XFGMC_Admin {
 			);
 			wp_safe_redirect( $url );
 		} else {
-			new ICPD_Set_Admin_Notices(
+			new XFGMC_Set_Admin_Notices(
 				sprintf( '%s. ID = %s',
 					__(
 						'Feed creation error. Failed to create a folder for temporary files',
@@ -771,7 +771,7 @@ class XFGMC_Admin {
 			wp_clear_scheduled_hook( 'xfgmc_cron_start_feed_creation', [ $feed_id_str ] );
 			wp_clear_scheduled_hook( 'xfgmc_cron_sborki', [ $feed_id_str ] );
 
-			new ICPD_Set_Admin_Notices(
+			new XFGMC_Set_Admin_Notices(
 				sprintf( '%s ID = %s %s',
 					__( 'Feed with', 'xml-for-google-merchant-center' ),
 					esc_html( $feed_id_str ),
@@ -872,7 +872,7 @@ class XFGMC_Admin {
 			);
 			wp_safe_redirect( $url );
 		} else {
-			new ICPD_Set_Admin_Notices(
+			new XFGMC_Set_Admin_Notices(
 				sprintf( '%s. ID = %s',
 					__(
 						'Feed duplicate error. Failed to create a folder for temporary files',
@@ -914,7 +914,7 @@ class XFGMC_Admin {
 			update_option( 'xfgmc_keeplogs', $keeplogs );
 			update_option( 'xfgmc_plugin_notifications', $plugin_notifications );
 		}
-		new ICPD_Set_Admin_Notices( __( 'Updated', 'xml-for-google-merchant-center' ), 'success' );
+		new XFGMC_Set_Admin_Notices( __( 'Updated', 'xml-for-google-merchant-center' ), 'success' );
 
 	}
 
@@ -943,7 +943,7 @@ class XFGMC_Admin {
 			);
 			$class = 'warning';
 		}
-		new ICPD_Set_Admin_Notices( $message, $class );
+		new XFGMC_Set_Admin_Notices( $message, $class );
 
 	}
 
@@ -1014,7 +1014,7 @@ class XFGMC_Admin {
 	 * Позволяет добавить дополнительные поля на страницу создания элементов таксономии (термина).
 	 * Function for `(taxonomy)_add_form_fields` action-hook.
 	 * 
-	 * @param WP_Term $tag Current taxonomy term object.
+	 * @param WP_Term $term Current taxonomy term object.
 	 * @param string $taxonomy Current taxonomy slug.
 	 *
 	 * @return void
@@ -1140,7 +1140,7 @@ class XFGMC_Admin {
 	 * Позволяет добавить дополнительные поля на страницу редактирования элементов таксономии (термина).
 	 * Function for `(taxonomy)_edit_form_fields` action-hook.
 	 * 
-	 * @param WP_Term $tag Current taxonomy term object.
+	 * @param WP_Term $term Current taxonomy term object.
 	 * @param string $taxonomy Current taxonomy slug.
 	 *
 	 * @return void

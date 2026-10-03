@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * This class is responsible for the feedback form inside the plugin.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.3 (17-06-2025)
+ * @version    4.6.0 (03-10-2026)
  *
  * @package    iCopyDoc Plugins (ICPD)
  * @subpackage 
@@ -88,7 +88,7 @@ final class XFGMC_Feedback {
 			// ! Очень важно пускать через фильтр в этом месте, а иначе фильтр _f_feedback_additional_info
 			// ! внутри фукцнии send_data не будет работать
 			add_action( 'admin_init', [ $this, 'send_data' ], 10 );
-			new ICPD_Set_Admin_Notices(
+			new XFGMC_Set_Admin_Notices(
 				__( 'The data has been sent. Thank you', 'xml-for-google-merchant-center' ),
 				'success',
 				true

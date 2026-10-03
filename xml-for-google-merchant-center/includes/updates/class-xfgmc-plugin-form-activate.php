@@ -1,11 +1,11 @@
-<?php
+<?php defined( 'WPINC' ) || exit;
 
 /**
  * Plugin Form Activate.
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.0.8 (19-11-2025)
+ * @version    4.6.0 (03-10-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -14,7 +14,7 @@
 /**
  * Plugin Form Activate.
  *
- * Depends on the class `ICPD_Set_Admin_Notices`.
+ * Depends on the class `XFGMC_Set_Admin_Notices`.
  *
  * @see        [ 202, 402, 412, 418, 520 ]
  * @package    XFGMC
@@ -37,7 +37,7 @@ final class XFGMC_Plugin_Form_Activate {
 	 * @access private
 	 * @var array
 	 */
-	private $list_plugin_names = [ 
+	private $list_plugin_names = [
 		'xfgmcp' => [ 'name' => 'PRO', 'code' => 'renewlicense20gp' ]
 	];
 
@@ -265,7 +265,7 @@ final class XFGMC_Plugin_Form_Activate {
 				__( 'Refresh this page', 'xml-for-google-merchant-center' )
 			);
 			$class = 'success';
-			new ICPD_Set_Admin_Notices( $message, $class );
+			new XFGMC_Set_Admin_Notices( $message, $class );
 			wp_update_plugins();
 		}
 

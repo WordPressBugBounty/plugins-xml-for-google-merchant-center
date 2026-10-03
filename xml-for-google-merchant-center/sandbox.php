@@ -4,7 +4,7 @@
  * Sandbox function.
  * 
  * @since 0.1.0
- * @version 4.4.0 (14-08-2026)
+ * @version 4.6.0 (03-10-2026)
  *
  * @return void
  */
@@ -12,7 +12,7 @@ function xfgmc_run_sandbox() {
 
 	$x = false; // установите true, чтобы использовать песочницу
 	if ( true === $x ) {
-		printf( '%s:<br/>',
+		printf( '%s:<br/><pre style="border:2px solid red;padding:10px;">',
 			esc_html__( 'The sandbox is working. The result will appear below', 'xml-for-google-merchant-center' )
 		);
 		$time_start = microtime( true );
@@ -24,7 +24,7 @@ function xfgmc_run_sandbox() {
 		/* дальше не редактируем */
 		$time_end = microtime( true );
 		$time = $time_end - $time_start;
-		printf( '<br/>%s<br/>%s %d %s',
+		printf( '</pre><br/>%s<br/>%s %d %s',
 			esc_html__( 'The sandbox is working correctly', 'xml-for-google-merchant-center' ),
 			esc_html__( 'The execution time of the test script was', 'xml-for-google-merchant-center' ),
 			esc_html( $time ),
