@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.6.0 (03-10-2026)
+ * @version    4.6.1 (28-10-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/admin
@@ -214,8 +214,8 @@ class XFGMC_Admin {
 			[ 'jquery' ]
 		);
 		wp_enqueue_script(
-			'wplspms_orders',
-			plugin_dir_url( __FILE__ ) . 'js/select2.js',
+			'xfgmc-select2',
+			plugin_dir_url( __FILE__ ) . 'js/xfgmc-select2.js',
 			[ 'jquery', 'select2' ]
 		);
 		// end select2 - place 2 from 5
@@ -1141,7 +1141,7 @@ class XFGMC_Admin {
 	 * Function for `(taxonomy)_edit_form_fields` action-hook.
 	 * 
 	 * @param WP_Term $term Current taxonomy term object.
-	 * @param string $taxonomy Current taxonomy slug.
+	 * @param string $term Current taxonomy slug.
 	 *
 	 * @return void
 	 */

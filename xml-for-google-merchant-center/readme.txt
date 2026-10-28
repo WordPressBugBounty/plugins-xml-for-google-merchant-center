@@ -4,7 +4,7 @@ Donate link: https://pay.cloudtips.ru/p/45d8ff3f
 Tags: xml, google, product feed, export, woocommerce
 Requires at least: 5.9
 Tested up to: 7.1
-Stable tag: 4.6.0
+Stable tag: 4.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,11 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 1. screenshot-2.png
 
 == Changelog ==
+
+= 4.6.1 =
+*Release Date 28-10-2026*
+
+* Fixed bugs with `g:item_group_id`.
 
 = 4.6.0 =
 *Release Date 03-10-2026*
@@ -160,7 +165,7 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 
 == Upgrade Notice ==
 
-= 4.6.0 =
-*Release Date 03-10-2026*
+= 4.6.1 =
+*Release Date 28-10-2026*
 
-* Fixed bugs.
+* Fixed bugs with `g:item_group_id`.

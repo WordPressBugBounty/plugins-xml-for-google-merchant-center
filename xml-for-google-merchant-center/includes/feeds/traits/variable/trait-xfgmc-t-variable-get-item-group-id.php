@@ -5,7 +5,7 @@
  *
  * @link       https://icopydoc.ru
  * @since      0.1.0
- * @version    4.5.0 (04-09-2026)
+ * @version    4.6.1 (28-10-2026)
  *
  * @package    XFGMC
  * @subpackage XFGMC/includes/feeds/traits/variable
@@ -38,7 +38,7 @@ trait XFGMC_T_Variable_Get_Item_Group_Id {
 	 * 
 	 * @return string Example: `<g:item_group_id>153</g:item_group_id>`
 	 */
-	public function get_item_group_id( $tag_name = 'item_group_id', $result_xml = '' ) {
+	public function get_item_group_id( $tag_name = 'g:item_group_id', $result_xml = '' ) {
 
 		$item_group_id = XFGMC_Options::settings_get(
 			'xfgmc_item_group_id',
